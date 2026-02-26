@@ -9,7 +9,7 @@ const NAV_COLS = [
   {
     title: "Solutions",
     links: [
-      { href: "/villas-apparts", label: "Smart Living" },
+      { href: "/villas-apparts", label: "Maison connectée" },
       { href: "/promoteurs", label: "Promoteurs Immobiliers" },
       { href: "/architectes", label: "Architectes & Design" },
       { href: "/expertises", label: "Nos expertises" },
