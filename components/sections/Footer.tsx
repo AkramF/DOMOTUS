@@ -9,7 +9,7 @@ const NAV_COLS = [
   {
     title: "Solutions",
     links: [
-      { href: "/villas-apparts", label: "Bâtiment Intelligent" },
+      { href: "/villas-apparts", label: "Smart Living" },
       { href: "/promoteurs", label: "Promoteurs Immobiliers" },
       { href: "/architectes", label: "Architectes & Design" },
       { href: "/expertises", label: "Nos expertises" },
@@ -91,7 +91,7 @@ export default function Footer() {
             </Link>
 
             <p className="text-sm text-white/50 leading-relaxed">
-              Intégration Domotique Certifié Multi-Protocoles au Maroc. Nous concevons et installons des systèmes intelligents pour villas, appartements et immeubles de bureaux — lumière, sécurité, énergie, confort.
+              Expérience de vie réinventée. Espaces où la technologie crée du confort, de la sécurité et de la sérénité. Domotus transforme maisons et immeubles en écosystèmes intelligents au Maroc.
             </p>
 
             <div className="w-8 h-px bg-[#66FCF1]" aria-hidden="true" />
@@ -178,7 +178,7 @@ export default function Footer() {
         </Link>
 
         <p className="text-xs text-white/45 leading-relaxed mb-8">
-          Intégration Domotique Certifié Multi-Protocoles — Casablanca · Marrakech · Rabat · Tanger
+          Expérience de vie réinventée — Casablanca · Marrakech · Rabat · Tanger
         </p>
 
         {NAV_COLS.map((col) => (
