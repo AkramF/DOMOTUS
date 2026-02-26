@@ -8,8 +8,8 @@ import { Menu, X, UserCircle2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
-  { href: "/villas-apparts", label: "Maison Connectée" },
-  { href: "/promoteurs",     label: "Promoteurs" },
+  { href: "/villas-apparts", label: "Bâtiment Intelligent" },
+  { href: "/promoteurs",     label: "Promoteurs Immobiliers" },
   { href: "/ecosystemes",    label: "Écosystèmes" },
   { href: "/expertises",     label: "Expertises" },
   { href: "/journal",        label: "Blog" },

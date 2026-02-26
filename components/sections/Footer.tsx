@@ -9,8 +9,8 @@ const NAV_COLS = [
   {
     title: "Solutions",
     links: [
-      { href: "/villas-apparts", label: "Maison Connectée" },
-      { href: "/promoteurs", label: "Promoteurs immobiliers" },
+      { href: "/villas-apparts", label: "Bâtiment Intelligent" },
+      { href: "/promoteurs", label: "Promoteurs Immobiliers" },
       { href: "/architectes", label: "Architectes & Design" },
       { href: "/expertises", label: "Nos expertises" },
       { href: "/simulateur", label: "Espace client" },
@@ -91,7 +91,7 @@ export default function Footer() {
             </Link>
 
             <p className="text-sm text-white/50 leading-relaxed">
-              Intégrateur domotique certifié KNX au Maroc. Nous concevons et installons des systèmes intelligents pour villas, appartements et immeubles de bureaux — lumière, sécurité, énergie, confort.
+              Intégration Domotique Certifié Multi-Protocoles au Maroc. Nous concevons et installons des systèmes intelligents pour villas, appartements et immeubles de bureaux — lumière, sécurité, énergie, confort.
             </p>
 
             <div className="w-8 h-px bg-[#66FCF1]" aria-hidden="true" />
@@ -159,7 +159,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="flex items-center justify-between pt-8">
           <p className="text-xs text-white/25">
-            &copy; {year} Domotus — Intégrateur domotique Maroc. Tous droits réservés.
+            &copy; {year} Domotus — Intégration Domotique Multi-Protocoles au Maroc. Tous droits réservés.
           </p>
           <p className="text-xs text-white/25">
             Conception &amp; développement —{" "}
@@ -178,7 +178,7 @@ export default function Footer() {
         </Link>
 
         <p className="text-xs text-white/45 leading-relaxed mb-8">
-          Intégrateur domotique certifié KNX — Casablanca · Marrakech · Rabat · Tanger
+          Intégration Domotique Certifié Multi-Protocoles — Casablanca · Marrakech · Rabat · Tanger
         </p>
 
         {NAV_COLS.map((col) => (
@@ -206,7 +206,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-white/8 mt-8 pt-6 flex flex-col gap-2">
-          <p className="text-xs text-white/25">&copy; {year} Domotus — Intégrateur domotique Maroc.</p>
+          <p className="text-xs text-white/25">&copy; {year} Domotus — Intégration Domotique Multi-Protocoles au Maroc.</p>
           <div className="flex flex-wrap gap-2 mt-2">
             {CERTIFICATIONS.map((c) => (
               <span key={c} className="text-[10px] text-[#66FCF1]/50">{c}</span>
