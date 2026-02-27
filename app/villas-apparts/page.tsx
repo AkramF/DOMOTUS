@@ -150,18 +150,18 @@ export default function VillasPage() {
         <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6 pt-20">
           <div className="flex items-center gap-4 mb-6">
             <span className="block w-8 h-px bg-foreground/40" aria-hidden="true" />
-            <p className="text-[11px] uppercase tracking-[0.35em] text-primary font-medium">Résidentiel prestige — Maroc</p>
+            <p className="text-[11px] uppercase tracking-[0.35em] text-primary font-medium">Domotique pour habitat d'exception — Maroc</p>
             <span className="block w-8 h-px bg-foreground/40" aria-hidden="true" />
           </div>
           <h1
             className="font-black uppercase leading-none text-foreground text-balance mb-6"
             style={{ fontSize: "clamp(2.5rem, 7vw, 6rem)", letterSpacing: "-0.03em" }}
           >
-            Votre maison<br />
-            <span className="italic text-foreground/60">vous obéit.</span>
+            L&apos;esprit libre,<br />
+            <span className="italic text-foreground/60">votre maison s&apos;occupe du reste.</span>
           </h1>
           <p className="text-[15px] text-foreground/70 max-w-lg text-balance leading-relaxed mb-10">
-            Intégrateur domotique certifié multi-protocoles au Maroc. Villas, appartements et penthouses — chaque espace devient un organisme vivant qui anticipe vos besoins.
+            Villas et résidences d'exception : bénéficiez d'une expertise certifiée multi-protocoles pour une maison qui comprend, ressent et adapte votre environnement en temps réel. Sans effort.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Link href="/contact" className="focus-ring inline-flex items-center gap-3 bg-primary px-8 py-4 text-[11px] font-black uppercase tracking-[0.2em] transition-all duration-300 hover:bg-primary/85" style={{ color: "#0a0a0a" }}>
