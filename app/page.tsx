@@ -450,7 +450,7 @@ export default function HomePage() {
 
       {/* ── MARCHÉS — Résidentiel & Tertiaire ── */}
       <section className="h-[55vh] lg:h-[65vh] grid lg:grid-cols-2 overflow-hidden" aria-label="Nos marchés domotique au Maroc">
-        <Link href="/villas-apparts" className="relative overflow-hidden group focus-ring block">
+        <Link href="/maison-connectee" className="relative overflow-hidden group focus-ring block">
           <Image
             src="/images/villa-prestige.jpg"
             alt="Domotique villas et appartements de luxe au Maroc — Domotus"
@@ -462,7 +462,7 @@ export default function HomePage() {
           <div className="absolute inset-0 flex flex-col justify-end p-8 lg:p-12">
             <SectionLabel>Résidentiel</SectionLabel>
             <h2 className="font-black uppercase text-foreground leading-none text-balance" style={{ fontSize: "clamp(1.6rem, 3vw, 2.6rem)", letterSpacing: "-0.02em" }}>
-              Maison Connectée
+              Bâtiment Intelligent
             </h2>
             <p className="mt-3 text-[13px] text-foreground/60 max-w-xs leading-relaxed">
               À partir de 150 000 MAD · Livraison en 4–8 semaines

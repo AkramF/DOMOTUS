@@ -61,7 +61,7 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
             className="block"
           >
-            Maison
+            Smart
           </motion.span>
           <motion.span
             initial={{ opacity: 0, y: 24 }}
@@ -69,7 +69,7 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.58, ease: [0.22, 1, 0.36, 1] }}
             className="block italic text-foreground/65"
           >
-            Connectée.
+            Living.
           </motion.span>
         </h1>
 
@@ -80,7 +80,7 @@ export default function Hero() {
           transition={{ duration: 0.7, delay: 0.75, ease: "easeOut" }}
           className="mt-7 text-sm md:text-[15px] text-foreground/60 leading-relaxed max-w-lg text-balance"
         >
-          Intégrateur domotique certifié multi-protocoles au Maroc. Nous connectons villas, appartements et immeubles de bureaux en systèmes vivants — lumière, sécurité, énergie, pilotés depuis votre smartphone.
+          Expérience de vie réinventée. Espaces où la technologie crée du confort, de la sécurité et de la sérénité. Domotus transforme maisons et immeubles en écosystèmes intelligents au Maroc.
         </motion.p>
 
         {/* CTAs */}

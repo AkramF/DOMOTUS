@@ -91,9 +91,9 @@ const certifications = [
 ];
 
 const experiences = [
-  { metric: "18+", label: "Années d'expérience en architecture domotique" },
-  { metric: "350+", label: "Projets réalisés au Maroc depuis 2006" },
-  { metric: "30 ans", label: "de durabilité garantie sur les systèmes certifiés" },
+  { metric: "10+", label: "Années d'expérience en architecture domotique" },
+  { metric: "+150", label: "Projets réalisés au Maroc depuis 2017" },
+  { metric: "10 ans", label: "de durabilité garantie sur les systèmes certifiés" },
   { metric: "24/7", label: "Astreinte technique disponible pour tous nos clients" },
 ];
 
@@ -132,6 +132,59 @@ export default function ExpertisesPage() {
           <Link href="/contact" className="focus-ring inline-flex items-center gap-3 bg-primary px-8 py-4 text-[11px] font-black uppercase tracking-[0.2em] transition-all duration-300 hover:bg-primary/85" style={{ color: "#0a0a0a" }}>
             Découvrir notre approche <ArrowRight size={13} aria-hidden="true" />
           </Link>
+        </div>
+      </section>
+
+      {/* ── VISION ── */}
+      <section className="py-28 bg-card" aria-labelledby="vision-heading">
+        <div className="mx-auto max-w-5xl px-6 lg:px-10">
+          <div className="mb-12">
+            <SectionLabel>Notre philosophie</SectionLabel>
+            <h2
+              id="vision-heading"
+              className="font-black uppercase leading-none text-foreground text-balance mb-8"
+              style={{ fontSize: "clamp(1.8rem, 4vw, 3rem)", letterSpacing: "-0.02em" }}
+            >
+              Durabilité &amp; Pérennité
+            </h2>
+          </div>
+          <div className="grid lg:grid-cols-2 gap-12">
+            <div>
+              <h3 className="font-bold uppercase tracking-[0.08em] text-foreground text-[14px] mb-4">Notre vision</h3>
+              <p className="text-foreground/70 leading-relaxed mb-6 text-[15px]">
+                La domotique durable, c'est construire des infrastructures intelligentes qui persistent au-delà des modes technologiques. Nos systèmes multi-protocoles sont architecturés pour évoluer, s'adapter et servir votre habitat pendant des décennies.
+              </p>
+              <p className="text-foreground/60 leading-relaxed text-[14px]">
+                Chez Domotus, nous rejetons l'approche propriétaire et l'obsolescence programmée. Chaque installation est conçue comme une fondation solide, flexible et ouverte — prête pour les technologies de demain.
+              </p>
+            </div>
+            <div>
+              <h3 className="font-bold uppercase tracking-[0.08em] text-foreground text-[14px] mb-4">Notre différenciation</h3>
+              <ul className="space-y-4">
+                <li className="flex items-start gap-3">
+                  <span className="text-primary font-bold mt-0.5">•</span>
+                  <div>
+                    <span className="font-bold text-foreground text-[14px]">Multi-protocoles certifiés</span>
+                    <p className="text-foreground/60 text-[13px] mt-1">KNX, Crestron, Lutron, Zigbee, Matter — liberté de choix, zéro enfermement.</p>
+                  </div>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-primary font-bold mt-0.5">•</span>
+                  <div>
+                    <span className="font-bold text-foreground text-[14px]">Architecture ouverte</span>
+                    <p className="text-foreground/60 text-[13px] mt-1">Vos systèmes restent accessibles, maintenables et évolutifs — pas de propriétaire.</p>
+                  </div>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-primary font-bold mt-0.5">•</span>
+                  <div>
+                    <span className="font-bold text-foreground text-[14px]">Garantie long terme</span>
+                    <p className="text-foreground/60 text-[13px] mt-1">10 ans de durabilité certifiée — c'est notre engagement envers votre patrimoine.</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </section>
 

@@ -5,21 +5,21 @@ import { ArrowRight, Mail } from "lucide-react";
 import NewsletterForm from "@/components/sections/NewsletterForm";
 
 export const metadata: Metadata = {
-  title: "Blog Domotique Maroc — Expertise KNX, Crestron, Lutron | Domotus",
+  title: "Blog Domotique Maroc — Guides Multi-Protocoles, Crestron, Lutron | Domotus",
   description:
-    "Le blog Domotus : guides KNX, retours de projets, actualités domotique au Maroc (Casablanca, Marrakech, Rabat, Tanger). Protocoles, certifications, tendances smart home.",
+    "Le blog Domotus : guides multi-protocoles, retours de projets, actualités domotique au Maroc (Casablanca, Marrakech, Rabat, Tanger). Protocoles, certifications, tendances smart home.",
   alternates: { canonical: "https://www.domotus.ma/blog" },
   openGraph: {
-    title: "Blog Domotique Maroc — Expertise KNX, Crestron, Lutron | Domotus",
+    title: "Blog Domotique Maroc — Guides Multi-Protocoles, Crestron, Lutron | Domotus",
     description:
-      "Guides, retours de projets et actualités domotique par l'intégrateur certifié KNX de référence au Maroc.",
+      "Guides, retours de projets et actualités domotique par l'intégrateur certifié multi-protocoles de référence au Maroc.",
     url: "https://www.domotus.ma/blog",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "Blog Domotique Maroc | Domotus",
-    description: "Guides KNX, retours projets et actualités domotique au Maroc.",
+    description: "Guides multi-protocoles, retours projets et actualités domotique au Maroc.",
   },
 };
 
@@ -29,7 +29,7 @@ const schemaOrg = {
   "@type": "Blog",
   name: "Blog Domotus — Domotique premium au Maroc",
   description:
-    "Guides, retours de projets et actualités domotique par Domotus, intégrateur certifié KNX au Maroc.",
+    "Guides, retours de projets et actualités domotique par Domotus, intégrateur certifié multi-protocoles au Maroc.",
   url: "https://www.domotus.ma/blog",
   publisher: {
     "@type": "Organization",
@@ -116,11 +116,11 @@ export default function BlogPage() {
             className="font-black uppercase leading-none text-foreground text-balance max-w-2xl"
             style={{ fontSize: "clamp(2.5rem, 7vw, 5.5rem)", letterSpacing: "-0.03em" }}
           >
-            Expertise &amp;<br />
+            Guides &amp;<br />
             <span className="italic text-foreground/50">Actualités.</span>
           </h1>
           <p className="mt-6 text-[15px] text-foreground/50 leading-relaxed max-w-xl">
-            Guides techniques, retours de projets et tendances domotique par l&apos;intégrateur certifié KNX de référence au Maroc.
+            Guides techniques, retours de projets et tendances domotique par l&apos;intégrateur certifié multi-protocoles de référence au Maroc.
           </p>
         </div>
       </header>
