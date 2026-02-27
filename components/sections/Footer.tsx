@@ -9,7 +9,7 @@ const NAV_COLS = [
   {
     title: "Solutions",
     links: [
-      { href: "/villas-apparts", label: "Maison connectée" },
+      { href: "/maison-connectee", label: "Maison connectée" },
       { href: "/promoteurs", label: "Promoteurs Immobiliers" },
       { href: "/architectes", label: "Architectes & Design" },
       { href: "/expertises", label: "Nos expertises" },
@@ -168,7 +168,7 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* ── MOBILE ── */}
+      {/* ─�� MOBILE ── */}
       <div className="lg:hidden px-6 pt-12 pb-8">
         <Link href="/" className="flex items-center gap-3 mb-3 focus:outline-none" aria-label="Domotus">
           <div className="w-8 h-8 border border-white flex items-center justify-center">

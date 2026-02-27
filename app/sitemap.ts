@@ -13,7 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1.0,
     },
     {
-      url: `${BASE_URL}/villas-apparts`,
+      url: `${BASE_URL}/maison-connectee`,
       lastModified: now,
       changeFrequency: "monthly",
       priority: 0.9,

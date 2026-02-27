@@ -450,7 +450,7 @@ export default function HomePage() {
 
       {/* ── MARCHÉS — Résidentiel & Tertiaire ── */}
       <section className="h-[55vh] lg:h-[65vh] grid lg:grid-cols-2 overflow-hidden" aria-label="Nos marchés domotique au Maroc">
-        <Link href="/villas-apparts" className="relative overflow-hidden group focus-ring block">
+        <Link href="/maison-connectee" className="relative overflow-hidden group focus-ring block">
           <Image
             src="/images/villa-prestige.jpg"
             alt="Domotique villas et appartements de luxe au Maroc — Domotus"

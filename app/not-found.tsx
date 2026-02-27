@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 };
 
 const suggestions = [
-  { href: "/villas-apparts", label: "Villas & Appartements", desc: "Domotique résidentielle de prestige" },
+  { href: "/maison-connectee", label: "Maison Connectée", desc: "Domotique résidentielle de prestige" },
   { href: "/promoteurs", label: "Promoteurs", desc: "Solutions pour programmes immobiliers" },
   { href: "/expertises", label: "Nos expertises", desc: "Multi-protocoles : KNX, Zigbee, Matter, Crestron, Lutron" },
   { href: "/contact", label: "Contact", desc: "Etude personnalisée" },
