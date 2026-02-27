@@ -131,6 +131,10 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         
+        {/* Defer non-critical CSS to avoid render blocking */}
+        <link rel="preload" as="style" href="/_next/static/css/app.css" onLoad={(e) => { (e.target as any).rel = 'stylesheet'; (e.target as any).onload = null; }} />
+        <noscript><link rel="stylesheet" href="/_next/static/css/app.css" /></noscript>
+        
         {/* Structured Data — LocalBusiness */}
         <script
           type="application/ld+json"
