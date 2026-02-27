@@ -218,7 +218,7 @@ export default function HomePage() {
                 Imaginez des espaces qui s&apos;éveillent à votre arrivée : la lumière s&apos;ajuste délicatement à l&apos;heure du jour, l&apos;atmosphère est déjà à la température idéale, et les volets accompagnent le coucher du soleil. Le confort absolu, sans la moindre intervention.
               </p>
               <p className="text-foreground/55 leading-relaxed mb-10 text-[15px]">
-                Depuis 18 ans au Maroc, c&apos;est le standard d&apos;excellence que nous intégrons dans les résidences et espaces professionnels les plus exigeants. Une fiabilité garantie par nos certifications sur les protocoles mondiaux de référence (KNX, Crestron, Lutron).
+                Depuis 10 ans au Maroc, c&apos;est le standard d&apos;excellence que nous intégrons dans les résidences et espaces professionnels les plus exigeants. Une fiabilité garantie par nos certifications multi-protocoles de référence (KNX, Crestron, Lutron).
               </p>
               <ul className="flex flex-col gap-3 mb-10" role="list">
                 {[
@@ -238,7 +238,7 @@ export default function HomePage() {
                 className="focus-ring inline-flex items-center gap-3 bg-primary px-8 py-4 text-[11px] font-black uppercase tracking-[0.2em] transition-all duration-300 hover:bg-primary/85"
                 style={{ color: "#0a0a0a" }}
               >
-                Demander un audit gratuit
+                Découvrir davantage
                 <ArrowRight size={13} aria-hidden="true" />
               </Link>
             </div>

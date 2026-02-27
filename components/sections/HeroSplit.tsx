@@ -95,7 +95,7 @@ export default function Hero() {
             className="focus-ring inline-flex items-center gap-3 bg-primary px-8 py-4 text-[11px] font-black uppercase tracking-[0.2em] transition-all duration-300 hover:bg-primary/85"
             style={{ color: "#0a0a0a" }}
           >
-            Pour votre résidence d&apos;exception
+            Votre maison connectée
             <ArrowRight size={13} aria-hidden="true" />
           </Link>
           <Link
@@ -116,15 +116,15 @@ export default function Hero() {
         >
           <span className="flex items-center gap-2">
             <span className="w-1.5 h-1.5 rounded-full bg-primary inline-block" />
-            Certifié KNX
+            Certifié Multi Protocoles
           </span>
           <span className="flex items-center gap-2">
             <span className="w-1.5 h-1.5 rounded-full bg-primary inline-block" />
-            350+ projets
+            +150 projets
           </span>
           <span className="flex items-center gap-2">
             <span className="w-1.5 h-1.5 rounded-full bg-primary inline-block" />
-            SAV 24/7
+            SAV 7/7
           </span>
         </motion.div>
       </div>
