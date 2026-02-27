@@ -22,8 +22,8 @@ const expertises = [
   {
     icon: Sun,
     title: "Éclairage Intelligent",
-    benefit: "−40% sur la facture",
-    description: "Scènes dynamiques, pilotage circadien automatique, Lutron Homeworks QSX. Votre espace s'adapte à votre humeur sans y penser.",
+    badge: "La signature visuelle de vos espaces",
+    description: "L'éclairage suit le rythme naturel du soleil et s'adapte à vos instants de vie grâce au pilotage circadien et aux scènes dynamiques (Lutron HomeWorks). Une élégance qui sublime votre architecture.",
     href: "/expertise/eclairage",
     image: "/images/expertise-eclairage.jpg",
     imageAlt: "Éclairage intelligent Lutron dans une villa de luxe au Maroc",
@@ -31,44 +31,44 @@ const expertises = [
   {
     icon: Shield,
     title: "Sécurité & Accès",
-    benefit: "Protection 24h/24",
-    description: "Accès biométrique, vidéosurveillance 4K IA, alarme KNX centralisée. Alertes instantanées sur smartphone.",
+    badge: "Une tranquillité d'esprit absolue",
+    description: "Une protection invisible et infaillible. Accès biométrique discret, vidéosurveillance 4K intelligente et supervision KNX centralisée. Gardez le contrôle total et recevez des alertes ciblées, où que vous soyez.",
     href: "/expertise/securite",
     image: "/images/expertise-securite.jpg",
     imageAlt: "Système de sécurité domotique premium pour villa Maroc",
   },
   {
     icon: Activity,
-    title: "Gestion Énergie",
-    benefit: "Économies dès le 1er mois",
-    description: "Suivi temps réel, optimisation automatique des équipements, conformité LEED/HQE et normes marocaines.",
+    title: "Gestion Énergie & Climat",
+    badge: "L'efficience invisible",
+    description: "Votre maison optimise automatiquement la température et l'énergie en temps réel. Une intelligence qui allie confort thermique absolu et conformité aux normes d'excellence (LEED/HQE), sans le moindre effort.",
     href: "/expertise/energie",
     image: "/images/expertise-energie.jpg",
     imageAlt: "Gestion intelligente de l'énergie dans un bâtiment connecté au Maroc",
   },
   {
     icon: Wifi,
-    title: "Réseaux & Infra",
-    benefit: "Zéro coupure",
-    description: "Infrastructure Ubiquiti redondante, Wi-Fi 6E mesh, fibre dédiée, supervision réseau 24/7 depuis Casablanca.",
+    title: "Réseaux & Connectivité",
+    badge: "Le système nerveux de votre habitat",
+    description: "Profitez d'une couverture Wi-Fi 6E parfaite et d'une infrastructure fibre redondante (Ubiquiti). Une fiabilité de niveau professionnel, supervisée 24/7 pour une fluidité sans la moindre interruption.",
     href: "/expertise/reseaux",
     image: "/images/expertise-reseau.jpg",
     imageAlt: "Infrastructure réseau Ubiquiti premium installée par Domotus Maroc",
   },
   {
     icon: Zap,
-    title: "Audio / Vidéo",
-    benefit: "Home cinema chez soi",
-    description: "Distribution multi-zone, home cinema 4K Dolby Atmos, Sonos intégré. Contrôle unifié depuis une seule interface.",
+    title: "Audio & Divertissement",
+    badge: "L'émotion à l'état pur",
+    description: "De la diffusion musicale multi-zones (Sonos) aux salles de cinéma privées 4K Dolby Atmos. L'image et le son haute-fidélité s'intègrent à vos murs avec une discrétion totale, pilotés depuis une interface unique.",
     href: "/expertise/audiovisuel",
     image: "/images/expertise-av.jpg",
     imageAlt: "Home cinema privé Dolby Atmos installé par Domotus au Maroc",
   },
   {
     icon: Lock,
-    title: "Supervision BMS",
-    benefit: "+25% valeur immobilière",
-    description: "Tableau de bord unifié, alertes temps réel, maintenance prédictive IA. Idéal pour promoteurs et gestionnaires au Maroc.",
+    title: "Supervision Globale (BMS)",
+    badge: "Valorisation patrimoniale",
+    description: "Le chef d'orchestre de votre propriété. Centralisez l'ensemble des systèmes sur une interface sur-mesure hyper-intuitive. Un atout technologique majeur qui augmente significativement la valeur de votre bien immobilier.",
     href: "/expertise/bms",
     image: "/images/expertise-bms.jpg",
     imageAlt: "Système BMS de supervision de bâtiment intelligent au Maroc",
@@ -85,29 +85,29 @@ const stats = [
 const steps = [
   {
     num: "01",
-    title: "Audit technique",
-    description: "Nous analysons votre espace, vos usages et vos objectifs en moins de 48h. Sans engagement, sans frais cachés.",
+    title: "Immersion & Étude",
+    description: "Avant de parler technologie, nous parlons de vous. Nous analysons l'architecture de vos espaces et comprenons vos habitudes.",
   },
   {
     num: "02",
-    title: "Conception sur mesure",
-    description: "Nos ingénieurs certifiés multi-protocoles co-conçoivent avec votre architecte un système invisible, évolutif, parfaitement intégré.",
+    title: "Ingénierie & Design",
+    description: "Dans le respect absolu de votre vision, nous concevons une infrastructure technologique invisible, évolutive et pensée pour sublimer chaque ligne de votre intérieur.",
   },
   {
     num: "03",
-    title: "Installation & Formation",
-    description: "Nos équipes interviennent avec précision. Vous repartez maître de votre installation, avec un support réactif à vie.",
+    title: "Intégration & Sérénité",
+    description: "Nos experts déploient l'ensemble des systèmes avec une précision d'orfèvre. Formation complète, documentation, support continu — votre tranquillité est garantie.",
   },
 ];
 
 const testimonials = [
   {
-    quote: "Domotus a transformé notre villa à Casablanca en un espace à part entière. Le système KNX est d'une fluidité remarquable — et l'équipe a livré dans les délais, ce qui est rare.",
+    quote: "Domotus a sublimé notre villa à Casablanca avec une fluidité KNX remarquable. Ce qui nous a vraiment impressionnés, c'est la rigueur : respect du calendrier, intégration invisible, et une équipe qui comprend l'architecture avant de vendre de la technologie.",
     name: "Mehdi R.",
     role: "Propriétaire, Villa Anfa — Casablanca",
   },
   {
-    quote: "En tant que promoteur, intégrer Domotus dès la conception a augmenté notre taux de vente de 18%. Les acheteurs demandent la domotique, Domotus la rend accessible.",
+    quote: "En tant que promoteur, intégrer Domotus dès la conception a transformé nos ventes. Les acquéreurs cherchent un atout technologique credible — Domotus le rend accessible, documenté, garanti. C'est un vrai levier commercial.",
     name: "Laila M.",
     role: "Directrice développement, Groupe Immobilier Marrakech",
   },
@@ -115,28 +115,28 @@ const testimonials = [
 
 const faqs = [
   {
-    q: "Combien coûte une installation domotique au Maroc ?",
-      a: "Le coût varie selon la superficie et les systèmes choisis. Pour une villa de 300 m², comptez entre 150 000 et 400 000 MAD pour une intégration multi-protocoles complète. Nous proposons un devis personnalisé en 48h, sans engagement.",
+    q: "Quel budget prévoir pour une intégration sur mesure ?",
+    a: "Chez Domotus, nous ne proposons pas de « kits standards ». Le budget de votre installation dépend de la superficie de vos espaces, de la complexité des scénarios souhaités et du choix des finitions (claviers en matériaux nobles, écrans tactiles). Lors de notre étude initiale, nous concevons une proposition sur mesure. Gardez à l'esprit qu'une installation domotique dans les règles de l'art valorise votre patrimoine immobilier de 15 à 25%.",
   },
   {
-    q: "Qu'est-ce que la domotique KNX et pourquoi est-ce la référence ?",
-    a: "KNX est le seul standard mondial ouvert pour l'automatisation des bâtiments. Il garantit l'interopérabilité entre 500+ marques certifiées, une durée de vie supérieure à 30 ans et une maintenance indépendante de tout fabricant — idéal pour les projets au Maroc.",
+    q: "Pourquoi privilégiez-vous le standard mondial KNX ?",
+    a: "Le luxe, c'est la pérennité. Contrairement aux solutions « gadgets » fermées qui deviennent obsolètes en quelques années, le standard KNX est un protocole ouvert, partagé par plus de 500 fabricants mondiaux. Il garantit que votre installation sera toujours réparable, évolutive et à la pointe de la technologie, même dans 20 ans. C'est l'assurance d'une infrastructure fiable et robuste.",
   },
   {
-    q: "Intervenez-vous en rénovation ou uniquement en neuf ?",
-    a: "Les deux. Nous intégrons des systèmes intelligents dans des bâtiments existants grâce à nos solutions sans fil certifiées KNX RF, avec un impact minimal sur les travaux existants. Nous intervenons à Casablanca, Marrakech, Rabat et Tanger.",
+    q: "Intervenez-vous sur des propriétés déjà existantes ?",
+    a: "Absolument. Si la construction neuve permet une intégration filaire native, nos ingénieurs maîtrisent également les protocoles sans fil de très haute performance (Zigbee, Z-Wave, Matter). Nous pouvons ainsi sublimer une résidence existante ou en cours de rénovation, avec un minimum d'impact sur vos murs et une esthétique toujours irréprochable.",
   },
   {
-    q: "Quelle est la durée d'un projet résidentiel ?",
-    a: "Pour une villa de 200–500 m², les travaux durent entre 3 et 8 semaines. La programmation et la mise en service représentent 30% du temps total — c'est là que se joue la qualité de l'expérience finale.",
+    q: "Comment s'intègre votre intervention dans le planning du chantier ?",
+    a: "Notre force réside dans la synergie avec vos équipes. Nous intervenons très en amont, dès la phase de conception, pour fournir les plans techniques (carnets de câblage) à votre architecte et à votre électricien. Nous coordonnons ensuite nos interventions au rythme du chantier pour garantir une livraison fluide, sans le moindre retard.",
   },
   {
-    q: "Puis-je contrôler mon installation depuis mon smartphone ?",
-    a: "Oui. Toutes nos installations sont pilotables via application mobile (iOS & Android), Apple HomeKit, Google Home et interface web sécurisée. Nous configurons également des automatisations vocales Siri, Google Assistant ou Alexa.",
+    q: "Comment vais-je interagir avec mon nouvel espace ?",
+    a: "De la manière la plus intuitive possible. Si l'application smartphone vous permet un contrôle total à distance, au quotidien, la technologie s'efface. Vos espaces s'animent automatiquement selon l'heure ou votre présence, et vous gardez la main grâce à des claviers de commande au design épuré, ou par simple commande vocale. L'environnement s'adapte à vous, et non l'inverse.",
   },
   {
-    q: "Proposez-vous une maintenance après installation ?",
-    a: "Oui. Contrats annuels avec supervision à distance 24/7, mises à jour logicielles incluses, intervention sur site garantie sous 24h à Casablanca et 48h dans les autres villes du Maroc.",
+    q: "Comment m'accompagnez-vous une fois le projet livré ?",
+    a: "La remise des clés n'est que le début de l'expérience Domotus. Nous vous formons à l'utilisation de votre écosystème et restons à vos côtés grâce à un service de supervision proactive. En cas de besoin, ou si vous souhaitez faire évoluer vos scénarios de vie, notre équipe technique intervient avec réactivité et discrétion.",
   },
 ];
 
@@ -145,12 +145,12 @@ const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   mainEntity: [
-    { "@type": "Question", name: "Combien coûte une installation domotique au Maroc ?", acceptedAnswer: { "@type": "Answer", text: "Pour une villa de 300 m², comptez entre 150 000 et 400 000 MAD pour une intégration multi-protocoles complète. Audit technique personnalisé, sans engagement." } },
-    { "@type": "Question", name: "Qu'est-ce que la domotique multi-protocoles et pourquoi est-ce la référence ?", acceptedAnswer: { "@type": "Answer", text: "Les systèmes multi-protocoles (KNX, Crestron, Lutron) garantissent une interopérabilité maximale. KNX notamment est le seul standard mondial ouvert avec 500+ marques certifiées, une durée de vie supérieure à 30 ans et une maintenance indépendante de tout fabricant." } },
-    { "@type": "Question", name: "Intervenez-vous en rénovation ou uniquement en neuf ?", acceptedAnswer: { "@type": "Answer", text: "Les deux. Nous intégrons des systèmes intelligents dans des bâtiments existants grâce à nos solutions sans fil certifiées multi-protocoles (KNX RF, Crestron, Lutron). Nous intervenons à Casablanca, Marrakech, Rabat et Tanger." } },
-    { "@type": "Question", name: "Quelle est la durée d'un projet résidentiel ?", acceptedAnswer: { "@type": "Answer", text: "Pour une villa de 200–500 m², les travaux durent entre 3 et 8 semaines selon la complexité du système." } },
-    { "@type": "Question", name: "Puis-je contrôler mon installation depuis mon smartphone ?", acceptedAnswer: { "@type": "Answer", text: "Oui. Toutes nos installations sont pilotables via iOS, Android, Apple HomeKit, Google Home et interface web sécurisée." } },
-    { "@type": "Question", name: "Proposez-vous une maintenance après installation ?", acceptedAnswer: { "@type": "Answer", text: "Oui. Contrats annuels avec supervision à distance 24/7, mises à jour logicielles incluses, intervention sur site garantie sous 24h à Casablanca." } },
+    { "@type": "Question", name: "Quel budget prévoir pour une intégration sur mesure ?", acceptedAnswer: { "@type": "Answer", text: "Chez Domotus, nous ne proposons pas de kits standards. Le budget dépend de la superficie, de la complexité des scénarios et des finitions. Une installation domotique valorise votre patrimoine de 15 à 25%." } },
+    { "@type": "Question", name: "Pourquoi privilégiez-vous le standard KNX ?", acceptedAnswer: { "@type": "Answer", text: "KNX est un protocole ouvert partagé par 500+ fabricants mondiaux. Il garantit que votre installation reste réparable, évolutive et à la pointe, même dans 20 ans." } },
+    { "@type": "Question", name: "Intervenez-vous sur des propriétés existantes ?", acceptedAnswer: { "@type": "Answer", text: "Oui. Nous maîtrisons les protocoles sans fil haute performance (Zigbee, Z-Wave, Matter) pour sublimer une résidence existante avec un minimum d'impact." } },
+    { "@type": "Question", name: "Comment s'intègre votre intervention dans le planning du chantier ?", acceptedAnswer: { "@type": "Answer", text: "Nous intervenons en amont pour fournir les plans techniques à votre architecte et électricien, puis coordonnons au rythme du chantier pour une livraison fluide." } },
+    { "@type": "Question", name: "Comment vais-je interagir avec mon nouvel espace ?", acceptedAnswer: { "@type": "Answer", text: "Au quotidien, la technologie s'efface. Vos espaces s'animent automatiquement, avec claviers épurés ou commande vocale. L'environnement s'adapte à vous." } },
+    { "@type": "Question", name: "Comment m'accompagnez-vous après la livraison ?", acceptedAnswer: { "@type": "Answer", text: "Nous vous formons à l'utilisation de votre écosystème et restons à vos côtés grâce à un service de supervision proactive avec interventions réactives." } },
   ],
 };
 
@@ -205,27 +205,27 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             <div>
-              <SectionLabel>Pourquoi Domotus</SectionLabel>
+              <SectionLabel>La différence Domotus</SectionLabel>
               <h2
                 id="value-prop-heading"
                 className="font-black uppercase leading-none text-foreground mb-6 text-balance"
                 style={{ fontSize: "clamp(2.2rem, 5vw, 4rem)", letterSpacing: "-0.02em" }}
               >
-                Votre maison vous obéit.{" "}
+                L&apos;art d&apos;anticiper vos besoins.{" "}
                 <span className="italic text-foreground/45">Sans effort.</span>
               </h2>
               <p className="text-foreground/55 leading-relaxed mb-6 text-[15px]">
-                Imaginez entrer chez vous : les lumières s'adaptent à l'heure, la climatisation est déjà à la bonne température, les volets se ferment automatiquement au coucher du soleil. Tout ça, sans rien toucher.
+                Imaginez des espaces qui s&apos;éveillent à votre arrivée : la lumière s&apos;ajuste délicatement à l&apos;heure du jour, l&apos;atmosphère est déjà à la température idéale, et les volets accompagnent le coucher du soleil. Le confort absolu, sans la moindre intervention.
               </p>
               <p className="text-foreground/55 leading-relaxed mb-10 text-[15px]">
-                C'est ce que nous livrons dans chaque villa, appartement et immeuble de bureaux au Maroc depuis 18 ans — avec les certifications multi-protocoles (KNX, Crestron et Lutron) qui le prouvent.
+                Depuis 18 ans au Maroc, c&apos;est le standard d&apos;excellence que nous intégrons dans les résidences et espaces professionnels les plus exigeants. Une fiabilité garantie par nos certifications sur les protocoles mondiaux de référence (KNX, Crestron, Lutron).
               </p>
               <ul className="flex flex-col gap-3 mb-10" role="list">
                 {[
-                  "Contrôle total depuis votre smartphone",
-                  "Économies d'énergie mesurables dès le 1er mois",
-                  "Sécurité renforcée, accès à distance",
-                  "Valeur immobilière augmentée de 15 à 25%",
+                  "Maîtrise absolue & intuitive",
+                  "Sérénité totale",
+                  "Intelligence énergétique",
+                  "Valorisation patrimoniale",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3 text-[14px] text-foreground/65">
                     <CheckCircle2 size={15} className="text-primary shrink-0 mt-0.5" aria-hidden="true" />
@@ -282,21 +282,21 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-14">
             <div>
-              <SectionLabel>Nos expertises</SectionLabel>
+              <SectionLabel>L'intelligence de vos espaces</SectionLabel>
               <h2
                 id="services-heading"
                 className="font-black uppercase leading-none text-foreground text-balance"
                 style={{ fontSize: "clamp(1.8rem, 4vw, 3.2rem)", letterSpacing: "-0.02em" }}
               >
-                Ce que vous gagnez{" "}
-                <span className="italic text-foreground/45">concrètement.</span>
+                La maîtrise absolue{" "}
+                <span className="italic text-foreground/45">de votre environnement.</span>
               </h2>
             </div>
             <Link
-              href="/villas-apparts"
+              href="/maison-connectee"
               className="focus-ring shrink-0 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.15em] text-foreground/40 hover:text-primary transition-colors duration-300"
             >
-              Voir nos réalisations <ArrowRight size={12} aria-hidden="true" />
+              Découvrir nos réalisations d'exception <ArrowRight size={12} aria-hidden="true" />
             </Link>
           </div>
 
@@ -320,7 +320,7 @@ export default function HomePage() {
                   {/* Permanent dark overlay */}
                   <div className="absolute inset-0 bg-background/70 group-hover:bg-background/20 transition-colors duration-500" />
 
-                  {/* Default state — icon + title + benefit always visible */}
+                  {/* Default state — icon + title + badge always visible */}
                   <div className="absolute inset-0 flex flex-col justify-end p-7 transition-all duration-500 group-hover:opacity-0 group-hover:translate-y-2">
                     <div className="mb-3 w-9 h-9 border border-white/20 flex items-center justify-center text-primary">
                       <Icon size={16} aria-hidden="true" />
@@ -329,7 +329,7 @@ export default function HomePage() {
                       {item.title}
                     </h3>
                     <span className="text-[10px] font-semibold uppercase tracking-[0.12em] text-primary">
-                      {item.benefit}
+                      {item.badge}
                     </span>
                   </div>
 
@@ -362,13 +362,13 @@ export default function HomePage() {
       <section className="py-24 lg:py-36 bg-background" aria-labelledby="process-heading">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <div className="text-center mb-16">
-            <SectionLabel>Comment ça marche</SectionLabel>
+            <SectionLabel>L'accompagnement Domotus</SectionLabel>
             <h2
               id="process-heading"
               className="font-black uppercase leading-none text-foreground text-balance"
               style={{ fontSize: "clamp(1.8rem, 4vw, 3.2rem)", letterSpacing: "-0.02em" }}
             >
-              De l&apos;idée à la maison intelligente{" "}
+              De la vision à la perfection,{" "}
               <span className="italic text-foreground/45">en 3 étapes.</span>
             </h2>
           </div>
@@ -500,14 +500,14 @@ export default function HomePage() {
       <section className="py-24 lg:py-36 bg-background" aria-labelledby="faq-heading">
         <div className="mx-auto max-w-4xl px-6 lg:px-10">
           <div className="mb-14">
-            <SectionLabel>Questions fréquentes</SectionLabel>
+            <SectionLabel>Pour aller plus loin</SectionLabel>
             <h2
               id="faq-heading"
               className="font-black uppercase leading-none text-foreground text-balance"
               style={{ fontSize: "clamp(1.8rem, 4vw, 3.2rem)", letterSpacing: "-0.02em" }}
             >
-              Vos questions,{" "}
-              <span className="italic text-foreground/45">nos réponses.</span>
+              Mieux comprendre{" "}
+              <span className="italic text-foreground/45">notre approche.</span>
             </h2>
           </div>
           <script
@@ -525,6 +525,21 @@ export default function HomePage() {
             }}
           />
           <FaqAccordion items={faqs} />
+          <div className="mt-16 bg-card p-10 rounded-sm">
+            <h3 className="font-black uppercase text-foreground text-balance mb-4" style={{ fontSize: "clamp(1.4rem, 3vw, 2rem)" }}>
+              Chaque projet est unique.
+            </h3>
+            <p className="text-foreground/60 text-[15px] leading-relaxed mb-8 max-w-2xl">
+              Vous avez une vision précise pour votre résidence ou votre programme immobilier ? Discutons-en.
+            </p>
+            <Link
+              href="/contact"
+              className="focus-ring inline-flex items-center gap-3 bg-primary px-8 py-4 text-[11px] font-black uppercase tracking-[0.2em] transition-all duration-300 hover:bg-primary/85"
+              style={{ color: "#0a0a0a" }}
+            >
+              Échanger avec un expert <ArrowRight size={13} aria-hidden="true" />
+            </Link>
+          </div>
           <div className="mt-12 flex flex-col sm:flex-row sm:items-center gap-4">
             <p className="text-[13px] text-foreground/45">Une question spécifique à votre projet ?</p>
             <Link

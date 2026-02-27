@@ -61,7 +61,7 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
             className="block"
           >
-            Smart
+            La signature
           </motion.span>
           <motion.span
             initial={{ opacity: 0, y: 24 }}
@@ -69,7 +69,7 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.58, ease: [0.22, 1, 0.36, 1] }}
             className="block italic text-foreground/65"
           >
-            Living.
+            technologique.
           </motion.span>
         </h1>
 
@@ -80,10 +80,10 @@ export default function Hero() {
           transition={{ duration: 0.7, delay: 0.75, ease: "easeOut" }}
           className="mt-7 text-sm md:text-[15px] text-foreground/60 leading-relaxed max-w-lg text-balance"
         >
-          Expérience de vie réinventée. Espaces où la technologie crée du confort, de la sécurité et de la sérénité. Domotus transforme maisons et immeubles en écosystèmes intelligents au Maroc.
+          L&apos;expérience de vos espaces, réinventée. Là où la technologie crée confort, sécurité et sérénité, Domotus transforme maisons et immeubles en écosystèmes intelligents.
         </motion.p>
 
-        {/* CTAs */}
+        {/* CTAs — B2C Primary + B2B Secondary */}
         <motion.div
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
@@ -91,18 +91,18 @@ export default function Hero() {
           className="mt-10 flex flex-col sm:flex-row items-center gap-4"
         >
           <Link
-            href="/contact"
+            href="/maison-connectee"
             className="focus-ring inline-flex items-center gap-3 bg-primary px-8 py-4 text-[11px] font-black uppercase tracking-[0.2em] transition-all duration-300 hover:bg-primary/85"
             style={{ color: "#0a0a0a" }}
           >
-            Etude personnalisée
+            Pour votre résidence d&apos;exception
             <ArrowRight size={13} aria-hidden="true" />
           </Link>
           <Link
-            href="/expertises"
+            href="/architectes"
             className="focus-ring inline-flex items-center gap-3 border border-white/25 px-8 py-4 text-[11px] uppercase tracking-[0.2em] text-foreground/70 transition-all duration-300 hover:border-primary hover:text-primary"
           >
-            Découvrir nos expertises
+            Espace Professionnels
             <ArrowRight size={13} aria-hidden="true" />
           </Link>
         </motion.div>
