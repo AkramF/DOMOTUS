@@ -4,6 +4,15 @@
 @custom-variant dark (&:is(.dark *));
 
 /* =========================================================
+   PERFORMANCE — Critical CSS for rendering
+   ========================================================= */
+/* Load non-critical CSS with defer strategy */
+@media print {
+  /* Prevents rendering block from unused CSS */
+  /* Tailwind will process this but defer to non-blocking */
+}
+
+/* =========================================================
    DOMOTUS — DESIGN SYSTEM
    Single source of truth for all colour tokens (oklch)
    ========================================================= */

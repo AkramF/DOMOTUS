@@ -4,14 +4,18 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   images: {
-    unoptimized: true,
+    formats: ['image/avif', 'image/webp'],
+    minimumCacheTTL: 60,
+  },
+  experimental: {
+    optimizePackageImports: ['framer-motion', 'lucide-react'],
   },
   async redirects() {
     return [
       {
         source: '/villas-apparts',
         destination: '/maison-connectee',
-        permanent: true, // 301 redirect
+        permanent: true,
       },
       {
         source: '/villas-apparts/:path*',

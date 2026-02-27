@@ -1,11 +1,17 @@
 import type { Metadata, Viewport } from "next";
 import { Montserrat } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
+import dynamic from "next/dynamic";
 import Navbar from "@/components/sections/Navbar";
 import Footer from "@/components/sections/Footer";
 import ScrollProgress from "@/components/sections/ScrollProgress";
-import StickyMobileCTA from "@/components/sections/StickyMobileCTA";
 import "./globals.css";
+
+// Lazy load non-critical components to reduce render-blocking CSS
+const StickyMobileCTA = dynamic(() => import("@/components/sections/StickyMobileCTA"), {
+  loading: () => null,
+  ssr: false,
+});
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -118,6 +124,13 @@ export default function RootLayout({
   return (
     <html lang="fr" className="dark">
       <head>
+        {/* Preload critical images without blocking render */}
+        <link rel="preload" as="image" href="/images/hero-bg.webp" fetchPriority="high" />
+        
+        {/* Preconnect for Google Fonts */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        
         {/* Structured Data — LocalBusiness */}
         <script
           type="application/ld+json"
@@ -176,9 +189,6 @@ export default function RootLayout({
             }),
           }}
         />
-        {/* Preconnect for perf */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
       <body
         className={`${montserrat.variable} font-sans antialiased overflow-x-hidden`}
