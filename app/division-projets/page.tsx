@@ -13,8 +13,8 @@ export const metadata: Metadata = {
 const metiers = [
   { title: "Architectes & Designers", desc: "Une intégration invisible pour une esthétique préservée.", href: "/architectes" },
   { title: "Promoteurs Immobiliers", desc: "Accélérez vos ventes grâce à la labellisation Smart Building.", href: "/promoteurs" },
-  { title: "Hôtellerie & Hospitalité", desc: "Optimisez l'expérience client et réduisez les coûts d'exploitation.", href: "/contact" },
-  { title: "Bureaux d'Études & Tertiaire", desc: "Une expertise technique pour des bâtiments connectés et conformes.", href: "/contact" },
+  { title: "Hôtellerie & Hospitalité", desc: "Optimisez l'expérience client et réduisez les coûts d'exploitation.", href: "/hospitalite" },
+  { title: "Bureaux d'Études & Tertiaire", desc: "Une expertise technique pour des bâtiments connectés et conformes.", href: "/bureaux" },
 ];
 
 const engagements = [
