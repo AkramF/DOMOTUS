@@ -91,9 +91,9 @@ const certifications = [
 ];
 
 const experiences = [
-  { metric: "18+", label: "Années d'expérience en architecture domotique" },
-  { metric: "350+", label: "Projets réalisés au Maroc depuis 2006" },
-  { metric: "30 ans", label: "de durabilité garantie sur les systèmes certifiés" },
+  { metric: "10+", label: "Années d'expérience en architecture domotique" },
+  { metric: "+150", label: "Projets réalisés au Maroc depuis 2017" },
+  { metric: "10 ans", label: "de durabilité garantie sur les systèmes certifiés" },
   { metric: "24/7", label: "Astreinte technique disponible pour tous nos clients" },
 ];
 
@@ -179,7 +179,7 @@ export default function ExpertisesPage() {
                   <span className="text-primary font-bold mt-0.5">•</span>
                   <div>
                     <span className="font-bold text-foreground text-[14px]">Garantie long terme</span>
-                    <p className="text-foreground/60 text-[13px] mt-1">15 ans de durabilité certifiée — c'est notre engagement envers votre patrimoine.</p>
+                    <p className="text-foreground/60 text-[13px] mt-1">10 ans de durabilité certifiée — c'est notre engagement envers votre patrimoine.</p>
                   </div>
                 </li>
               </ul>
