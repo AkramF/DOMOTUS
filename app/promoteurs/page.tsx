@@ -123,8 +123,8 @@ export default function PromoteursPage() {
             className="font-black uppercase leading-none text-foreground text-balance mb-6"
             style={{ fontSize: "clamp(2.5rem, 7vw, 6rem)", letterSpacing: "-0.03em" }}
           >
-            L&apos;intelligence au service<br />
-            <span className="italic text-foreground/60">de votre rentabilité immobilière.</span>
+            Vendez mieux<br />
+            <span className="italic text-foreground/60">Vendez plus.</span>
           </h1>
           <p className="text-[15px] text-foreground/70 max-w-2xl text-balance leading-relaxed mb-10">
             Accélérez la commercialisation de vos programmes grâce à la labellisation Smart Building. Domotus intègre des solutions certifiées multi-protocoles qui valorisent vos actifs, séduisent une clientèle exigeante et augmentent votre prix de vente moyen jusqu&apos;à 18%.
