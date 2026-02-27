@@ -135,23 +135,6 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         
-        {/* Defer non-critical CSS to prevent render blocking using media print technique */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              const link = document.createElement('link');
-              link.rel = 'stylesheet';
-              link.href = '/_next/static/css/app.css';
-              link.media = 'print';
-              link.onload = function() { this.media = 'all'; };
-              document.head.appendChild(link);
-            `,
-          }}
-        />
-        <noscript>
-          <link rel="stylesheet" href="/_next/static/css/app.css" />
-        </noscript>
-        
         {/* Structured Data — LocalBusiness */}
         <script
           type="application/ld+json"
