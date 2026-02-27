@@ -86,7 +86,7 @@ export default function ClientLoginPage() {
         <p className="text-[11px] text-foreground/20">
           Pas encore client ?{" "}
           <Link href="/contact" className="text-primary/60 hover:text-primary transition-colors duration-300">
-            Demander un devis gratuit
+            Commencer une étude
           </Link>
         </p>
       </div>

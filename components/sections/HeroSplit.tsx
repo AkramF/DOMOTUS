@@ -16,15 +16,24 @@ export default function Hero() {
       className="relative w-full h-screen min-h-[600px] overflow-hidden"
       aria-label="Domotus — Maison connectée au Maroc"
     >
-      {/* Background image */}
-      <Image
-        src="/images/hero-bg.jpg"
-        alt="Villa intelligente équipée par Domotus au Maroc"
-        fill
-        priority
-        sizes="100vw"
-        className="object-cover object-center"
-      />
+      {/* Background image wrapper with animation */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+        className="absolute inset-0"
+      >
+        {/* Background image — WebP with fallback, optimized for performance */}
+        <Image
+          src="/images/hero-bg.webp"
+          alt="Villa intelligente équipée par Domotus au Maroc"
+          fill
+          priority
+          sizes="100vw"
+          quality={85}
+          className="object-cover object-center"
+        />
+      </motion.div>
 
       {/* Dark overlay — layered for depth and text readability */}
       <div className="absolute inset-0 bg-background/65" />
@@ -95,7 +104,7 @@ export default function Hero() {
             className="focus-ring inline-flex items-center gap-3 bg-primary px-8 py-4 text-[11px] font-black uppercase tracking-[0.2em] transition-all duration-300 hover:bg-primary/85"
             style={{ color: "#0a0a0a" }}
           >
-            Pour votre résidence d&apos;exception
+            Votre maison connectée
             <ArrowRight size={13} aria-hidden="true" />
           </Link>
           <Link
@@ -116,15 +125,15 @@ export default function Hero() {
         >
           <span className="flex items-center gap-2">
             <span className="w-1.5 h-1.5 rounded-full bg-primary inline-block" />
-            Certifié KNX
+            Certifié Multi Protocoles
           </span>
           <span className="flex items-center gap-2">
             <span className="w-1.5 h-1.5 rounded-full bg-primary inline-block" />
-            350+ projets
+            +150 projets
           </span>
           <span className="flex items-center gap-2">
             <span className="w-1.5 h-1.5 rounded-full bg-primary inline-block" />
-            SAV 24/7
+            SAV 7/7
           </span>
         </motion.div>
       </div>

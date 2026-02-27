@@ -41,16 +41,16 @@ const NAV_COLS = [
     links: [
       { href: "/expertises#vision", label: "Notre Vision (10 ans)" },
       { href: "/journal", label: "Blog Domotique" },
-      { href: "/contact?type=devis", label: "Demander un devis personnalisé" },
       { href: "/mentions-legales", label: "Mentions légales" },
       { href: "/politique-confidentialite", label: "Politique de confidentialité" },
+      { href: "/contact?type=devis", label: "Demander Devis/Audit", highlight: true },
     ],
   },
 ];
 
 const CITIES = ["Casablanca", "Marrakech", "Rabat", "Tanger"];
 
-function AccordionCol({ title, links }: { title: string; links: { href: string; label: string }[] }) {
+function AccordionCol({ title, links }: { title: string; links: { href: string; label: string; highlight?: boolean }[] }) {
   const [open, setOpen] = useState(false);
   return (
     <div className="border-b border-white/8">
@@ -66,7 +66,7 @@ function AccordionCol({ title, links }: { title: string; links: { href: string; 
         <ul className="flex flex-col gap-3">
           {links.map((l, i) => (
             <li key={`${l.label}-${i}`}>
-              <Link href={l.href} className="text-sm text-white/50 hover:text-[#66FCF1] transition-colors duration-200">
+              <Link href={l.href} className={cn("text-sm transition-colors duration-200", l.highlight ? "text-[#66FCF1] hover:text-[#66FCF1]/80 font-semibold" : "text-white/50 hover:text-[#66FCF1]")}>
                 {l.label}
               </Link>
             </li>
@@ -134,7 +134,7 @@ export default function Footer() {
               <ul className="flex flex-col gap-3">
                 {col.links.map((l, i) => (
                   <li key={`${l.label}-${i}`}>
-                    <Link href={l.href} className="text-[13px] text-white/50 hover:text-[#66FCF1] transition-colors duration-200">
+                    <Link href={l.href} className={cn("text-[13px] transition-colors duration-200", l.highlight ? "text-[#66FCF1] hover:text-[#66FCF1]/80 font-semibold" : "text-white/50 hover:text-[#66FCF1]")}>
                       {l.label}
                     </Link>
                   </li>
