@@ -424,11 +424,6 @@ export default function HomePage() {
           <div className="grid lg:grid-cols-2 gap-px bg-white/6">
             {testimonials.map((t) => (
               <blockquote key={t.name} className="bg-background p-10 flex flex-col gap-6">
-                <div className="flex gap-1" aria-label="5 étoiles">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <span key={i} className="text-primary text-sm" aria-hidden="true">★</span>
-                  ))}
-                </div>
                 <p className="text-[15px] text-foreground/70 leading-relaxed italic">
                   &ldquo;{t.quote}&rdquo;
                 </p>
