@@ -1,157 +1,185 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Eye, Lightbulb, Zap } from "lucide-react";
+import { ArrowRight, Zap, Lock, Clock } from "lucide-react";
 import SectionLabel from "@/components/ui/section-label";
 
 export const metadata: Metadata = {
-  title: "Domotique pour Architectes & Designers — Intégration Invisible | Domotus Maroc",
+  title: "Domotique pour Architectes — Multi-Protocoles, Invisible, Sans Compromis | Domotus",
   description:
-    "Partenaire technologique pour architectes : intégration domotique invisible, design-first, multi-protocoles. Conception collaborative BIM, support complet, expertise premium au Maroc.",
+    "Intégration domotique invisible pour architectes : multi-protocoles (KNX, Crestron, Lutron), collaboration BIM, support complet, garantie 10 ans. Casablanca, Marrakech, Rabat, Tanger.",
   alternates: { canonical: "https://www.domotus.ma/architectes" },
   openGraph: {
-    title: "Domotique pour Architectes — Sublimez vos espaces",
-    description:
-      "Vous concevez l'exception, nous lui donnons vie. Intégration technologique discrète et intuitive pour vos projets résidentiels au Maroc.",
+    title: "Domotique pour Architectes — Multi-Protocoles & Invisible",
+    description: "Intégration technologique sans compromis esthétique. Bureau d'étude intégré pour vos projets résidentiels.",
     url: "https://www.domotus.ma/architectes",
   },
 };
 
-const piliers = [
+const avantages = [
   {
-    icon: Eye,
-    title: "L'esthétique avant tout",
-    subtitle: "L'intégration invisible",
-    description:
-      "Fini la pollution visuelle. Nous sourçons des appareillages de très haute finition (claviers en laiton, pierre, verre), des enceintes invisibles intégrées dans les cloisons et des capteurs dissimulés. La technologie épouse vos choix de matériaux.",
-  },
-  {
-    icon: Lightbulb,
-    title: "La sublimation par la lumière",
-    subtitle: "Conception d'éclairage",
-    description:
-      "Nous travaillons avec vous pour mettre en valeur les volumes de vos projets. Gestion de l'éclairage naturel, gradation fine (dimming), scénarios d'ambiance... Nous révélons l'âme de vos créations, de jour comme de nuit.",
+    icon: Lock,
+    title: "Multi-protocoles",
+    description: "KNX, Crestron, Lutron — liberté de choix, zéro enfermement propriétaire.",
   },
   {
     icon: Zap,
-    title: "Un accompagnement de A à Z",
-    subtitle: "Sérénité sur le chantier",
-    description:
-      "De la phase de conception (plans, synoptiques, carnets de câblage) jusqu'à la coordination des lots (électricité, climatisation) et la livraison finale au client. Nous prenons en charge toute la complexité technique pour vous laisser l'esprit libre.",
+    title: "Invisible",
+    description: "Aucune pollution visuelle. Appareillages haut de gamme intégrés, capteurs dissimulés.",
+  },
+  {
+    icon: Clock,
+    title: "Sérénité chantier",
+    description: "Intervention background durant les travaux. Votre planning respecté, zéro retard.",
   },
 ];
 
-const etapes = [
+const process = [
   {
-    num: "01",
-    title: "Audit BIM collaboratif",
-    desc: "Vous nous partagez votre projet, nous intégrons les schémas multi-protocoles (KNX/Lutron/Crestron). Réunion de validation avec votre équipe. Zéro impromptus.",
+    step: "01",
+    title: "Audit BIM",
+    description: "Intégration des schémas multi-protocoles dans votre projet. Validation collaborative.",
   },
   {
-    num: "02",
-    title: "Design d'interface invisible",
-    desc: "Nos UX designers co-créent des interfaces (tablettes, voice, gestes) qui se fondent dans votre esthétique. Pas de boîtier noir en coin de pièce.",
+    step: "02",
+    title: "Design invisible",
+    description: "Interfaces (tablettes, voice, gestes) qui s'effacent dans votre esthétique.",
   },
   {
-    num: "03",
-    title: "Installation & commissioning transparent",
-    desc: "Tout se passe en background. Nous intervenons pendant la phase travaux, respectant votre planning strict de chantier. Livraison sereine.",
+    step: "03",
+    title: "Installation background",
+    description: "Intervention durant la phase travaux. Livraison discrète et sereine.",
   },
   {
-    num: "04",
-    title: "Support technique continu",
-    desc: "Post-handover : documentation détaillée, formation équipe maître d'ouvrage, hotline réactive 24/7. Votre réputation reste impeccable.",
+    step: "04",
+    title: "Support continu",
+    description: "Documentation, formation, hotline 24/7. Votre réputation protégée.",
   },
+];
+
+const credentials = [
+  { metric: "10+", label: "Années en architecture domotique" },
+  { metric: "+150", label: "Projets réalisés depuis 2017" },
+  { metric: "10 ans", label: "Garantie sur systèmes certifiés" },
+  { metric: "24/7", label: "Astreinte technique" },
 ];
 
 export default function ArchitectesPage() {
   return (
     <>
       {/* ── HERO ── */}
-      <section
-        className="relative w-full h-[80vh] overflow-hidden"
-        aria-label="Partenaire technologique pour architectes et designers"
-      >
+      <section className="relative w-full h-[80vh] overflow-hidden" aria-label="Domotique pour architectes">
         <Image
           src="/images/villa-prestige.jpg"
-          alt="Projet architectural premium avec intégration domotique invisible"
+          alt="Intégration domotique invisible dans architecture premium"
           fill
           priority
           sizes="100vw"
           className="object-cover object-center"
         />
-        <div className="absolute inset-0 bg-background/65" />
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "radial-gradient(ellipse 80% 70% at 50% 40%, transparent 30%, oklch(0 0 0 / 0.45) 100%)",
-          }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
-        <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6 pt-20">
-          <div className="flex items-center gap-4 mb-6">
+        <div className="absolute inset-0 bg-background/70" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
+        <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6">
+          <div className="flex items-center gap-4 mb-8">
             <span className="block w-8 h-px bg-foreground/40" aria-hidden="true" />
             <p className="text-[11px] uppercase tracking-[0.35em] text-primary font-medium">
-              Partenaire Technologique — Architectes & Designers
+              Bureau d'Étude Domotique
             </p>
             <span className="block w-8 h-px bg-foreground/40" aria-hidden="true" />
           </div>
           <h1
-            className="font-black uppercase leading-none text-foreground text-balance mb-6"
-            style={{ fontSize: "clamp(2.5rem, 7vw, 6rem)", letterSpacing: "-0.03em" }}
+            className="font-black uppercase leading-tight text-foreground text-balance mb-6"
+            style={{ fontSize: "clamp(2.2rem, 6vw, 5.5rem)", letterSpacing: "-0.03em" }}
           >
-            Sublimez vos espaces,<br />
-            <span className="italic text-foreground/60">l'intelligence en toute discrétion.</span>
+            Domotique<br />
+            <span className="italic text-foreground/60">sans compromis.</span>
           </h1>
-          <p className="text-[15px] text-foreground/70 max-w-lg text-balance leading-relaxed mb-10">
-            Vous concevez l'exception, nous lui donnons vie. Un accompagnement sur mesure pour intégrer une domotique invisible et intuitive dans vos projets résidentiels au Maroc, dans le respect absolu de vos lignes architecturales. Sans compromis.
+          <p className="text-[15px] text-foreground/65 max-w-2xl text-balance leading-relaxed mb-12">
+            Intégration technologique invisible qui préserve votre vision architecturale. Multi-protocoles certifiés, collaboration BIM, livraison sereine. Pour villas et résidences de prestige au Maroc.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Link
               href="/contact"
-              className="focus-ring inline-flex items-center gap-3 bg-primary px-8 py-4 text-[11px] font-black uppercase tracking-[0.2em] transition-all duration-300 hover:bg-primary/85"
+              className="focus-ring inline-flex items-center gap-3 bg-primary px-10 py-4 text-[11px] font-black uppercase tracking-[0.2em] hover:bg-primary/85 transition-all duration-300"
               style={{ color: "#0a0a0a" }}
             >
-              Planifier un échange <ArrowRight size={13} aria-hidden="true" />
+              Prendre rendez-vous <ArrowRight size={13} aria-hidden="true" />
             </Link>
             <Link
-              href="#realisations"
+              href="#projets"
               className="focus-ring inline-flex items-center gap-3 border border-white/25 px-8 py-4 text-[11px] uppercase tracking-[0.2em] text-foreground/70 hover:border-primary hover:text-primary transition-all duration-300"
             >
-              Voir nos réalisations <ArrowRight size={13} aria-hidden="true" />
+              Voir nos projets <ArrowRight size={13} aria-hidden="true" />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* ── HARMONIE DESIGN-TECHNOLOGIE ── */}
-      <section className="py-28 bg-card" aria-labelledby="harmonie-heading">
-        <div className="mx-auto max-w-5xl px-6 lg:px-10">
-          <div className="mb-16">
-            <SectionLabel>Notre proposition de valeur</SectionLabel>
-            <h2
-              id="harmonie-heading"
-              className="font-black uppercase leading-none text-foreground text-balance mb-6"
-              style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", letterSpacing: "-0.02em" }}
-            >
-              L'harmonie parfaite<br />
-              <span className="italic text-foreground/45">entre design et technologie.</span>
-            </h2>
+      {/* ── TROIS AVANTAGES ── */}
+      <section className="py-24 bg-background" aria-labelledby="avantages-heading">
+        <div className="mx-auto max-w-7xl px-6 lg:px-10">
+          <h2 id="avantages-heading" className="sr-only">Nos avantages pour architectes</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            {avantages.map((item, idx) => {
+              const Icon = item.icon;
+              return (
+                <div key={idx} className="flex flex-col gap-4">
+                  <div className="p-3 bg-primary/10 rounded-lg w-fit">
+                    <Icon size={24} className="text-primary" aria-hidden="true" />
+                  </div>
+                  <h3 className="font-bold uppercase tracking-[0.08em] text-foreground text-[14px]">
+                    {item.title}
+                  </h3>
+                  <p className="text-foreground/60 leading-relaxed text-[14px]">
+                    {item.description}
+                  </p>
+                </div>
+              );
+            })}
           </div>
+        </div>
+      </section>
+
+      {/* ── VALUE PROP ── */}
+      <section className="py-24 bg-card" aria-labelledby="value-heading">
+        <div className="mx-auto max-w-5xl px-6 lg:px-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
+              <SectionLabel>Pourquoi Domotus</SectionLabel>
+              <h2
+                id="value-heading"
+                className="font-black uppercase leading-none text-foreground text-balance mb-8"
+                style={{ fontSize: "clamp(1.8rem, 4vw, 3rem)", letterSpacing: "-0.02em" }}
+              >
+                Architecte,<br />
+                <span className="italic text-foreground/50">pas intégrateur.</span>
+              </h2>
               <p className="text-foreground/70 leading-relaxed mb-6 text-[15px]">
-                Pour vos projets de villas et résidences de prestige, nous agissons comme votre bureau d'étude technologique intégré. Notre mission n'est pas d'ajouter des écrans partout, mais de faire disparaître la technique pour que seule l'expérience et la pureté de vos espaces demeurent.
+                Nous ne vendons pas des boîtiers. Nous concevons vos systèmes comme des architectes conçoivent vos espaces — avec rigueur, flexibilité et vision long terme.
               </p>
-              <p className="text-foreground/60 leading-relaxed text-[15px]">
-                La technologie s'efface, votre design rayonne.
-              </p>
+              <ul className="space-y-3 text-[14px] text-foreground/60">
+                <li className="flex items-start gap-3">
+                  <span className="text-primary font-bold mt-1">✓</span>
+                  <span>Collaboration BIM native, plans et synoptiques</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-primary font-bold mt-1">✓</span>
+                  <span>Certification multi-protocoles (KNX, Crestron, Lutron)</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-primary font-bold mt-1">✓</span>
+                  <span>10 ans de garantie sur infrastructure</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-primary font-bold mt-1">✓</span>
+                  <span>Sérénité chantier : intervention background, zéro retard</span>
+                </li>
+              </ul>
             </div>
             <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
               <Image
-                src="/images/expertise-eclairage.jpg"
-                alt="Harmonie entre design architectural et technologie domotique"
+                src="/images/hero-residential.jpg"
+                alt="Intégration domotique en architecture"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
@@ -161,133 +189,97 @@ export default function ArchitectesPage() {
         </div>
       </section>
 
-      {/* ── LES 3 PILIERS ── */}
-      <section className="py-28 bg-background" aria-labelledby="piliers-heading">
-        <div className="mx-auto max-w-7xl px-6 lg:px-10">
-          <div className="mb-20">
-            <SectionLabel>Les fondements de notre collaboration</SectionLabel>
-            <h2
-              id="piliers-heading"
-              className="font-black uppercase leading-none text-foreground text-balance"
-              style={{ fontSize: "clamp(1.8rem, 4vw, 3.2rem)", letterSpacing: "-0.02em" }}
-            >
-              Les 3 piliers{" "}
-              <span className="italic text-foreground/45">de notre approche.</span>
-            </h2>
-          </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            {piliers.map((pilier, idx) => {
-              const Icon = pilier.icon;
-              return (
-                <div key={idx} className="flex flex-col gap-6">
-                  <div className="flex items-start gap-4">
-                    <div className="p-3 bg-primary/10 rounded-lg shrink-0">
-                      <Icon size={24} className="text-primary" aria-hidden="true" />
-                    </div>
-                    <div>
-                      <h3 className="font-bold uppercase tracking-[0.08em] text-foreground text-[14px]">
-                        {pilier.title}
-                      </h3>
-                      <p className="text-primary text-[12px] mt-1 font-semibold">
-                        {pilier.subtitle}
-                      </p>
-                    </div>
-                  </div>
-                  <p className="text-foreground/60 leading-relaxed text-[14px]">
-                    {pilier.description}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
       {/* ── PROCESS ── */}
-      <section className="py-28 bg-card" aria-labelledby="process-heading">
+      <section className="py-24 bg-background" aria-labelledby="process-heading">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <div className="mb-16">
-            <SectionLabel>De la conception à la livraison</SectionLabel>
+            <SectionLabel>Du concept à la livraison</SectionLabel>
             <h2
               id="process-heading"
-              className="font-black uppercase leading-none text-foreground text-balance max-w-2xl"
-              style={{ fontSize: "clamp(1.8rem, 4vw, 3.2rem)", letterSpacing: "-0.02em" }}
+              className="font-black uppercase leading-none text-foreground text-balance"
+              style={{ fontSize: "clamp(1.8rem, 4vw, 3rem)", letterSpacing: "-0.02em" }}
             >
-              Notre méthode<br />
-              <span className="italic text-foreground/45">étape par étape.</span>
+              4 étapes,<br />
+              <span className="italic text-foreground/50">zéro surprises.</span>
             </h2>
           </div>
-          <ol className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-white/6">
-            {etapes.map((e) => (
-              <li key={e.num} className="bg-background p-8 flex flex-col gap-4">
-                <span className="text-[10px] font-bold text-primary/60 uppercase tracking-widest">
-                  {e.num}
-                </span>
-                <h3 className="font-bold uppercase tracking-[0.08em] text-foreground text-[13px]">
-                  {e.title}
-                </h3>
-                <p className="text-[13px] text-foreground/50 leading-relaxed">{e.desc}</p>
-              </li>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-white/6">
+            {process.map((p) => (
+              <div key={p.step} className="bg-background p-8 flex flex-col gap-4">
+                <span className="text-[10px] font-bold text-primary/70 uppercase tracking-widest">{p.step}</span>
+                <h3 className="font-bold uppercase tracking-[0.08em] text-foreground text-[13px]">{p.title}</h3>
+                <p className="text-[13px] text-foreground/50 leading-relaxed">{p.description}</p>
+              </div>
             ))}
-          </ol>
+          </div>
         </div>
       </section>
 
-      {/* ── REALISATIONS ── */}
-      <section id="realisations" className="py-28 bg-background" aria-labelledby="real-heading">
+      {/* ── CREDENTIALS ── */}
+      <section className="py-24 bg-card" aria-labelledby="creds-heading">
+        <div className="mx-auto max-w-7xl px-6 lg:px-10">
+          <h2 id="creds-heading" className="sr-only">Notre expérience</h2>
+          <div className="grid md:grid-cols-4 gap-8">
+            {credentials.map((cred, idx) => (
+              <div key={idx} className="text-center">
+                <p className="font-black text-primary text-[2.5rem] leading-none mb-2">
+                  {cred.metric}
+                </p>
+                <p className="text-foreground/60 text-[13px] leading-relaxed">{cred.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── PROJETS ── */}
+      <section id="projets" className="py-24 bg-background" aria-labelledby="projets-heading">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <div className="mb-16">
-            <SectionLabel>Portfolio architectes</SectionLabel>
+            <SectionLabel>Portfolio</SectionLabel>
             <h2
-              id="real-heading"
+              id="projets-heading"
               className="font-black uppercase leading-none text-foreground text-balance"
-              style={{ fontSize: "clamp(1.8rem, 4vw, 3.2rem)", letterSpacing: "-0.02em" }}
+              style={{ fontSize: "clamp(1.8rem, 4vw, 3rem)", letterSpacing: "-0.02em" }}
             >
-              Nos réalisations{" "}
-              <span className="italic text-foreground/45">au Maroc.</span>
+              Réalisations<br />
+              <span className="italic text-foreground/50">pour architectes.</span>
             </h2>
           </div>
           <div className="grid md:grid-cols-3 gap-px bg-white/6">
             {[
               {
-                title: "Villa signature, Casablanca",
-                arch: "Collaboration architecte local",
-                category: "Architecture premium",
+                title: "Villa signature Casablanca",
+                type: "Architecture premium",
                 image: "/images/villa-prestige.jpg",
               },
               {
                 title: "Penthouse Rabat",
-                arch: "Design & domotique fusionnés",
-                category: "Résidentiel haut gamme",
+                type: "Résidentiel haut gamme",
                 image: "/images/hero-residential.jpg",
               },
               {
-                title: "Résidence prestige Marrakech",
-                arch: "Expertise multi-protocoles",
-                category: "Hospitalité luxe",
+                title: "Résidence Marrakech",
+                type: "Hospitalité luxe",
                 image: "/images/hero-bg.jpg",
               },
             ].map((proj) => (
-              <div
-                key={proj.title}
-                className="relative overflow-hidden group aspect-[4/5]"
-              >
+              <div key={proj.title} className="relative overflow-hidden group aspect-[4/5] bg-background">
                 <Image
                   src={proj.image}
-                  alt={`${proj.title} — ${proj.arch}`}
+                  alt={proj.title}
                   fill
                   sizes="(max-width: 768px) 100vw, 33vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/30 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-transparent to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-6">
                   <p className="text-[10px] uppercase tracking-[0.2em] text-primary mb-2 font-semibold">
-                    {proj.category}
+                    {proj.type}
                   </p>
                   <p className="font-bold uppercase tracking-[0.05em] text-foreground text-[13px]">
                     {proj.title}
                   </p>
-                  <p className="text-[12px] text-foreground/55 mt-1">{proj.arch}</p>
                 </div>
               </div>
             ))}
@@ -296,34 +288,26 @@ export default function ArchitectesPage() {
       </section>
 
       {/* ── CTA FINAL ── */}
-      <section className="py-28 bg-card" aria-label="Collaboration pour votre projet">
+      <section className="py-28 bg-card" aria-label="Discutons de votre projet">
         <div className="mx-auto max-w-3xl px-6 text-center">
-          <SectionLabel>Donnons vie à votre vision</SectionLabel>
+          <SectionLabel>Prêt à collaborer ?</SectionLabel>
           <h2
-            className="font-black uppercase leading-none text-foreground text-balance mb-6"
-            style={{ fontSize: "clamp(2rem, 5vw, 3.8rem)", letterSpacing: "-0.03em" }}
+            className="font-black uppercase leading-none text-foreground text-balance mb-8"
+            style={{ fontSize: "clamp(1.8rem, 4vw, 3.2rem)", letterSpacing: "-0.03em" }}
           >
-            Donnons vie à votre<br />
+            Discutons de votre<br />
             <span className="italic text-foreground/50">prochaine réalisation.</span>
           </h2>
-          <p className="text-foreground/50 text-[15px] leading-relaxed mb-10 max-w-md mx-auto">
-            Discutons de la manière dont une intégration technologique réfléchie peut ajouter une valeur inédite à vos projets d'architecture au Maroc.
+          <p className="text-foreground/55 text-[15px] leading-relaxed mb-12 max-w-xl mx-auto">
+            Intégration technologique invisible, collaboration BIM, garantie long terme. Parlons de comment augmenter la valeur de vos projets.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/contact"
-              className="focus-ring inline-flex items-center gap-3 bg-primary px-10 py-4 text-[11px] font-black uppercase tracking-[0.2em] hover:bg-primary/85 transition-all duration-300"
-              style={{ color: "#0a0a0a" }}
-            >
-              Planifier un échange <ArrowRight size={13} aria-hidden="true" />
-            </Link>
-            <Link
-              href="#realisations"
-              className="focus-ring inline-flex items-center gap-3 border border-white/20 px-8 py-4 text-[11px] uppercase tracking-[0.2em] text-foreground/60 hover:border-primary hover:text-primary transition-all duration-300"
-            >
-              Voir nos projets <ArrowRight size={13} aria-hidden="true" />
-            </Link>
-          </div>
+          <Link
+            href="/contact"
+            className="focus-ring inline-flex items-center gap-3 bg-primary px-12 py-4 text-[11px] font-black uppercase tracking-[0.2em] hover:bg-primary/85 transition-all duration-300"
+            style={{ color: "#0a0a0a" }}
+          >
+            Prendre rendez-vous <ArrowRight size={13} aria-hidden="true" />
+          </Link>
         </div>
       </section>
     </>
