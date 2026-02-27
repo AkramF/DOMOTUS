@@ -4,13 +4,17 @@ import { Analytics } from "@vercel/analytics/react";
 import dynamic from "next/dynamic";
 import Navbar from "@/components/sections/Navbar";
 import Footer from "@/components/sections/Footer";
-import ScrollProgress from "@/components/sections/ScrollProgress";
 import "./globals.css";
 
-// Lazy load non-critical components to reduce render-blocking CSS
+// Lazy load non-critical components to reduce render-blocking CSS and JS
+const ScrollProgress = dynamic(() => import("@/components/sections/ScrollProgress"), {
+  loading: () => null,
+  ssr: true,
+});
+
 const StickyMobileCTA = dynamic(() => import("@/components/sections/StickyMobileCTA"), {
   loading: () => null,
-  ssr: true, // Keep SSR enabled to avoid hydration mismatch
+  ssr: true,
 });
 
 const montserrat = Montserrat({
@@ -130,23 +134,6 @@ export default function RootLayout({
         {/* Preconnect for Google Fonts */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        
-        {/* Defer non-critical CSS to prevent render blocking using media print technique */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              const link = document.createElement('link');
-              link.rel = 'stylesheet';
-              link.href = '/_next/static/css/app.css';
-              link.media = 'print';
-              link.onload = function() { this.media = 'all'; };
-              document.head.appendChild(link);
-            `,
-          }}
-        />
-        <noscript>
-          <link rel="stylesheet" href="/_next/static/css/app.css" />
-        </noscript>
         
         {/* Structured Data — LocalBusiness */}
         <script
