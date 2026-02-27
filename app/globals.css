@@ -143,6 +143,29 @@
 }
 
 /* =========================================================
+   ANIMATIONS — Image & Hero optimizations
+   ========================================================= */
+@keyframes fadeInImage {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@layer components {
+  .animate-fade-in {
+    @apply opacity-0;
+    animation: fadeInImage 0.6s ease-out forwards;
+  }
+
+  .animate-fade-in.loaded {
+    @apply opacity-100;
+  }
+}
+
+/* =========================================================
    BASE RESET & GLOBAL RULES
    ========================================================= */
 @layer base {

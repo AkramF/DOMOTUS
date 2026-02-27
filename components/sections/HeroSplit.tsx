@@ -16,15 +16,24 @@ export default function Hero() {
       className="relative w-full h-screen min-h-[600px] overflow-hidden"
       aria-label="Domotus — Maison connectée au Maroc"
     >
-      {/* Background image */}
-      <Image
-        src="/images/hero-bg.jpg"
-        alt="Villa intelligente équipée par Domotus au Maroc"
-        fill
-        priority
-        sizes="100vw"
-        className="object-cover object-center"
-      />
+      {/* Background image wrapper with animation */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+        className="absolute inset-0"
+      >
+        {/* Background image — WebP with fallback, optimized for performance */}
+        <Image
+          src="/images/hero-bg.webp"
+          alt="Villa intelligente équipée par Domotus au Maroc"
+          fill
+          priority
+          sizes="100vw"
+          quality={85}
+          className="object-cover object-center"
+        />
+      </motion.div>
 
       {/* Dark overlay — layered for depth and text readability */}
       <div className="absolute inset-0 bg-background/65" />
