@@ -59,38 +59,19 @@ export default function Hero() {
           <span className="block w-10 h-px bg-foreground/30" aria-hidden="true" />
         </motion.div>
 
-        {/* H1 — single semantic tag, two visual lines */}
+        {/* H1 — single semantic tag, two visual lines — NO ANIMATION for LCP optimization */}
         <h1
           className="font-black uppercase leading-[0.88] text-foreground text-center"
           style={{ fontSize: "clamp(2.4rem, 7vw, 6rem)", letterSpacing: "-0.02em" }}
         >
-          <motion.span
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className="block"
-          >
-            La signature
-          </motion.span>
-          <motion.span
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.58, ease: [0.22, 1, 0.36, 1] }}
-            className="block italic text-foreground/65"
-          >
-            technologique.
-          </motion.span>
+          <span className="block">La signature</span>
+          <span className="block italic text-foreground/65">technologique.</span>
         </h1>
 
-        {/* Subheading — benefit-led */}
-        <motion.p
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.75, ease: "easeOut" }}
-          className="mt-7 text-sm md:text-[15px] text-foreground/60 leading-relaxed max-w-lg text-balance"
-        >
+        {/* Subheading — benefit-led — NO ANIMATION for LCP optimization */}
+        <p className="mt-7 text-sm md:text-[15px] text-foreground/60 leading-relaxed max-w-lg text-balance">
           L&apos;expérience de vos espaces, réinventée. Là où la technologie crée confort, sécurité et sérénité, Domotus transforme maisons et immeubles en écosystèmes intelligents.
-        </motion.p>
+        </p>
 
         {/* CTAs — B2C Primary + B2B Secondary */}
         <motion.div
