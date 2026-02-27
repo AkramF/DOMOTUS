@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { ArrowRight, CheckCircle2, Check } from "lucide-react";
 import SectionLabel from "@/components/ui/section-label";
 
 export const metadata: Metadata = {
@@ -44,6 +44,57 @@ const avantages = [
     num: "04",
     title: "SAV & garantie longue durée",
     desc: "Nous prenons en charge la maintenance de vos résidents après livraison. Contrats pluriannuels, astreinte 24h/7j, télémaintenance. Votre image de marque est protégée.",
+  },
+];
+
+const packs = [
+  {
+    name: "Pack Basic",
+    subtitle: "Sécurité & Énergie",
+    description: "Le socle indispensable pour tous vos programmes",
+    features: [
+      "Éclairage intelligent (capteurs de présence, gradation)",
+      "Contrôle du climat (thermostats programmables)",
+      "Détection d'intrusion et vidéosurveillance",
+      "Serrures électroniques connectées",
+      "Architecture KNX/Zigbee",
+      "Interface simple par smartphone",
+    ],
+    use_case: "Résidences à l'accès progressif, programmes pérennes",
+    seo_keywords: "KNX, énergie intelligente, sécurité résidentielle",
+  },
+  {
+    name: "Pack Premium",
+    subtitle: "Expérience Totale",
+    description: "Pour vos programmes très haut de gamme",
+    features: [
+      "Tous les avantages du Pack Basic",
+      "Scénarisation d'ambiance (Cinéma, Accueil, Détente)",
+      "Audio multi-room avec intégration musicale",
+      "Contrôle des stores motorisés",
+      "Interface tactile centrale dans chaque unité",
+      "Intégration Crestron ou Lutron",
+      "API pour domotique personnalisée",
+    ],
+    use_case: "Villas de prestige, penthouses, résidences de luxe",
+    seo_keywords: "Crestron, Lutron, scénarisation, audio multi-room",
+  },
+  {
+    name: "Smart Building",
+    subtitle: "Gestion Immeuble",
+    description: "Pour la gestion collective et l'efficience énergétique",
+    features: [
+      "Tous les avantages du Pack Premium",
+      "Système BMS (Building Management System)",
+      "Contrôle d'accès centralisé pour parties communes",
+      "Visiophonie sur smartphone pour syndic",
+      "Monitoring énergétique par lot et global",
+      "Alertes maintenance préventive",
+      "Certification HQE / BREEAM / LEED",
+      "Rapport ROI énergétique détaillé",
+    ],
+    use_case: "Immeubles collectifs, complexes résidentiels, copropriétés",
+    seo_keywords: "BMS, gestion énergétique, Smart Building, HQE",
   },
 ];
 
@@ -176,6 +227,67 @@ export default function PromoteursPage() {
               </li>
             ))}
           </ol>
+        </div>
+      </section>
+
+      {/* ── NOS PACKS D'ÉQUIPEMENT ── */}
+      <section className="py-28 bg-background" aria-labelledby="packs-heading">
+        <div className="mx-auto max-w-7xl px-6 lg:px-10">
+          <div className="mb-16">
+            <SectionLabel>Moduler votre offre</SectionLabel>
+            <h2
+              id="packs-heading"
+              className="font-black uppercase leading-none text-foreground text-balance"
+              style={{ fontSize: "clamp(1.8rem, 4vw, 3.2rem)", letterSpacing: "-0.02em" }}
+            >
+              Nos packs d'équipement<br />
+              <span className="italic text-foreground/45">adaptés à chaque standing.</span>
+            </h2>
+          </div>
+          <p className="text-[15px] text-foreground/60 max-w-2xl mb-16">
+            Modulez votre offre selon le standing de votre programme. De l'accès progressif au très haut de gamme, nous avons les solutions. Chaque pack est livré avec support réactif et maintenance incluse.
+          </p>
+
+          <div className="grid lg:grid-cols-3 gap-8">
+            {packs.map((pack, idx) => (
+              <div
+                key={pack.name}
+                className={`rounded-lg overflow-hidden transition-all duration-300 flex flex-col ${idx === 1 ? "lg:scale-105 lg:shadow-2xl border-2 border-primary" : "border border-white/10"} bg-card`}
+              >
+                {/* Header */}
+                <div className={`px-8 pt-10 pb-8 ${idx === 1 ? "bg-primary/10" : "bg-background"}`}>
+                  <span className="text-[11px] uppercase tracking-[0.2em] text-primary font-bold">{pack.subtitle}</span>
+                  <h3 className="font-black uppercase text-foreground text-[24px] mt-3 mb-2">{pack.name}</h3>
+                  <p className="text-[14px] text-foreground/60">{pack.description}</p>
+                </div>
+
+                {/* Features */}
+                <div className="flex-1 px-8 py-8">
+                  <ul className="flex flex-col gap-4">
+                    {pack.features.map((feature) => (
+                      <li key={feature} className="flex items-start gap-3">
+                        <Check size={16} className="text-primary shrink-0 mt-0.5" aria-hidden="true" />
+                        <span className="text-[13px] text-foreground/70 leading-relaxed">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Footer */}
+                <div className="px-8 py-8 border-t border-white/8">
+                  <p className="text-[11px] uppercase tracking-[0.15em] text-foreground/40 mb-2">Cas d'usage</p>
+                  <p className="text-[13px] font-semibold text-foreground mb-4">{pack.use_case}</p>
+                  <p className="text-[10px] text-foreground/40 italic">Keywords SEO: {pack.seo_keywords}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-16 bg-card p-10 rounded border border-white/8">
+            <p className="text-[14px] text-foreground/70 max-w-3xl">
+              <span className="font-bold text-foreground">Note importante :</span> Tous nos packs sont installés selon la méthodologie Domotus rigoureuse : intégration anticipée dès conception, architecture invisible, coordination BIM, documentation technique complète, et support SAV 4h inclus pendant 5 ans minimum.
+            </p>
+          </div>
         </div>
       </section>
 
