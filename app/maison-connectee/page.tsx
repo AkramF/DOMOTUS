@@ -26,7 +26,6 @@ const benefices = [
 
 const modesVie = [
   {
-    emoji: "🌕",
     title: "Réveil Sérénité",
     experience: "Une transition douce vers la lumière du jour.",
     action: "À l'heure choisie, les volets s'entrouvrent, le plancher chauffant de la salle de bain s'active, et une playlist douce accompagne votre premier café.",
@@ -34,7 +33,6 @@ const modesVie = [
     image: "/images/mode-reveil.jpg",
   },
   {
-    emoji: "🎭",
     title: "Réception Royale",
     experience: "Votre villa devient une mise en scène pour vos convives.",
     action: "Un seul clic active l'éclairage architectural extérieur, les cascades de la piscine et une ambiance lumineuse intérieure 'Ambre chaud'.",
@@ -42,7 +40,6 @@ const modesVie = [
     image: "/images/mode-reception.jpg",
   },
   {
-    emoji: "🎬",
     title: "Cinéma Privé",
     experience: "L'immersion totale du septième art.",
     action: "Les rideaux occultants se ferment, les lumières s'éteignent en fondu, et votre système audio haute-fidélité calibré prend le contrôle.",
@@ -50,7 +47,6 @@ const modesVie = [
     image: "/images/mode-cinema.jpg",
   },
   {
-    emoji: "🛡️",
     title: "Vigilance Totale",
     experience: "Le sentiment d'un cocon inviolable.",
     action: "Fermeture centralisée, simulation de présence par l'éclairage et activation de la barrière périmétrique invisible.",
@@ -209,7 +205,6 @@ export default function VillasPage() {
       {/* ── ESPACES INTELLIGENTS ── */}
       <section className="relative py-0 bg-background overflow-hidden" aria-labelledby="espaces-heading">
         <div className="mx-auto max-w-7xl px-6 lg:px-10 pt-28 pb-20">
-          <SectionLabel>Chaque espace réinventé</SectionLabel>
           <h2
             id="espaces-heading"
             className="font-black uppercase leading-none text-foreground text-balance mb-4"
@@ -342,7 +337,6 @@ export default function VillasPage() {
                     loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
-                  <div className="absolute top-4 left-4 text-3xl">{mode.emoji}</div>
                 </div>
 
                 {/* Content */}
