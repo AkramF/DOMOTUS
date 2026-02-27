@@ -10,6 +10,9 @@ const nextConfig = {
   experimental: {
     optimizePackageImports: ['framer-motion', 'lucide-react'],
   },
+  swcMinify: true,
+  compress: true,
+  productionBrowserSourceMaps: false,
   async redirects() {
     return [
       {
