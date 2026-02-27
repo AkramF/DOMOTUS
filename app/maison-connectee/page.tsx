@@ -24,38 +24,42 @@ const benefices = [
   { num: "15 ans", label: "de durabilité garantie sur les systèmes multi-protocoles" },
 ];
 
-const experiences = [
+const modesVie = [
   {
-    time: "06:45",
-    title: "Le matin qui vous attend",
-    description: "Les volets s'ouvrent doucement. La lumière monte progressivement. La cafetière démarre. La température passe à 21°. Votre maison vous dit bonjour.",
-    image: "/images/expertise-eclairage.jpg",
-    imageAlt: "Éclairage circadien automatique Lutron dans une villa de luxe",
-    details: ["Éclairage circadien", "Ouverture volets", "Chauffage", "Café prêt"],
+    title: "Réveil Sérénité",
+    experience: "Une transition douce vers la lumière du jour.",
+    action: "À l'heure choisie, les volets s'entrouvrent, le plancher chauffant de la salle de bain s'active, et une playlist douce accompagne votre premier café.",
+    benefit: "Commencer la journée dans une harmonie parfaite.",
+    image: "/images/mode-reveil.jpg",
   },
   {
-    time: "15:30",
-    title: "La sécurité que vous méritez",
-    description: "Vos enfants rentrent : notification. Une présence à l'entrée : alerte. Votre villa veille sur ce qui compte le plus pour vous.",
-    image: "/images/expertise-securite.jpg",
-    imageAlt: "Sécurité biométrique et vidéosurveillance domotique au Maroc",
-    details: ["Détection présence", "Notifications temps réel", "Biométrie", "Surveillance 24/7"],
+    title: "Réception Royale",
+    experience: "Votre villa devient une mise en scène pour vos convives.",
+    action: "Un seul clic active l'éclairage architectural extérieur, les cascades de la piscine et une ambiance lumineuse intérieure 'Ambre chaud'.",
+    benefit: "Sublimer l'architecture et l'accueil sans quitter vos invités.",
+    image: "/images/mode-reception.jpg",
   },
   {
-    time: "18:00",
-    title: "L'ambiance que vous créez",
-    description: "Vous invitez du monde. Un clic. La lumière devient douce et chaleureuse. La musique s'adapte à votre sélection. Les volets se ferment. Vous n'êtes plus en train de gérer, vous vivez.",
-    image: "/images/expertise-energia.jpg",
-    imageAlt: "Ambiance personnalisée dans une villa connectée Domotus",
-    details: ["Scénarios d'ambiance", "Éclairage RGBW", "Musique multi-zone", "Intimité garantie"],
+    title: "Cinéma Privé",
+    experience: "L'immersion totale du septième art.",
+    action: "Les rideaux occultants se ferment, les lumières s'éteignent en fondu, et votre système audio haute-fidélité calibré prend le contrôle.",
+    benefit: "Le confort d'une salle obscure, l'intimité de votre foyer.",
+    image: "/images/mode-cinema.jpg",
+  },
+  {
+    title: "Vigilance Totale",
+    experience: "Le sentiment d'un cocon inviolable.",
+    action: "Fermeture centralisée, simulation de présence par l'éclairage et activation de la barrière périmétrique invisible.",
+    benefit: "Une tranquillité absolue, que vous soyez chez vous ou à l'autre bout du monde.",
+    image: "/images/mode-vigilance.jpg",
   },
 ];
 
 const etapes = [
-  { num: "01", title: "Audit technique en 48h", desc: "Nous visitons, nous écoutons, nous analysons. Aucun frais, aucun engagement. Juste une écoute professionnelle de vos besoins et de votre espace." },
-  { num: "02", title: "Architecture invisible", desc: "Nos ingénieurs certifiés multi-protocoles co-conçoivent avec votre architecte. Tout est pensé pour disparaître dans les murs. L'intelligence est là. Elle ne se voit pas." },
-  { num: "03", title: "Installation en 4–8 semaines", desc: "Nos équipes maîtrisent chaque phase de chantier. Pose propre, câblage structuré, tests systémiques complets avant la remise des clés." },
-  { num: "04", title: "Vous restez maître", desc: "Formation complète, documentation personnalisée. Notre SAV répond sous 4h. Votre système évolue avec vous, sans jamais vous rendre dépendant." },
+  { num: "01", title: "Audit & Immersion", desc: "Nous analysons vos plans et vos habitudes pour une conception sur-mesure. Une visite dédiée en 48h pour comprendre votre vision." },
+  { num: "02", title: "Architecture Invisible", desc: "Nos ingénieurs co-conçoivent avec votre architecte pour intégrer la technologie dans le bâti, sans jamais la montrer." },
+  { num: "03", title: "Installation Signature", desc: "Un déploiement rigoureux sur les standards mondiaux (KNX, Crestron, Lutron). Précision d'orfèvre, respect des délais." },
+  { num: "04", title: "Accompagnement Privilège", desc: "Formation personnalisée, documentation complète et SAV sous 4h. Votre système évolue avec vous, à jamais." },
 ];
 
 const espaces = [
@@ -165,25 +169,35 @@ export default function VillasPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Link href="/contact" className="focus-ring inline-flex items-center gap-3 bg-primary px-8 py-4 text-[11px] font-black uppercase tracking-[0.2em] transition-all duration-300 hover:bg-primary/85" style={{ color: "#0a0a0a" }}>
-              Audit technique en 48h <ArrowRight size={13} aria-hidden="true" />
+              Démarrer mon étude personnalisée <ArrowRight size={13} aria-hidden="true" />
             </Link>
-            <Link href="/expertises" className="focus-ring inline-flex items-center gap-3 border border-white/25 px-8 py-4 text-[11px] uppercase tracking-[0.2em] text-foreground/70 hover:border-primary hover:text-primary transition-all duration-300">
-              Nos expertises <ArrowRight size={13} aria-hidden="true" />
+            <Link href="#modes-vie" className="focus-ring inline-flex items-center gap-3 border border-white/25 px-8 py-4 text-[11px] uppercase tracking-[0.2em] text-foreground/70 hover:border-primary hover:text-primary transition-all duration-300">
+              Explorer les modes de vie <ArrowRight size={13} aria-hidden="true" />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* ── STATS ROW ── */}
-      <section className="bg-card border-y border-white/6" aria-label="Résultats mesurables domotique Domotus">
+      {/* ── TRUST BAR (La Réassurance Immédiate) ── */}
+      <section className="bg-card border-y border-white/6" aria-label="Promesses Domotus">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <dl className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-y lg:divide-y-0 divide-white/6">
-            {benefices.map((b) => (
-              <div key={b.label} className="px-8 py-8 flex flex-col gap-1">
-                <dt className="text-[11px] uppercase tracking-[0.18em] text-foreground/40 order-2 leading-snug">{b.label}</dt>
-                <dd className="font-black text-foreground order-1" style={{ fontSize: "clamp(1.8rem, 3vw, 2.6rem)" }}>{b.num}</dd>
-              </div>
-            ))}
+            <div className="px-8 py-8 flex flex-col gap-2">
+              <dt className="text-[11px] uppercase tracking-[0.18em] text-foreground/40 leading-snug">10 Ans d'Expertise</dt>
+              <dd className="font-semibold text-foreground text-[13px]">L'intégrateur de référence pour les projets résidentiels de prestige au Maroc.</dd>
+            </div>
+            <div className="px-8 py-8 flex flex-col gap-2">
+              <dt className="text-[11px] uppercase tracking-[0.18em] text-foreground/40 leading-snug">+18% de Valeur</dt>
+              <dd className="font-semibold text-foreground text-[13px]">Valorisez votre patrimoine grâce à une infrastructure technologique pérenne.</dd>
+            </div>
+            <div className="px-8 py-8 flex flex-col gap-2">
+              <dt className="text-[11px] uppercase tracking-[0.18em] text-foreground/40 leading-snug">−22% Facture</dt>
+              <dd className="font-semibold text-foreground text-[13px]">Optimisation intelligente du climat et de l'éclairage dès le premier mois.</dd>
+            </div>
+            <div className="px-8 py-8 flex flex-col gap-2">
+              <dt className="text-[11px] uppercase tracking-[0.18em] text-foreground/40 leading-snug">SAV Prioritaire 4h</dt>
+              <dd className="font-semibold text-foreground text-[13px]">Une assistance VIP dédiée pour une sérénité totale, 7j/7.</dd>
+            </div>
           </dl>
         </div>
       </section>
@@ -191,7 +205,6 @@ export default function VillasPage() {
       {/* ── ESPACES INTELLIGENTS ── */}
       <section className="relative py-0 bg-background overflow-hidden" aria-labelledby="espaces-heading">
         <div className="mx-auto max-w-7xl px-6 lg:px-10 pt-28 pb-20">
-          <SectionLabel>Chaque espace réinventé</SectionLabel>
           <h2
             id="espaces-heading"
             className="font-black uppercase leading-none text-foreground text-balance mb-4"
@@ -291,130 +304,73 @@ export default function VillasPage() {
         </div>
       </section>
 
-      {/* ── STORYTELLING EXPERIENCES ── */}
-      <section className="relative py-28 bg-background" aria-labelledby="experiences-heading">
+      {/* ── L'IMMERSION: VOS MODES DE VIE (Le Cœur Émotionnel) ── */}
+      <section id="modes-vie" className="relative py-28 bg-background" aria-labelledby="modes-heading">
         <div className="mx-auto max-w-6xl px-6 lg:px-10">
-          {/* Header */}
           <div className="mb-20 max-w-2xl">
-            <SectionLabel>24 heures dans votre maison</SectionLabel>
+            <SectionLabel>Vos moments de vie</SectionLabel>
             <h2
-              id="experiences-heading"
+              id="modes-heading"
               className="font-black uppercase leading-none text-foreground text-balance"
               style={{ fontSize: "clamp(1.8rem, 4vw, 3.2rem)", letterSpacing: "-0.02em" }}
             >
-              Ce que vous vivez{" "}
-              <span className="italic text-foreground/45">vraiment.</span>
+              L'immersion: vos<br />
+              <span className="italic text-foreground/45">modes de vie.</span>
             </h2>
             <p className="text-[14px] text-foreground/60 leading-relaxed mt-6">
-              Chaque moment de votre journée transformé. Pas de technologie visible. Juste une maison qui vous comprend et qui s'adapte.
+              Chaque instant transformé en expérience. De l'aube sereine au repos paisible, votre maison s'adapte à chaque moment de votre vie.
             </p>
           </div>
 
-          {/* Timeline */}
-          <div className="relative">
-            {/* Timeline line - vertical */}
-            <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-primary via-primary/50 to-transparent transform -translate-x-1/2" />
+          {/* Modes Grid */}
+          <div className="grid md:grid-cols-2 gap-8">
+            {modesVie.map((mode) => (
+              <div key={mode.title} className="group relative bg-card rounded overflow-hidden hover:shadow-lg transition-all duration-300">
+                {/* Image */}
+                <div className="relative h-64 overflow-hidden bg-background/50">
+                  <Image
+                    src={mode.image}
+                    alt={mode.title}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
+                </div>
 
-            {/* Timeline items */}
-            <div className="space-y-20 md:space-y-32">
-              {experiences.map((exp, idx) => (
-                <div key={exp.title} className="group">
-                  <div className={`grid md:grid-cols-2 gap-12 md:gap-20 items-center ${idx % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"}`}>
-                    {/* Image side */}
-                    <div className={`relative overflow-hidden aspect-video md:aspect-square ${idx % 2 === 0 ? "md:order-2" : "md:order-1"}`}>
-                      <Image
-                        src={exp.image}
-                        alt={exp.imageAlt}
-                        fill
-                        className="object-cover transition-transform duration-700 group-hover:scale-105"
-                        sizes="(max-width: 768px) 100vw, 50vw"
-                        loading={idx === 0 ? "eager" : "lazy"}
-                      />
-                      {/* Overlay time badge */}
-                      <div className="absolute top-6 left-6 inline-flex items-center justify-center w-16 h-16 rounded-full bg-background/90 backdrop-blur border border-primary/30">
-                        <span className="font-black text-primary text-[18px] tracking-tight">{exp.time}</span>
-                      </div>
-                    </div>
+                {/* Content */}
+                <div className="p-8">
+                  <h3 className="font-black uppercase text-foreground text-[14px] mb-3">{mode.title}</h3>
+                  <p className="text-primary text-[13px] font-medium mb-4">{mode.experience}</p>
+                  
+                  <div className="bg-background/50 p-4 rounded mb-4 border border-white/5">
+                    <p className="text-[13px] text-foreground/70 leading-relaxed">{mode.action}</p>
+                  </div>
 
-                    {/* Content side */}
-                    <div className={`flex flex-col justify-center ${idx % 2 === 0 ? "md:order-1" : "md:order-2"}`}>
-                      {/* Timeline dot - visible on desktop */}
-                      <div className="hidden md:block absolute left-1/2 w-4 h-4 bg-primary rounded-full transform -translate-x-1/2 -translate-y-1/2 top-1/4 -ml-2 border-4 border-background shadow-lg" />
-
-                      {/* Content */}
-                      <div className="max-w-xl">
-                        {/* Time label mobile */}
-                        <div className="md:hidden mb-4 flex items-baseline gap-3">
-                          <span className="text-[24px] font-black text-primary">{exp.time}</span>
-                          <div className="h-px flex-grow bg-primary/30" />
-                        </div>
-
-                        {/* Title */}
-                        <h3
-                          className="font-black uppercase leading-tight text-foreground mb-4"
-                          style={{ fontSize: "clamp(1.4rem, 3vw, 2.2rem)", letterSpacing: "-0.01em" }}
-                        >
-                          {exp.title}
-                        </h3>
-
-                        {/* Description */}
-                        <p className="text-[15px] text-foreground/70 leading-relaxed mb-8">
-                          {exp.description}
-                        </p>
-
-                        {/* Details tags */}
-                        <div className="flex flex-wrap gap-2 mb-8">
-                          {exp.details.map((detail) => (
-                            <span
-                              key={detail}
-                              className="inline-block px-3 py-1.5 bg-primary/10 border border-primary/20 rounded text-[11px] font-semibold text-primary uppercase tracking-wider hover:bg-primary/20 transition-colors duration-300"
-                            >
-                              {detail}
-                            </span>
-                          ))}
-                        </div>
-
-                        {/* Arrow indicator */}
-                        <div className="flex items-center gap-2 text-[11px] text-foreground/40 group-hover:text-primary transition-colors duration-300">
-                          <span>Découvrir plus</span>
-                          <ArrowRight size={12} className="transition-transform group-hover:translate-x-1" aria-hidden="true" />
-                        </div>
-                      </div>
-                    </div>
+                  <div className="flex items-start gap-2">
+                    <span className="text-primary font-bold mt-0.5">✓</span>
+                    <p className="text-[13px] text-foreground/60">{mode.benefit}</p>
                   </div>
                 </div>
-              ))}
-            </div>
-          </div>
-
-          {/* CTA Section */}
-          <div className="mt-24 pt-20 border-t border-white/8 text-center">
-            <p className="text-[14px] text-foreground/60 mb-6">
-              Prêt à vivre cette expérience dans votre propre maison ?
-            </p>
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 px-8 py-3 bg-primary text-background font-black uppercase tracking-[0.1em] text-[11px] hover:bg-primary/90 transition-all duration-300 group/cta"
-            >
-              Démarrer votre transformation
-              <ArrowRight size={12} className="transition-transform group-hover/cta:translate-x-1" aria-hidden="true" />
-            </Link>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* ── PROCESS ── */}
+      {/* ── LA MÉTHODE DOMOTUS (Le Parcours sans friction) ── */}
       <section className="py-28 bg-card" aria-labelledby="process-heading">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <div className="mb-16">
-            <SectionLabel>Notre méthode</SectionLabel>
+            <SectionLabel>Du rêve à la réalité</SectionLabel>
             <h2
               id="process-heading"
               className="font-black uppercase leading-none text-foreground text-balance max-w-xl"
               style={{ fontSize: "clamp(1.8rem, 4vw, 3.2rem)", letterSpacing: "-0.02em" }}
             >
-              De la visite à la remise{" "}
-              <span className="italic text-foreground/45">des clés.</span>
+              La méthode<br />
+              <span className="italic text-foreground/45">Domotus.</span>
             </h2>
           </div>
           <ol className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-white/6">
@@ -466,33 +422,16 @@ export default function VillasPage() {
       {/* ── CTA ── */}
       <section className="py-28 bg-card" aria-label="Demande de devis domotique Maroc">
         <div className="mx-auto max-w-3xl px-6 text-center">
-          <SectionLabel>Passez à l'action</SectionLabel>
           <h2
-            className="font-black uppercase leading-none text-foreground text-balance mb-6"
+            className="font-black uppercase leading-none text-foreground text-balance mb-10"
             style={{ fontSize: "clamp(2rem, 5vw, 3.8rem)", letterSpacing: "-0.03em" }}
           >
             Votre villa mérite mieux<br />
             <span className="italic text-foreground/50">qu'un interrupteur.</span>
           </h2>
-          <p className="text-foreground/50 text-[15px] leading-relaxed mb-4 max-w-md mx-auto">
-            Audit technique personnalisé. Aucun engagement.
-          </p>
-          <ul className="flex flex-wrap justify-center gap-x-8 gap-y-2 mb-10">
-            {["Certifié Multi-Protocoles", "Intervention Casablanca & Marrakech", "SAV sous 4h"].map((item) => (
-              <li key={item} className="flex items-center gap-2 text-[12px] text-foreground/50">
-                <CheckCircle2 size={13} className="text-primary shrink-0" aria-hidden="true" />
-                {item}
-              </li>
-            ))}
-          </ul>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contact" className="focus-ring inline-flex items-center gap-3 bg-primary px-10 py-4 text-[11px] font-black uppercase tracking-[0.2em] hover:bg-primary/85 transition-all duration-300" style={{ color: "#0a0a0a" }}>
-              Demander mon audit technique <ArrowRight size={13} aria-hidden="true" />
-            </Link>
-            <Link href="/expertises" className="focus-ring inline-flex items-center gap-3 border border-white/20 px-8 py-4 text-[11px] uppercase tracking-[0.2em] text-foreground/60 hover:border-primary hover:text-primary transition-all duration-300">
-              Découvrir nos expertises <ArrowRight size={13} aria-hidden="true" />
-            </Link>
-          </div>
+          <Link href="/contact" className="focus-ring inline-flex items-center gap-3 bg-primary px-10 py-5 text-[11px] font-black uppercase tracking-[0.2em] hover:bg-primary/85 transition-all duration-300" style={{ color: "#0a0a0a" }}>
+            Demander mon audit technique gratuit <ArrowRight size={13} aria-hidden="true" />
+          </Link>
         </div>
       </section>
     </>

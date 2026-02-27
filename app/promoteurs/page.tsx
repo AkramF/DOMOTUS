@@ -5,8 +5,8 @@ import { ArrowRight, CheckCircle2 } from "lucide-react";
 import SectionLabel from "@/components/ui/section-label";
 
 export const metadata: Metadata = {
-  title: "Domotique pour Promoteurs Immobiliers — Valeur & Différenciation | Domotus",
-  description: "Domotique multi-protocoles (KNX, Crestron, Lutron) pour programmes immobiliers au Maroc. +18% de taux de vente, +15% de valeur m². Intégration dès conception.",
+  title: "Solutions Domotique pour Promoteurs Immobiliers — Rentabilité & Labels | Domotus",
+  description: "Augmentez la rentabilité de vos programmes immobiliers avec la domotique certifiée KNX. +18% de taux de vente, +15% de valeur au m², labels HQE/LEED. Intégration dès conception au Maroc.",
   alternates: { canonical: "https://www.domotus.ma/promoteurs" },
 };
 
@@ -65,25 +65,25 @@ export default function PromoteursPage() {
         <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6 pt-20">
           <div className="flex items-center gap-4 mb-6">
             <span className="block w-8 h-px bg-foreground/40" aria-hidden="true" />
-            <p className="text-[11px] uppercase tracking-[0.35em] text-primary font-medium">Tertiaire & Promoteurs — Maroc</p>
+            <p className="text-[11px] uppercase tracking-[0.35em] text-primary font-medium">Promoteurs Immobiliers — Maroc</p>
             <span className="block w-8 h-px bg-foreground/40" aria-hidden="true" />
           </div>
           <h1
             className="font-black uppercase leading-none text-foreground text-balance mb-6"
             style={{ fontSize: "clamp(2.5rem, 7vw, 6rem)", letterSpacing: "-0.03em" }}
           >
-            Vendez plus.<br />
-            <span className="italic text-foreground/60">Vendez mieux.</span>
+            L&apos;intelligence au service<br />
+            <span className="italic text-foreground/60">de votre rentabilité immobilière.</span>
           </h1>
-          <p className="text-[15px] text-foreground/70 max-w-xl text-balance leading-relaxed mb-10">
-            Domotus intègre l'intelligence domotique dans vos programmes dès la conception — pour augmenter votre valeur au m², accélérer vos ventes et décrocher les labels qui font la différence.
+          <p className="text-[15px] text-foreground/70 max-w-2xl text-balance leading-relaxed mb-10">
+            Accélérez la commercialisation de vos programmes grâce à la labellisation Smart Building. Domotus intègre des solutions certifiées multi-protocoles qui valorisent vos actifs, séduisent une clientèle exigeante et augmentent votre prix de vente moyen jusqu&apos;à 18%.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Link href="/contact" className="focus-ring inline-flex items-center gap-3 bg-primary px-8 py-4 text-[11px] font-black uppercase tracking-[0.2em] transition-all duration-300 hover:bg-primary/85" style={{ color: "#0a0a0a" }}>
               Discutons de votre programme <ArrowRight size={13} aria-hidden="true" />
             </Link>
-            <Link href="/expertises" className="focus-ring inline-flex items-center gap-3 border border-white/25 px-8 py-4 text-[11px] uppercase tracking-[0.2em] text-foreground/70 hover:border-primary hover:text-primary transition-all duration-300">
-              Nos expertises <ArrowRight size={13} aria-hidden="true" />
+            <Link href="/division-projets" className="focus-ring inline-flex items-center gap-3 border border-white/25 px-8 py-4 text-[11px] uppercase tracking-[0.2em] text-foreground/70 hover:border-primary hover:text-primary transition-all duration-300">
+              Division Projets <ArrowRight size={13} aria-hidden="true" />
             </Link>
           </div>
         </div>
