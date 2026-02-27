@@ -116,27 +116,23 @@ const testimonials = [
 const faqs = [
   {
     q: "Quel budget prévoir pour une intégration sur mesure ?",
-    a: "Chez Domotus, nous ne proposons pas de « kits standards ». Le budget de votre installation dépend de la superficie de vos espaces, de la complexité des scénarios souhaités et du choix des finitions (claviers en matériaux nobles, écrans tactiles). Lors de notre étude initiale, nous concevons une proposition sur mesure. Gardez à l'esprit qu'une installation domotique dans les règles de l'art valorise votre patrimoine immobilier de 15 à 25%.",
+    a: "Chez Domotus, nous ne proposons pas de « kits standards ». Le budget dépend de la superficie, de la complexité des scénarios souhaités et du choix des finitions. Lors de notre étude, nous proposons une solution sur mesure. Une installation valorise votre patrimoine de 15 à 25%.",
   },
   {
-    q: "Pourquoi privilégiez-vous le standard mondial KNX ?",
-    a: "Le luxe, c'est la pérennité. Contrairement aux solutions « gadgets » fermées qui deviennent obsolètes en quelques années, le standard KNX est un protocole ouvert, partagé par plus de 500 fabricants mondiaux. Il garantit que votre installation sera toujours réparable, évolutive et à la pointe de la technologie, même dans 20 ans. C'est l'assurance d'une infrastructure fiable et robuste.",
+    q: "Pourquoi privilégiez-vous le standard KNX ?",
+    a: "Le luxe, c'est la pérennité. KNX est un protocole ouvert partagé par 500+ fabricants mondiaux. Il garantit que votre installation reste réparable, évolutive et à la pointe, même dans 20 ans. C'est l'assurance d'une infrastructure fiable.",
   },
   {
-    q: "Intervenez-vous sur des propriétés déjà existantes ?",
-    a: "Absolument. Si la construction neuve permet une intégration filaire native, nos ingénieurs maîtrisent également les protocoles sans fil de très haute performance (Zigbee, Z-Wave, Matter). Nous pouvons ainsi sublimer une résidence existante ou en cours de rénovation, avec un minimum d'impact sur vos murs et une esthétique toujours irréprochable.",
+    q: "Intervenez-vous sur des propriétés existantes ?",
+    a: "Absolument. Si la construction neuve permet une intégration filaire native, nous maîtrisons aussi les protocoles sans fil haute performance (Zigbee, Z-Wave, Matter). Nous sublimes une résidence existante avec un minimum d'impact visuel.",
   },
   {
     q: "Comment s'intègre votre intervention dans le planning du chantier ?",
-    a: "Notre force réside dans la synergie avec vos équipes. Nous intervenons très en amont, dès la phase de conception, pour fournir les plans techniques (carnets de câblage) à votre architecte et à votre électricien. Nous coordonnons ensuite nos interventions au rythme du chantier pour garantir une livraison fluide, sans le moindre retard.",
+    a: "Nous intervenons en amont pour fournir les plans techniques à votre architecte et électricien. Nous coordonnons ensuite nos interventions au rythme du chantier pour garantir une livraison fluide et aucun retard.",
   },
   {
-    q: "Comment vais-je interagir avec mon nouvel espace ?",
-    a: "De la manière la plus intuitive possible. Si l'application smartphone vous permet un contrôle total à distance, au quotidien, la technologie s'efface. Vos espaces s'animent automatiquement selon l'heure ou votre présence, et vous gardez la main grâce à des claviers de commande au design épuré, ou par simple commande vocale. L'environnement s'adapte à vous, et non l'inverse.",
-  },
-  {
-    q: "Comment m'accompagnez-vous une fois le projet livré ?",
-    a: "La remise des clés n'est que le début de l'expérience Domotus. Nous vous formons à l'utilisation de votre écosystème et restons à vos côtés grâce à un service de supervision proactive. En cas de besoin, ou si vous souhaitez faire évoluer vos scénarios de vie, notre équipe technique intervient avec réactivité et discrétion.",
+    q: "Comment m'accompagnez-vous après la livraison ?",
+    a: "La remise des clés n'est que le début. Nous vous formons complètement et restons à vos côtés grâce à un service de supervision proactive. Si vous souhaitez faire évoluer vos scénarios, notre équipe intervient avec réactivité.",
   },
 ];
 
@@ -201,7 +197,7 @@ export default function HomePage() {
       </section>
 
       {/* ── BENEFIT-LED PROPOSITION ── */}
-      <section className="py-24 lg:py-36 bg-background" aria-labelledby="value-prop-heading">
+      <section className="py-28 lg:py-36 bg-background" aria-labelledby="value-prop-heading">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             <div>
@@ -278,25 +274,25 @@ export default function HomePage() {
       </section>
 
       {/* ── SERVICES GRID — benefit-first ── */}
-      <section className="py-24 bg-card" aria-labelledby="services-heading">
+      <section className="py-28 lg:py-36 bg-card" aria-labelledby="services-heading">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-14">
-            <div>
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-12 mb-16">
+            <div className="flex-1">
               <SectionLabel>L'intelligence de vos espaces</SectionLabel>
               <h2
                 id="services-heading"
                 className="font-black uppercase leading-none text-foreground text-balance"
                 style={{ fontSize: "clamp(1.8rem, 4vw, 3.2rem)", letterSpacing: "-0.02em" }}
               >
-                La maîtrise absolue{" "}
+                Maîtrise absolue<br />
                 <span className="italic text-foreground/45">de votre environnement.</span>
               </h2>
             </div>
             <Link
-              href="/maison-connectee"
+              href="/expertises"
               className="focus-ring shrink-0 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.15em] text-foreground/40 hover:text-primary transition-colors duration-300"
             >
-              Découvrir nos réalisations d'exception <ArrowRight size={12} aria-hidden="true" />
+              Toutes nos expertises <ArrowRight size={12} aria-hidden="true" />
             </Link>
           </div>
 
@@ -412,7 +408,7 @@ export default function HomePage() {
       </section>
 
       {/* ── TESTIMONIALS ── */}
-      <section className="py-24 bg-card" aria-labelledby="temoignages-heading">
+      <section className="py-28 lg:py-36 bg-card" aria-labelledby="temoignages-heading">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <div className="mb-14 text-center">
             <SectionLabel>Ils nous font confiance</SectionLabel>
@@ -449,7 +445,7 @@ export default function HomePage() {
       </section>
 
       {/* ── MARCHÉS — Résidentiel & Tertiaire ── */}
-      <section className="h-[55vh] lg:h-[65vh] grid lg:grid-cols-2 overflow-hidden" aria-label="Nos marchés domotique au Maroc">
+      <section className="h-[50vh] lg:h-[60vh] grid lg:grid-cols-2 overflow-hidden" aria-label="Nos marchés domotique au Maroc">
         <Link href="/maison-connectee" className="relative overflow-hidden group focus-ring block">
           <Image
             src="/images/villa-prestige.jpg"
@@ -497,17 +493,17 @@ export default function HomePage() {
       </section>
 
       {/* ── FAQ ── */}
-      <section className="py-24 lg:py-36 bg-background" aria-labelledby="faq-heading">
+      <section className="py-28 lg:py-36 bg-background" aria-labelledby="faq-heading">
         <div className="mx-auto max-w-4xl px-6 lg:px-10">
-          <div className="mb-14">
+          <div className="mb-16">
             <SectionLabel>Pour aller plus loin</SectionLabel>
             <h2
               id="faq-heading"
               className="font-black uppercase leading-none text-foreground text-balance"
               style={{ fontSize: "clamp(1.8rem, 4vw, 3.2rem)", letterSpacing: "-0.02em" }}
             >
-              Mieux comprendre{" "}
-              <span className="italic text-foreground/45">notre approche.</span>
+              Questions fréquentes<br />
+              <span className="italic text-foreground/45">sur votre projet.</span>
             </h2>
           </div>
           <script
@@ -525,74 +521,73 @@ export default function HomePage() {
             }}
           />
           <FaqAccordion items={faqs} />
-          <div className="mt-16 bg-card p-10 rounded-sm">
-            <h3 className="font-black uppercase text-foreground text-balance mb-4" style={{ fontSize: "clamp(1.4rem, 3vw, 2rem)" }}>
+          <div className="mt-16 bg-card p-12 rounded">
+            <h3 className="font-black uppercase text-foreground text-balance mb-4" style={{ fontSize: "clamp(1.4rem, 3vw, 1.8rem)" }}>
               Chaque projet est unique.
             </h3>
             <p className="text-foreground/60 text-[15px] leading-relaxed mb-8 max-w-2xl">
-              Vous avez une vision précise pour votre résidence ou votre programme immobilier ? Discutons-en.
+              Vous avez une vision précise ? Notre équipe vous propose une solution sur mesure, documentée et garantie.
             </p>
             <Link
               href="/contact"
               className="focus-ring inline-flex items-center gap-3 bg-primary px-8 py-4 text-[11px] font-black uppercase tracking-[0.2em] transition-all duration-300 hover:bg-primary/85"
               style={{ color: "#0a0a0a" }}
             >
-              Échanger avec un expert <ArrowRight size={13} aria-hidden="true" />
+              Discuter de votre projet <ArrowRight size={13} aria-hidden="true" />
             </Link>
           </div>
-          <div className="mt-12 flex flex-col sm:flex-row sm:items-center gap-4">
-            <p className="text-[13px] text-foreground/45">Une question spécifique à votre projet ?</p>
+          <div className="mt-12 flex flex-col sm:flex-row sm:items-center gap-6">
+            <p className="text-[14px] text-foreground/60 font-semibold">Besoin d'aide supplémentaire ?</p>
             <Link
               href="/contact"
               className="focus-ring inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.15em] text-primary hover:text-primary/70 transition-colors duration-300"
             >
-              Parler à un expert <ArrowRight size={12} aria-hidden="true" />
+              Nous contacter <ArrowRight size={12} aria-hidden="true" />
             </Link>
           </div>
         </div>
       </section>
 
       {/* ── CTA FINAL — urgence + double action ── */}
-      <section className="relative py-32 overflow-hidden" aria-labelledby="cta-heading">
+      <section className="relative py-32 lg:py-40 overflow-hidden" aria-labelledby="cta-heading">
         <div className="absolute inset-0 bg-card" />
         <div
           className="absolute inset-0"
           style={{ background: "radial-gradient(ellipse 70% 60% at 50% 110%, oklch(0.91 0.12 188 / 0.09), transparent)" }}
         />
         <div className="relative z-10 mx-auto max-w-3xl px-6 lg:px-10 text-center">
-          <SectionLabel>Démarrez maintenant</SectionLabel>
+          <div className="mb-8">
+            <span className="text-[12px] uppercase tracking-[0.3em] text-primary font-semibold">Démarrez maintenant</span>
+          </div>
           <h2
             id="cta-heading"
-            className="font-black uppercase leading-none text-foreground text-balance mb-6"
+            className="font-black uppercase leading-none text-foreground text-balance mb-8"
             style={{ fontSize: "clamp(2.2rem, 6vw, 5rem)", letterSpacing: "-0.03em" }}
           >
-            Votre audit technique{" "}
-            <span className="italic text-foreground/45">en 24h.</span>
+            Transformez votre habitat<br />
+            <span className="italic text-foreground/45">en 24 à 48h.</span>
           </h2>
-          <p className="text-foreground/45 leading-relaxed mb-4 max-w-md mx-auto text-[15px]">
-            Plus de 150 familles et promoteurs au Maroc nous ont fait confiance. Rejoignez-les.
-          </p>
-          <p className="text-primary text-[13px] font-semibold mb-10 uppercase tracking-[0.1em]">
-            Audit technique · Sans engagement · Étude personnalisée en 48h
+          <p className="text-foreground/60 leading-relaxed mb-4 max-w-md mx-auto text-[15px]">
+            Plus de 150 familles et promoteurs au Maroc nous ont fait confiance pour réaliser leur vision d'un habitat intelligent, esthétique et évolutif.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
             <Link
               href="/contact"
-              className="focus-ring inline-flex items-center gap-3 bg-primary px-10 py-5 text-[12px] font-black uppercase tracking-[0.2em] text-background transition-all duration-300 hover:bg-primary/85 rounded-sm w-full sm:w-auto justify-center"
+              className="focus-ring inline-flex items-center gap-3 bg-primary px-10 py-5 text-[12px] font-black uppercase tracking-[0.2em] text-background transition-all duration-300 hover:bg-primary/85 w-full sm:w-auto justify-center"
             >
               Lancer mon projet
               <ArrowRight size={14} aria-hidden="true" />
             </Link>
             <a
               href="tel:+212663666627"
-              className="focus-ring inline-flex items-center gap-3 border border-white/20 px-10 py-5 text-[12px] uppercase tracking-[0.2em] text-foreground/60 transition-all duration-300 hover:border-primary hover:text-primary rounded-sm w-full sm:w-auto justify-center"
+              className="focus-ring inline-flex items-center gap-3 border border-white/20 px-10 py-5 text-[12px] uppercase tracking-[0.2em] text-foreground/60 transition-all duration-300 hover:border-primary hover:text-primary w-full sm:w-auto justify-center"
             >
               <Phone size={13} aria-hidden="true" />
               +212 663 66 66 27
             </a>
           </div>
-          <p className="text-[11px] text-foreground/25 uppercase tracking-[0.1em]">
-            Casablanca · Marrakech · Rabat · Tanger — et tout le Maroc
+          <p className="text-[11px] text-foreground/35 uppercase tracking-[0.1em]">
+            Casablanca · Marrakech · Rabat · Tanger
           </p>
         </div>
       </section>
