@@ -10,7 +10,7 @@ import "./globals.css";
 // Lazy load non-critical components to reduce render-blocking CSS
 const StickyMobileCTA = dynamic(() => import("@/components/sections/StickyMobileCTA"), {
   loading: () => null,
-  ssr: false,
+  ssr: true, // Keep SSR enabled to avoid hydration mismatch
 });
 
 const montserrat = Montserrat({
