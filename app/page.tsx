@@ -580,7 +580,7 @@ export default function HomePage() {
               href="/contact"
               className="focus-ring inline-flex items-center gap-3 bg-primary px-10 py-5 text-[12px] font-black uppercase tracking-[0.2em] text-background transition-all duration-300 hover:bg-primary/85 rounded-sm w-full sm:w-auto justify-center"
             >
-              Obtenir mon devis gratuit
+              Lancer mon projet
               <ArrowRight size={14} aria-hidden="true" />
             </Link>
             <a
