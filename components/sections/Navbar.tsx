@@ -9,10 +9,10 @@ import { cn } from "@/lib/utils";
 
 const navLinks = [
   { href: "/maison-connectee", label: "Maison connectée" },
-  { href: "/promoteurs",     label: "Promoteurs Immobiliers" },
-  { href: "/ecosystemes",    label: "Écosystèmes" },
-  { href: "/expertises",     label: "Expertises" },
-  { href: "/journal",        label: "Blog" },
+  { href: "/division-projets", label: "Division Projets" },
+  { href: "/ecosystemes", label: "Écosystèmes" },
+  { href: "/vision", label: "Vision" },
+  { href: "/journal", label: "Blog" },
 ];
 
 export default function Navbar() {
