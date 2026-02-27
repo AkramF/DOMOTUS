@@ -521,28 +521,15 @@ export default function HomePage() {
             }}
           />
           <FaqAccordion items={faqs} />
-          <div className="mt-16 bg-card p-12 rounded">
-            <h3 className="font-black uppercase text-foreground text-balance mb-4" style={{ fontSize: "clamp(1.4rem, 3vw, 1.8rem)" }}>
-              Chaque projet est unique.
-            </h3>
-            <p className="text-foreground/60 text-[15px] leading-relaxed mb-8 max-w-2xl">
-              Vous avez une vision précise ? Notre équipe vous propose une solution sur mesure, documentée et garantie.
+          <div className="mt-16 pt-12 border-t border-white/8">
+            <p className="text-[13px] text-foreground/50 mb-4">
+              Votre question ne figure pas ci-dessus ?
             </p>
-            <Link
-              href="/contact"
-              className="focus-ring inline-flex items-center gap-3 bg-primary px-8 py-4 text-[11px] font-black uppercase tracking-[0.2em] transition-all duration-300 hover:bg-primary/85"
-              style={{ color: "#0a0a0a" }}
-            >
-              Discuter de votre projet <ArrowRight size={13} aria-hidden="true" />
-            </Link>
-          </div>
-          <div className="mt-12 flex flex-col sm:flex-row sm:items-center gap-6">
-            <p className="text-[14px] text-foreground/60 font-semibold">Besoin d'aide supplémentaire ?</p>
             <Link
               href="/contact"
               className="focus-ring inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.15em] text-primary hover:text-primary/70 transition-colors duration-300"
             >
-              Nous contacter <ArrowRight size={12} aria-hidden="true" />
+              Nous contacter directement <ArrowRight size={12} aria-hidden="true" />
             </Link>
           </div>
         </div>
