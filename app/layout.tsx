@@ -4,13 +4,17 @@ import { Analytics } from "@vercel/analytics/react";
 import dynamic from "next/dynamic";
 import Navbar from "@/components/sections/Navbar";
 import Footer from "@/components/sections/Footer";
-import ScrollProgress from "@/components/sections/ScrollProgress";
 import "./globals.css";
 
-// Lazy load non-critical components to reduce render-blocking CSS
+// Lazy load non-critical components to reduce render-blocking CSS and JS
+const ScrollProgress = dynamic(() => import("@/components/sections/ScrollProgress"), {
+  loading: () => null,
+  ssr: true,
+});
+
 const StickyMobileCTA = dynamic(() => import("@/components/sections/StickyMobileCTA"), {
   loading: () => null,
-  ssr: true, // Keep SSR enabled to avoid hydration mismatch
+  ssr: true,
 });
 
 const montserrat = Montserrat({

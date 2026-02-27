@@ -1,9 +1,26 @@
 import type { Metadata } from "next";
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import Image from "next/image";
 import HeroSplit from "@/components/sections/HeroSplit";
-import FaqAccordion from "@/components/sections/FaqAccordion";
-import { ArrowRight, Zap, Shield, Activity, Wifi, Sun, Lock, CheckCircle2, Phone } from "lucide-react";
+import { ArrowRight, Zap, Shield, Activity, Wifi, Sun, Lock } from "lucide-react";
+
+// Lazy load non-critical sections to reduce initial JS bundle
+const FaqAccordion = dynamic(() => import("@/components/sections/FaqAccordion"), {
+  loading: () => <div className="bg-background py-20" />,
+  ssr: true,
+});
+
+// Lazy load icons used only in non-critical sections
+const CheckCircle2Icon = dynamic(async () => {
+  const { CheckCircle2 } = await import("lucide-react");
+  return { default: CheckCircle2 };
+}, { ssr: true });
+
+const PhoneIcon = dynamic(async () => {
+  const { Phone } = await import("lucide-react");
+  return { default: Phone };
+}, { ssr: true });
 
 export const metadata: Metadata = {
   title: "Domotus — Intégrateur Domotique Certifié Multi-Protocoles au Maroc | Casablanca, Marrakech, Rabat",
@@ -224,7 +241,7 @@ export default function HomePage() {
                   "Valorisation patrimoniale",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3 text-[14px] text-foreground/65">
-                    <CheckCircle2 size={15} className="text-primary shrink-0 mt-0.5" aria-hidden="true" />
+                    <CheckCircle2Icon size={15} className="text-primary shrink-0 mt-0.5" aria-hidden="true" />
                     {item}
                   </li>
                 ))}
@@ -574,7 +591,7 @@ export default function HomePage() {
               href="tel:+212663666627"
               className="focus-ring inline-flex items-center gap-3 border border-white/20 px-10 py-5 text-[12px] uppercase tracking-[0.2em] text-foreground/60 transition-all duration-300 hover:border-primary hover:text-primary w-full sm:w-auto justify-center"
             >
-              <Phone size={13} aria-hidden="true" />
+              <PhoneIcon size={13} aria-hidden="true" />
               +212 663 66 66 27
             </a>
           </div>
