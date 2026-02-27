@@ -205,20 +205,20 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             <div>
-              <SectionLabel>Pourquoi Domotus</SectionLabel>
+              <SectionLabel>Domotique pour habitat d'exception — Maroc</SectionLabel>
               <h2
                 id="value-prop-heading"
                 className="font-black uppercase leading-none text-foreground mb-6 text-balance"
                 style={{ fontSize: "clamp(2.2rem, 5vw, 4rem)", letterSpacing: "-0.02em" }}
               >
-                Votre maison vous obéit.{" "}
-                <span className="italic text-foreground/45">Sans effort.</span>
+                L&apos;esprit libre,{" "}
+                <span className="italic text-foreground/45">votre maison s&apos;occupe du reste.</span>
               </h2>
               <p className="text-foreground/55 leading-relaxed mb-6 text-[15px]">
-                Imaginez entrer chez vous : les lumières s'adaptent à l'heure, la climatisation est déjà à la bonne température, les volets se ferment automatiquement au coucher du soleil. Tout ça, sans rien toucher.
+                Villas et résidences d'exception : bénéficiez d'une expertise certifiée multi-protocoles pour une maison qui comprend, ressent et adapte votre environnement en temps réel. Sans effort.
               </p>
               <p className="text-foreground/55 leading-relaxed mb-10 text-[15px]">
-                C'est ce que nous livrons dans chaque villa, appartement et immeuble de bureaux au Maroc depuis 18 ans — avec les certifications multi-protocoles (KNX, Crestron et Lutron) qui le prouvent.
+                Nous créons des espaces intelligents où la technologie s'efface pour servir votre lifestyle — depuis 18 ans, avec les certifications multi-protocoles (KNX, Crestron et Lutron) qui le prouvent.
               </p>
               <ul className="flex flex-col gap-3 mb-10" role="list">
                 {[
