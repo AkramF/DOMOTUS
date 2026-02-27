@@ -18,10 +18,10 @@ const realisations = [
 ];
 
 const benefices = [
-  { num: "−40%", label: "sur la facture énergétique dès le 1er mois" },
-  { num: "+25%", label: "de valeur immobilière après intégration" },
+  { num: "−22%", label: "sur la facture énergétique dès le 1er mois" },
+  { num: "+18%", label: "de valeur immobilière après intégration" },
   { num: "100%", label: "contrôlable depuis votre smartphone" },
-  { num: "30 ans", label: "de durabilité garantie sur les systèmes multi-protocoles" },
+  { num: "15 ans", label: "de durabilité garantie sur les systèmes multi-protocoles" },
 ];
 
 const experiences = [
