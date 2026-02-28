@@ -4,6 +4,17 @@
 @custom-variant dark (&:is(.dark *));
 
 /* =========================================================
+   PERFORMANCE — Layout Stability (CLS Optimization)
+   ========================================================= */
+@layer components {
+  /* Contain layout changes to prevent cascading reflows */
+  .contain-layout {
+    @apply;
+    contain: layout;
+  }
+}
+
+/* =========================================================
    DOMOTUS — DESIGN SYSTEM
    Single source of truth for all colour tokens (oklch)
    ========================================================= */

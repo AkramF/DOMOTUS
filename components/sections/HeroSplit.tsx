@@ -77,12 +77,12 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.95, ease: "easeOut" }}
-          className="mt-10 flex flex-col sm:flex-row items-center gap-4"
+          transition={{ duration: 0.6, delay: 0.85, ease: "easeOut" }}
+          className="mt-10 flex flex-col sm:flex-row items-center gap-4 will-change-transform"
         >
           <Link
             href="/maison-connectee"
-            className="focus-ring inline-flex items-center gap-3 bg-primary px-8 py-4 text-[11px] font-black uppercase tracking-[0.2em] transition-all duration-300 hover:bg-primary/85"
+            className="focus-ring inline-flex items-center gap-3 bg-primary px-8 py-4 text-[11px] font-black uppercase tracking-[0.2em] transition-all duration-300 hover:bg-primary/85 will-change-colors"
             style={{ color: "#0a0a0a" }}
           >
             Votre maison connectée
@@ -90,7 +90,7 @@ export default function Hero() {
           </Link>
           <Link
             href="/architectes"
-            className="focus-ring inline-flex items-center gap-3 border border-white/25 px-8 py-4 text-[11px] uppercase tracking-[0.2em] text-foreground/70 transition-all duration-300 hover:border-primary hover:text-primary"
+            className="focus-ring inline-flex items-center gap-3 border border-white/25 px-8 py-4 text-[11px] uppercase tracking-[0.2em] text-foreground/70 transition-all duration-300 hover:border-primary hover:text-primary will-change-colors"
           >
             Espace Professionnels
             <ArrowRight size={13} aria-hidden="true" />
@@ -101,8 +101,8 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1.2, duration: 0.8 }}
-          className="mt-8 flex items-center gap-6 text-[11px] text-foreground/35 uppercase tracking-[0.12em]"
+          transition={{ delay: 1.0, duration: 0.6 }}
+          className="mt-8 flex items-center gap-6 text-[11px] text-foreground/35 uppercase tracking-[0.12em] will-change-opacity"
         >
           <span className="flex items-center gap-2">
             <span className="w-1.5 h-1.5 rounded-full bg-primary inline-block" />
