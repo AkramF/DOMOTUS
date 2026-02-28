@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "Espace Client — Accès Devis & Projets | Domotus",
   description:
     "Espace client Domotus. Consultez devis, projets en cours, documents techniques. Accès sécurisé.",
-  alternates: { canonical: "https://www.domotus.ma/simulateur" },
+  alternates: { canonical: "https://www.domotus.ma/espace-client" },
   robots: { index: false, follow: false },
 };
 

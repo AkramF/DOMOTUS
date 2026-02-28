@@ -5,14 +5,14 @@ import { ArrowRight, Mail } from "lucide-react";
 import NewsletterForm from "@/components/sections/NewsletterForm";
 
 export const metadata: Metadata = {
-  title: "Journal Domotique — Guides KNX, Crestron | Domotus Maroc",
+  title: "Blog Domotique — Guides KNX, Crestron | Domotus Maroc",
   description:
     "Blog domotique : guides multi-protocoles, projets, actualités. KNX, Crestron, Lutron, tendances smart home au Maroc.",
-  alternates: { canonical: "https://www.domotus.ma/journal" },
+  alternates: { canonical: "https://www.domotus.ma/blog" },
   openGraph: {
-    title: "Journal — Actualités Domotique | Domotus",
+    title: "Blog — Actualités Domotique | Domotus",
     description: "Guides, études de cas, tendances domotique.",
-    url: "https://www.domotus.ma/journal",
+    url: "https://www.domotus.ma/blog",
     images: [
       {
         url: "https://www.domotus.ma/images/og-domotus.jpg",

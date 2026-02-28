@@ -68,6 +68,27 @@ const nextConfig = {
         destination: '/vision',
         permanent: true,
       },
+      // Anciennes URLs renommées
+      {
+        source: '/journal',
+        destination: '/blog',
+        permanent: true,
+      },
+      {
+        source: '/journal/:path*',
+        destination: '/blog/:path*',
+        permanent: true,
+      },
+      {
+        source: '/simulateur',
+        destination: '/espace-client',
+        permanent: true,
+      },
+      {
+        source: '/client',
+        destination: '/espace-client',
+        permanent: true,
+      },
     ];
   },
 }
