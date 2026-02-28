@@ -5,10 +5,15 @@ import { ArrowRight, CheckCircle2, Activity } from "lucide-react";
 import SectionLabel from "@/components/ui/section-label";
 
 export const metadata: Metadata = {
-  title: "Gestion Énergie Intelligente Multi-Protocoles Maroc | Domotus",
+  title: "Gestion Énergie Intelligente — -22% Facture | Domotus",
   description:
-    "Gestion intelligente de l'énergie multi-protocoles pour bâtiments au Maroc. Optimisation automatique, suivi temps réel, conformité LEED/HQE. Économies dès le 1er mois.",
+    "Gestion énergie multi-protocoles. Optimisation automatique, suivi temps réel, LEED/HQE. -22% facture dès mois 1.",
   alternates: { canonical: "https://www.domotus.ma/expertise/energie" },
+  openGraph: {
+    title: "Gestion Énergie — Domotique Intelligente | Domotus",
+    description: "Optimisation automatique. Suivi temps réel. -22% facture.",
+    url: "https://www.domotus.ma/expertise/energie",
+  },
 };
 
 export default function EnergiePage() {

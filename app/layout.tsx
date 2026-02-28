@@ -30,11 +30,11 @@ export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
 
   title: {
-    default: "Domotus — Domotique Premium & Maison Intelligente au Maroc",
-    template: "%s | Domotus Maroc",
+    default: "Domotique Maroc — Maison Intelligente Certifiée KNX | Domotus",
+    template: "%s | Domotus",
   },
   description:
-    "Domotus est l'intégrateur domotique de référence au Maroc pour les villas de luxe, appartements haut de gamme et bâtiments tertiaires. Certifié multi-protocoles : KNX, Crestron, Lutron, Legrand, Somfy. Casablanca, Marrakech, Rabat.",
+    "Domotus : intégrateur domotique certifié KNX au Maroc. Smart home de prestige pour villas de luxe et bâtiments tertiaires. Multi-protocoles, SAV 7/7.",
 
   keywords: [
     "domotique Maroc",

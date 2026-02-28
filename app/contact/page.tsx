@@ -3,14 +3,22 @@ import { Phone, Mail, MapPin, Clock, ArrowRight, CheckCircle2 } from "lucide-rea
 import ContactForm from "@/components/sections/ContactForm";
 
 export const metadata: Metadata = {
-  title: "Contactez Domotus — Devis Domotique Maroc",
+  title: "Contact & Devis — Domotique Maroc | Domotus",
   description:
-    "Contactez Domotus pour un audit technique personnalisé. Casablanca, Marrakech, Rabat, Tanger.",
+    "Contactez Domotus pour audit technique gratuit. Devis personnalisé en 48h. Casablanca, Marrakech, Rabat, Tanger.",
   alternates: { canonical: "https://www.domotus.ma/contact" },
   openGraph: {
-    title: "Contact & Devis Domotique Maroc — Domotus",
-    description: "Audit technique personnalisé. Casablanca, Marrakech, Rabat.",
+    title: "Contact & Devis — Domotique | Domotus Maroc",
+    description: "Audit gratuit. Devis en 48h. 7j/7 disponible.",
     url: "https://www.domotus.ma/contact",
+    images: [
+      {
+        url: "https://www.domotus.ma/images/og-domotus.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Contact Domotus - Intégrateur domotique",
+      },
+    ],
   },
 };
 

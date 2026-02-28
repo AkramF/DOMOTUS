@@ -1,8 +1,27 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, MapPin, Clock, Phone } from "lucide-react";
 
-const espaces = [
+export const metadata: Metadata = {
+  title: "Showroom Domotus — Visite KNX, Crestron, Lutron | Maroc",
+  description:
+    "Visitez le showroom Domotus : salons KNX, Crestron, Lutron grandeur nature. Démonstration en conditions réelles. Casablanca.",
+  alternates: { canonical: "https://www.domotus.ma/showroom" },
+  openGraph: {
+    title: "Showroom Domotus — Visite Démo | Maroc",
+    description: "Salons KNX, Crestron, Lutron. Démonstrations en direct.",
+    url: "https://www.domotus.ma/showroom",
+    images: [
+      {
+        url: "https://www.domotus.ma/images/showroom.webp",
+        width: 1200,
+        height: 630,
+        alt: "Showroom Domotus",
+      },
+    ],
+  },
+};
   { title: "Salon KNX", desc: "Découvrez la puissance du protocole KNX sur une installation résidentielle grandeur nature : éclairage, volets, climatisation, multi-room audio.", image: "/images/hero-bg.jpg" },
   { title: "Suite Crestron", desc: "Expérience complète Crestron Home — contrôle tactile, scènes d'ambiance, intégration AV et sécurité dans un espace de 80 m².", image: "/images/showroom.jpg" },
   { title: "Corner Lutron", desc: "La précision Lutron Homeworks en conditions réelles. Gradation, scènes circadiennes, compatibilité Matter et Apple Home.", image: "/images/villa-prestige.jpg" },

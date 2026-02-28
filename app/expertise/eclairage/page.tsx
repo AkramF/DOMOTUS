@@ -5,13 +5,15 @@ import { ArrowRight, CheckCircle2, Sun } from "lucide-react";
 import SectionLabel from "@/components/ui/section-label";
 
 export const metadata: Metadata = {
-  title: "Éclairage Intelligent Multi-Protocoles Maroc | Domotus",
+  title: "Éclairage Intelligent — KNX, Lutron | Domotus Maroc",
   description:
-    "Systèmes d'éclairage intelligent multi-protocoles (KNX, Lutron) au Maroc. Scènes lumineuses dynamiques, pilotage circadien, consommation −40%. Casablanca, Marrakech, Rabat.",
+    "Éclairage intelligent multi-protocoles. Scènes dynamiques, pilotage circadien, -40% consommation. KNX, Lutron au Maroc.",
   alternates: { canonical: "https://www.domotus.ma/expertise/eclairage" },
   openGraph: {
-    title: "Éclairage Intelligent Domotique | Multi-Protocoles | Domotus Maroc",
-    description: "Éclairage automatisé adapté à vos rythmes circadiens. Scènes lumineuses, économies 40%, Maroc.",
+    title: "Éclairage Intelligent — Domotique | Domotus",
+    description: "Scènes lumineuses adapées. Pilotage circadien. -40% consommation.",
+    url: "https://www.domotus.ma/expertise/eclairage",
+  },
     url: "https://www.domotus.ma/expertise/eclairage",
   },
 };

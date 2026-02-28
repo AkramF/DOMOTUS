@@ -4,10 +4,23 @@ import { ArrowRight } from "lucide-react";
 import SectionLabel from "@/components/ui/section-label";
 
 export const metadata: Metadata = {
-  title: "Division Projets — Solutions B2B Smart Building pour Professionnels | Domotus",
+  title: "Division Projets — B2B Smart Building | Domotus Maroc",
   description:
-    "Domotus Division Projets : solutions domotiques certifiées B2B pour architectes, promoteurs, hôtellerie, bureaux. KNX, BMS, efficience énergétique, conformité CCTP. Smart Building au Maroc.",
+    "Solutions domotique B2B : architectes, promoteurs, hôtellerie, bureaux. KNX, BMS, efficience énergétique. Conformité CCTP.",
   alternates: { canonical: "https://www.domotus.ma/division-projets" },
+  openGraph: {
+    title: "Division Projets — Smart Building B2B | Domotus",
+    description: "Solutions B2B : architectes, promoteurs, hôtels, bureaux.",
+    url: "https://www.domotus.ma/division-projets",
+    images: [
+      {
+        url: "https://www.domotus.ma/images/og-domotus.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Division Projets Domotus",
+      },
+    ],
+  },
 };
 
 const metiers = [

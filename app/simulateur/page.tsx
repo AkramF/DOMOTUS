@@ -4,10 +4,10 @@ import { Lock, FileText, Eye, Clock } from "lucide-react";
 import LoginForm from "@/components/sections/LoginForm";
 
 export const metadata: Metadata = {
-  title: "Espace Client — Accès Devis & Projets | Domotus Maroc",
+  title: "Espace Client — Accès Devis & Projets | Domotus",
   description:
-    "Connectez-vous à votre espace client Domotus pour consulter vos devis, suivre l'avancement de votre projet domotique et accéder à vos documents.",
-  alternates: { canonical: "https://www.domotus.ma/client" },
+    "Espace client Domotus. Consultez devis, projets en cours, documents techniques. Accès sécurisé.",
+  alternates: { canonical: "https://www.domotus.ma/simulateur" },
   robots: { index: false, follow: false },
 };
 

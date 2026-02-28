@@ -5,9 +5,24 @@ import { ArrowRight, CheckCircle2, Check } from "lucide-react";
 import SectionLabel from "@/components/ui/section-label";
 
 export const metadata: Metadata = {
-  title: "Solutions Domotique pour Promoteurs Immobiliers — Rentabilité & Labels | Domotus",
-  description: "Augmentez la rentabilité de vos programmes immobiliers avec la domotique certifiée KNX. +18% de taux de vente, +15% de valeur au m², labels HQE/LEED. Intégration dès conception au Maroc.",
+  title: "Domotique Promoteurs — +18% Vente et +15% Valeur | Domotus",
+  description:
+    "Augmentez vente de +18% et valeur immobilière de +15% avec domotique certifiée KNX. Labels HQE/LEED. Intégration programme immobilier au Maroc.",
   alternates: { canonical: "https://www.domotus.ma/promoteurs" },
+  openGraph: {
+    title: "Domotique Promoteurs — Rentabilité KNX | Domotus",
+    description:
+      "+18% taux de vente, +15% valeur m². Intégration dès conception des programmes.",
+    url: "https://www.domotus.ma/promoteurs",
+    images: [
+      {
+        url: "https://www.domotus.ma/images/immeuble-tertiaire.webp",
+        width: 1200,
+        height: 630,
+        alt: "Immeuble tertiaire avec domotique intelligente",
+      },
+    ],
+  },
 };
 
 const chiffres = [
