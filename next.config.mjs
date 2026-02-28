@@ -6,12 +6,11 @@ const nextConfig = {
   images: {
     formats: ['image/avif', 'image/webp'],
     minimumCacheTTL: 60,
+    qualities: [75, 80, 85],
   },
   experimental: {
     optimizePackageImports: ['framer-motion', 'lucide-react'],
   },
-  swcMinify: true,
-  compress: true,
   productionBrowserSourceMaps: false,
   async redirects() {
     return [
