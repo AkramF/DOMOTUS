@@ -135,6 +135,27 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         
+        {/* Defer stylesheet loading to avoid render blocking — converts media=all to media=print initially */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              const stylesheets = [];
+              document.addEventListener('DOMContentLoaded', () => {
+                const links = document.querySelectorAll('link[rel="stylesheet"]');
+                links.forEach(link => {
+                  if (link.media !== 'print' && !link.hasAttribute('data-critical')) {
+                    link.media = 'print';
+                    link.onload = function() { 
+                      this.media = 'all';
+                      this.onload = null;
+                    };
+                  }
+                });
+              });
+            `,
+          }}
+        />
+        
         {/* Structured Data — LocalBusiness */}
         <script
           type="application/ld+json"
