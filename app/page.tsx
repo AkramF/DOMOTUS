@@ -464,7 +464,7 @@ export default function HomePage() {
 
       {/* ── MARCHÉS — Résidentiel & Tertiaire ── */}
       <section className="h-[50vh] lg:h-[60vh] grid lg:grid-cols-2 overflow-hidden" aria-label="Nos marchés domotique au Maroc">
-        <Link href="/maison-connectee" className="relative overflow-hidden group focus-ring block aspect-video lg:aspect-auto">
+        <Link href="/maison-connectee" className="relative overflow-hidden group focus-ring block h-full">
           <Image
             src="/images/villa-prestige.webp"
             alt="Domotique villas et appartements de luxe au Maroc — Domotus"
@@ -488,7 +488,7 @@ export default function HomePage() {
             </span>
           </div>
         </Link>
-        <Link href="/promoteurs" className="relative overflow-hidden group focus-ring block aspect-video lg:aspect-auto">
+        <Link href="/promoteurs" className="relative overflow-hidden group focus-ring block h-full">
           <Image
             src="/images/immeuble-tertiaire.webp"
             alt="Domotique pour promoteurs et bâtiments tertiaires au Maroc"
