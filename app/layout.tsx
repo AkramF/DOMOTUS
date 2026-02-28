@@ -20,9 +20,8 @@ const StickyMobileCTA = dynamic(() => import("@/components/sections/StickyMobile
 const montserrat = Montserrat({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800", "900"],
-  style: ["normal", "italic"],
-  variable: "--font-montserrat",
   display: "swap",
+  fallback: ["system-ui", "-apple-system", "sans-serif"],
 });
 
 const BASE_URL = "https://www.domotus.ma";
@@ -135,16 +134,10 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         
-        {/* Defer stylesheet loading to avoid render blocking — optimized to prevent forced layout shifts */}
+        {/* Defer stylesheet loading to avoid render blocking — using requestIdleCallback for TBT optimization */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
-              if (document.readyState === 'loading') {
-                document.addEventListener('DOMContentLoaded', deferStylesheets);
-              } else {
-                requestAnimationFrame(deferStylesheets);
-              }
-              
               function deferStylesheets() {
                 const links = document.querySelectorAll('link[rel="stylesheet"]:not([data-critical])');
                 links.forEach(link => {
@@ -157,6 +150,14 @@ export default function RootLayout({
                     };
                   }
                 });
+              }
+              
+              if ('requestIdleCallback' in window) {
+                requestIdleCallback(deferStylesheets, { timeout: 2000 });
+              } else if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', deferStylesheets);
+              } else {
+                requestAnimationFrame(deferStylesheets);
               }
             `,
           }}

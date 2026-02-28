@@ -256,9 +256,9 @@ export default function HomePage() {
               </Link>
             </div>
 
-            {/* Split image */}
-            <div className="grid grid-cols-2 gap-3 h-[480px]">
-              <div className="relative overflow-hidden rounded-sm row-span-2">
+            {/* Split image — with aspect-ratio to prevent CLS */}
+            <div className="grid grid-cols-2 gap-3 h-[480px] contain-layout">
+              <div className="relative overflow-hidden rounded-sm row-span-2 aspect-square">
                 <Image
                   src="/images/villa-prestige.webp"
                   alt="Villa équipée en domotique KNX par Domotus Casablanca"
@@ -269,7 +269,7 @@ export default function HomePage() {
                   className="object-cover"
                 />
               </div>
-              <div className="relative overflow-hidden rounded-sm">
+              <div className="relative overflow-hidden rounded-sm aspect-video">
                 <Image
                   src="/images/showroom.webp"
                   alt="Showroom domotique Domotus Casablanca"
@@ -280,7 +280,7 @@ export default function HomePage() {
                   className="object-cover"
                 />
               </div>
-              <div className="relative overflow-hidden rounded-sm">
+              <div className="relative overflow-hidden rounded-sm aspect-video">
                 <Image
                   src="/images/immeuble-tertiaire.webp"
                   alt="Bâtiment tertiaire connecté par Domotus au Maroc"
@@ -464,7 +464,7 @@ export default function HomePage() {
 
       {/* ── MARCHÉS — Résidentiel & Tertiaire ── */}
       <section className="h-[50vh] lg:h-[60vh] grid lg:grid-cols-2 overflow-hidden" aria-label="Nos marchés domotique au Maroc">
-        <Link href="/maison-connectee" className="relative overflow-hidden group focus-ring block">
+        <Link href="/maison-connectee" className="relative overflow-hidden group focus-ring block h-full">
           <Image
             src="/images/villa-prestige.webp"
             alt="Domotique villas et appartements de luxe au Maroc — Domotus"
@@ -488,7 +488,7 @@ export default function HomePage() {
             </span>
           </div>
         </Link>
-        <Link href="/promoteurs" className="relative overflow-hidden group focus-ring block">
+        <Link href="/promoteurs" className="relative overflow-hidden group focus-ring block h-full">
           <Image
             src="/images/immeuble-tertiaire.webp"
             alt="Domotique pour promoteurs et bâtiments tertiaires au Maroc"
