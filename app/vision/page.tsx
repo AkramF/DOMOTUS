@@ -4,10 +4,23 @@ import { ArrowRight } from "lucide-react";
 import SectionLabel from "@/components/ui/section-label";
 
 export const metadata: Metadata = {
-  title: "Vision — L'habitat intelligent au Maroc | Domotus",
+  title: "Notre Vision — Habitat Intelligent | Domotus Maroc",
   description:
-    "Découvrez notre vision : transformer l'habitat en écosystème intelligent, accessible, et évolutif. 10 ans d'expertise au service de la qualité de vie.",
+    "Notre vision : habitat intelligent et accessible. 18 ans d'expertise pour qualité de vie. Architecture, sécurité, efficacité énergétique.",
   alternates: { canonical: "https://www.domotus.ma/vision" },
+  openGraph: {
+    title: "Vision — Habitat Intelligent | Domotus",
+    description: "Transformer l'habitat en écosystème intelligent et évolutif.",
+    url: "https://www.domotus.ma/vision",
+    images: [
+      {
+        url: "https://www.domotus.ma/images/og-domotus.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Domotus - Vision habitat intelligent",
+      },
+    ],
+  },
 };
 
 const valeurs = [

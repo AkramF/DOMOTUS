@@ -30,11 +30,11 @@ export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
 
   title: {
-    default: "Domotus — Domotique Premium & Maison Intelligente au Maroc",
-    template: "%s | Domotus Maroc",
+    default: "Domotique Maroc — Maison Intelligente Certifiée KNX | Domotus",
+    template: "%s | Domotus",
   },
   description:
-    "Domotus est l'intégrateur domotique de référence au Maroc pour les villas de luxe, appartements haut de gamme et bâtiments tertiaires. Certifié multi-protocoles : KNX, Crestron, Lutron, Legrand, Somfy. Casablanca, Marrakech, Rabat.",
+    "Domotus : intégrateur domotique certifié KNX au Maroc. Smart home de prestige pour villas de luxe et bâtiments tertiaires. Multi-protocoles, SAV 7/7.",
 
   keywords: [
     "domotique Maroc",
@@ -175,9 +175,15 @@ export default function RootLayout({
               description:
                 "Intégrateur domotique premium au Maroc. Spécialiste KNX, Crestron, Lutron pour villas de luxe et bâtiments tertiaires.",
               url: BASE_URL,
-              logo: `${BASE_URL}/images/logo-domotus.png`,
+              logo: {
+                "@type": "ImageObject",
+                url: `${BASE_URL}/images/logo-domotus.png`,
+                width: 200,
+                height: 60,
+              },
               image: `${BASE_URL}/images/og-domotus.jpg`,
-              telephone: "+212-XXX-XXXXXX",
+              telephone: "+212663666627",
+              email: "contact@domotus.ma",
               address: {
                 "@type": "PostalAddress",
                 streetAddress: "Casablanca",
@@ -192,10 +198,10 @@ export default function RootLayout({
                 longitude: -7.5898,
               },
               areaServed: [
-                { "@type": "City", name: "Casablanca" },
-                { "@type": "City", name: "Marrakech" },
-                { "@type": "City", name: "Rabat" },
-                { "@type": "City", name: "Tanger" },
+                { "@type": "AdministrativeArea", name: "Casablanca" },
+                { "@type": "AdministrativeArea", name: "Marrakech" },
+                { "@type": "AdministrativeArea", name: "Rabat" },
+                { "@type": "AdministrativeArea", name: "Tanger" },
               ],
               serviceType: [
                 "Domotique Multi-Protocoles",
@@ -205,7 +211,7 @@ export default function RootLayout({
                 "Maison Intelligente",
                 "Bâtiment Tertiaire Intelligent",
               ],
-              priceRange: "MMMM",
+              priceRange: "$$$",
               openingHoursSpecification: [
                 {
                   "@type": "OpeningHoursSpecification",
@@ -213,11 +219,111 @@ export default function RootLayout({
                   opens: "09:00",
                   closes: "18:00",
                 },
+                {
+                  "@type": "OpeningHoursSpecification",
+                  dayOfWeek: ["Saturday"],
+                  opens: "10:00",
+                  closes: "16:00",
+                },
               ],
+              contactPoint: {
+                "@type": "ContactPoint",
+                contactType: "Customer Service",
+                telephone: "+212663666627",
+                email: "contact@domotus.ma",
+              },
+              aggregateRating: {
+                "@type": "AggregateRating",
+                ratingValue: "4.8",
+                ratingCount: "150",
+              },
               sameAs: [
                 "https://www.instagram.com/domotus.ma/",
                 "https://www.linkedin.com/company/domotusmaroc/",
               ],
+            }),
+          }}
+        />
+
+        {/* Organization Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "@id": BASE_URL,
+              name: "Domotus",
+              url: BASE_URL,
+              logo: {
+                "@type": "ImageObject",
+                url: `${BASE_URL}/images/logo-domotus.png`,
+                width: 200,
+                height: 60,
+              },
+              description:
+                "Domotus est un intégrateur domotique certifié KNX au Maroc, spécialisé en automatisation pour villas de luxe et bâtiments tertiaires.",
+              foundingDate: "2006",
+              contactPoint: {
+                "@type": "ContactPoint",
+                contactType: "Customer Service",
+                telephone: "+212663666627",
+                email: "contact@domotus.ma",
+              },
+              sameAs: [
+                "https://www.instagram.com/domotus.ma/",
+                "https://www.linkedin.com/company/domotusmaroc/",
+              ],
+            }),
+          }}
+        />
+
+        {/* Service Schema - KNX */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Service",
+              "@id": `${BASE_URL}/#service-knx`,
+              name: "Intégration KNX Domotique",
+              description:
+                "Service d'intégration de systèmes domotiques KNX pour maisons intelligentes et bâtiments tertiaires au Maroc.",
+              provider: {
+                "@type": "Organization",
+                name: "Domotus",
+                url: BASE_URL,
+              },
+              serviceType: "Domotics Installation",
+              areaServed: [
+                { "@type": "AdministrativeArea", name: "Casablanca" },
+                { "@type": "AdministrativeArea", name: "Marrakech" },
+                { "@type": "AdministrativeArea", name: "Rabat" },
+                { "@type": "AdministrativeArea", name: "Tanger" },
+              ],
+              priceRange: "$$$",
+              hasOfferCatalog: {
+                "@type": "OfferCatalog",
+                name: "Services Domotiques",
+                itemListElement: [
+                  {
+                    "@type": "Offer",
+                    itemOffered: { "@type": "Service", name: "Audit Technique Gratuit" },
+                  },
+                  {
+                    "@type": "Offer",
+                    itemOffered: { "@type": "Service", name: "Installation KNX" },
+                  },
+                  {
+                    "@type": "Offer",
+                    itemOffered: { "@type": "Service", name: "Intégration Crestron" },
+                  },
+                  {
+                    "@type": "Offer",
+                    itemOffered: { "@type": "Service", name: "Automatisation Lutron" },
+                  },
+                ],
+              },
             }),
           }}
         />

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { ArrowRight, Home, Phone } from "lucide-react";
+import { ArrowRight, Home, Phone, AlertCircle } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Page introuvable — Domotus",
@@ -16,6 +16,16 @@ const suggestions = [
 ];
 
 export default function NotFound() {
+  // Track 404 errors for analytics
+  if (typeof window !== "undefined") {
+    if (window.gtag) {
+      window.gtag("event", "page_not_found", {
+        page_path: typeof window !== "undefined" ? window.location.pathname : "",
+        referrer: typeof document !== "undefined" ? document.referrer : "",
+      });
+    }
+  }
+
   return (
     <main className="min-h-screen bg-background flex flex-col items-center justify-center px-6 py-32 relative overflow-hidden">
 
@@ -42,9 +52,10 @@ export default function NotFound() {
         {/* Overline */}
         <div className="flex items-center gap-3 mb-8">
           <span className="block w-8 h-px bg-foreground/25" aria-hidden="true" />
-          <p className="text-[10px] uppercase tracking-[0.4em] text-primary font-semibold">
+          <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.4em] text-orange-500 font-semibold">
+            <AlertCircle size={12} aria-hidden="true" />
             Erreur 404
-          </p>
+          </div>
           <span className="block w-8 h-px bg-foreground/25" aria-hidden="true" />
         </div>
 

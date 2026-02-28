@@ -5,10 +5,24 @@ import { ArrowRight, CheckCircle2 } from "lucide-react";
 import SectionLabel from "@/components/ui/section-label";
 
 export const metadata: Metadata = {
-  title: "Maison Intuitive & Connectée — Domotique Multi-Protocoles au Maroc | Domotus",
+  title: "Maison Connectée — Domotique Multi-Protocoles | Domotus Maroc",
   description:
-    "Maison intuitive & connectée. L'intelligence au service de votre confort. Expertise certifiée multi-protocoles (KNX, Crestron, Lutron) pour villas et appartements de prestige au Maroc.",
+    "Maison connectée et intuitive. Domotique KNX, Crestron, Lutron pour villas et appartements de prestige au Maroc. Confort, sécurité, économies.",
   alternates: { canonical: "https://www.domotus.ma/maison-connectee" },
+  openGraph: {
+    title: "Maison Connectée — Domotique Multi-Protocoles | Domotus",
+    description:
+      "Villas connectées et intelligentes. KNX, Crestron, Lutron pour le confort et l'efficacité énergétique.",
+    url: "https://www.domotus.ma/maison-connectee",
+    images: [
+      {
+        url: "https://www.domotus.ma/images/villa-prestige.webp",
+        width: 1200,
+        height: 630,
+        alt: "Villa connectée avec domotique KNX",
+      },
+    ],
+  },
 };
 
 const realisations = [

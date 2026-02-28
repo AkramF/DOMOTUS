@@ -5,10 +5,15 @@ import { ArrowRight, CheckCircle2, Shield } from "lucide-react";
 import SectionLabel from "@/components/ui/section-label";
 
 export const metadata: Metadata = {
-  title: "Sécurité Domotique Multi-Protocoles Maroc | Systèmes Accès & Surveillance | Domotus",
+  title: "Sécurité Domotique — Accès, Surveillance | Domotus",
   description:
-    "Systèmes de sécurité domotique multi-protocoles (KNX, Crestron) au Maroc. Accès biométrique, vidéosurveillance 4K IA, alarme centralisée. Casablanca, Marrakech.",
+    "Sécurité domotique : accès biométrique, vidéosurveillance 4K IA, alarme KNX. Multi-protocoles au Maroc.",
   alternates: { canonical: "https://www.domotus.ma/expertise/securite" },
+  openGraph: {
+    title: "Sécurité Domotique — KNX, Crestron | Domotus",
+    description: "Accès biométrique, vidéosurveillance IA, alarme centralisée.",
+    url: "https://www.domotus.ma/expertise/securite",
+  },
 };
 
 export default function SecuritePage() {

@@ -4,14 +4,24 @@ import Image from "next/image";
 import { ArrowRight, Check } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Partenaire Domotique pour Architectes & Designers | Domotus",
+  title: "Architectes & Designers — Domotique KNX | Domotus",
   description:
-    "Collaborez avec Domotus sur vos projets. Multi-protocoles certifiés, intégration invisible, garantie 10 ans. +150 réalisations avec des architectes au Maroc.",
+    "Partenaire domotique pour architectes. Multi-protocoles certifiés, invisible, 10 ans garanti. 150+ réalisations au Maroc.",
   alternates: { canonical: "https://www.domotus.ma/architectes" },
   openGraph: {
-    title: "Partenaire Domotique pour Architectes & Designers | Domotus",
-    description:
-      "Domotus : partenaire des architectes pour recommander à leurs clients et collaborer sur leurs projets. Multi-protocoles, invisible, 10 ans garanti.",
+    title: "Architectes & Designers — Domotique | Domotus",
+    description: "Domotique invisible certifiée. 10 ans garanti. Intégration architecture.",
+    url: "https://www.domotus.ma/architectes",
+    images: [
+      {
+        url: "https://www.domotus.ma/images/og-domotus.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Domotus partenaire architectes",
+      },
+    ],
+  },
+};
     url: "https://www.domotus.ma/architectes",
   },
 };

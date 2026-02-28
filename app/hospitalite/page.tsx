@@ -5,9 +5,23 @@ import { ArrowRight, Check } from "lucide-react";
 import SectionLabel from "@/components/ui/section-label";
 
 export const metadata: Metadata = {
-  title: "Solutions Domotique pour Hôtellerie & Hospitalité — Confort Client & Efficience | Domotus",
-  description: "Augmentez la satisfaction client et réduisez vos coûts d'exploitation avec la domotique intelligente. Gestion des chambres (GRMS), optimisation énergétique, confort premium. KNX certifié au Maroc.",
+  title: "Hôtellerie & Hospitalité — Domotique KNX | Domotus",
+  description:
+    "Hôtellerie intelligente : gestion chambres, confort client, efficience énergétique. GRMS, KNX certifié au Maroc.",
   alternates: { canonical: "https://www.domotus.ma/hospitalite" },
+  openGraph: {
+    title: "Hôtellerie — Domotique Intelligente | Domotus",
+    description: "Satisfaction client. Efficience opérationnelle. Gestion GRMS.",
+    url: "https://www.domotus.ma/hospitalite",
+    images: [
+      {
+        url: "https://www.domotus.ma/images/og-domotus.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Hôtellerie domotique",
+      },
+    ],
+  },
 };
 
 export default function HospitalitePage() {

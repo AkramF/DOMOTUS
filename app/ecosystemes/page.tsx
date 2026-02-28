@@ -5,9 +5,23 @@ import { ArrowRight, Shield, Wifi, Lightbulb, Zap, Plug, RotateCcw } from "lucid
 import SectionLabel from "@/components/ui/section-label";
 
 export const metadata: Metadata = {
-  title: "Écosystèmes Intelligents — Architecture Domotique Complète | Domotus",
-  description: "Écosystèmes domotiques interconnectés KNX certifiés. Sécurité, connectivité, lumière, énergie, mobilité. Une architecture intelligente pensée comme un tout au Maroc.",
+  title: "Écosystèmes Intelligents — Architecture KNX | Domotus",
+  description:
+    "Écosystèmes domotiques KNX certifiés. Sécurité, connectivité, lumière, énergie. Architecture intelligente complète au Maroc.",
   alternates: { canonical: "https://www.domotus.ma/ecosystemes" },
+  openGraph: {
+    title: "Écosystèmes Intelligents — KNX | Domotus",
+    description: "Architecture domotique complète et interconnectée.",
+    url: "https://www.domotus.ma/ecosystemes",
+    images: [
+      {
+        url: "https://www.domotus.ma/images/og-domotus.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Écosystèmes domotiques",
+      },
+    ],
+  },
 };
 
 const ecosystemes = [

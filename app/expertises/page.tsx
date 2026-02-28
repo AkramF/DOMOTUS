@@ -5,10 +5,24 @@ import type { Metadata } from "next";
 import SectionLabel from "@/components/ui/section-label";
 
 export const metadata: Metadata = {
-  title: "Expertises Domotique Multi-Protocoles — Architecture Intelligente | Domotus",
+  title: "Expertises Domotique — KNX, Crestron, Lutron | Domotus Maroc",
   description:
-    "Expertise complète en domotique multi-protocoles : architecture réseau, intégration certifiée, sécurité, gestion énergétique, éclairage intelligent. 18 ans d'expérience au Maroc.",
+    "Expertise domotique multi-protocoles : KNX, Crestron, Lutron. Architecture réseau, sécurité, énergies. 18 ans d'expérience au Maroc.",
   alternates: { canonical: "https://www.domotus.ma/expertises" },
+  openGraph: {
+    title: "Expertises Domotique — Multi-Protocoles | Domotus",
+    description:
+      "KNX, Crestron, Lutron, Matter. Architecture et intégration certifiées.",
+    url: "https://www.domotus.ma/expertises",
+    images: [
+      {
+        url: "https://www.domotus.ma/images/showroom.webp",
+        width: 1200,
+        height: 630,
+        alt: "Showroom domotique Domotus",
+      },
+    ],
+  },
 };
 
 const methodologie = [

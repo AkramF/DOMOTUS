@@ -5,9 +5,23 @@ import { ArrowRight, Check } from "lucide-react";
 import SectionLabel from "@/components/ui/section-label";
 
 export const metadata: Metadata = {
-  title: "Solutions Domotique pour Bureaux & Tertiaire — Efficience & Confort Collaborateurs | Domotus",
-  description: "Optimisez vos espaces de travail avec la domotique intelligente. Gestion énergétique, confort collaborateurs, productivité accrue. KNX certifié, BMS intégré au Maroc.",
+  title: "Bureaux & Tertiaire — Domotique Confort | Domotus Maroc",
+  description:
+    "Bureaux intelligents : gestion énergétique, confort collaborateurs, productivité. KNX certifié, BMS au Maroc.",
   alternates: { canonical: "https://www.domotus.ma/bureaux" },
+  openGraph: {
+    title: "Bureaux Intelligents — Domotique KNX | Domotus",
+    description: "Gestion énergétique. Confort collaborateurs. Productivité accrue.",
+    url: "https://www.domotus.ma/bureaux",
+    images: [
+      {
+        url: "https://www.domotus.ma/images/immeuble-tertiaire.webp",
+        width: 1200,
+        height: 630,
+        alt: "Bureaux intelligents domotique",
+      },
+    ],
+  },
 };
 
 export default function BureauxPage() {

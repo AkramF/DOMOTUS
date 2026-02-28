@@ -5,10 +5,15 @@ import { ArrowRight, CheckCircle2, Wifi } from "lucide-react";
 import SectionLabel from "@/components/ui/section-label";
 
 export const metadata: Metadata = {
-  title: "Infrastructure Réseaux Multi-Protocoles Ubiquiti Maroc | Domotus",
+  title: "Infrastructure Réseaux — Wi-Fi 6E, Fibre | Domotus Maroc",
   description:
-    "Réseaux & infrastructure domotique multi-protocoles au Maroc. Wi-Fi 6E, fibre optique, redondance 99.8%, supervision 24/7. Casablanca, Marrakech, Rabat.",
+    "Réseaux domotique multi-protocoles. Wi-Fi 6E, fibre optique, redondance 99.8%. Supervision 24/7 au Maroc.",
   alternates: { canonical: "https://www.domotus.ma/expertise/reseaux" },
+  openGraph: {
+    title: "Infrastructure Réseaux — Ubiquiti | Domotus",
+    description: "Wi-Fi 6E. Fibre optique. Redondance 99.8%.",
+    url: "https://www.domotus.ma/expertise/reseaux",
+  },
 };
 
 export default function ReseauxPage() {

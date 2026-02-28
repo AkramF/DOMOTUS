@@ -5,10 +5,15 @@ import { ArrowRight, CheckCircle2, Lock } from "lucide-react";
 import SectionLabel from "@/components/ui/section-label";
 
 export const metadata: Metadata = {
-  title: "Supervision BMS Bâtiment Domotique Maroc | Domotus",
+  title: "Supervision BMS — Bâtiment Intelligent | Domotus Maroc",
   description:
-    "Système BMS supervision bâtiment intelligent au Maroc. Tableau de bord unifié, maintenance prédictive IA, +25% valeur immobilière. Promoteurs Maroc.",
+    "BMS supervision bâtiment. Tableau de bord unifié, maintenance IA, +25% valeur. Pour promoteurs au Maroc.",
   alternates: { canonical: "https://www.domotus.ma/expertise/bms" },
+  openGraph: {
+    title: "Supervision BMS — Bâtiment Intelligent | Domotus",
+    description: "Tableau de bord centralisé. Maintenance prédictive IA.",
+    url: "https://www.domotus.ma/expertise/bms",
+  },
 };
 
 export default function BMSPage() {

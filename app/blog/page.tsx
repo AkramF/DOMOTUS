@@ -5,10 +5,24 @@ import { ArrowRight, Mail } from "lucide-react";
 import NewsletterForm from "@/components/sections/NewsletterForm";
 
 export const metadata: Metadata = {
-  title: "Blog Domotique Maroc — Guides Multi-Protocoles, Crestron, Lutron | Domotus",
+  title: "Blog Domotique — Guides KNX, Crestron | Domotus Maroc",
   description:
-    "Le blog Domotus : guides multi-protocoles, retours de projets, actualités domotique au Maroc (Casablanca, Marrakech, Rabat, Tanger). Protocoles, certifications, tendances smart home.",
+    "Blog domotique : guides multi-protocoles, projets, actualités. KNX, Crestron, Lutron, tendances smart home au Maroc.",
   alternates: { canonical: "https://www.domotus.ma/blog" },
+  openGraph: {
+    title: "Blog — Actualités Domotique | Domotus",
+    description: "Guides, études de cas, tendances domotique.",
+    url: "https://www.domotus.ma/blog",
+    images: [
+      {
+        url: "https://www.domotus.ma/images/og-domotus.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Journal Domotus",
+      },
+    ],
+  },
+};
   openGraph: {
     title: "Blog Domotique Maroc — Guides Multi-Protocoles, Crestron, Lutron | Domotus",
     description:

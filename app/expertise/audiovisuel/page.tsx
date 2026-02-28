@@ -5,10 +5,15 @@ import { ArrowRight, CheckCircle2, Zap } from "lucide-react";
 import SectionLabel from "@/components/ui/section-label";
 
 export const metadata: Metadata = {
-  title: "Audio Vidéo Home Cinema Domotique Maroc | Domotus",
+  title: "Audio Vidéo Home Cinéma — Dolby Atmos | Domotus",
   description:
-    "Système audio vidéo home cinema privé au Maroc. Dolby Atmos, 4K laser, Sonos distribution multi-zone. Villa prestige Casablanca, Marrakech.",
+    "Home cinéma privé : Dolby Atmos, 4K laser, distribution Sonos multi-zone. Villa prestige au Maroc.",
   alternates: { canonical: "https://www.domotus.ma/expertise/audiovisuel" },
+  openGraph: {
+    title: "Audio Vidéo Home Cinéma — Domotus Maroc",
+    description: "Dolby Atmos. 4K laser. Distribution multi-zone Sonos.",
+    url: "https://www.domotus.ma/expertise/audiovisuel",
+  },
 };
 
 export default function AudiovisuelPage() {
