@@ -135,23 +135,29 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         
-        {/* Defer stylesheet loading to avoid render blocking — converts media=all to media=print initially */}
+        {/* Defer stylesheet loading to avoid render blocking — optimized to prevent forced layout shifts */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
-              const stylesheets = [];
-              document.addEventListener('DOMContentLoaded', () => {
-                const links = document.querySelectorAll('link[rel="stylesheet"]');
+              if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', deferStylesheets);
+              } else {
+                requestAnimationFrame(deferStylesheets);
+              }
+              
+              function deferStylesheets() {
+                const links = document.querySelectorAll('link[rel="stylesheet"]:not([data-critical])');
                 links.forEach(link => {
-                  if (link.media !== 'print' && !link.hasAttribute('data-critical')) {
+                  if (link.media !== 'print') {
                     link.media = 'print';
-                    link.onload = function() { 
-                      this.media = 'all';
-                      this.onload = null;
+                    link.onload = function() {
+                      requestAnimationFrame(() => {
+                        this.media = 'all';
+                      });
                     };
                   }
                 });
-              });
+              }
             `,
           }}
         />
