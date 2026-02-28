@@ -157,26 +157,91 @@ const faqs = [
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
+  "@id": "https://www.domotus.ma/#faq",
+  datePublished: "2024-01-01T00:00:00Z",
+  dateModified: new Date().toISOString(),
   mainEntity: [
-    { "@type": "Question", name: "Quel budget prévoir pour une intégration sur mesure ?", acceptedAnswer: { "@type": "Answer", text: "Chez Domotus, nous ne proposons pas de kits standards. Le budget dépend de la superficie, de la complexité des scénarios et des finitions. Une installation domotique valorise votre patrimoine de 15 à 25%." } },
-    { "@type": "Question", name: "Pourquoi privilégiez-vous le standard KNX ?", acceptedAnswer: { "@type": "Answer", text: "KNX est un protocole ouvert partagé par 500+ fabricants mondiaux. Il garantit que votre installation reste réparable, évolutive et à la pointe, même dans 20 ans." } },
-    { "@type": "Question", name: "Intervenez-vous sur des propriétés existantes ?", acceptedAnswer: { "@type": "Answer", text: "Oui. Nous maîtrisons les protocoles sans fil haute performance (Zigbee, Z-Wave, Matter) pour sublimer une résidence existante avec un minimum d'impact." } },
-    { "@type": "Question", name: "Comment s'intègre votre intervention dans le planning du chantier ?", acceptedAnswer: { "@type": "Answer", text: "Nous intervenons en amont pour fournir les plans techniques à votre architecte et électricien, puis coordonnons au rythme du chantier pour une livraison fluide." } },
-    { "@type": "Question", name: "Comment vais-je interagir avec mon nouvel espace ?", acceptedAnswer: { "@type": "Answer", text: "Au quotidien, la technologie s'efface. Vos espaces s'animent automatiquement, avec claviers épurés ou commande vocale. L'environnement s'adapte à vous." } },
-    { "@type": "Question", name: "Comment m'accompagnez-vous après la livraison ?", acceptedAnswer: { "@type": "Answer", text: "Nous vous formons à l'utilisation de votre écosystème et restons à vos côtés grâce à un service de supervision proactive avec interventions réactives." } },
+    { 
+      "@type": "Question", 
+      name: "Quel budget prévoir pour une intégration sur mesure ?",
+      url: "https://www.domotus.ma/#faq-q1",
+      acceptedAnswer: { 
+        "@type": "Answer", 
+        text: "Chez Domotus, nous ne proposons pas de kits standards. Le budget dépend de la superficie, de la complexité des scénarios et des finitions. Une installation domotique valorise votre patrimoine de 15 à 25%." 
+      } 
+    },
+    { 
+      "@type": "Question", 
+      name: "Pourquoi privilégiez-vous le standard KNX ?",
+      url: "https://www.domotus.ma/#faq-q2",
+      acceptedAnswer: { 
+        "@type": "Answer", 
+        text: "KNX est un protocole ouvert partagé par 500+ fabricants mondiaux. Il garantit que votre installation reste réparable, évolutive et à la pointe, même dans 20 ans." 
+      } 
+    },
+    { 
+      "@type": "Question", 
+      name: "Intervenez-vous sur des propriétés existantes ?",
+      url: "https://www.domotus.ma/#faq-q3",
+      acceptedAnswer: { 
+        "@type": "Answer", 
+        text: "Oui. Nous maîtrisons les protocoles sans fil haute performance (Zigbee, Z-Wave, Matter) pour sublimer une résidence existante avec un minimum d'impact." 
+      } 
+    },
+    { 
+      "@type": "Question", 
+      name: "Comment s'intègre votre intervention dans le planning du chantier ?",
+      url: "https://www.domotus.ma/#faq-q4",
+      acceptedAnswer: { 
+        "@type": "Answer", 
+        text: "Nous intervenons en amont pour fournir les plans techniques à votre architecte et électricien, puis coordonnons au rythme du chantier pour une livraison fluide." 
+      } 
+    },
+    { 
+      "@type": "Question", 
+      name: "Comment m'accompagnez-vous après la livraison ?",
+      url: "https://www.domotus.ma/#faq-q5",
+      acceptedAnswer: { 
+        "@type": "Answer", 
+        text: "Nous vous formons à l'utilisation de votre écosystème et restons à vos côtés grâce à un service de supervision proactive avec interventions réactives." 
+      } 
+    },
   ],
 };
 
 const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  name: "Domotus",
+  name: "Domotus — Intégrateur Domotique au Maroc",
+  description: "Domotus est votre expert en domotique KNX au Maroc pour maisons intelligentes et bâtiments tertiaires.",
   url: "https://www.domotus.ma",
+  image: {
+    "@type": "ImageObject",
+    url: "https://www.domotus.ma/images/og-domotus.jpg",
+    width: 1200,
+    height: 630,
+  },
   potentialAction: {
     "@type": "SearchAction",
-    target: { "@type": "EntryPoint", urlTemplate: "https://www.domotus.ma/journal?q={search_term_string}" },
+    target: { 
+      "@type": "EntryPoint", 
+      urlTemplate: "https://www.domotus.ma/search?q={search_term_string}" 
+    },
     "query-input": "required name=search_term_string",
   },
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Accueil",
+      item: "https://www.domotus.ma/",
+    },
+  ],
 };
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
@@ -194,6 +259,7 @@ export default function HomePage() {
       {/* ── Schema.org ── */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
       <HeroSplit />
 
