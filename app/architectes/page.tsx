@@ -22,9 +22,6 @@ export const metadata: Metadata = {
     ],
   },
 };
-    url: "https://www.domotus.ma/architectes",
-  },
-};
 
 export default function ArchitectesPage() {
   return (

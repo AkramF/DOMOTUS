@@ -22,6 +22,8 @@ export const metadata: Metadata = {
     ],
   },
 };
+
+const espaces = [
   { title: "Salon KNX", desc: "Découvrez la puissance du protocole KNX sur une installation résidentielle grandeur nature : éclairage, volets, climatisation, multi-room audio.", image: "/images/hero-bg.jpg" },
   { title: "Suite Crestron", desc: "Expérience complète Crestron Home — contrôle tactile, scènes d'ambiance, intégration AV et sécurité dans un espace de 80 m².", image: "/images/showroom.jpg" },
   { title: "Corner Lutron", desc: "La précision Lutron Homeworks en conditions réelles. Gradation, scènes circadiennes, compatibilité Matter et Apple Home.", image: "/images/villa-prestige.jpg" },
