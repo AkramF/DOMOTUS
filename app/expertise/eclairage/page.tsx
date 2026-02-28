@@ -14,8 +14,6 @@ export const metadata: Metadata = {
     description: "Scènes lumineuses adapées. Pilotage circadien. -40% consommation.",
     url: "https://www.domotus.ma/expertise/eclairage",
   },
-    url: "https://www.domotus.ma/expertise/eclairage",
-  },
 };
 
 export default function EclairagePage() {

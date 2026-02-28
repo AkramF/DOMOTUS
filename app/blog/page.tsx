@@ -18,17 +18,9 @@ export const metadata: Metadata = {
         url: "https://www.domotus.ma/images/og-domotus.jpg",
         width: 1200,
         height: 630,
-        alt: "Journal Domotus",
+        alt: "Blog Domotus",
       },
     ],
-  },
-};
-  openGraph: {
-    title: "Blog Domotique Maroc — Guides Multi-Protocoles, Crestron, Lutron | Domotus",
-    description:
-      "Guides, retours de projets et actualités domotique par l'intégrateur certifié multi-protocoles de référence au Maroc.",
-    url: "https://www.domotus.ma/blog",
-    type: "website",
   },
   twitter: {
     card: "summary_large_image",
