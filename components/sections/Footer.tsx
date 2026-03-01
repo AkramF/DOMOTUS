@@ -40,7 +40,7 @@ const NAV_COLS = [
     title: "Domotus",
     links: [
       { href: "/expertises#vision", label: "Notre Vision (10 ans)" },
-      { href: "/journal", label: "Blog Domotique" },
+      { href: "/blog", label: "Blog Domotique" },
       { href: "/mentions-legales", label: "Mentions légales" },
       { href: "/politique-confidentialite", label: "Politique de confidentialité" },
       { href: "/contact?type=devis", label: "Demander Devis/Audit", highlight: true },

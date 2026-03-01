@@ -47,48 +47,30 @@ const schemaOrg = {
 
 const articles = [
   {
-    slug: "knx-vs-matter-2026",
+    slug: "knx-vs-autres-protocoles",
     tag: "Technologie",
-    date: "Février 2026",
-    title: "KNX vs Matter : quel protocole choisir en 2026 ?",
-    excerpt: "Alors que Matter s'impose dans le grand public, KNX reste la référence absolue des installations professionnelles au Maroc. Analyse comparative.",
+    date: "Mars 2026",
+    title: "KNX vs Autres Protocoles — Quel Standard Choisir ?",
+    excerpt: "Comparatif KNX, Zigbee, Matter, Crestron. Découvrez pourquoi KNX reste le standard domotique #1 pour 20+ ans de garantie.",
     image: "/images/hero-bg.jpg",
     featured: true,
   },
   {
-    slug: "domotique-villa-casablanca",
-    tag: "Réalisations",
-    date: "Janvier 2026",
-    title: "Villa Anfa, Casablanca : 1 100 m² pilotés en un geste",
-    excerpt: "Retour sur l'intégration complète d'une villa d'exception — éclairage Lutron, sécurité Crestron, audio Sonos multi-zone à Casablanca.",
-    image: "/images/villa-prestige.jpg",
-    featured: false,
-  },
-  {
-    slug: "r2s-certification-maroc",
-    tag: "Label & Certification",
-    date: "Décembre 2025",
-    title: "Certification R2S : comment Domotus accompagne vos programmes au Maroc",
-    excerpt: "Le label Ready to Services (R2S) devient un prérequis pour les investisseurs institutionnels. Notre méthode d'accompagnement au Maroc.",
+    slug: "domotique-roi-promoteurs",
+    tag: "B2B - ROI",
+    date: "Février 2026",
+    title: "Domotique & ROI : +18% Vente, +15% Valeur Immobilière",
+    excerpt: "Étude complète du retour sur investissement pour promoteurs — Comment la domotique augmente la rentabilité de vos programmes immobiliers au Maroc.",
     image: "/images/immeuble-tertiaire.jpg",
     featured: false,
   },
   {
-    slug: "lutron-homeworks-qs",
-    tag: "Technologie",
-    date: "Novembre 2025",
-    title: "Lutron Homeworks QSX : la gradation réinventée",
-    excerpt: "Découverte des nouveautés de la plateforme Homeworks QSX et son intégration native avec Apple Home et Google Home.",
-    image: "/images/showroom.jpg",
-    featured: false,
-  },
-  {
-    slug: "bms-tertiaire-efficacite-maroc",
-    tag: "Tertiaire",
-    date: "Octobre 2025",
-    title: "BMS et efficacité énergétique : retour sur investissement au Maroc",
-    excerpt: "Étude de cas sur trois immeubles tertiaires à Casablanca et Rabat — réduction des consommations de 22 % en 18 mois grâce à notre supervision BMS.",
-    image: "/images/hero-tertiaire.jpg",
+    slug: "maison-intelligente-prestige",
+    tag: "B2C - Villa",
+    date: "Janvier 2026",
+    title: "Maison Intelligente de Prestige — Confort & Efficacité",
+    excerpt: "Guide complet pour villas de luxe — éclairage circadien, gestion énergétique intelligente, sécurité 24/7, home cinéma Dolby Atmos.",
+    image: "/images/villa-prestige.jpg",
     featured: false,
   },
 ];
@@ -128,6 +110,31 @@ export default function BlogPage() {
           <p className="mt-6 text-[15px] text-foreground/50 leading-relaxed max-w-xl">
             Guides techniques, retours de projets et tendances domotique par l&apos;intégrateur certifié multi-protocoles de référence au Maroc.
           </p>
+          
+          {/* ── SEO CONTENT SECTION ── */}
+          <div className="mt-12 grid lg:grid-cols-2 gap-12 max-w-4xl">
+            <div>
+              <h2 className="font-bold text-[14px] uppercase tracking-widest text-primary mb-4">Pourquoi lire notre blog ?</h2>
+              <p className="text-[14px] text-foreground/60 leading-relaxed mb-4">
+                Découvrez les dernières tendances en domotique et smart building. Nos articles couvrent KNX, Crestron, Lutron, Matter et tous les protocoles domotiques modernes. Apprenez comment les maisons intelligentes et les bâtiments connectés révolutionnent le confort, la sécurité et l'efficacité énergétique.
+              </p>
+              <p className="text-[14px] text-foreground/60 leading-relaxed">
+                Que vous soyez propriétaire, architecte ou promoteur immobilier, nos guides détaillés vous aideront à comprendre les solutions domotiques, leur ROI et les meilleures pratiques d'intégration au Maroc.
+              </p>
+            </div>
+            <div>
+              <h2 className="font-bold text-[14px] uppercase tracking-widest text-primary mb-4">Nos thématiques</h2>
+              <ul className="text-[14px] text-foreground/60 leading-relaxed space-y-2">
+                <li>• Comparatifs de protocoles domotiques (KNX, Matter, Zigbee, Crestron, Lutron)</li>
+                <li>• ROI et valorisation immobilière grâce à la domotique</li>
+                <li>• Efficacité énergétique et gestion intelligente</li>
+                <li>• Sécurité et contrôle d'accès biométrique</li>
+                <li>• Home cinéma et audio multi-zone</li>
+                <li>• Études de cas et réalisations certifiées</li>
+                <li>• Conformité HQE, LEED et labels de certification</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </header>
 
@@ -135,7 +142,7 @@ export default function BlogPage() {
       <section className="pb-4 bg-background" aria-label="Article à la une">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <Link
-            href={`/journal/${featured.slug}`}
+            href={`/blog/${featured.slug}`}
             className="focus-ring group relative flex flex-col lg:flex-row overflow-hidden bg-card border border-white/8 hover:border-primary/30 transition-colors duration-500"
           >
             <div className="relative lg:w-1/2 aspect-video lg:aspect-auto overflow-hidden">
@@ -179,7 +186,7 @@ export default function BlogPage() {
             {rest.map((a, i) => (
               <article key={a.slug}>
                 <Link
-                  href={`/journal/${a.slug}`}
+                  href={`/blog/${a.slug}`}
                   className="focus-ring group flex flex-col h-full bg-background hover:bg-card transition-colors duration-300"
                 >
                   <div className="relative aspect-video overflow-hidden">

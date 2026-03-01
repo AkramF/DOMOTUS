@@ -85,7 +85,7 @@ Un audit SEO complet a été réalisé sur le site domotus.ma suite aux modifica
 
 **ROUTES MISES À JOUR**:
 - ✅ `/contact` priority: 0.7 (stable)
-- ✅ `/showroom` priority: 0.6 (stable)
+- ✅ `/blog` priority: 0.8 (stable)
 
 **ROUTES RETIRÉES**:
 - ❌ `/villas-apparts` (remplacé par redirect 301)
@@ -119,7 +119,7 @@ Homepage
 │   ├── /technologies/zwave ✅
 │   ├── /technologies/matter ✅
 │   └── /technologies/wifi7 ✅
-├── /journal (Blog) ✅
+├── /blog (Blog) ✅
 ├── /contact (Conversion) ✅
 ├── /showroom (Showroom) ✅
 └── /simulateur (Tool) ✅
@@ -175,10 +175,10 @@ DOMOTUS (/) → /
 - Maison connectée → /maison-connectee ✅
 - Division Projets → /division-projets ✅
 - Écosystèmes → /ecosystemes ✅
-- Vision → /vision ✅ (NEW - maintenant fonctionnel)
-- Blog → /journal ✅
+- Vision → /vision ✅
+- Blog → /blog ✅
 - [Contact] → /contact ✅
-- [Espace Client]
+- [Espace Client] → /espace-client ✅
 ```
 
 Tous les liens sont fonctionnels ✅

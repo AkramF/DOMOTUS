@@ -72,18 +72,32 @@ export default function ContactPage() {
           </div>
           <div className="grid lg:grid-cols-2 gap-12 items-end">
             <div>
-              <h1
-                className="font-black uppercase leading-none text-foreground text-balance"
-                style={{ fontSize: "clamp(2.5rem, 6vw, 5rem)", letterSpacing: "-0.03em" }}
-              >
-                Parlons de<br />
-                <span className="italic text-foreground/50">votre projet.</span>
-              </h1>
-              <p className="mt-6 text-[15px] text-foreground/55 leading-relaxed max-w-md">
-                Remplissez le formulaire ou contactez-nous directement. Un expert Domotus revient vers vous
-                sous 24h pour un audit gratuit et sans engagement.
-              </p>
-            </div>
+          <h1
+            className="font-black uppercase leading-none text-foreground text-balance"
+            style={{ fontSize: "clamp(2.5rem, 6vw, 5rem)", letterSpacing: "-0.03em" }}
+          >
+            Parlons de<br />
+            <span className="italic text-foreground/50">votre projet.</span>
+          </h1>
+          <p className="mt-6 text-[15px] text-foreground/55 leading-relaxed max-w-md">
+            Remplissez le formulaire ou contactez-nous directement. Un expert Domotus revient vers vous
+            sous 24h pour un audit gratuit et sans engagement.
+          </p>
+          
+          {/* ── SEO CONTENT ── */}
+          <div className="mt-10 pt-10 border-t border-white/10 max-w-md">
+            <h2 className="font-bold text-[13px] uppercase tracking-widest text-primary mb-4">Pourquoi nous contacter ?</h2>
+            <p className="text-[13px] text-foreground/55 leading-relaxed mb-4">
+              Domotus est l'intégrateur domotique certifié multi-protocoles de référence au Maroc. Depuis plus de 18 ans, nous accompagnons propriétaires, architectes, promoteurs et gestionnaires de bâtiments dans leur transformation digitale.
+            </p>
+            <p className="text-[13px] text-foreground/55 leading-relaxed mb-4">
+              Notre expertise couvre KNX, Crestron, Lutron, Matter, Zigbee et Ubiquiti. Nous conçois des solutions sur-mesure qui maximisent le confort, l'efficacité énergétique (-22% facture) et la valorisation immobilière (+15% valeur).
+            </p>
+            <p className="text-[13px] text-foreground/55 leading-relaxed">
+              Contactez-nous pour une étude gratuite, un audit technique personnalisé ou une consultation en domotique pour votre projet au Maroc.
+            </p>
+          </div>
+        </div>
             {/* Guarantees — trust signals above the form */}
             <ul className="flex flex-col gap-3">
               {guarantees.map((g) => (

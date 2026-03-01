@@ -12,7 +12,7 @@ const navLinks = [
   { href: "/division-projets", label: "Division Projets" },
   { href: "/ecosystemes", label: "Écosystèmes" },
   { href: "/vision", label: "Vision" },
-  { href: "/journal", label: "Blog" },
+  { href: "/blog", label: "Blog" },
 ];
 
 export default function Navbar() {
@@ -95,7 +95,7 @@ export default function Navbar() {
 
             {/* CLIENT — icon only pill, cyan fill */}
             <Link
-              href="/simulateur"
+              href="/espace-client"
               className="focus-ring inline-flex items-center justify-center w-9 h-9 bg-primary text-[#0a0a0a] transition-all duration-300 hover:bg-primary/80"
               aria-label="Espace client"
             >
@@ -153,7 +153,7 @@ export default function Navbar() {
             </ul>
             <div className="my-8 h-px bg-white/10" />
             <Link
-              href="/simulateur"
+              href="/espace-client"
               className="focus-ring inline-flex w-max items-center gap-2 bg-primary px-6 py-3 text-sm uppercase tracking-widest font-bold transition-all duration-300 hover:bg-primary/80"
               style={{ color: "#0a0a0a" }}
             >

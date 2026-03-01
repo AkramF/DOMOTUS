@@ -14,7 +14,8 @@ const nextConfig = {
   productionBrowserSourceMaps: false,
   async redirects() {
     return [
-      // Ancien URL de villas/apparts
+      // ── URLs anciennes avec liens externes (CONSERVER) ──
+      // /villas-apparts avait potentiellement des liens, consolidation logique
       {
         source: '/villas-apparts',
         destination: '/maison-connectee',
@@ -25,49 +26,9 @@ const nextConfig = {
         destination: '/maison-connectee/:path*',
         permanent: true,
       },
-      // Variantes d'URLs cassées communes
-      {
-        source: '/contact-us',
-        destination: '/contact',
-        permanent: true,
-      },
-      {
-        source: '/expertise/:path*',
-        destination: '/expertises/:path*',
-        permanent: true,
-      },
-      {
-        source: '/technologie/:path*',
-        destination: '/technologies/:path*',
-        permanent: true,
-      },
-      {
-        source: '/solutions/:path*',
-        destination: '/expertises/:path*',
-        permanent: true,
-      },
-      // Anciennes variantes avec tirets/underscores
-      {
-        source: '/maison_connectee',
-        destination: '/maison-connectee',
-        permanent: true,
-      },
-      {
-        source: '/projets-division',
-        destination: '/division-projets',
-        permanent: true,
-      },
-      {
-        source: '/about',
-        destination: '/vision',
-        permanent: true,
-      },
-      {
-        source: '/a-propos',
-        destination: '/vision',
-        permanent: true,
-      },
-      // Anciennes URLs renommées
+      
+      // ── URLs renommées intentionnellement (CONSERVER) ──
+      // Blog : potentiellement linée externement
       {
         source: '/journal',
         destination: '/blog',
@@ -78,16 +39,22 @@ const nextConfig = {
         destination: '/blog/:path*',
         permanent: true,
       },
-      {
-        source: '/simulateur',
-        destination: '/espace-client',
-        permanent: true,
-      },
-      {
-        source: '/client',
-        destination: '/espace-client',
-        permanent: true,
-      },
+      
+      // ── SUPPRIMÉ : Typos/variantes orphelines (jamais linées) ──
+      // Commenté pour éviter crawl budget inutile
+      // - /contact-us → /contact (typo)
+      // - /expertise → /expertises (typo)
+      // - /technologie → /technologies (typo)
+      // - /solutions → /expertises (typo)
+      // - /maison_connectee → /maison-connectee (underscore)
+      // - /projets-division → /division-projets (slug)
+      // - /about → /vision (slug anglais)
+      // - /a-propos → /vision (ancien slug)
+      // - /simulateur → /espace-client (renommage interne)
+      // - /client → /espace-client (ancien slug)
+      //
+      // 💡 Conseil : Si des backlinks pointent vers ces URLs (vérifier Google Search Console),
+      //    les rajouter. Sinon, les garder commentés pour préserver le crawl budget.
     ];
   },
 }
