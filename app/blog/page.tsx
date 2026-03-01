@@ -110,6 +110,31 @@ export default function BlogPage() {
           <p className="mt-6 text-[15px] text-foreground/50 leading-relaxed max-w-xl">
             Guides techniques, retours de projets et tendances domotique par l&apos;intégrateur certifié multi-protocoles de référence au Maroc.
           </p>
+          
+          {/* ── SEO CONTENT SECTION ── */}
+          <div className="mt-12 grid lg:grid-cols-2 gap-12 max-w-4xl">
+            <div>
+              <h2 className="font-bold text-[14px] uppercase tracking-widest text-primary mb-4">Pourquoi lire notre blog ?</h2>
+              <p className="text-[14px] text-foreground/60 leading-relaxed mb-4">
+                Découvrez les dernières tendances en domotique et smart building. Nos articles couvrent KNX, Crestron, Lutron, Matter et tous les protocoles domotiques modernes. Apprenez comment les maisons intelligentes et les bâtiments connectés révolutionnent le confort, la sécurité et l'efficacité énergétique.
+              </p>
+              <p className="text-[14px] text-foreground/60 leading-relaxed">
+                Que vous soyez propriétaire, architecte ou promoteur immobilier, nos guides détaillés vous aideront à comprendre les solutions domotiques, leur ROI et les meilleures pratiques d'intégration au Maroc.
+              </p>
+            </div>
+            <div>
+              <h2 className="font-bold text-[14px] uppercase tracking-widest text-primary mb-4">Nos thématiques</h2>
+              <ul className="text-[14px] text-foreground/60 leading-relaxed space-y-2">
+                <li>• Comparatifs de protocoles domotiques (KNX, Matter, Zigbee, Crestron, Lutron)</li>
+                <li>• ROI et valorisation immobilière grâce à la domotique</li>
+                <li>• Efficacité énergétique et gestion intelligente</li>
+                <li>• Sécurité et contrôle d'accès biométrique</li>
+                <li>• Home cinéma et audio multi-zone</li>
+                <li>• Études de cas et réalisations certifiées</li>
+                <li>• Conformité HQE, LEED et labels de certification</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </header>
 
