@@ -135,7 +135,7 @@ export default function BlogPage() {
       <section className="pb-4 bg-background" aria-label="Article à la une">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <Link
-            href={`/journal/${featured.slug}`}
+            href={`/blog/${featured.slug}`}
             className="focus-ring group relative flex flex-col lg:flex-row overflow-hidden bg-card border border-white/8 hover:border-primary/30 transition-colors duration-500"
           >
             <div className="relative lg:w-1/2 aspect-video lg:aspect-auto overflow-hidden">
@@ -179,7 +179,7 @@ export default function BlogPage() {
             {rest.map((a, i) => (
               <article key={a.slug}>
                 <Link
-                  href={`/journal/${a.slug}`}
+                  href={`/blog/${a.slug}`}
                   className="focus-ring group flex flex-col h-full bg-background hover:bg-card transition-colors duration-300"
                 >
                   <div className="relative aspect-video overflow-hidden">
