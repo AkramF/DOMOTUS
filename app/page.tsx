@@ -346,40 +346,60 @@ export default function HomePage() {
               </Link>
             </div>
 
-            {/* Split image — with aspect-ratio to prevent CLS */}
-            <div className="grid grid-cols-2 gap-3 h-[480px] contain-layout">
-              <div className="relative overflow-hidden rounded-sm row-span-2 aspect-square">
-                <Image
-                  src="/images/villa-prestige.jpg"
-                  alt="Villa équipée en domotique KNX par Domotus Casablanca"
-                  fill
-                  sizes="(max-width: 1024px) 50vw, 25vw"
-                  loading="lazy"
-                  quality={80}
-                  className="object-cover"
-                />
+            {/* 3D Perspective Cards — centered on right */}
+            <div className="flex items-center justify-center relative h-[500px]">
+              {/* Card 1 — Left, rotated */}
+              <div className="absolute -left-8 lg:-left-16 top-1/2 -translate-y-1/2 w-40 h-64 bg-white rounded-2xl overflow-hidden shadow-2xl" style={{ transform: "rotateY(15deg) rotateZ(-8deg) translateZ(20px)" }}>
+                <div className="relative w-full h-3/4">
+                  <Image
+                    src="/images/villa-prestige.jpg"
+                    alt="Villa équipée en domotique KNX par Domotus"
+                    fill
+                    sizes="160px"
+                    quality={80}
+                    className="object-cover"
+                  />
+                </div>
+                <div className="p-3 h-1/4 flex flex-col justify-center">
+                  <h4 className="font-bold text-sm text-black">Sustainable</h4>
+                  <p className="text-xs text-black/60 mt-1">Ecological technologies and recyclable materials</p>
+                </div>
               </div>
-              <div className="relative overflow-hidden rounded-sm aspect-video">
-                <Image
-                  src="/images/showroom.jpg"
-                  alt="Showroom domotique Domotus Casablanca"
-                  fill
-                  sizes="(max-width: 1024px) 50vw, 25vw"
-                  loading="lazy"
-                  quality={80}
-                  className="object-cover"
-                />
+
+              {/* Card 2 — Center, prominent */}
+              <div className="absolute z-10 w-48 h-80 bg-white rounded-3xl overflow-hidden shadow-2xl" style={{ transform: "rotateZ(0deg)" }}>
+                <div className="relative w-full h-3/4">
+                  <Image
+                    src="/images/showroom.jpg"
+                    alt="Showroom domotique Domotus"
+                    fill
+                    sizes="192px"
+                    quality={80}
+                    className="object-cover"
+                  />
+                </div>
+                <div className="p-4 h-1/4 flex flex-col justify-center">
+                  <h4 className="font-bold text-base text-black">Shopping Center</h4>
+                  <p className="text-xs text-black/60 mt-1">A contemporary, light-filled shopping center</p>
+                </div>
               </div>
-              <div className="relative overflow-hidden rounded-sm aspect-video">
-                <Image
-                  src="/images/immeuble-tertiaire.jpg"
-                  alt="Bâtiment tertiaire connecté par Domotus au Maroc"
-                  fill
-                  sizes="(max-width: 1024px) 50vw, 25vw"
-                  loading="lazy"
-                  quality={80}
-                  className="object-cover"
-                />
+
+              {/* Card 3 — Right, rotated */}
+              <div className="absolute -right-8 lg:-right-16 top-1/2 -translate-y-1/2 w-40 h-64 bg-white rounded-2xl overflow-hidden shadow-2xl" style={{ transform: "rotateY(-15deg) rotateZ(8deg) translateZ(20px)" }}>
+                <div className="relative w-full h-3/4">
+                  <Image
+                    src="/images/immeuble-tertiaire.jpg"
+                    alt="Bâtiment tertiaire connecté"
+                    fill
+                    sizes="160px"
+                    quality={80}
+                    className="object-cover"
+                  />
+                </div>
+                <div className="p-3 h-1/4 flex flex-col justify-center">
+                  <h4 className="font-bold text-sm text-black">Gardens</h4>
+                  <p className="text-xs text-black/60 mt-1">Gardens, perfect for walks and landscapes</p>
+                </div>
               </div>
             </div>
           </div>
