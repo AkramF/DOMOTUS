@@ -274,7 +274,7 @@ export default function HomePage() {
 
       {/* ── SOCIAL PROOF BAND — stats immédiates ── */}
       <section className="bg-card border-b border-white/6" aria-label="Chiffres clés Domotus Maroc">
-        <div className="mx-auto max-w-7xl px-6 lg:px-10">
+        <div className="mx-auto max-w-7xl px-4 lg:px-6">
           <dl className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-y lg:divide-y-0 divide-white/6">
             {stats.map((s) => (
               <div key={s.label} className="px-8 py-8 flex flex-col gap-1">
@@ -290,7 +290,7 @@ export default function HomePage() {
 
       {/* ── SERVICES GRID — benefit-first ── */}
       <section className="py-28 lg:py-36" style={{ backgroundColor: "#efd555" }} aria-labelledby="services-heading">
-        <div className="mx-auto max-w-7xl px-6 lg:px-10">
+        <div className="mx-auto max-w-7xl px-4 lg:px-6">
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-12 mb-16">
             <div className="flex-1">
               <SectionLabel>L'intelligence de vos espaces</SectionLabel>
@@ -371,7 +371,7 @@ export default function HomePage() {
 
       {/* ── BENEFIT-LED PROPOSITION ── */}
       <section className="py-28 lg:py-36 bg-background" aria-labelledby="value-prop-heading">
-        <div className="mx-auto max-w-7xl px-6 lg:px-10">
+        <div className="mx-auto max-w-7xl px-4 lg:px-6">
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             <div>
               <SectionLabel>La différence Domotus</SectionLabel>
@@ -454,7 +454,7 @@ export default function HomePage() {
 
       {/* ── PROCESS — 3 steps ── */}
       <section className="py-24 lg:py-36 bg-background" aria-labelledby="process-heading">
-        <div className="mx-auto max-w-7xl px-6 lg:px-10">
+        <div className="mx-auto max-w-7xl px-4 lg:px-6">
           <div className="text-center mb-16">
             <SectionLabel>L'accompagnement Domotus</SectionLabel>
             <h2
@@ -507,7 +507,7 @@ export default function HomePage() {
 
       {/* ── TESTIMONIALS ── */}
       <section className="py-28 lg:py-36 bg-card" aria-labelledby="temoignages-heading">
-        <div className="mx-auto max-w-7xl px-6 lg:px-10">
+        <div className="mx-auto max-w-7xl px-4 lg:px-6">
           <div className="mb-14 text-center">
             <SectionLabel>Ils nous font confiance</SectionLabel>
             <h2
@@ -594,7 +594,7 @@ export default function HomePage() {
 
       {/* ── FAQ ── */}
       <section className="py-28 lg:py-36 bg-background" aria-labelledby="faq-heading">
-        <div className="mx-auto max-w-4xl px-6 lg:px-10">
+        <div className="mx-auto max-w-4xl px-4 lg:px-6">
           <div className="mb-16">
             <SectionLabel>Pour aller plus loin</SectionLabel>
             <h2
@@ -642,7 +642,7 @@ export default function HomePage() {
           className="absolute inset-0"
           style={{ background: "radial-gradient(ellipse 70% 60% at 50% 110%, oklch(0.91 0.12 188 / 0.09), transparent)" }}
         />
-        <div className="relative z-10 mx-auto max-w-3xl px-6 lg:px-10 text-center">
+        <div className="relative z-10 mx-auto max-w-3xl px-4 lg:px-6 text-center">
           <div className="mb-8">
             <span className="text-[12px] uppercase tracking-[0.3em] text-primary font-semibold">Démarrez maintenant</span>
           </div>

@@ -39,7 +39,7 @@ export default function Navbar() {
         )}
       >
         <nav
-          className="mx-auto max-w-screen-xl px-6 py-5 lg:px-10 flex items-center justify-between"
+          className="mx-auto max-w-screen-xl px-4 py-5 lg:px-6 flex items-center justify-between"
           aria-label="Navigation principale"
         >
           {/* Logo — left */}
