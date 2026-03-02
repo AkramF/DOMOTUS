@@ -282,11 +282,11 @@ const breadcrumbSchema = {
   ],
 };
 
-function SectionLabel({ children }: { children: React.ReactNode }) {
+function SectionLabel({ children, color = "#000000", className = "" }: { children: React.ReactNode; color?: string; className?: string }) {
   return (
-    <div className="flex items-center gap-4 mb-5">
-      <span className="block w-8 h-px bg-foreground/30" aria-hidden="true" />
-      <p className="text-[11px] uppercase tracking-[0.3em] text-primary font-semibold">{children}</p>
+    <div className={`flex items-center gap-3 mb-5 ${className}`}>
+      <span className="block w-2.5 h-2.5" style={{ backgroundColor: color }} aria-hidden="true" />
+      <p className="uppercase font-semibold" style={{ fontFamily: "Inter, sans-serif", fontWeight: 600, fontSize: "14px", lineHeight: "20px", color }}>{children}</p>
     </div>
   );
 }
@@ -391,7 +391,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-4 lg:px-6">
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-12 mb-16">
             <div className="flex-1">
-              <SectionLabel style={{ color: "#000000" }}>L'intelligence de vos espaces</SectionLabel>
+              <SectionLabel color="#000000">L'INTELLIGENCE DE VOS ESPACES</SectionLabel>
               <h2
                 id="services-heading"
                 className="font-black uppercase leading-none text-balance"
@@ -534,7 +534,7 @@ export default function HomePage() {
           <div className="grid lg:grid-cols-12 gap-12 items-start">
             {/* Left column — Title and badge */}
             <div className="lg:col-span-4">
-              <SectionLabel style={{ color: "#000000" }} className="mb-6">NOTRE DIVISION PROJETS</SectionLabel>
+              <SectionLabel color="#000000" className="mb-6">NOTRE DIVISION PROJETS</SectionLabel>
               <h2
                 id="project-types-heading"
                 className="font-black leading-tight text-black text-balance"
@@ -593,7 +593,7 @@ export default function HomePage() {
       <section className="py-28 lg:py-36" style={{ backgroundColor: "#ffffff" }} aria-labelledby="faq-heading">
         <div className="mx-auto max-w-5xl px-4 lg:px-6">
           <div className="mb-20 text-center">
-            <SectionLabel className="justify-center mb-6">Pour aller plus loin</SectionLabel>
+            <SectionLabel color="#000000" className="justify-center mb-6">POUR ALLER PLUS LOIN</SectionLabel>
             <h2
               id="faq-heading"
               className="font-black uppercase leading-none text-foreground text-balance mb-4"
