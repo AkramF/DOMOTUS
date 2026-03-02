@@ -56,9 +56,9 @@ export default function Navbar() {
             </span>
           </Link>
 
-          {/* Desktop nav links — truly centered via absolute positioning */}
+          {/* Desktop nav links — positioned before CTAs */}
           <ul
-            className="hidden lg:flex items-center gap-7 absolute left-1/2 -translate-x-1/2"
+            className="hidden lg:flex items-center gap-7"
             role="list"
           >
             {navLinks.map((link) => (
