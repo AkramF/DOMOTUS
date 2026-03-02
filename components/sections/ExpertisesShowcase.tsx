@@ -122,5 +122,6 @@ export function ExpertisesShowcase({ items }: ExpertisesShowcaseProps) {
           </Link>
         </div>
       </div>
+    </div>
   )
 }
