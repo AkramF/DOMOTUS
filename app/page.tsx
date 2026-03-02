@@ -210,7 +210,7 @@ const faqs = [
   },
   {
     q: "Comment m'accompagnez-vous après la livraison ?",
-    a: "La remise des clés n'est que le début. Nous vous formons complètement et restons à vos côtés grâce à un service de supervision proactive. Si vous souhaitez faire évoluer vos scénarios, notre équipe intervient avec réactivité.",
+    a: "La remise des clés n'est que le début. Nous vous formons complètement et restons à vos côtés grâce �� un service de supervision proactive. Si vous souhaitez faire évoluer vos scénarios, notre équipe intervient avec réactivité.",
   },
 ];
 
@@ -598,9 +598,9 @@ export default function HomePage() {
       </section>
 
       {/* ── FAQ ── */}
-      <section className="py-28 lg:py-36" style={{ backgroundColor: "#ffffff" }} aria-labelledby="faq-heading">
+      <section className="py-16 lg:py-20" style={{ backgroundColor: "#ffffff" }} aria-labelledby="faq-heading">
         <div className="mx-auto max-w-5xl px-4 lg:px-6">
-          <div className="mb-20 text-center">
+          <div className="mb-12 text-center">
             <SectionLabel color="#000000" className="justify-center mb-6">POUR ALLER PLUS LOIN</SectionLabel>
             <h2
               id="faq-heading"

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { ChevronDown, MapPin, Phone, Mail, Instagram, Linkedin } from "lucide-react";
+import { ChevronDown, Phone, Mail, Instagram, Linkedin } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const NAV_COLS = [
@@ -82,14 +82,21 @@ function AccordionCol({ title, links }: { title: string; links: { href: string; 
 
 export default function Footer() {
   const year = new Date().getFullYear();
+  const [expandedSections, setExpandedSections] = useState<string[]>([]);
+
+  const toggleSection = (title: string) => {
+    setExpandedSections((prev) =>
+      prev.includes(title) ? prev.filter((t) => t !== title) : [...prev, title]
+    );
+  };
 
   return (
     <footer className="bg-[#0a0a0a] border-t border-white/8" role="contentinfo" aria-label="Pied de page Domotus">
 
-      {/* ── DESKTOP ── */}
+      {/* ── DESKTOP — REVEAL STYLE ── */}
       <div className="hidden lg:block mx-auto max-w-screen-xl px-10 pt-20 pb-10">
 
-        {/* Top row — 5 columns */}
+        {/* Top row — 5 columns with reveal animation */}
         <div className="grid grid-cols-5 gap-12 pb-16 border-b border-white/8">
 
           {/* Column 1: Brand & Identity */}
@@ -109,11 +116,11 @@ export default function Footer() {
               <span className="font-semibold text-white/70">Zones d&apos;intervention</span>
               <span>{CITIES.join(" · ")}</span>
               <div className="pt-2 border-t border-white/10 flex flex-col gap-2">
-                <a href="tel:+212663666627" className="flex items-center gap-2 hover:text-[#66FCF1] transition-colors">
+                <a href="tel:+212663666627" className="flex items-center gap-2 hover:text-white transition-colors">
                   <Phone size={12} className="shrink-0 text-[#66FCF1]" aria-hidden="true" />
                   +212 663 66 66 27
                 </a>
-                <a href="mailto:contact@domotus.ma" className="flex items-center gap-2 hover:text-[#66FCF1] transition-colors">
+                <a href="mailto:contact@domotus.ma" className="flex items-center gap-2 hover:text-white transition-colors">
                   <Mail size={12} className="shrink-0 text-[#66FCF1]" aria-hidden="true" />
                   contact@domotus.ma
                 </a>
@@ -121,10 +128,10 @@ export default function Footer() {
             </address>
 
             <div className="flex items-center gap-3">
-              <a href="https://www.linkedin.com/company/domotusmaroc/" target="_blank" rel="noopener noreferrer" className="text-white/30 hover:text-[#66FCF1] transition-colors" aria-label="LinkedIn Domotus">
+              <a href="https://www.linkedin.com/company/domotusmaroc/" target="_blank" rel="noopener noreferrer" className="text-[#66FCF1] hover:text-[#66FCF1]/80 transition-colors" aria-label="LinkedIn Domotus">
                 <Linkedin size={16} />
               </a>
-              <a href="https://www.instagram.com/domotus.ma/" target="_blank" rel="noopener noreferrer" className="text-white/30 hover:text-[#66FCF1] transition-colors" aria-label="Instagram Domotus Maroc">
+              <a href="https://www.instagram.com/domotus.ma/" target="_blank" rel="noopener noreferrer" className="text-[#66FCF1] hover:text-[#66FCF1]/80 transition-colors" aria-label="Instagram Domotus Maroc">
                 <Instagram size={16} />
               </a>
             </div>
@@ -159,7 +166,7 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* ── MOBILE ── */}
+      {/* ── MOBILE — REVEAL STYLE ── */}
       <div className="lg:hidden px-6 pt-12 pb-8">
         <Link href="/" className="flex items-center gap-3 mb-6 focus:outline-none" aria-label="Domotus">
           <div className="w-8 h-8 border border-white flex items-center justify-center">
@@ -179,7 +186,35 @@ export default function Footer() {
         <p className="text-xs text-white/50 mb-6">{CITIES.join(" · ")}</p>
 
         {NAV_COLS.map((col) => (
-          <AccordionCol key={col.title} title={col.title} links={col.links} />
+          <div key={col.title} className="border-b border-white/8">
+            <button
+              className="flex w-full items-center justify-between py-4 text-left focus:outline-none"
+              onClick={() => toggleSection(col.title)}
+              aria-expanded={expandedSections.includes(col.title)}
+            >
+              <span className="text-[10px] uppercase tracking-[0.2em] text-white/50 font-semibold">{col.title}</span>
+              <ChevronDown
+                size={14}
+                className={cn(
+                  "text-white/40 transition-transform duration-300",
+                  expandedSections.includes(col.title) && "rotate-180"
+                )}
+              />
+            </button>
+            {expandedSections.includes(col.title) && (
+              <div className="overflow-hidden pb-4">
+                <ul className="flex flex-col gap-3">
+                  {col.links.map((l, i) => (
+                    <li key={`${l.label}-${i}`}>
+                      <Link href={l.href} className={cn("text-sm transition-colors duration-200", l.highlight ? "text-[#66FCF1] hover:text-[#66FCF1]/80 font-semibold" : "text-white/50 hover:text-[#66FCF1]")}>
+                        {l.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
         ))}
 
         <address className="not-italic flex flex-col gap-3 mt-8 text-sm text-white/50">
@@ -194,10 +229,10 @@ export default function Footer() {
         </address>
 
         <div className="flex items-center gap-4 mt-6">
-          <a href="https://www.linkedin.com/company/domotusmaroc/" target="_blank" rel="noopener noreferrer" className="text-white/30 hover:text-[#66FCF1] transition-colors" aria-label="LinkedIn">
+          <a href="https://www.linkedin.com/company/domotusmaroc/" target="_blank" rel="noopener noreferrer" className="text-[#66FCF1] hover:text-[#66FCF1]/80 transition-colors" aria-label="LinkedIn">
             <Linkedin size={16} />
           </a>
-          <a href="https://www.instagram.com/domotus.ma/" target="_blank" rel="noopener noreferrer" className="text-white/30 hover:text-[#66FCF1] transition-colors" aria-label="Instagram">
+          <a href="https://www.instagram.com/domotus.ma/" target="_blank" rel="noopener noreferrer" className="text-[#66FCF1] hover:text-[#66FCF1]/80 transition-colors" aria-label="Instagram">
             <Instagram size={16} />
           </a>
         </div>
