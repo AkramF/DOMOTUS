@@ -25,7 +25,7 @@ export function ExpertisesShowcase({ items }: ExpertisesShowcaseProps) {
   return (
     <div className="grid lg:grid-cols-12 gap-6 lg:gap-12 items-stretch">
       {/* Left column — Category cards stacked, stretched to match image height */}
-      <div className="lg:col-span-2 flex flex-row lg:flex-col gap-3 overflow-x-auto lg:overflow-x-visible pb-2 lg:pb-0 lg:justify-between">
+      <div className="lg:col-span-2 flex flex-row lg:flex-col gap-1 overflow-x-auto lg:overflow-x-visible pb-2 lg:pb-0 lg:justify-between">
         {items.map((item, index) => {
           const isActive = index === selectedIndex
 
@@ -33,32 +33,39 @@ export function ExpertisesShowcase({ items }: ExpertisesShowcaseProps) {
             <button
               key={item.title}
               onClick={() => setSelectedIndex(index)}
-              className={`focus-ring relative rounded-xl overflow-hidden flex-shrink-0 w-36 h-20 lg:w-full lg:h-24 flex items-center justify-center p-4 group transition-all duration-300 ${
+              className={`focus-ring relative rounded-xl overflow-hidden flex-shrink-0 w-36 h-20 lg:w-full lg:h-32 flex items-center justify-center p-4 group transition-all duration-300 ${
                 isActive ? 'ring-2 ring-black' : 'hover:shadow-lg'
               }`}
               style={{ backgroundColor: "#000000" }}
               aria-pressed={isActive}
               aria-label={`Sélectionner ${item.title}`}
             >
-              {/* Background image with overlay */}
+              {/* Background image with overlay — visible when active */}
               <div className="absolute inset-0 -z-10">
                 <Image
                   src={item.image}
                   alt={item.imageAlt}
                   fill
                   sizes="(max-width: 1024px) 128px, 100%"
-                  className="object-cover opacity-25 group-hover:opacity-35 transition-opacity duration-300"
+                  className={`object-cover transition-opacity duration-300 ${
+                    isActive ? 'opacity-100' : 'opacity-0'
+                  }`}
                 />
-                <div className="absolute inset-0 bg-black/70 group-hover:bg-black/60 transition-colors duration-300" />
+                <div className={`absolute inset-0 transition-colors duration-300 ${
+                  isActive ? 'bg-black/0' : 'bg-black/70 group-hover:bg-black/60'
+                }`} />
               </div>
 
-              {/* Title — full text visible, color changes based on active state */}
+              {/* Title — full text visible, Inter 500 24px 29px line-height */}
               <h4 
                 className="font-medium text-center leading-snug transition-colors duration-300" 
                 style={{ 
-                  fontSize: "0.875rem", 
+                  fontFamily: "Inter, sans-serif",
+                  fontWeight: 500,
+                  fontSize: "24px", 
+                  lineHeight: "29px",
                   letterSpacing: "0",
-                  color: isActive ? "#000000" : "#efd555",
+                  color: isActive ? "#ffffff" : "#efd555",
                   position: "relative",
                   zIndex: 10
                 }}
