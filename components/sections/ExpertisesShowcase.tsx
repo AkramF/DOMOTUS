@@ -25,7 +25,7 @@ export function ExpertisesShowcase({ items }: ExpertisesShowcaseProps) {
   return (
     <div className="grid lg:grid-cols-12 gap-6 lg:gap-12 items-start">
       {/* Left column — Category cards stacked */}
-      <div className="lg:col-span-3 flex flex-row lg:flex-col gap-2 overflow-x-auto lg:overflow-x-visible pb-2 lg:pb-0">
+      <div className="lg:col-span-2 flex flex-row lg:flex-col gap-2 overflow-x-auto lg:overflow-x-visible pb-2 lg:pb-0">
         {items.map((item, index) => {
           const isActive = index === selectedIndex
 
@@ -33,7 +33,7 @@ export function ExpertisesShowcase({ items }: ExpertisesShowcaseProps) {
             <button
               key={item.title}
               onClick={() => setSelectedIndex(index)}
-              className={`focus-ring relative rounded-xl overflow-hidden flex-shrink-0 w-20 h-20 lg:w-full lg:h-auto lg:aspect-square flex items-center justify-center p-3 group transition-all duration-300 ${
+              className={`focus-ring relative rounded-lg overflow-hidden flex-shrink-0 w-20 h-20 lg:w-24 lg:h-24 flex items-center justify-center p-3 group transition-all duration-300 ${
                 isActive ? 'ring-2 ring-black' : 'hover:shadow-lg'
               }`}
               style={{ backgroundColor: "#000000" }}
@@ -61,7 +61,7 @@ export function ExpertisesShowcase({ items }: ExpertisesShowcaseProps) {
       </div>
 
       {/* Right column — Selected project content */}
-      <div className="lg:col-span-9 flex flex-col gap-6">
+      <div className="lg:col-span-10 flex flex-col gap-6">
         {/* Project badge */}
         <div className="flex items-center gap-3">
           <div className="w-2 h-2 bg-black rounded-full" />
