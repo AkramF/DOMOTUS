@@ -437,7 +437,7 @@ export default function HomePage() {
       </section>
 
       {/* ── PROCESS — 3 steps ── */}
-      <section className="py-24 lg:py-36" style={{ backgroundColor: "#ffffff" }} aria-labelledby="process-heading">
+      <section className="py-24 lg:py-36" style={{ backgroundColor: "#000000" }} aria-labelledby="process-heading">
         <div className="mx-auto max-w-7xl px-4 lg:px-6">
           <div className="text-center mb-16">
             <SectionLabel>L'accompagnement Domotus</SectionLabel>
@@ -577,7 +577,7 @@ export default function HomePage() {
       <PartnersGrid />
 
       {/* ── FAQ ── */}
-      <section className="py-28 lg:py-36" style={{ backgroundColor: "#efd555" }} aria-labelledby="faq-heading">
+      <section className="py-28 lg:py-36" style={{ backgroundColor: "#ffffff" }} aria-labelledby="faq-heading">
         <div className="mx-auto max-w-4xl px-4 lg:px-6">
           <div className="mb-16">
             <SectionLabel>Pour aller plus loin</SectionLabel>
@@ -620,7 +620,7 @@ export default function HomePage() {
       </section>
 
       {/* ── CTA FINAL — urgence + double action ── */}
-      <section className="relative py-32 lg:py-40 overflow-hidden" aria-labelledby="cta-heading">
+      <section className="relative py-32 lg:py-40 overflow-hidden" style={{ backgroundColor: "#efd555" }} aria-labelledby="cta-heading">
         <div className="absolute inset-0 bg-card" />
         <div
           className="absolute inset-0"
