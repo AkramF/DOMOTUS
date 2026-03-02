@@ -126,11 +126,19 @@ const testimonials = [
     quote: "Domotus a sublimé notre villa à Casablanca avec une fluidité KNX remarquable. Ce qui nous a vraiment impressionnés, c'est la rigueur : respect du calendrier, intégration invisible, et une équipe qui comprend l'architecture avant de vendre de la technologie.",
     name: "Mehdi R.",
     role: "Propriétaire, Villa Anfa — Casablanca",
+    title: "Functional design",
+    description: "Functional design organizes the project to meet its use objectives.",
+    image: "/images/expertise-eclairage.jpg",
+    imageAlt: "Villa Casablanca - Functional design project",
   },
   {
     quote: "En tant que promoteur, intégrer Domotus dès la conception a transformé nos ventes. Les acquéreurs cherchent un atout technologique credible — Domotus le rend accessible, documenté, garanti. C'est un vrai levier commercial.",
     name: "Laila M.",
     role: "Directrice développement, Groupe Immobilier Marrakech",
+    title: "Renovation of spaces",
+    description: "Updating existing areas to improve their functionality, aesthetics and comfort.",
+    image: "/images/expertise-av.jpg",
+    imageAlt: "Renovation project - Marrakech",
   },
 ];
 
@@ -433,32 +441,62 @@ export default function HomePage() {
       </section>
 
       {/* ── TESTIMONIALS ── */}
-      <section className="py-28 lg:py-36" style={{ backgroundColor: "#ffffff" }} aria-labelledby="temoignages-heading">
+      <section className="py-28 lg:py-36" style={{ backgroundColor: "#000000" }} aria-labelledby="temoignages-heading">
         <div className="mx-auto max-w-7xl px-4 lg:px-6">
-          <div className="mb-14 text-center">
-            <SectionLabel>Ils nous font confiance</SectionLabel>
+          <div className="mb-16">
+            <SectionLabel style={{ color: "#ffffff" }}>Ce que disent nos clients</SectionLabel>
             <h2
               id="temoignages-heading"
-              className="font-black uppercase leading-none text-foreground text-balance"
+              className="font-black uppercase leading-none text-white text-balance"
               style={{ fontSize: "clamp(1.8rem, 4vw, 3.2rem)", letterSpacing: "-0.02em" }}
             >
               Ce que disent nos{" "}
-              <span className="italic text-foreground/45">clients.</span>
+              <span className="italic" style={{ color: "#ffffff" }}>clients.</span>
             </h2>
           </div>
-          <div className="grid lg:grid-cols-2 gap-px bg-white/6">
+          <div className="grid lg:grid-cols-2 gap-6">
             {testimonials.map((t) => (
-              <blockquote key={t.name} className="bg-background p-10 flex flex-col gap-6">
-                <p className="text-[15px] text-foreground/70 leading-relaxed italic">
-                  &ldquo;{t.quote}&rdquo;
-                </p>
-                <footer className="mt-auto pt-4 border-t border-white/8">
-                  <cite className="not-italic">
-                    <span className="block text-[13px] font-bold text-foreground uppercase tracking-[0.08em]">{t.name}</span>
-                    <span className="block text-[11px] text-foreground/40 mt-0.5">{t.role}</span>
-                  </cite>
-                </footer>
-              </blockquote>
+              <div key={t.name} className="bg-white rounded-3xl overflow-hidden flex flex-col lg:flex-row">
+                {/* Left content */}
+                <div className="flex flex-col justify-between p-8 lg:p-10 lg:w-1/2">
+                  {/* Logo */}
+                  <div className="mb-6">
+                    <div className="w-12 h-12 rounded-full bg-black flex items-center justify-center">
+                      <div className="w-6 h-6 rounded-full" style={{ backgroundColor: "#efd555" }} />
+                    </div>
+                  </div>
+                  
+                  {/* Title and description */}
+                  <div className="mb-8">
+                    <h3 className="text-black font-black text-xl mb-3" style={{ fontSize: "20px", lineHeight: "28px" }}>
+                      {t.title}
+                    </h3>
+                    <p className="text-black/70 text-sm leading-relaxed" style={{ fontSize: "14px", lineHeight: "20px" }}>
+                      {t.description}
+                    </p>
+                  </div>
+
+                  {/* Learn more link */}
+                  <Link
+                    href="#"
+                    className="text-black font-semibold text-sm underline hover:text-black/70 transition-colors w-fit"
+                    style={{ fontSize: "12px", letterSpacing: "0.12em" }}
+                  >
+                    LEARN MORE
+                  </Link>
+                </div>
+
+                {/* Right image */}
+                <div className="relative w-full lg:w-1/2 h-64 lg:h-auto lg:min-h-80">
+                  <Image
+                    src={t.image}
+                    alt={t.imageAlt}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    className="object-cover"
+                  />
+                </div>
+              </div>
             ))}
           </div>
         </div>
