@@ -124,58 +124,70 @@ const steps = [
 const testimonials = [
   {
     name: "Particulier Villa",
+    firstName: "Ahmed",
     title: "Villa Anfa - Casablanca",
     description: "Domotus a sublimé notre villa avec une fluidité KNX remarquable. Respect du calendrier, intégration invisible, et une équipe qui comprend l'architecture avant de vendre de la technologie.",
     image: "/images/expertise-eclairage.jpg",
     imageAlt: "Villa particulier - Domotique luxe",
+    segment: "B2C",
   },
   {
     name: "Directrice Promoteur Immobilier",
+    firstName: "Laila",
     title: "Groupe Immobilier Marrakech",
     description: "Intégrer Domotus dès la conception a transformé nos ventes. Les acquéreurs cherchent un atout technologique crédible — Domotus le rend accessible, documenté, garanti.",
     image: "/images/expertise-av.jpg",
     imageAlt: "Projet immobilier - Domotique commerciale",
+    segment: "B2B",
   },
   {
     name: "Ambassade de Chine",
+    firstName: "Li",
     title: "Rabat, Maroc",
     description: "Les systèmes Domotus offrent une sécurité et une gestion énergétique de classe mondiale. Fiabilité exceptionnelle, support technique impeccable, et intégration transparente.",
     image: "/images/expertise-bms.jpg",
     imageAlt: "Ambassade - Infrastructure gouvernementale",
+    segment: "Projet Spécifique",
   },
   {
     name: "Laboratoire CBS",
+    firstName: "Dr. Karim",
     title: "Centre Biomédicale Casablanca",
     description: "La précision et la fiabilité des installations Domotus sont cruciales pour nos opérations. Automatisation complète, redondance système, et monitoring en temps réel.",
     image: "/images/expertise-energie.jpg",
     imageAlt: "Laboratoire - Installation critique",
+    segment: "B2B2C",
   },
 ];
 
 const projectTypes = [
   {
-    title: "Intégration Résidentielle",
-    description: "Domotique haut de gamme pour villas et appartements. Confort, sécurité et économies d'énergie.",
+    title: "Architectes & Designers",
+    description: "Partenariat avec les plus grands noms de l'architecture pour intégrer la domotique dès la conception. Design invisible, expérience maximale.",
     image: "/images/expertise-eclairage.jpg",
-    imageAlt: "Intégration résidentielle - Villa intelligente",
+    imageAlt: "Architectes et designers - Conception intégrée",
+    segment: "B2B",
   },
   {
-    title: "Solutions Commerciales",
-    description: "Gestion intégrée pour bureaux, hôtels et restaurants. Efficacité énergétique et experience client.",
+    title: "Promoteurs Immobiliers",
+    description: "Solutions clés en main pour valoriser vos programmes. Accélère les ventes, fidélise les acquéreurs, augmente le prix de sortie.",
     image: "/images/expertise-av.jpg",
-    imageAlt: "Solutions commerciales - Espace professionnel",
+    imageAlt: "Promoteurs immobiliers - Programme intégré",
+    segment: "B2B",
   },
   {
-    title: "Infrastructure Hôtelière",
-    description: "Systèmes domotiques pour chaînes hôtelières. Automatisation complète des suites et espaces communs.",
+    title: "Hôtellerie & Hospitalité",
+    description: "Gestion centralisée pour chaînes hôtelières. Confort client, efficacité opérationnelle, économies énergétiques garanties.",
     image: "/images/expertise-bms.jpg",
-    imageAlt: "Infrastructure hôtelière - Chambre intelligente",
+    imageAlt: "Hôtellerie et hospitalité",
+    segment: "B2B2C",
   },
   {
-    title: "Bâtiments Tertiaires",
-    description: "Contrôle centralisé pour complexes immobiliers. Supervision, sécurité et optimisation énergétique.",
+    title: "Bureaux & Tertiaire",
+    description: "Espaces de travail intelligents et productifs. Automatisation complète, bien-être collaborateur, optimisation énergétique.",
     image: "/images/expertise-energie.jpg",
-    imageAlt: "Bâtiments tertiaires - Immeubles intelligents",
+    imageAlt: "Bureaux et tertiaire - Espaces connectés",
+    segment: "B2B",
   },
 ];
 
@@ -313,7 +325,7 @@ export default function HomePage() {
       <HeroSplit />
 
       {/* ── BENEFIT-LED PROPOSITION ── */}
-      <section className="py-28 lg:py-36" style={{ backgroundColor: "#efd555" }} aria-labelledby="value-prop-heading">
+      <section className="py-14 lg:py-18" style={{ backgroundColor: "#efd555" }} aria-labelledby="value-prop-heading">
         <div className="mx-auto max-w-7xl px-4 lg:px-6">
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             <div>
@@ -418,18 +430,17 @@ export default function HomePage() {
       </section>
 
       {/* ── L'INTELLIGENCE DE VOS ESPACES — Interactive Showcase ── */}
-      <section className="py-28 lg:py-36" style={{ backgroundColor: "#ffffff" }} aria-labelledby="services-heading">
+      <section className="py-24 lg:py-32" style={{ backgroundColor: "#ffffff" }} aria-labelledby="services-heading">
         <div className="mx-auto max-w-7xl px-4 lg:px-6">
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-12 mb-16">
             <div className="flex-1">
               <SectionLabel color="#000000">L'INTELLIGENCE DE VOS ESPACES</SectionLabel>
               <h2
                 id="services-heading"
-                className="font-black uppercase leading-none text-balance"
-                style={{ fontSize: "clamp(1.8rem, 4vw, 3.2rem)", letterSpacing: "-0.02em", color: "#000000" }}
+                className="font-black leading-tight text-black text-balance"
+                style={{ fontSize: "clamp(1.8rem, 4vw, 2.8rem)", letterSpacing: "-0.02em" }}
               >
-                Maîtrise absolue<br />
-                <span className="italic" style={{ color: "#000000" }}>de votre environnement.</span>
+                Explorez nos expertises
               </h2>
             </div>
             <Link
@@ -540,6 +551,10 @@ export default function HomePage() {
 
                     {/* Content */}
                     <div className="p-6 flex flex-col justify-between flex-1">
+                      {/* Segment tag */}
+                      <span className="text-[11px] font-bold uppercase tracking-[0.1em] text-black/50 mb-2">
+                        {project.segment}
+                      </span>
                       <h3 className="text-black font-bold text-lg mb-3" style={{ fontSize: "18px", lineHeight: "26px" }}>
                         {project.title}
                       </h3>
@@ -562,10 +577,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="py-28 lg:py-36" style={{ backgroundColor: "#000000" }} aria-labelledby="temoignages-heading">
+      <section className="py-16 lg:py-20" style={{ backgroundColor: "#000000" }} aria-labelledby="temoignages-heading">
         <div className="mx-auto max-w-7xl px-4 lg:px-6">
           {/* Title section */}
-          <div className="mb-20 text-center">
+          <div className="mb-12 text-center">
             <SectionLabel color="#ffffff" className="justify-center mb-6">CE QUE DISENT NOS CLIENTS</SectionLabel>
             <h2
               id="temoignages-heading"

@@ -7,10 +7,12 @@ import { ChevronLeft, ChevronRight } from 'lucide-react'
 
 interface Testimonial {
   name: string
+  firstName: string
   title: string
   description: string
   image: string
   imageAlt: string
+  segment: string
 }
 
 export default function TestimonialCarousel({ testimonials }: { testimonials: Testimonial[] }) {
@@ -36,66 +38,68 @@ export default function TestimonialCarousel({ testimonials }: { testimonials: Te
         {visibleTestimonials.map((t) => (
           <div
             key={`${t.name}-${currentIndex}`}
-            className="bg-white rounded-3xl overflow-hidden flex flex-col lg:flex-row transition-all duration-500"
+            className="bg-white rounded-3xl overflow-hidden flex flex-col lg:flex-row transition-all duration-500 h-48 lg:h-56"
           >
-            {/* Left content — 40% */}
-            <div className="flex flex-col justify-between p-8 lg:p-10 w-full lg:w-2/5">
-              {/* Badge circle */}
-              <div className="mb-6">
-                <div className="w-12 h-12 rounded-full bg-black flex items-center justify-center flex-shrink-0">
-                  <div className="w-5 h-5 rounded-full" style={{ backgroundColor: "#efd555" }} />
-                </div>
+            {/* Right image — 1/4 of space with white border */}
+            <div className="relative w-1/4 lg:w-1/4 h-full bg-white p-2 flex-shrink-0">
+              <div className="relative w-full h-full rounded-lg overflow-hidden">
+                <Image
+                  src={t.image}
+                  alt={t.imageAlt}
+                  fill
+                  sizes="120px"
+                  className="object-cover"
+                />
+              </div>
+            </div>
+
+            {/* Left content — 3/4 of space */}
+            <div className="flex flex-col justify-between p-4 lg:p-6 w-3/4 lg:w-3/4">
+              {/* Segment tag */}
+              <div>
+                <span className="text-[9px] font-bold uppercase tracking-[0.1em] text-black/50 block mb-1">
+                  {t.segment}
+                </span>
               </div>
 
               {/* Title and description */}
-              <div className="mb-8 flex-1">
-                <h3 className="text-black font-bold text-lg mb-3" style={{ fontSize: "20px", lineHeight: "28px" }}>
+              <div className="mb-3 flex-1">
+                <h3 className="text-black font-bold text-sm mb-2" style={{ fontSize: "16px", lineHeight: "24px" }}>
                   {t.title}
                 </h3>
-                <p className="text-black/70 leading-relaxed" style={{ fontSize: "14px", lineHeight: "20px" }}>
+                <p className="text-black/70 leading-tight text-xs" style={{ fontSize: "12px", lineHeight: "16px" }}>
                   {t.description}
                 </p>
               </div>
 
-              {/* Learn more link */}
+              {/* First name link */}
               <Link
                 href="#"
                 className="text-black font-semibold underline hover:text-black/70 transition-colors w-fit"
-                style={{ fontSize: "12px", letterSpacing: "0.12em" }}
+                style={{ fontSize: "11px", letterSpacing: "0.12em" }}
               >
-                LEARN MORE
+                {t.firstName.toUpperCase()}
               </Link>
-            </div>
-
-            {/* Right image — 60% */}
-            <div className="relative w-full lg:w-3/5 h-64 lg:h-auto lg:min-h-96">
-              <Image
-                src={t.image}
-                alt={t.imageAlt}
-                fill
-                sizes="(max-width: 1024px) 100vw, 60vw"
-                className="object-cover"
-              />
             </div>
           </div>
         ))}
       </div>
 
       {/* Navigation buttons */}
-      <div className="flex justify-center gap-4 mt-8">
+      <div className="flex justify-center gap-4 mt-6">
         <button
           onClick={handlePrev}
-          className="w-12 h-12 rounded-full bg-white flex items-center justify-center hover:bg-white/80 transition-colors group focus-ring"
+          className="w-10 h-10 rounded-full bg-white flex items-center justify-center hover:bg-white/80 transition-colors group focus-ring"
           aria-label="Previous testimonials"
         >
-          <ChevronLeft size={20} className="text-black" />
+          <ChevronLeft size={18} className="text-black" />
         </button>
         <button
           onClick={handleNext}
-          className="w-12 h-12 rounded-full bg-white flex items-center justify-center hover:bg-white/80 transition-colors group focus-ring"
+          className="w-10 h-10 rounded-full bg-white flex items-center justify-center hover:bg-white/80 transition-colors group focus-ring"
           aria-label="Next testimonials"
         >
-          <ChevronRight size={20} className="text-black" />
+          <ChevronRight size={18} className="text-black" />
         </button>
       </div>
     </div>
