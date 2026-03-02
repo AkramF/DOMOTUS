@@ -5,6 +5,7 @@ import Image from "next/image";
 import HeroSplit from "@/components/sections/HeroSplit";
 import { ExpertisesShowcase } from "@/components/sections/ExpertisesShowcase";
 import TestimonialCarousel from "@/components/TestimonialCarousel";
+import StackingCardsSection from "@/components/StackingCardsSection";
 import { ArrowRight } from "lucide-react";
 
 // Lazy load non-critical sections to reduce initial JS bundle
@@ -44,6 +45,27 @@ export const metadata: Metadata = {
     ],
   },
 };
+
+const stackingCards = [
+  {
+    title: "Sustainable",
+    description: "A contemporary, light-filled shopping center offering an unforgettable visitor experience with ecological technologies and recyclable materials.",
+    image: "/images/villa-prestige.jpg",
+    imageAlt: "Villa équipée en domotique KNX par Domotus",
+  },
+  {
+    title: "Shopping Center",
+    description: "A contemporary, light-filled shopping center offering an unforgettable visitor experience with integrated smart building solutions.",
+    image: "/images/showroom.jpg",
+    imageAlt: "Showroom domotique Domotus Casablanca",
+  },
+  {
+    title: "Gardens",
+    description: "Beautiful landscapes perfect for walks and outdoor spaces with automated irrigation and ambient lighting control systems.",
+    image: "/images/immeuble-tertiaire.jpg",
+    imageAlt: "Bâtiment tertiaire connecté par Domotus au Maroc",
+  },
+];
 
 const expertises = [
   {
@@ -369,62 +391,8 @@ export default function HomePage() {
               </Link>
             </div>
 
-            {/* 3D Perspective Cards — centered on right */}
-            <div className="flex items-center justify-center relative h-[500px]">
-              {/* Card 1 — Left, rotated */}
-              <div className="absolute -left-8 lg:-left-16 top-1/2 -translate-y-1/2 w-40 h-64 bg-white rounded-2xl overflow-hidden shadow-2xl" style={{ transform: "rotateY(15deg) rotateZ(-8deg) translateZ(20px)" }}>
-                <div className="relative w-full h-3/4">
-                  <Image
-                    src="/images/villa-prestige.jpg"
-                    alt="Villa équipée en domotique KNX par Domotus"
-                    fill
-                    sizes="160px"
-                    quality={80}
-                    className="object-cover"
-                  />
-                </div>
-                <div className="p-3 h-1/4 flex flex-col justify-center">
-                  <h4 className="font-bold text-sm text-black">Sustainable</h4>
-                  <p className="text-xs text-black/60 mt-1">Ecological technologies and recyclable materials</p>
-                </div>
-              </div>
-
-              {/* Card 2 — Center, prominent */}
-              <div className="absolute z-10 w-48 h-80 bg-white rounded-3xl overflow-hidden shadow-2xl" style={{ transform: "rotateZ(0deg)" }}>
-                <div className="relative w-full h-3/4">
-                  <Image
-                    src="/images/showroom.jpg"
-                    alt="Showroom domotique Domotus"
-                    fill
-                    sizes="192px"
-                    quality={80}
-                    className="object-cover"
-                  />
-                </div>
-                <div className="p-4 h-1/4 flex flex-col justify-center">
-                  <h4 className="font-bold text-base text-black">Shopping Center</h4>
-                  <p className="text-xs text-black/60 mt-1">A contemporary, light-filled shopping center</p>
-                </div>
-              </div>
-
-              {/* Card 3 — Right, rotated */}
-              <div className="absolute -right-8 lg:-right-16 top-1/2 -translate-y-1/2 w-40 h-64 bg-white rounded-2xl overflow-hidden shadow-2xl" style={{ transform: "rotateY(-15deg) rotateZ(8deg) translateZ(20px)" }}>
-                <div className="relative w-full h-3/4">
-                  <Image
-                    src="/images/immeuble-tertiaire.jpg"
-                    alt="Bâtiment tertiaire connecté"
-                    fill
-                    sizes="160px"
-                    quality={80}
-                    className="object-cover"
-                  />
-                </div>
-                <div className="p-3 h-1/4 flex flex-col justify-center">
-                  <h4 className="font-bold text-sm text-black">Gardens</h4>
-                  <p className="text-xs text-black/60 mt-1">Gardens, perfect for walks and landscapes</p>
-                </div>
-              </div>
-            </div>
+            {/* Stacking Cards Section */}
+            <StackingCardsSection cards={stackingCards} />
           </div>
         </div>
       </section>
