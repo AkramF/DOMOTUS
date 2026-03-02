@@ -142,6 +142,33 @@ const testimonials = [
   },
 ];
 
+const projectTypes = [
+  {
+    title: "Intégration Résidentielle",
+    description: "Domotique haut de gamme pour villas et appartements. Confort, sécurité et économies d'énergie.",
+    image: "/images/expertise-eclairage.jpg",
+    imageAlt: "Intégration résidentielle - Villa intelligente",
+  },
+  {
+    title: "Solutions Commerciales",
+    description: "Gestion intégrée pour bureaux, hôtels et restaurants. Efficacité énergétique et experience client.",
+    image: "/images/expertise-av.jpg",
+    imageAlt: "Solutions commerciales - Espace professionnel",
+  },
+  {
+    title: "Infrastructure Hôtelière",
+    description: "Systèmes domotiques pour chaînes hôtelières. Automatisation complète des suites et espaces communs.",
+    image: "/images/expertise-bms.jpg",
+    imageAlt: "Infrastructure hôtelière - Chambre intelligente",
+  },
+  {
+    title: "Bâtiments Tertiaires",
+    description: "Contrôle centralisé pour complexes immobiliers. Supervision, sécurité et optimisation énergétique.",
+    image: "/images/expertise-energie.jpg",
+    imageAlt: "Bâtiments tertiaires - Immeubles intelligents",
+  },
+];
+
 const faqs = [
   {
     q: "Quel budget prévoir pour une intégration sur mesure ?",
@@ -505,6 +532,67 @@ export default function HomePage() {
       {/* ── PARTNERS GRID ── */}
       <PartnersGrid />
 
+      {/* ── PROJECT TYPES DIVISION ── */}
+      <section className="py-28 lg:py-36" style={{ backgroundColor: "#f0efed" }} aria-labelledby="project-types-heading">
+        <div className="mx-auto max-w-7xl px-4 lg:px-6">
+          <div className="grid lg:grid-cols-12 gap-12 items-start">
+            {/* Left column — Title and badge */}
+            <div className="lg:col-span-4">
+              <SectionLabel style={{ color: "#000000" }} className="mb-6">NOTRE DIVISION PROJETS</SectionLabel>
+              <h2
+                id="project-types-heading"
+                className="font-black leading-tight text-black text-balance"
+                style={{ fontSize: "clamp(1.8rem, 4vw, 2.8rem)", letterSpacing: "-0.02em" }}
+              >
+                Nos domaines
+                <br />
+                d&apos;expertise
+              </h2>
+            </div>
+
+            {/* Right column — Grid of project types */}
+            <div className="lg:col-span-8">
+              <div className="grid md:grid-cols-2 gap-6">
+                {projectTypes.map((project) => (
+                  <div
+                    key={project.title}
+                    className="bg-white rounded-3xl overflow-hidden hover:shadow-lg transition-shadow duration-300 flex flex-col"
+                  >
+                    {/* Image */}
+                    <div className="relative w-full aspect-video overflow-hidden">
+                      <Image
+                        src={project.image}
+                        alt={project.imageAlt}
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        className="object-cover hover:scale-105 transition-transform duration-500"
+                      />
+                    </div>
+
+                    {/* Content */}
+                    <div className="p-6 flex flex-col justify-between flex-1">
+                      <h3 className="text-black font-bold text-lg mb-3" style={{ fontSize: "18px", lineHeight: "26px" }}>
+                        {project.title}
+                      </h3>
+                      <p className="text-black/70 text-sm leading-relaxed mb-6" style={{ fontSize: "14px", lineHeight: "20px" }}>
+                        {project.description}
+                      </p>
+                      <Link
+                        href="#"
+                        className="text-black font-semibold text-sm underline hover:text-black/70 transition-colors w-fit"
+                        style={{ fontSize: "12px", letterSpacing: "0.12em" }}
+                      >
+                        EN SAVOIR PLUS
+                      </Link>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── FAQ ── */}
       <section className="py-28 lg:py-36" style={{ backgroundColor: "#ffffff" }} aria-labelledby="faq-heading">
         <div className="mx-auto max-w-5xl px-4 lg:px-6">
@@ -512,25 +600,18 @@ export default function HomePage() {
             <SectionLabel className="justify-center mb-6">Pour aller plus loin</SectionLabel>
             <h2
               id="faq-heading"
-              className="font-black leading-tight text-foreground text-balance"
-              style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", letterSpacing: "-0.02em" }}
+              className="font-black uppercase leading-none text-foreground text-balance mb-4"
+              style={{ fontSize: "clamp(1.8rem, 4vw, 3.2rem)", letterSpacing: "-0.03em" }}
             >
-              Questions fréquentes<br />
-              <span className="text-foreground">sur votre projet.</span>
+              Questions
+              <br />
+              <span className="italic text-foreground/45">fréquentes.</span>
             </h2>
           </div>
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{
-              __html: JSON.stringify({
-                "@context": "https://schema.org",
-                "@type": "FAQPage",
-                mainEntity: faqs.map((f) => ({
-                  "@type": "Question",
-                  name: f.q,
-                  acceptedAnswer: { "@type": "Answer", text: f.a },
-                })),
-              }),
+              __html: JSON.stringify(faqSchema),
             }}
           />
           <div className="max-w-3xl mx-auto">
