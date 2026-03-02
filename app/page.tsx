@@ -272,22 +272,6 @@ export default function HomePage() {
 
       <HeroSplit />
 
-      {/* ── SOCIAL PROOF BAND — stats immédiates ── */}
-      <section className="bg-card border-b border-white/6" aria-label="Chiffres clés Domotus Maroc">
-        <div className="mx-auto max-w-7xl px-4 lg:px-6">
-          <dl className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-y lg:divide-y-0 divide-white/6">
-            {stats.map((s) => (
-              <div key={s.label} className="px-8 py-8 flex flex-col gap-1">
-                <dt className="text-[11px] uppercase tracking-[0.2em] text-foreground/45 order-2">{s.label}</dt>
-                <dd className="font-black text-foreground order-1" style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)" }}>
-                  {s.value}
-                </dd>
-              </div>
-            ))}
-          </dl>
-        </div>
-      </section>
-
       {/* ── SERVICES GRID — benefit-first ── */}
       <section className="py-28 lg:py-36" style={{ backgroundColor: "#000000" }} aria-labelledby="services-heading">
         <div className="mx-auto max-w-7xl px-4 lg:px-6">
