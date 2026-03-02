@@ -521,73 +521,21 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── MARCHÉS — Résidentiel & Tertiaire ── */}
-      <section className="h-[50vh] lg:h-[60vh] grid lg:grid-cols-2 overflow-hidden" aria-label="Nos marchés domotique au Maroc">
-        <Link href="/maison-connectee" className="relative overflow-hidden group focus-ring block h-full">
-          <Image
-            src="/images/villa-prestige.webp"
-            alt="Domotique villas et appartements de luxe au Maroc — Domotus"
-            fill
-            sizes="(max-width: 1024px) 100vw, 50vw"
-            loading="lazy"
-            quality={80}
-            className="object-cover transition-transform duration-700 group-hover:scale-105"
-          />
-          <div className="absolute inset-0 bg-background/50 group-hover:bg-background/35 transition-colors duration-500" />
-          <div className="absolute inset-0 flex flex-col justify-end p-8 lg:p-12">
-            <SectionLabel>Résidentiel</SectionLabel>
-            <h2 className="font-black uppercase text-foreground leading-none text-balance" style={{ fontSize: "clamp(1.6rem, 3vw, 2.6rem)", letterSpacing: "-0.02em" }}>
-              Bâtiment Intelligent
-            </h2>
-            <p className="mt-3 text-[13px] text-foreground/60 max-w-xs leading-relaxed">
-              À partir de 150 000 MAD · Livraison en 4–8 semaines
-            </p>
-            <span className="mt-4 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.15em] text-primary">
-              Voir les réalisations <ArrowRight size={11} aria-hidden="true" />
-            </span>
-          </div>
-        </Link>
-        <Link href="/promoteurs" className="relative overflow-hidden group focus-ring block h-full">
-          <Image
-            src="/images/immeuble-tertiaire.webp"
-            alt="Domotique pour promoteurs et bâtiments tertiaires au Maroc"
-            fill
-            sizes="(max-width: 1024px) 100vw, 50vw"
-            loading="lazy"
-            quality={80}
-            className="object-cover transition-transform duration-700 group-hover:scale-105"
-          />
-          <div className="absolute inset-0 bg-background/60 group-hover:bg-background/40 transition-colors duration-500" />
-          <div className="absolute inset-0 flex flex-col justify-end p-8 lg:p-12">
-            <SectionLabel>Tertiaire &amp; Promoteurs</SectionLabel>
-            <h2 className="font-black uppercase text-foreground leading-none text-balance" style={{ fontSize: "clamp(1.6rem, 3vw, 2.6rem)", letterSpacing: "-0.02em" }}>
-              Immeubles &amp; Bureaux
-            </h2>
-            <p className="mt-3 text-[13px] text-foreground/60 max-w-xs leading-relaxed">
-              Labels HQE, BREEAM · +20% valeur locative
-            </p>
-            <span className="mt-4 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.15em] text-primary">
-              Travailler avec nous <ArrowRight size={11} aria-hidden="true" />
-            </span>
-          </div>
-        </Link>
-      </section>
-
       {/* ── PARTNERS GRID ── */}
       <PartnersGrid />
 
       {/* ── FAQ ── */}
       <section className="py-28 lg:py-36" style={{ backgroundColor: "#ffffff" }} aria-labelledby="faq-heading">
-        <div className="mx-auto max-w-4xl px-4 lg:px-6">
-          <div className="mb-16">
-            <SectionLabel>Pour aller plus loin</SectionLabel>
+        <div className="mx-auto max-w-5xl px-4 lg:px-6">
+          <div className="mb-20 text-center">
+            <SectionLabel className="justify-center mb-6">Pour aller plus loin</SectionLabel>
             <h2
               id="faq-heading"
-              className="font-black uppercase leading-none text-foreground text-balance"
-              style={{ fontSize: "clamp(1.8rem, 4vw, 3.2rem)", letterSpacing: "-0.02em" }}
+              className="font-black leading-tight text-foreground text-balance"
+              style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", letterSpacing: "-0.02em" }}
             >
               Questions fréquentes<br />
-              <span className="italic text-foreground/45">sur votre projet.</span>
+              <span className="text-foreground">sur votre projet.</span>
             </h2>
           </div>
           <script
@@ -604,14 +552,16 @@ export default function HomePage() {
               }),
             }}
           />
-          <FaqAccordion items={faqs} />
-          <div className="mt-16 pt-12 border-t border-white/8">
-            <p className="text-[13px] text-foreground/50 mb-4">
+          <div className="max-w-3xl mx-auto">
+            <FaqAccordion items={faqs} />
+          </div>
+          <div className="mt-20 pt-16 border-t border-black/10 text-center max-w-3xl mx-auto">
+            <p className="text-[13px] text-foreground/60 mb-6">
               Votre question ne figure pas ci-dessus ?
             </p>
             <Link
               href="/contact"
-              className="focus-ring inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.15em] text-primary hover:text-primary/70 transition-colors duration-300"
+              className="focus-ring inline-flex items-center gap-2 text-[12px] font-bold uppercase tracking-[0.15em] text-foreground hover:text-foreground/70 transition-colors duration-300"
             >
               Nous contacter directement <ArrowRight size={12} aria-hidden="true" />
             </Link>
