@@ -396,26 +396,15 @@ export default function HomePage() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {expertises.map((item) => {
               const Icon = item.icon;
-              const colors = [
-                { bg: "bg-cyan-500/10", border: "border-cyan-500/30", icon: "text-cyan-500", badge: "text-cyan-600" },
-                { bg: "bg-emerald-500/10", border: "border-emerald-500/30", icon: "text-emerald-500", badge: "text-emerald-600" },
-                { bg: "bg-amber-500/10", border: "border-amber-500/30", icon: "text-amber-500", badge: "text-amber-600" },
-                { bg: "bg-violet-500/10", border: "border-violet-500/30", icon: "text-violet-500", badge: "text-violet-600" },
-                { bg: "bg-rose-500/10", border: "border-rose-500/30", icon: "text-rose-500", badge: "text-rose-600" },
-                { bg: "bg-blue-500/10", border: "border-blue-500/30", icon: "text-blue-500", badge: "text-blue-600" },
-              ];
-              const colorIdx = expertises.indexOf(item) % colors.length;
-              const color = colors[colorIdx];
-
               return (
                 <article
                   key={item.title}
-                  className={`group relative overflow-hidden ${color.bg} border ${color.border} rounded-lg p-8 flex flex-col justify-between transition-all duration-300 hover:border-opacity-100 hover:shadow-lg hover:shadow-current/5`}
+                  className="group relative overflow-hidden border border-white/10 rounded-lg p-8 flex flex-col justify-between transition-all duration-300 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10"
                 >
                   {/* Icon with background circle */}
                   <div className="mb-6">
-                    <div className={`w-16 h-16 rounded-full ${color.bg} border ${color.border} flex items-center justify-center transition-transform duration-300 group-hover:scale-110`}>
-                      <Icon size={28} className={`${color.icon} transition-colors duration-300`} aria-hidden="true" />
+                    <div className="w-16 h-16 rounded-full border border-white/20 flex items-center justify-center transition-all duration-300 group-hover:border-primary/50 group-hover:bg-primary/5">
+                      <Icon size={28} className="text-foreground/60 transition-colors duration-300 group-hover:text-primary" aria-hidden="true" />
                     </div>
                   </div>
 
@@ -424,7 +413,7 @@ export default function HomePage() {
                     <h3 className="font-bold uppercase tracking-[0.1em] text-foreground text-[14px] mb-2">
                       {item.title}
                     </h3>
-                    <span className={`text-[11px] font-semibold uppercase tracking-[0.12em] ${color.badge} block mb-4`}>
+                    <span className="text-[11px] font-semibold uppercase tracking-[0.12em] text-foreground/40 group-hover:text-primary transition-colors duration-300 block mb-4">
                       {item.badge}
                     </span>
                     <p className="text-[13px] text-foreground/60 leading-relaxed">
@@ -435,7 +424,7 @@ export default function HomePage() {
                   {/* CTA */}
                   <Link
                     href={item.href}
-                    className={`focus-ring inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.15em] font-semibold mt-6 ${color.icon} hover:opacity-70 transition-opacity duration-300`}
+                    className="focus-ring inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.15em] font-semibold mt-6 text-foreground/50 hover:text-primary transition-colors duration-300"
                   >
                     En savoir plus <ArrowRight size={11} aria-hidden="true" />
                   </Link>
