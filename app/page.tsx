@@ -289,7 +289,7 @@ export default function HomePage() {
       </section>
 
       {/* ── SERVICES GRID — benefit-first ── */}
-      <section className="py-28 lg:py-36 bg-card" aria-labelledby="services-heading">
+      <section className="py-28 lg:py-36" style={{ backgroundColor: "#efd555" }} aria-labelledby="services-heading">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-12 mb-16">
             <div className="flex-1">
