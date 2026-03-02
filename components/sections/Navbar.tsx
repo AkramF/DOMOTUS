@@ -90,13 +90,13 @@ export default function Navbar() {
               Contact
             </Link>
 
-            {/* CLIENT — icon only pill, cyan fill */}
+            {/* CLIENT — icon only pill, yellow fill, rounded */}
             <Link
               href="/espace-client"
-              className="focus-ring inline-flex items-center justify-center w-9 h-9 bg-primary text-[#0a0a0a] transition-all duration-300 hover:bg-primary/80"
+              className="focus-ring inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#efd555] text-black transition-all duration-300 hover:bg-[#efd555]/80"
               aria-label="Espace client"
             >
-              <UserCircle2 size={15} aria-hidden="true" />
+              <UserCircle2 size={16} aria-hidden="true" />
             </Link>
           </div>
 
