@@ -348,6 +348,51 @@ export default function HomePage() {
             ))}
           </div>
 
+          {/* Image Gallery — Masonry layout */}
+          <div className="mb-32 grid grid-cols-2 lg:grid-cols-3 gap-4 h-[500px] lg:h-[600px]">
+            {/* Large featured image */}
+            <div className="relative overflow-hidden rounded-lg lg:col-span-2 lg:row-span-2 group">
+              <Image
+                src="/images/villa-prestige.webp"
+                alt="Villa prestige équipée en domotique KNX par Domotus"
+                fill
+                sizes="(max-width: 1024px) 50vw, 66vw"
+                loading="lazy"
+                quality={85}
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500" />
+            </div>
+
+            {/* Top right image */}
+            <div className="relative overflow-hidden rounded-lg group">
+              <Image
+                src="/images/showroom.webp"
+                alt="Showroom domotique Domotus Casablanca"
+                fill
+                sizes="(max-width: 1024px) 50vw, 33vw"
+                loading="lazy"
+                quality={80}
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500" />
+            </div>
+
+            {/* Bottom right image */}
+            <div className="relative overflow-hidden rounded-lg group">
+              <Image
+                src="/images/immeuble-tertiaire.webp"
+                alt="Bâtiment tertiaire connecté par Domotus au Maroc"
+                fill
+                sizes="(max-width: 1024px) 50vw, 33vw"
+                loading="lazy"
+                quality={80}
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500" />
+            </div>
+          </div>
+
           {/* Credentials — Trust signals */}
           <div className="py-12 border-t border-white/8 flex flex-col lg:flex-row items-center justify-between gap-8">
             <p className="text-[14px] text-foreground/55 max-w-md leading-relaxed">
