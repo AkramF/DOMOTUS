@@ -61,42 +61,23 @@ export default function Hero() {
                   href="/maison-connectee"
                   className="focus-ring inline-flex items-center justify-between bg-white px-8 py-4 rounded-full text-[14px] font-semibold text-black transition-all duration-300 hover:shadow-lg will-change-colors group"
                 >
-                  Votre maison connectée
+                  Maison connectée
                   <div className="ml-4 w-10 h-10 bg-black rounded-full flex items-center justify-center transition-transform group-hover:scale-110">
                     <ArrowRight size={16} className="text-[#efd555]" aria-hidden="true" />
                   </div>
                 </Link>
                 <Link
                   href="/architectes"
-                  className="focus-ring inline-flex items-center justify-between bg-black px-8 py-4 rounded-full text-[14px] font-semibold text-white transition-all duration-300 hover:shadow-lg will-change-colors group"
+                  className="focus-ring inline-flex items-center justify-between px-8 py-4 rounded-full text-[14px] font-semibold transition-all duration-300 hover:shadow-lg will-change-colors group"
+                  style={{ backgroundColor: "#efd555", color: "#000000" }}
                 >
                   Espace Professionnels
-                  <div className="ml-4 w-10 h-10 bg-white rounded-full flex items-center justify-center transition-transform group-hover:scale-110">
-                    <ArrowRight size={16} className="text-black" aria-hidden="true" />
+                  <div className="ml-4 w-10 h-10 bg-black rounded-full flex items-center justify-center transition-transform group-hover:scale-110">
+                    <ArrowRight size={16} className="text-[#efd555]" aria-hidden="true" />
                   </div>
                 </Link>
               </motion.div>
 
-              {/* Stats — 3-column layout below CTAs */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.6, duration: 0.6 }}
-                className="mt-12 grid grid-cols-3 gap-6 will-change-opacity"
-              >
-                <div className="flex flex-col">
-                  <span className="text-primary font-black text-[18px] lg:text-[20px] mb-1">+150</span>
-                  <span className="text-[12px] text-foreground/60 leading-snug">D&apos;expertise<br />domotique</span>
-                </div>
-                <div className="flex flex-col">
-                  <span className="text-primary font-black text-[18px] lg:text-[20px] mb-1">10 ans</span>
-                  <span className="text-[12px] text-foreground/60 leading-snug">Disponibilité<br />garantie 99.8%</span>
-                </div>
-                <div className="flex flex-col">
-                  <span className="text-primary font-black text-[18px] lg:text-[20px] mb-1">24h</span>
-                  <span className="text-[12px] text-foreground/60 leading-snug">Étude<br />personnalisée</span>
-                </div>
-              </motion.div>
             </motion.div>
 
             {/* ── RIGHT COLUMN: Image with white border ── */}
