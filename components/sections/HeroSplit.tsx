@@ -41,7 +41,7 @@ export default function Hero() {
                 className="font-medium leading-tight text-white"
                 style={{ fontSize: "clamp(2.2rem, 6vw, 4rem)", letterSpacing: "-0.02em", fontWeight: 500 }}
               >
-                votre accès à la <span style={{ color: "#efd555" }}>domotique premium.</span>
+                votre accès à la <span style={{ color: "#efd555" }}>domotique</span> premium.
               </h1>
 
               {/* Subheading */}
