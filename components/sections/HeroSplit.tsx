@@ -123,28 +123,6 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* ── Partners ticker ── */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.0, duration: 0.9 }}
-        className="relative z-20 overflow-hidden"
-        aria-label="Marques partenaires certifiées"
-      >
-        <div className="h-px w-full bg-white/8" />
-        <div className="bg-background/80 backdrop-blur-sm py-4 flex items-center">
-          <div className="flex items-center animate-ticker whitespace-nowrap" style={{ width: "max-content" }}>
-            {PARTNERS.map((p, i) => (
-              <span
-                key={`${p}-${i}`}
-                className="partner-logo mx-10 text-[11px] font-black uppercase tracking-[0.3em] text-white/20 transition-all duration-300 cursor-default select-none"
-              >
-                {p}
-              </span>
-            ))}
-          </div>
-        </div>
-      </motion.div>
     </section>
   );
 }

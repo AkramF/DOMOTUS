@@ -3,6 +3,7 @@ import dynamic from "next/dynamic";
 import Link from "next/link";
 import Image from "next/image";
 import HeroSplit from "@/components/sections/HeroSplit";
+import PartnersGrid from "@/components/sections/PartnersGrid";
 import { ArrowRight, Zap, Shield, Activity, Wifi, Sun, Lock } from "lucide-react";
 
 // Lazy load non-critical sections to reduce initial JS bundle
@@ -587,6 +588,9 @@ export default function HomePage() {
           </div>
         </Link>
       </section>
+
+      {/* ── PARTNERS GRID ── */}
+      <PartnersGrid />
 
       {/* ── FAQ ── */}
       <section className="py-28 lg:py-36 bg-background" aria-labelledby="faq-heading">
