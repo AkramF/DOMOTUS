@@ -17,12 +17,6 @@ const CheckCircle2Icon = dynamic(async () => {
   return { default: CheckCircle2 };
 }, { ssr: true });
 
-// Lazy load testimonials carousel
-const TestimonialsCarousel = dynamic(() => import("@/components/TestimonialsCarousel").then(mod => ({ default: mod.TestimonialsCarousel })), {
-  loading: () => <div className="bg-card py-20" />,
-  ssr: true,
-});
-
 const PhoneIcon = dynamic(async () => {
   const { Phone } = await import("lucide-react");
   return { default: Phone };
@@ -522,10 +516,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── TESTIMONIALS — Carousel ── */}
+      {/* ── TESTIMONIALS — 4 testimonials grid ── */}
       <section className="py-28 lg:py-36 bg-card" aria-labelledby="temoignages-heading">
-        <div className="mx-auto max-w-4xl px-6 lg:px-10">
-          <div className="mb-16 text-center">
+        <div className="mx-auto max-w-7xl px-6 lg:px-10">
+          <div className="mb-16 text-center max-w-2xl mx-auto">
             <SectionLabel>Ils nous font confiance</SectionLabel>
             <h2
               id="temoignages-heading"
@@ -537,8 +531,33 @@ export default function HomePage() {
             </h2>
           </div>
           
-          {/* Carousel component */}
-          <TestimonialsCarousel testimonials={testimonials} />
+          {/* 4 Testimonials Grid — 2x2 on desktop */}
+          <div className="grid sm:grid-cols-2 gap-px bg-white/6">
+            {testimonials.map((t) => (
+              <blockquote key={t.name} className="bg-background p-10 lg:p-12 flex flex-col gap-6 group hover:bg-background/80 transition-colors duration-300">
+                {/* Quote mark */}
+                <div className="text-primary/30 text-[48px] leading-none font-bold">
+                  "
+                </div>
+                
+                {/* Quote text */}
+                <p className="text-[14px] lg:text-[15px] text-foreground/70 leading-relaxed flex-1">
+                  {t.quote}
+                </p>
+
+                {/* Divider */}
+                <div className="w-8 h-px bg-primary/20 group-hover:bg-primary/50 transition-colors duration-300" />
+
+                {/* Author info */}
+                <footer>
+                  <cite className="not-italic">
+                    <span className="block text-[13px] font-semibold text-foreground mb-1">{t.name}</span>
+                    <span className="block text-[11px] text-foreground/50">{t.role}</span>
+                  </cite>
+                </footer>
+              </blockquote>
+            ))}
+          </div>
         </div>
       </section>
 
