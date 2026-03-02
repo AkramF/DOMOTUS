@@ -17,6 +17,12 @@ const CheckCircle2Icon = dynamic(async () => {
   return { default: CheckCircle2 };
 }, { ssr: true });
 
+// Lazy load testimonials carousel
+const TestimonialsCarousel = dynamic(() => import("@/components/TestimonialsCarousel").then(mod => ({ default: mod.TestimonialsCarousel })), {
+  loading: () => <div className="bg-card py-20" />,
+  ssr: true,
+});
+
 const PhoneIcon = dynamic(async () => {
   const { Phone } = await import("lucide-react");
   return { default: Phone };
@@ -135,6 +141,16 @@ const testimonials = [
     quote: "En tant que promoteur, intégrer Domotus dès la conception a transformé nos ventes. Les acquéreurs cherchent un atout technologique credible — Domotus le rend accessible, documenté, garanti. C'est un vrai levier commercial.",
     name: "Laila M.",
     role: "Directrice développement, Groupe Immobilier Marrakech",
+  },
+  {
+    quote: "L'intégration KNX de nos espaces de travail par Domotus a modernisé complètement nos capacités de collaboration. Éclairage intelligent, climatisation adaptée aux zones occupées, sécurité biométrique — le tout transparent. Une référence en efficacité diplomatique et confort.",
+    name: "Zhang Wei",
+    role: "Attaché technique, Ambassade de Chine à Rabat",
+  },
+  {
+    quote: "Pour un laboratoire d'analyses médicales, la précision est critiquée. Domotus a conçu une infrastructure domotique garantissant stabilité thermique exacte, stérilité contrôlée et accès sécurisé. Zéro anomalie depuis 18 mois. C'est un partenaire de confiance absolue.",
+    name: "Dr. Imane H.",
+    role: "Directrice, CBS Laboratoire d'Analyses Médicales",
   },
 ];
 
@@ -506,10 +522,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── TESTIMONIALS ── */}
+      {/* ── TESTIMONIALS — Carousel ── */}
       <section className="py-28 lg:py-36 bg-card" aria-labelledby="temoignages-heading">
-        <div className="mx-auto max-w-7xl px-6 lg:px-10">
-          <div className="mb-14 text-center">
+        <div className="mx-auto max-w-4xl px-6 lg:px-10">
+          <div className="mb-16 text-center">
             <SectionLabel>Ils nous font confiance</SectionLabel>
             <h2
               id="temoignages-heading"
@@ -520,21 +536,9 @@ export default function HomePage() {
               <span className="italic text-foreground/45">clients.</span>
             </h2>
           </div>
-          <div className="grid lg:grid-cols-2 gap-px bg-white/6">
-            {testimonials.map((t) => (
-              <blockquote key={t.name} className="bg-background p-10 flex flex-col gap-6">
-                <p className="text-[15px] text-foreground/70 leading-relaxed italic">
-                  &ldquo;{t.quote}&rdquo;
-                </p>
-                <footer className="mt-auto pt-4 border-t border-white/8">
-                  <cite className="not-italic">
-                    <span className="block text-[13px] font-bold text-foreground uppercase tracking-[0.08em]">{t.name}</span>
-                    <span className="block text-[11px] text-foreground/40 mt-0.5">{t.role}</span>
-                  </cite>
-                </footer>
-              </blockquote>
-            ))}
-          </div>
+          
+          {/* Carousel component */}
+          <TestimonialsCarousel testimonials={testimonials} />
         </div>
       </section>
 
