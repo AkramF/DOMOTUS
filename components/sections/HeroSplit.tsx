@@ -31,7 +31,7 @@ export default function Hero() {
                 className="flex items-center gap-3 mb-8"
               >
                 <span className="block w-2 h-2 bg-white" aria-hidden="true" />
-                <p className="text-[10px] uppercase tracking-[0.4em] text-white font-semibold select-none">
+                <p className="text-white select-none" style={{ fontFamily: "Inter, sans-serif", fontWeight: 600, fontSize: "14px", lineHeight: "20px" }}>
                   Intégration domotique certifiée — Maroc
                 </p>
               </motion.div>
