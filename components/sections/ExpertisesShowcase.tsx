@@ -77,8 +77,8 @@ export function ExpertisesShowcase({ items }: ExpertisesShowcaseProps) {
         })}
       </div>
 
-      {/* Right column — Selected project content */}
-      <div className="lg:col-span-9 flex flex-col gap-6">
+      {/* Right column — Selected project content, stretched full height */}
+      <div className="lg:col-span-9 flex flex-col gap-6 h-full">
         {/* Project badge */}
         <div className="flex items-center gap-3">
           <div className="w-2 h-2 bg-black rounded-full" />
@@ -109,8 +109,8 @@ export function ExpertisesShowcase({ items }: ExpertisesShowcaseProps) {
           </div>
         </Link>
 
-        {/* Large project image */}
-        <div className="relative overflow-hidden rounded-3xl aspect-square lg:aspect-video will-change-contents">
+        {/* Large project image — stretched to fill remaining space */}
+        <div className="relative overflow-hidden rounded-3xl flex-1 min-h-0">
           <Image
             src={selected.image}
             alt={selected.imageAlt}

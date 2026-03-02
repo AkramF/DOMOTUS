@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import HeroSplit from "@/components/sections/HeroSplit";
 import { ExpertisesShowcase } from "@/components/sections/ExpertisesShowcase";
+import TestimonialCarousel from "@/components/TestimonialCarousel";
 import { ArrowRight } from "lucide-react";
 
 // Lazy load non-critical sections to reduce initial JS bundle
@@ -122,22 +123,32 @@ const steps = [
 
 const testimonials = [
   {
-    quote: "Domotus a sublimé notre villa à Casablanca avec une fluidité KNX remarquable. Ce qui nous a vraiment impressionnés, c'est la rigueur : respect du calendrier, intégration invisible, et une équipe qui comprend l'architecture avant de vendre de la technologie.",
-    name: "Mehdi R.",
-    role: "Propriétaire, Villa Anfa — Casablanca",
-    title: "Functional design",
-    description: "Functional design organizes the project to meet its use objectives.",
+    name: "Particulier Villa",
+    title: "Villa Anfa - Casablanca",
+    description: "Domotus a sublimé notre villa avec une fluidité KNX remarquable. Respect du calendrier, intégration invisible, et une équipe qui comprend l'architecture avant de vendre de la technologie.",
     image: "/images/expertise-eclairage.jpg",
-    imageAlt: "Villa Casablanca - Functional design project",
+    imageAlt: "Villa particulier - Domotique luxe",
   },
   {
-    quote: "En tant que promoteur, intégrer Domotus dès la conception a transformé nos ventes. Les acquéreurs cherchent un atout technologique credible — Domotus le rend accessible, documenté, garanti. C'est un vrai levier commercial.",
-    name: "Laila M.",
-    role: "Directrice développement, Groupe Immobilier Marrakech",
-    title: "Renovation of spaces",
-    description: "Updating existing areas to improve their functionality, aesthetics and comfort.",
+    name: "Directrice Promoteur Immobilier",
+    title: "Groupe Immobilier Marrakech",
+    description: "Intégrer Domotus dès la conception a transformé nos ventes. Les acquéreurs cherchent un atout technologique crédible — Domotus le rend accessible, documenté, garanti.",
     image: "/images/expertise-av.jpg",
-    imageAlt: "Renovation project - Marrakech",
+    imageAlt: "Projet immobilier - Domotique commerciale",
+  },
+  {
+    name: "Ambassade de Chine",
+    title: "Rabat, Maroc",
+    description: "Les systèmes Domotus offrent une sécurité et une gestion énergétique de classe mondiale. Fiabilité exceptionnelle, support technique impeccable, et intégration transparente.",
+    image: "/images/expertise-bms.jpg",
+    imageAlt: "Ambassade - Infrastructure gouvernementale",
+  },
+  {
+    name: "Laboratoire CBS",
+    title: "Centre Biomédicale Casablanca",
+    description: "La précision et la fiabilité des installations Domotus sont cruciales pour nos opérations. Automatisation complète, redondance système, et monitoring en temps réel.",
+    image: "/images/expertise-energie.jpg",
+    imageAlt: "Laboratoire - Installation critique",
   },
 ];
 
@@ -346,40 +357,60 @@ export default function HomePage() {
               </Link>
             </div>
 
-            {/* Split image — with aspect-ratio to prevent CLS */}
-            <div className="grid grid-cols-2 gap-3 h-[480px] contain-layout">
-              <div className="relative overflow-hidden rounded-sm row-span-2 aspect-square">
-                <Image
-                  src="/images/villa-prestige.jpg"
-                  alt="Villa équipée en domotique KNX par Domotus Casablanca"
-                  fill
-                  sizes="(max-width: 1024px) 50vw, 25vw"
-                  loading="lazy"
-                  quality={80}
-                  className="object-cover"
-                />
+            {/* 3D Perspective Cards — centered on right */}
+            <div className="flex items-center justify-center relative h-[500px]">
+              {/* Card 1 — Left, rotated */}
+              <div className="absolute -left-8 lg:-left-16 top-1/2 -translate-y-1/2 w-40 h-64 bg-white rounded-2xl overflow-hidden shadow-2xl" style={{ transform: "rotateY(15deg) rotateZ(-8deg) translateZ(20px)" }}>
+                <div className="relative w-full h-3/4">
+                  <Image
+                    src="/images/villa-prestige.jpg"
+                    alt="Villa équipée en domotique KNX par Domotus"
+                    fill
+                    sizes="160px"
+                    quality={80}
+                    className="object-cover"
+                  />
+                </div>
+                <div className="p-3 h-1/4 flex flex-col justify-center">
+                  <h4 className="font-bold text-sm text-black">Sustainable</h4>
+                  <p className="text-xs text-black/60 mt-1">Ecological technologies and recyclable materials</p>
+                </div>
               </div>
-              <div className="relative overflow-hidden rounded-sm aspect-video">
-                <Image
-                  src="/images/showroom.jpg"
-                  alt="Showroom domotique Domotus Casablanca"
-                  fill
-                  sizes="(max-width: 1024px) 50vw, 25vw"
-                  loading="lazy"
-                  quality={80}
-                  className="object-cover"
-                />
+
+              {/* Card 2 — Center, prominent */}
+              <div className="absolute z-10 w-48 h-80 bg-white rounded-3xl overflow-hidden shadow-2xl" style={{ transform: "rotateZ(0deg)" }}>
+                <div className="relative w-full h-3/4">
+                  <Image
+                    src="/images/showroom.jpg"
+                    alt="Showroom domotique Domotus"
+                    fill
+                    sizes="192px"
+                    quality={80}
+                    className="object-cover"
+                  />
+                </div>
+                <div className="p-4 h-1/4 flex flex-col justify-center">
+                  <h4 className="font-bold text-base text-black">Shopping Center</h4>
+                  <p className="text-xs text-black/60 mt-1">A contemporary, light-filled shopping center</p>
+                </div>
               </div>
-              <div className="relative overflow-hidden rounded-sm aspect-video">
-                <Image
-                  src="/images/immeuble-tertiaire.jpg"
-                  alt="Bâtiment tertiaire connecté par Domotus au Maroc"
-                  fill
-                  sizes="(max-width: 1024px) 50vw, 25vw"
-                  loading="lazy"
-                  quality={80}
-                  className="object-cover"
-                />
+
+              {/* Card 3 — Right, rotated */}
+              <div className="absolute -right-8 lg:-right-16 top-1/2 -translate-y-1/2 w-40 h-64 bg-white rounded-2xl overflow-hidden shadow-2xl" style={{ transform: "rotateY(-15deg) rotateZ(8deg) translateZ(20px)" }}>
+                <div className="relative w-full h-3/4">
+                  <Image
+                    src="/images/immeuble-tertiaire.jpg"
+                    alt="Bâtiment tertiaire connecté"
+                    fill
+                    sizes="160px"
+                    quality={80}
+                    className="object-cover"
+                  />
+                </div>
+                <div className="p-3 h-1/4 flex flex-col justify-center">
+                  <h4 className="font-bold text-sm text-black">Gardens</h4>
+                  <p className="text-xs text-black/60 mt-1">Gardens, perfect for walks and landscapes</p>
+                </div>
               </div>
             </div>
           </div>
@@ -414,22 +445,22 @@ export default function HomePage() {
       </section>
 
       {/* ── PROCESS — 3 steps ── */}
-      <section className="py-24 lg:py-36" style={{ backgroundColor: "#000000" }} aria-labelledby="process-heading">
+      <section className="py-16 lg:py-20" style={{ backgroundColor: "#000000" }} aria-labelledby="process-heading">
         <div className="mx-auto max-w-7xl px-4 lg:px-6">
-          <div className="text-center mb-16">
-            <SectionLabel>L'accompagnement Domotus</SectionLabel>
+          <div className="text-center mb-12">
+            <SectionLabel color="#ffffff">L'ACCOMPAGNEMENT DOMOTUS</SectionLabel>
             <h2
               id="process-heading"
-              className="font-black uppercase leading-none text-foreground text-balance"
+              className="font-black uppercase leading-none text-white text-balance"
               style={{ fontSize: "clamp(1.8rem, 4vw, 3.2rem)", letterSpacing: "-0.02em" }}
             >
               De la vision à la perfection,{" "}
-              <span className="italic text-foreground/45">en 3 étapes.</span>
+              <span className="italic text-white/45">en 3 étapes.</span>
             </h2>
           </div>
           <ol className="grid lg:grid-cols-3 gap-px bg-white/6" role="list">
             {steps.map((step, i) => (
-              <li key={step.num} className="bg-card p-10 flex flex-col gap-5 relative">
+              <li key={step.num} className="bg-card p-8 flex flex-col gap-4 relative">
                 <span
                   className="font-black text-foreground/8 leading-none select-none"
                   style={{ fontSize: "clamp(4rem, 8vw, 7rem)" }}
@@ -446,88 +477,30 @@ export default function HomePage() {
                 {i < steps.length - 1 && (
                   <ArrowRight
                     size={16}
-                    className="hidden lg:block absolute -right-2 top-1/2 -translate-y-1/2 z-10 text-primary/40"
+                    className="hidden lg:block absolute -right-2 top-1/2 -translate-y-1/2 z-10"
+                    style={{ color: "#efd555" }}
                     aria-hidden="true"
                   />
                 )}
               </li>
             ))}
           </ol>
-          <div className="mt-10 text-center">
+          <div className="mt-8 text-center">
             <Link
               href="/contact"
-              className="focus-ring inline-flex items-center gap-3 bg-primary px-10 py-4 text-[11px] font-black uppercase tracking-[0.2em] transition-all duration-300 hover:bg-primary/85"
-              style={{ color: "#0a0a0a" }}
+              className="focus-ring inline-flex items-center justify-between px-8 py-4 rounded-full transition-all duration-300 hover:shadow-xl group"
+              style={{ backgroundColor: "#000000", border: "1px solid rgba(255, 255, 255, 0.1)" }}
             >
-              Commencer l&apos;étape 1 — Audit technique
-              <ArrowRight size={13} aria-hidden="true" />
+              <span className="text-white font-semibold" style={{ fontSize: "16px" }}>Commencer l&apos;étape 1 — Audit technique</span>
+              <div className="ml-6 w-10 h-10 rounded-full flex items-center justify-center transition-transform group-hover:scale-110 flex-shrink-0" style={{ backgroundColor: "#efd555" }}>
+                <ArrowRight size={16} className="text-black" aria-hidden="true" />
+              </div>
             </Link>
           </div>
         </div>
       </section>
 
       {/* ── TESTIMONIALS ── */}
-      <section className="py-28 lg:py-36" style={{ backgroundColor: "#000000" }} aria-labelledby="temoignages-heading">
-        <div className="mx-auto max-w-7xl px-4 lg:px-6">
-          <div className="mb-16">
-            <SectionLabel style={{ color: "#ffffff" }}>Ce que disent nos clients</SectionLabel>
-            <h2
-              id="temoignages-heading"
-              className="font-black uppercase leading-none text-white text-balance"
-              style={{ fontSize: "clamp(1.8rem, 4vw, 3.2rem)", letterSpacing: "-0.02em" }}
-            >
-              Ce que disent nos{" "}
-              <span className="italic" style={{ color: "#ffffff" }}>clients.</span>
-            </h2>
-          </div>
-          <div className="grid lg:grid-cols-2 gap-6">
-            {testimonials.map((t) => (
-              <div key={t.name} className="bg-white rounded-3xl overflow-hidden flex flex-col lg:flex-row">
-                {/* Left content */}
-                <div className="flex flex-col justify-between p-8 lg:p-10 lg:w-1/2">
-                  {/* Logo */}
-                  <div className="mb-6">
-                    <div className="w-12 h-12 rounded-full bg-black flex items-center justify-center">
-                      <div className="w-6 h-6 rounded-full" style={{ backgroundColor: "#efd555" }} />
-                    </div>
-                  </div>
-                  
-                  {/* Title and description */}
-                  <div className="mb-8">
-                    <h3 className="text-black font-black text-xl mb-3" style={{ fontSize: "20px", lineHeight: "28px" }}>
-                      {t.title}
-                    </h3>
-                    <p className="text-black/70 text-sm leading-relaxed" style={{ fontSize: "14px", lineHeight: "20px" }}>
-                      {t.description}
-                    </p>
-                  </div>
-
-                  {/* Learn more link */}
-                  <Link
-                    href="#"
-                    className="text-black font-semibold text-sm underline hover:text-black/70 transition-colors w-fit"
-                    style={{ fontSize: "12px", letterSpacing: "0.12em" }}
-                  >
-                    LEARN MORE
-                  </Link>
-                </div>
-
-                {/* Right image */}
-                <div className="relative w-full lg:w-1/2 h-64 lg:h-auto lg:min-h-80">
-                  <Image
-                    src={t.image}
-                    alt={t.imageAlt}
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                    className="object-cover"
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ── PROJECT TYPES DIVISION ── */}
       <section className="py-28 lg:py-36" style={{ backgroundColor: "#f0efed" }} aria-labelledby="project-types-heading">
         <div className="mx-auto max-w-7xl px-4 lg:px-6">
@@ -540,9 +513,9 @@ export default function HomePage() {
                 className="font-black leading-tight text-black text-balance"
                 style={{ fontSize: "clamp(1.8rem, 4vw, 2.8rem)", letterSpacing: "-0.02em" }}
               >
-                Nos domaines
+                Collaborations
                 <br />
-                d&apos;expertise
+                professionnelles
               </h2>
             </div>
 
@@ -589,6 +562,26 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="py-28 lg:py-36" style={{ backgroundColor: "#000000" }} aria-labelledby="temoignages-heading">
+        <div className="mx-auto max-w-7xl px-4 lg:px-6">
+          {/* Title section */}
+          <div className="mb-20 text-center">
+            <SectionLabel color="#ffffff" className="justify-center mb-6">CE QUE DISENT NOS CLIENTS</SectionLabel>
+            <h2
+              id="temoignages-heading"
+              className="font-black uppercase leading-none text-white text-balance"
+              style={{ fontSize: "clamp(2rem, 5vw, 3.2rem)", letterSpacing: "-0.02em" }}
+            >
+              Ce que disent nos{" "}
+              <span className="italic" style={{ color: "#efd555" }}>clients.</span>
+            </h2>
+          </div>
+
+          {/* Carousel component */}
+          <TestimonialCarousel testimonials={testimonials} />
+        </div>
+      </section>
+
       {/* ── FAQ ── */}
       <section className="py-28 lg:py-36" style={{ backgroundColor: "#ffffff" }} aria-labelledby="faq-heading">
         <div className="mx-auto max-w-5xl px-4 lg:px-6">
@@ -612,17 +605,6 @@ export default function HomePage() {
           />
           <div className="max-w-3xl mx-auto">
             <FaqAccordion items={faqs} />
-          </div>
-          <div className="mt-20 pt-16 border-t border-black/10 text-center max-w-3xl mx-auto">
-            <p className="text-[13px] text-foreground/60 mb-6">
-              Votre question ne figure pas ci-dessus ?
-            </p>
-            <Link
-              href="/contact"
-              className="focus-ring inline-flex items-center gap-2 text-[12px] font-bold uppercase tracking-[0.15em] text-foreground hover:text-foreground/70 transition-colors duration-300"
-            >
-              Nous contacter directement <ArrowRight size={12} aria-hidden="true" />
-            </Link>
           </div>
         </div>
       </section>
