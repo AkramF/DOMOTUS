@@ -74,44 +74,50 @@ export default function Hero() {
                 </Link>
               </motion.div>
 
-              {/* Trust badges */}
+              {/* Stats — 3-column layout below CTAs */}
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.6, duration: 0.6 }}
-                className="mt-8 flex items-center gap-6 text-[11px] text-foreground/35 uppercase tracking-[0.12em] will-change-opacity"
+                className="mt-12 grid grid-cols-3 gap-6 will-change-opacity"
               >
-                <span className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-primary inline-block" />
-                  Certifié Multi Protocoles
-                </span>
-                <span className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-primary inline-block" />
-                  +150 projets
-                </span>
-                <span className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-primary inline-block" />
-                  SAV 7/7
-                </span>
+                <div className="flex flex-col">
+                  <span className="text-primary font-black text-[18px] lg:text-[20px] mb-1">+150</span>
+                  <span className="text-[12px] text-foreground/60 leading-snug">D&apos;expertise<br />domotique</span>
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-primary font-black text-[18px] lg:text-[20px] mb-1">10 ans</span>
+                  <span className="text-[12px] text-foreground/60 leading-snug">Disponibilité<br />garantie 99.8%</span>
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-primary font-black text-[18px] lg:text-[20px] mb-1">24h</span>
+                  <span className="text-[12px] text-foreground/60 leading-snug">Étude<br />personnalisée</span>
+                </div>
               </motion.div>
             </motion.div>
 
-            {/* ── RIGHT COLUMN: Image ── */}
+            {/* ── RIGHT COLUMN: Image with white border ── */}
             <motion.div
               initial={{ opacity: 0, x: 40 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-              className="relative h-[500px] lg:h-[600px] overflow-hidden rounded-xl order-1 lg:order-2 group"
+              className="relative order-1 lg:order-2"
             >
-              <Image
-                src="/images/hero-bg.jpg"
-                alt="Villa intelligente équipée par Domotus au Maroc"
-                fill
-                priority
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                quality={85}
-                className="object-cover transition-transform duration-700 group-hover:scale-105"
-              />
+              {/* White border frame */}
+              <div className="p-4 lg:p-6 bg-white rounded-2xl h-[500px] lg:h-[600px] shadow-xl">
+                {/* Image inside white frame */}
+                <div className="relative w-full h-full overflow-hidden rounded-xl group">
+                  <Image
+                    src="/images/hero-bg.jpg"
+                    alt="Villa intelligente équipée par Domotus au Maroc"
+                    fill
+                    priority
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    quality={85}
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                </div>
+              </div>
             </motion.div>
 
           </div>
