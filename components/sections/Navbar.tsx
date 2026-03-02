@@ -39,7 +39,7 @@ export default function Navbar() {
         )}
       >
         <nav
-          className="mx-auto max-w-screen-xl px-6 py-5 lg:px-10 flex items-center justify-between"
+          className="mx-auto max-w-screen-xl px-4 py-5 lg:px-6 flex items-center justify-between"
           aria-label="Navigation principale"
         >
           {/* Logo — left */}
@@ -56,9 +56,9 @@ export default function Navbar() {
             </span>
           </Link>
 
-          {/* Desktop nav links — truly centered via absolute positioning */}
+          {/* Desktop nav links — centered with flex-grow */}
           <ul
-            className="hidden lg:flex items-center gap-7 absolute left-1/2 -translate-x-1/2"
+            className="hidden lg:flex items-center gap-8 flex-1 justify-center"
             role="list"
           >
             {navLinks.map((link) => (
@@ -66,11 +66,12 @@ export default function Navbar() {
                 <Link
                   href={link.href}
                   className={cn(
-                    "focus-ring text-[10.5px] uppercase tracking-[0.18em] font-medium transition-colors duration-300 whitespace-nowrap pb-0.5",
+                    "focus-ring font-medium transition-colors duration-300 whitespace-nowrap pb-0.5",
                     pathname === link.href
                       ? "text-foreground border-b border-foreground"
                       : "text-foreground/45 hover:text-foreground"
                   )}
+                  style={{ fontFamily: "Inter, sans-serif", fontWeight: 500, fontSize: "16px", lineHeight: "24px" }}
                 >
                   {link.label}
                 </Link>
@@ -83,12 +84,8 @@ export default function Navbar() {
             {/* CONTACT */}
             <Link
               href="/contact"
-              className={cn(
-                "focus-ring inline-flex items-center px-5 py-2.5 text-[10.5px] uppercase tracking-[0.18em] font-semibold border transition-all duration-300",
-                pathname === "/contact"
-                  ? "border-primary text-primary"
-                  : "border-white/20 text-foreground/60 hover:border-white/50 hover:text-foreground"
-              )}
+              className="focus-ring inline-flex items-center px-6 py-2.5 rounded-full bg-white text-black transition-all duration-300 hover:shadow-lg hover:scale-105"
+              style={{ fontFamily: "Inter, sans-serif", fontWeight: 400, fontSize: "16px", lineHeight: "24px" }}
             >
               Contact
             </Link>

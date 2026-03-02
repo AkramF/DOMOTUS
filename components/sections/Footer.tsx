@@ -29,10 +29,13 @@ const NAV_COLS = [
   {
     title: "Protocoles & Standards",
     links: [
+      { href: "/technologies", label: "Tous les Protocoles" },
       { href: "/technologies/knx", label: "KNX — Standard international" },
-      { href: "/technologies/crestron-lutron", label: "Crestron & Lutron — Prestige" },
+      { href: "/technologies/crestron", label: "Crestron — Prestige" },
+      { href: "/technologies/lutron", label: "Lutron — Prestige" },
       { href: "/technologies/matter", label: "Matter — Interopérabilité" },
-      { href: "/technologies/zigbee-zwave", label: "Zigbee & Z-Wave — Mesh" },
+      { href: "/technologies/zigbee", label: "Zigbee — Mesh" },
+      { href: "/technologies/zwave", label: "Z-Wave — Mesh" },
       { href: "/technologies/wifi7", label: "Wi-Fi 7 — Haute performance" },
     ],
   },

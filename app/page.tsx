@@ -3,7 +3,9 @@ import dynamic from "next/dynamic";
 import Link from "next/link";
 import Image from "next/image";
 import HeroSplit from "@/components/sections/HeroSplit";
-import { ArrowRight, Zap, Shield, Activity, Wifi, Sun, Lock } from "lucide-react";
+import PartnersGrid from "@/components/sections/PartnersGrid";
+import { ExpertisesShowcase } from "@/components/sections/ExpertisesShowcase";
+import { ArrowRight } from "lucide-react";
 
 // Lazy load non-critical sections to reduce initial JS bundle
 const FaqAccordion = dynamic(() => import("@/components/sections/FaqAccordion"), {
@@ -45,7 +47,6 @@ export const metadata: Metadata = {
 
 const expertises = [
   {
-    icon: Sun,
     title: "Éclairage Intelligent",
     badge: "La signature visuelle de vos espaces",
     description: "L'éclairage suit le rythme naturel du soleil et s'adapte à vos instants de vie grâce au pilotage circadien et aux scènes dynamiques (Lutron HomeWorks). Une élégance qui sublime votre architecture.",
@@ -54,7 +55,6 @@ const expertises = [
     imageAlt: "Éclairage intelligent Lutron dans une villa de luxe au Maroc",
   },
   {
-    icon: Shield,
     title: "Sécurité & Accès",
     badge: "Une tranquillité d'esprit absolue",
     description: "Une protection invisible et infaillible. Accès biométrique discret, vidéosurveillance 4K intelligente et supervision KNX centralisée. Gardez le contrôle total et recevez des alertes ciblées, où que vous soyez.",
@@ -63,7 +63,6 @@ const expertises = [
     imageAlt: "Système de sécurité domotique premium pour villa Maroc",
   },
   {
-    icon: Activity,
     title: "Gestion Énergie & Climat",
     badge: "L'efficience invisible",
     description: "Votre maison optimise automatiquement la température et l'énergie en temps réel. Une intelligence qui allie confort thermique absolu et conformité aux normes d'excellence (LEED/HQE), sans le moindre effort.",
@@ -72,7 +71,6 @@ const expertises = [
     imageAlt: "Gestion intelligente de l'énergie dans un bâtiment connecté au Maroc",
   },
   {
-    icon: Wifi,
     title: "Réseaux & Connectivité",
     badge: "Le système nerveux de votre habitat",
     description: "Profitez d'une couverture Wi-Fi 6E parfaite et d'une infrastructure fibre redondante (Ubiquiti). Une fiabilité de niveau professionnel, supervisée 24/7 pour une fluidité sans la moindre interruption.",
@@ -81,7 +79,6 @@ const expertises = [
     imageAlt: "Infrastructure réseau Ubiquiti premium installée par Domotus Maroc",
   },
   {
-    icon: Zap,
     title: "Audio & Divertissement",
     badge: "L'émotion à l'état pur",
     description: "De la diffusion musicale multi-zones (Sonos) aux salles de cinéma privées 4K Dolby Atmos. L'image et le son haute-fidélité s'intègrent à vos murs avec une discrétion totale, pilotés depuis une interface unique.",
@@ -90,7 +87,6 @@ const expertises = [
     imageAlt: "Home cinema privé Dolby Atmos installé par Domotus au Maroc",
   },
   {
-    icon: Lock,
     title: "Supervision Globale (BMS)",
     badge: "Valorisation patrimoniale",
     description: "Le chef d'orchestre de votre propriété. Centralisez l'ensemble des systèmes sur une interface sur-mesure hyper-intuitive. Un atout technologique majeur qui augmente significativement la valeur de votre bien immobilier.",
@@ -130,11 +126,19 @@ const testimonials = [
     quote: "Domotus a sublimé notre villa à Casablanca avec une fluidité KNX remarquable. Ce qui nous a vraiment impressionnés, c'est la rigueur : respect du calendrier, intégration invisible, et une équipe qui comprend l'architecture avant de vendre de la technologie.",
     name: "Mehdi R.",
     role: "Propriétaire, Villa Anfa — Casablanca",
+    title: "Functional design",
+    description: "Functional design organizes the project to meet its use objectives.",
+    image: "/images/expertise-eclairage.jpg",
+    imageAlt: "Villa Casablanca - Functional design project",
   },
   {
     quote: "En tant que promoteur, intégrer Domotus dès la conception a transformé nos ventes. Les acquéreurs cherchent un atout technologique credible — Domotus le rend accessible, documenté, garanti. C'est un vrai levier commercial.",
     name: "Laila M.",
     role: "Directrice développement, Groupe Immobilier Marrakech",
+    title: "Renovation of spaces",
+    description: "Updating existing areas to improve their functionality, aesthetics and comfort.",
+    image: "/images/expertise-av.jpg",
+    imageAlt: "Renovation project - Marrakech",
   },
 ];
 
@@ -271,40 +275,24 @@ export default function HomePage() {
 
       <HeroSplit />
 
-      {/* ── SOCIAL PROOF BAND — stats immédiates ── */}
-      <section className="bg-card border-b border-white/6" aria-label="Chiffres clés Domotus Maroc">
-        <div className="mx-auto max-w-7xl px-6 lg:px-10">
-          <dl className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-y lg:divide-y-0 divide-white/6">
-            {stats.map((s) => (
-              <div key={s.label} className="px-8 py-8 flex flex-col gap-1">
-                <dt className="text-[11px] uppercase tracking-[0.2em] text-foreground/45 order-2">{s.label}</dt>
-                <dd className="font-black text-foreground order-1" style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)" }}>
-                  {s.value}
-                </dd>
-              </div>
-            ))}
-          </dl>
-        </div>
-      </section>
-
       {/* ── BENEFIT-LED PROPOSITION ── */}
-      <section className="py-28 lg:py-36 bg-background" aria-labelledby="value-prop-heading">
-        <div className="mx-auto max-w-7xl px-6 lg:px-10">
+      <section className="py-28 lg:py-36" style={{ backgroundColor: "#efd555" }} aria-labelledby="value-prop-heading">
+        <div className="mx-auto max-w-7xl px-4 lg:px-6">
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             <div>
-              <SectionLabel>La différence Domotus</SectionLabel>
+              <SectionLabel style={{ color: "#000000" }}>La différence Domotus</SectionLabel>
               <h2
                 id="value-prop-heading"
-                className="font-black uppercase leading-none text-foreground mb-6 text-balance"
-                style={{ fontSize: "clamp(2.2rem, 5vw, 4rem)", letterSpacing: "-0.02em" }}
+                className="font-black uppercase leading-none text-balance mb-6"
+                style={{ fontSize: "clamp(2.2rem, 5vw, 4rem)", letterSpacing: "-0.02em", color: "#000000" }}
               >
                 L&apos;art d&apos;anticiper vos besoins.{" "}
-                <span className="italic text-foreground/45">Sans effort.</span>
+                <span className="italic" style={{ color: "#000000" }}>Sans effort.</span>
               </h2>
-              <p className="text-foreground/55 leading-relaxed mb-6 text-[15px]">
+              <p className="leading-relaxed mb-6 text-[15px]" style={{ color: "#000000" }}>
                 Imaginez des espaces qui s&apos;éveillent à votre arrivée : la lumière s&apos;ajuste délicatement à l&apos;heure du jour, l&apos;atmosphère est déjà à la température idéale, et les volets accompagnent le coucher du soleil. Le confort absolu, sans la moindre intervention.
               </p>
-              <p className="text-foreground/55 leading-relaxed mb-10 text-[15px]">
+              <p className="leading-relaxed mb-10 text-[15px]" style={{ color: "#000000" }}>
                 Depuis 10 ans au Maroc, c&apos;est le standard d&apos;excellence que nous intégrons dans les résidences et espaces professionnels les plus exigeants. Une fiabilité garantie par nos certifications multi-protocoles de référence (KNX, Crestron, Lutron).
               </p>
               <ul className="flex flex-col gap-3 mb-10" role="list">
@@ -314,19 +302,21 @@ export default function HomePage() {
                   "Intelligence énergétique",
                   "Valorisation patrimoniale",
                 ].map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-[14px] text-foreground/65">
-                    <CheckCircle2Icon size={15} className="text-primary shrink-0 mt-0.5" aria-hidden="true" />
+                  <li key={item} className="flex items-start gap-3 text-[14px]" style={{ color: "#000000" }}>
+                    <CheckCircle2Icon size={15} className="shrink-0 mt-0.5" style={{ color: "#000000" }} aria-hidden="true" />
                     {item}
                   </li>
                 ))}
               </ul>
               <Link
                 href="/contact"
-                className="focus-ring inline-flex items-center gap-3 bg-primary px-8 py-4 text-[11px] font-black uppercase tracking-[0.2em] transition-all duration-300 hover:bg-primary/85"
-                style={{ color: "#0a0a0a" }}
+                className="focus-ring inline-flex items-center justify-between px-8 py-4 rounded-full text-[14px] font-semibold transition-all duration-300 hover:shadow-lg will-change-colors group"
+                style={{ backgroundColor: "#000000", color: "#ffffff" }}
               >
                 Découvrir davantage
-                <ArrowRight size={13} aria-hidden="true" />
+                <div className="ml-4 w-10 h-10 rounded-full flex items-center justify-center transition-transform group-hover:scale-110" style={{ backgroundColor: "#efd555" }}>
+                  <ArrowRight size={16} className="text-black" aria-hidden="true" />
+                </div>
               </Link>
             </div>
 
@@ -334,7 +324,7 @@ export default function HomePage() {
             <div className="grid grid-cols-2 gap-3 h-[480px] contain-layout">
               <div className="relative overflow-hidden rounded-sm row-span-2 aspect-square">
                 <Image
-                  src="/images/villa-prestige.webp"
+                  src="/images/villa-prestige.jpg"
                   alt="Villa équipée en domotique KNX par Domotus Casablanca"
                   fill
                   sizes="(max-width: 1024px) 50vw, 25vw"
@@ -345,7 +335,7 @@ export default function HomePage() {
               </div>
               <div className="relative overflow-hidden rounded-sm aspect-video">
                 <Image
-                  src="/images/showroom.webp"
+                  src="/images/showroom.jpg"
                   alt="Showroom domotique Domotus Casablanca"
                   fill
                   sizes="(max-width: 1024px) 50vw, 25vw"
@@ -356,7 +346,7 @@ export default function HomePage() {
               </div>
               <div className="relative overflow-hidden rounded-sm aspect-video">
                 <Image
-                  src="/images/immeuble-tertiaire.webp"
+                  src="/images/immeuble-tertiaire.jpg"
                   alt="Bâtiment tertiaire connecté par Domotus au Maroc"
                   fill
                   sizes="(max-width: 1024px) 50vw, 25vw"
@@ -370,90 +360,36 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── SERVICES GRID — benefit-first ── */}
-      <section className="py-28 lg:py-36 bg-card" aria-labelledby="services-heading">
-        <div className="mx-auto max-w-7xl px-6 lg:px-10">
+      {/* ── L'INTELLIGENCE DE VOS ESPACES — Interactive Showcase ── */}
+      <section className="py-28 lg:py-36" style={{ backgroundColor: "#ffffff" }} aria-labelledby="services-heading">
+        <div className="mx-auto max-w-7xl px-4 lg:px-6">
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-12 mb-16">
             <div className="flex-1">
-              <SectionLabel>L'intelligence de vos espaces</SectionLabel>
+              <SectionLabel style={{ color: "#000000" }}>L'intelligence de vos espaces</SectionLabel>
               <h2
                 id="services-heading"
-                className="font-black uppercase leading-none text-foreground text-balance"
-                style={{ fontSize: "clamp(1.8rem, 4vw, 3.2rem)", letterSpacing: "-0.02em" }}
+                className="font-black uppercase leading-none text-balance"
+                style={{ fontSize: "clamp(1.8rem, 4vw, 3.2rem)", letterSpacing: "-0.02em", color: "#000000" }}
               >
                 Maîtrise absolue<br />
-                <span className="italic text-foreground/45">de votre environnement.</span>
+                <span className="italic" style={{ color: "#000000" }}>de votre environnement.</span>
               </h2>
             </div>
             <Link
               href="/expertises"
-              className="focus-ring shrink-0 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.15em] text-foreground/40 hover:text-primary transition-colors duration-300"
+              className="focus-ring shrink-0 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.15em] text-black/60 hover:text-black transition-colors duration-300"
             >
               Toutes nos expertises <ArrowRight size={12} aria-hidden="true" />
             </Link>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-white/6">
-            {expertises.map((item) => {
-              const Icon = item.icon;
-              return (
-                <article
-                  key={item.title}
-                  className="relative overflow-hidden aspect-[4/3] group"
-                >
-                  {/* Background image */}
-                  <Image
-                    src={item.image}
-                    alt={item.imageAlt}
-                    fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                  />
-
-                  {/* Permanent dark overlay */}
-                  <div className="absolute inset-0 bg-background/70 group-hover:bg-background/20 transition-colors duration-500" />
-
-                  {/* Default state — icon + title + badge always visible */}
-                  <div className="absolute inset-0 flex flex-col justify-end p-7 transition-all duration-500 group-hover:opacity-0 group-hover:translate-y-2">
-                    <div className="mb-3 w-9 h-9 border border-white/20 flex items-center justify-center text-primary">
-                      <Icon size={16} aria-hidden="true" />
-                    </div>
-                    <h3 className="font-bold uppercase tracking-[0.1em] text-foreground text-[13px] mb-1">
-                      {item.title}
-                    </h3>
-                    <span className="text-[10px] font-semibold uppercase tracking-[0.12em] text-primary">
-                      {item.badge}
-                    </span>
-                  </div>
-
-                  {/* Hover state — full content revealed */}
-                  <div className="absolute inset-0 flex flex-col justify-end p-7 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-400 ease-out">
-                    <div className="mb-3 w-9 h-9 border border-primary/50 flex items-center justify-center text-primary">
-                      <Icon size={16} aria-hidden="true" />
-                    </div>
-                    <h3 className="font-bold uppercase tracking-[0.1em] text-foreground text-[13px] mb-2">
-                      {item.title}
-                    </h3>
-                    <p className="text-[12px] text-foreground/75 leading-relaxed mb-4">
-                      {item.description}
-                    </p>
-                    <Link
-                      href={item.href}
-                      className="focus-ring inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.15em] text-primary font-semibold"
-                    >
-                      En savoir plus <ArrowRight size={11} aria-hidden="true" />
-                    </Link>
-                  </div>
-                </article>
-              );
-            })}
-          </div>
+          <ExpertisesShowcase items={expertises} />
         </div>
       </section>
 
       {/* ── PROCESS — 3 steps ── */}
-      <section className="py-24 lg:py-36 bg-background" aria-labelledby="process-heading">
-        <div className="mx-auto max-w-7xl px-6 lg:px-10">
+      <section className="py-24 lg:py-36" style={{ backgroundColor: "#000000" }} aria-labelledby="process-heading">
+        <div className="mx-auto max-w-7xl px-4 lg:px-6">
           <div className="text-center mb-16">
             <SectionLabel>L'accompagnement Domotus</SectionLabel>
             <h2
@@ -505,101 +441,82 @@ export default function HomePage() {
       </section>
 
       {/* ── TESTIMONIALS ── */}
-      <section className="py-28 lg:py-36 bg-card" aria-labelledby="temoignages-heading">
-        <div className="mx-auto max-w-7xl px-6 lg:px-10">
-          <div className="mb-14 text-center">
-            <SectionLabel>Ils nous font confiance</SectionLabel>
+      <section className="py-28 lg:py-36" style={{ backgroundColor: "#000000" }} aria-labelledby="temoignages-heading">
+        <div className="mx-auto max-w-7xl px-4 lg:px-6">
+          <div className="mb-16">
+            <SectionLabel style={{ color: "#ffffff" }}>Ce que disent nos clients</SectionLabel>
             <h2
               id="temoignages-heading"
-              className="font-black uppercase leading-none text-foreground text-balance"
+              className="font-black uppercase leading-none text-white text-balance"
               style={{ fontSize: "clamp(1.8rem, 4vw, 3.2rem)", letterSpacing: "-0.02em" }}
             >
               Ce que disent nos{" "}
-              <span className="italic text-foreground/45">clients.</span>
+              <span className="italic" style={{ color: "#ffffff" }}>clients.</span>
             </h2>
           </div>
-          <div className="grid lg:grid-cols-2 gap-px bg-white/6">
+          <div className="grid lg:grid-cols-2 gap-6">
             {testimonials.map((t) => (
-              <blockquote key={t.name} className="bg-background p-10 flex flex-col gap-6">
-                <p className="text-[15px] text-foreground/70 leading-relaxed italic">
-                  &ldquo;{t.quote}&rdquo;
-                </p>
-                <footer className="mt-auto pt-4 border-t border-white/8">
-                  <cite className="not-italic">
-                    <span className="block text-[13px] font-bold text-foreground uppercase tracking-[0.08em]">{t.name}</span>
-                    <span className="block text-[11px] text-foreground/40 mt-0.5">{t.role}</span>
-                  </cite>
-                </footer>
-              </blockquote>
+              <div key={t.name} className="bg-white rounded-3xl overflow-hidden flex flex-col lg:flex-row">
+                {/* Left content */}
+                <div className="flex flex-col justify-between p-8 lg:p-10 lg:w-1/2">
+                  {/* Logo */}
+                  <div className="mb-6">
+                    <div className="w-12 h-12 rounded-full bg-black flex items-center justify-center">
+                      <div className="w-6 h-6 rounded-full" style={{ backgroundColor: "#efd555" }} />
+                    </div>
+                  </div>
+                  
+                  {/* Title and description */}
+                  <div className="mb-8">
+                    <h3 className="text-black font-black text-xl mb-3" style={{ fontSize: "20px", lineHeight: "28px" }}>
+                      {t.title}
+                    </h3>
+                    <p className="text-black/70 text-sm leading-relaxed" style={{ fontSize: "14px", lineHeight: "20px" }}>
+                      {t.description}
+                    </p>
+                  </div>
+
+                  {/* Learn more link */}
+                  <Link
+                    href="#"
+                    className="text-black font-semibold text-sm underline hover:text-black/70 transition-colors w-fit"
+                    style={{ fontSize: "12px", letterSpacing: "0.12em" }}
+                  >
+                    LEARN MORE
+                  </Link>
+                </div>
+
+                {/* Right image */}
+                <div className="relative w-full lg:w-1/2 h-64 lg:h-auto lg:min-h-80">
+                  <Image
+                    src={t.image}
+                    alt={t.imageAlt}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    className="object-cover"
+                  />
+                </div>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── MARCHÉS — Résidentiel & Tertiaire ── */}
-      <section className="h-[50vh] lg:h-[60vh] grid lg:grid-cols-2 overflow-hidden" aria-label="Nos marchés domotique au Maroc">
-        <Link href="/maison-connectee" className="relative overflow-hidden group focus-ring block h-full">
-          <Image
-            src="/images/villa-prestige.webp"
-            alt="Domotique villas et appartements de luxe au Maroc — Domotus"
-            fill
-            sizes="(max-width: 1024px) 100vw, 50vw"
-            loading="lazy"
-            quality={80}
-            className="object-cover transition-transform duration-700 group-hover:scale-105"
-          />
-          <div className="absolute inset-0 bg-background/50 group-hover:bg-background/35 transition-colors duration-500" />
-          <div className="absolute inset-0 flex flex-col justify-end p-8 lg:p-12">
-            <SectionLabel>Résidentiel</SectionLabel>
-            <h2 className="font-black uppercase text-foreground leading-none text-balance" style={{ fontSize: "clamp(1.6rem, 3vw, 2.6rem)", letterSpacing: "-0.02em" }}>
-              Bâtiment Intelligent
-            </h2>
-            <p className="mt-3 text-[13px] text-foreground/60 max-w-xs leading-relaxed">
-              À partir de 150 000 MAD · Livraison en 4–8 semaines
-            </p>
-            <span className="mt-4 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.15em] text-primary">
-              Voir les réalisations <ArrowRight size={11} aria-hidden="true" />
-            </span>
-          </div>
-        </Link>
-        <Link href="/promoteurs" className="relative overflow-hidden group focus-ring block h-full">
-          <Image
-            src="/images/immeuble-tertiaire.webp"
-            alt="Domotique pour promoteurs et bâtiments tertiaires au Maroc"
-            fill
-            sizes="(max-width: 1024px) 100vw, 50vw"
-            loading="lazy"
-            quality={80}
-            className="object-cover transition-transform duration-700 group-hover:scale-105"
-          />
-          <div className="absolute inset-0 bg-background/60 group-hover:bg-background/40 transition-colors duration-500" />
-          <div className="absolute inset-0 flex flex-col justify-end p-8 lg:p-12">
-            <SectionLabel>Tertiaire &amp; Promoteurs</SectionLabel>
-            <h2 className="font-black uppercase text-foreground leading-none text-balance" style={{ fontSize: "clamp(1.6rem, 3vw, 2.6rem)", letterSpacing: "-0.02em" }}>
-              Immeubles &amp; Bureaux
-            </h2>
-            <p className="mt-3 text-[13px] text-foreground/60 max-w-xs leading-relaxed">
-              Labels HQE, BREEAM · +20% valeur locative
-            </p>
-            <span className="mt-4 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.15em] text-primary">
-              Travailler avec nous <ArrowRight size={11} aria-hidden="true" />
-            </span>
-          </div>
-        </Link>
-      </section>
+      {/* ── PARTNERS GRID ── */}
+      <PartnersGrid />
 
       {/* ── FAQ ── */}
-      <section className="py-28 lg:py-36 bg-background" aria-labelledby="faq-heading">
-        <div className="mx-auto max-w-4xl px-6 lg:px-10">
-          <div className="mb-16">
-            <SectionLabel>Pour aller plus loin</SectionLabel>
+      <section className="py-28 lg:py-36" style={{ backgroundColor: "#ffffff" }} aria-labelledby="faq-heading">
+        <div className="mx-auto max-w-5xl px-4 lg:px-6">
+          <div className="mb-20 text-center">
+            <SectionLabel className="justify-center mb-6">Pour aller plus loin</SectionLabel>
             <h2
               id="faq-heading"
-              className="font-black uppercase leading-none text-foreground text-balance"
-              style={{ fontSize: "clamp(1.8rem, 4vw, 3.2rem)", letterSpacing: "-0.02em" }}
+              className="font-black leading-tight text-foreground text-balance"
+              style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", letterSpacing: "-0.02em" }}
             >
               Questions fréquentes<br />
-              <span className="italic text-foreground/45">sur votre projet.</span>
+              <span className="text-foreground">sur votre projet.</span>
             </h2>
           </div>
           <script
@@ -616,14 +533,16 @@ export default function HomePage() {
               }),
             }}
           />
-          <FaqAccordion items={faqs} />
-          <div className="mt-16 pt-12 border-t border-white/8">
-            <p className="text-[13px] text-foreground/50 mb-4">
+          <div className="max-w-3xl mx-auto">
+            <FaqAccordion items={faqs} />
+          </div>
+          <div className="mt-20 pt-16 border-t border-black/10 text-center max-w-3xl mx-auto">
+            <p className="text-[13px] text-foreground/60 mb-6">
               Votre question ne figure pas ci-dessus ?
             </p>
             <Link
               href="/contact"
-              className="focus-ring inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.15em] text-primary hover:text-primary/70 transition-colors duration-300"
+              className="focus-ring inline-flex items-center gap-2 text-[12px] font-bold uppercase tracking-[0.15em] text-foreground hover:text-foreground/70 transition-colors duration-300"
             >
               Nous contacter directement <ArrowRight size={12} aria-hidden="true" />
             </Link>
@@ -631,47 +550,54 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── CTA FINAL — urgence + double action ── */}
-      <section className="relative py-32 lg:py-40 overflow-hidden" aria-labelledby="cta-heading">
-        <div className="absolute inset-0 bg-card" />
-        <div
-          className="absolute inset-0"
-          style={{ background: "radial-gradient(ellipse 70% 60% at 50% 110%, oklch(0.91 0.12 188 / 0.09), transparent)" }}
-        />
-        <div className="relative z-10 mx-auto max-w-3xl px-6 lg:px-10 text-center">
-          <div className="mb-8">
-            <span className="text-[12px] uppercase tracking-[0.3em] text-primary font-semibold">Démarrez maintenant</span>
+      {/* ── CTA FINAL — Schedule consultation ── */}
+      <section className="relative py-12 lg:py-16 overflow-hidden" style={{ backgroundColor: "#efd555" }} aria-labelledby="cta-heading">
+        <div className="relative z-10 mx-auto max-w-7xl px-4 lg:px-12 flex flex-col">
+          {/* Badge — far left aligned with absolute positioning */}
+          <div className="absolute top-6 left-4 lg:left-6">
+            <span className="text-[10px] uppercase tracking-[0.4em] text-black font-black inline-flex items-center gap-2">
+              <span className="w-2 h-2 bg-black" />
+              GET STARTED
+            </span>
           </div>
-          <h2
-            id="cta-heading"
-            className="font-black uppercase leading-none text-foreground text-balance mb-8"
-            style={{ fontSize: "clamp(2.2rem, 6vw, 5rem)", letterSpacing: "-0.03em" }}
-          >
-            Transformez votre habitat<br />
-            <span className="italic text-foreground/45">en 24 à 48h.</span>
-          </h2>
-          <p className="text-foreground/60 leading-relaxed mb-4 max-w-md mx-auto text-[15px]">
-            Plus de 150 familles et promoteurs au Maroc nous ont fait confiance pour réaliser leur vision d'un habitat intelligent, esthétique et évolutif.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
-            <Link
-              href="/contact"
-              className="focus-ring inline-flex items-center gap-3 bg-primary px-10 py-5 text-[12px] font-black uppercase tracking-[0.2em] text-background transition-all duration-300 hover:bg-primary/85 w-full sm:w-auto justify-center"
-            >
-              Lancer mon projet
-              <ArrowRight size={14} aria-hidden="true" />
-            </Link>
-            <a
-              href="tel:+212663666627"
-              className="focus-ring inline-flex items-center gap-3 border border-white/20 px-10 py-5 text-[12px] uppercase tracking-[0.2em] text-foreground/60 transition-all duration-300 hover:border-primary hover:text-primary w-full sm:w-auto justify-center"
-            >
-              <PhoneIcon size={13} aria-hidden="true" />
-              +212 663 66 66 27
-            </a>
+
+          {/* Asymmetric content — large left space, content on right */}
+          <div className="grid lg:grid-cols-12 gap-6 mt-8 lg:mt-0">
+            {/* Left empty space (4 columns for white space) */}
+            <div className="hidden lg:block lg:col-span-4" />
+            
+            {/* Right content (8 columns) */}
+            <div className="lg:col-span-8 flex flex-col">
+              {/* Main heading */}
+              <h2
+                id="cta-heading"
+                className="text-black text-balance mb-4 leading-tight"
+                style={{ fontFamily: "Inter, sans-serif", fontWeight: 500, fontSize: "72px", lineHeight: "79px" }}
+              >
+                Schedule a free<br />
+                consultation
+              </h2>
+
+              {/* Description */}
+              <p className="text-black mb-6" style={{ fontFamily: "Inter, sans-serif", fontWeight: 400, fontSize: "16px", lineHeight: "24px", maxWidth: "560px" }}>
+                We craft inspiring spaces that blend cutting-edge design with enduring functionality, turning your vision into reality.
+              </p>
+
+              {/* CTA Button */}
+              <div className="w-fit">
+                <Link
+                  href="/contact"
+                  className="focus-ring inline-flex items-center justify-between px-8 py-4 rounded-full transition-all duration-300 hover:shadow-xl group"
+                  style={{ backgroundColor: "#000000" }}
+                >
+                  <span className="text-white font-semibold" style={{ fontSize: "16px" }}>Get started</span>
+                  <div className="ml-6 w-10 h-10 rounded-full flex items-center justify-center transition-transform group-hover:scale-110 flex-shrink-0" style={{ backgroundColor: "#efd555" }}>
+                    <ArrowRight size={16} className="text-black" aria-hidden="true" />
+                  </div>
+                </Link>
+              </div>
+            </div>
           </div>
-          <p className="text-[11px] text-foreground/35 uppercase tracking-[0.1em]">
-            Casablanca · Marrakech · Rabat · Tanger
-          </p>
         </div>
       </section>
     </>

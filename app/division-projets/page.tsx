@@ -55,35 +55,12 @@ export default function DivisionProjetsPage() {
             <span className="italic text-foreground/50">au service de vos projets.</span>
           </h1>
           <p className="text-[16px] text-foreground/65 leading-relaxed max-w-2xl mb-12">
-            Nous accompagnons architectes, promoteurs et maîtres d'ouvrage dans la création de bâtiments intelligents et durables. De la conception à la mise en service, solutions multi-protocoles certifiées.
+            Nous accompagnons architectes, promoteurs et maîtres d'ouvrage dans la création de bâtiments intelligents et durables. De la conception à la mise en service, solutions multi-protocoles certifiées (KNX, BACnet, Matter).
           </p>
           
-          {/* ── SEO CONTENT ── */}
-          <div className="mt-12 pt-12 border-t border-white/15 grid lg:grid-cols-2 gap-12 max-w-3xl">
-            <div>
-              <h2 className="font-bold text-[13px] uppercase tracking-widest text-primary mb-4">La Division Projets Domotus</h2>
-              <p className="text-[13px] text-foreground/60 leading-relaxed mb-4">
-                Domotus Division Projets est spécialisée dans l'intégration de solutions domotiques professionnelles pour les bâtiments tertiaires, les programmes immobiliers et les complexes hôteliers au Maroc.
-              </p>
-              <p className="text-[13px] text-foreground/60 leading-relaxed mb-4">
-                Nous certifions nos installations aux protocoles KNX, BACnet, et Matter pour garantir l'interopérabilité et la pérennité de vos investissements. Notre approche garantit une conformité totale aux cahiers des charges et une mise en service certifiée.
-              </p>
-              <p className="text-[13px] text-foreground/60 leading-relaxed">
-                Fort de 150+ projets réalisés au Maroc, nous maîtrisons chaque étape : étude de faisabilité, conception d'architecture, pose de câblage, intégration, tests et livraison.
-              </p>
-            </div>
-            <div>
-              <h2 className="font-bold text-[13px] uppercase tracking-widest text-primary mb-4">Nos solutions B2B</h2>
-              <ul className="text-[13px] text-foreground/60 leading-relaxed space-y-2">
-                <li>✓ <strong>Supervision BMS</strong> — Gestion centralisée multi-bâtiments avec IA prédictive</li>
-                <li>✓ <strong>Efficience énergétique</strong> — Économies 22-35% sur consommation énergétique</li>
-                <li>✓ <strong>Gestion thermique</strong> — Climatisation intelligente zonée et programmable</li>
-                <li>✓ <strong>Sécurité intégrée</strong> — Accès biométrique et vidéosurveillance 4K IA</li>
-                <li>✓ <strong>Éclairage professionnel</strong> — Pilotage circadien pour productivité optimale</li>
-                <li>✓ <strong>Infrastructure réseau</strong> — Cabling, Wi-Fi 6E, redondance 99.8% uptime</li>
-              </ul>
-            </div>
-          </div>
+          <p className="text-[14px] text-foreground/60 leading-relaxed max-w-2xl mb-12">
+            Fort de 150+ projets réalisés au Maroc, notre Division Projets maîtrise chaque étape de l'intégration domotique : études de faisabilité, conceptions d'architecture, pose de câblage, intégration multi-protocoles, tests certifiés et mise en service garantie. Nos solutions offrent efficience énergétique (-22-35% consommation), supervision BMS avancée et conformité totale aux normes CCTP, HQE et LEED.
+          </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Link href="/contact" className="inline-flex items-center gap-3 bg-primary px-8 py-4 text-[11px] font-black uppercase tracking-[0.2em] hover:bg-primary/85 transition-all duration-300" style={{ color: "#0a0a0a" }}>
               Consulter nos solutions <ArrowRight size={13} aria-hidden="true" />
