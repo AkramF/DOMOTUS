@@ -370,67 +370,83 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── SERVICES GRID — Modern icon-based layout ── */}
-      <section className="py-28 lg:py-36 bg-background" aria-labelledby="services-heading">
+      {/* ── SERVICES GRID — Apple-inspired Premium Layout ── */}
+      <section className="py-32 lg:py-48 bg-background" aria-labelledby="services-heading">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-12 mb-16">
-            <div className="flex-1">
-              <SectionLabel>L'intelligence de vos espaces</SectionLabel>
-              <h2
-                id="services-heading"
-                className="font-black uppercase leading-none text-foreground text-balance"
-                style={{ fontSize: "clamp(1.8rem, 4vw, 3.2rem)", letterSpacing: "-0.02em" }}
-              >
-                Maîtrise absolue<br />
-                <span className="italic text-foreground/45">de votre environnement.</span>
-              </h2>
-            </div>
-            <Link
-              href="/expertises"
-              className="focus-ring shrink-0 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.15em] text-foreground/40 hover:text-primary transition-colors duration-300"
+          {/* Header with generous spacing */}
+          <div className="mb-32 max-w-3xl">
+            <SectionLabel>L'intelligence de vos espaces</SectionLabel>
+            <h2
+              id="services-heading"
+              className="font-black leading-tight text-foreground text-balance"
+              style={{ fontSize: "clamp(2.4rem, 8vw, 4.5rem)", letterSpacing: "-0.03em" }}
             >
-              Toutes nos expertises <ArrowRight size={12} aria-hidden="true" />
-            </Link>
+              Maîtrise<br />absolue de votre<br />environnement.
+            </h2>
+            <p className="mt-8 text-[16px] text-foreground/60 leading-relaxed max-w-lg">
+              Contrôlez chaque aspect de vos espaces avec précision. Éclairage, climat, sécurité, confort — tout orchestré en harmonie.
+            </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {expertises.map((item) => {
+          {/* 2-column grid with premium spacing */}
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 mb-8">
+            {expertises.map((item, idx) => {
               const Icon = item.icon;
+              // Alternate layout for visual interest
+              const isEven = idx % 2 === 0;
+              
               return (
                 <article
                   key={item.title}
-                  className="group relative overflow-hidden border border-white/10 rounded-lg p-8 flex flex-col justify-between transition-all duration-300 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10"
+                  className={`group relative flex flex-col justify-between py-12 px-8 lg:px-0 border-b border-white/8 transition-all duration-500 hover:border-primary/40 ${
+                    isEven ? "lg:pr-16" : "lg:pl-16"
+                  }`}
                 >
-                  {/* Icon with background circle */}
-                  <div className="mb-6">
-                    <div className="w-16 h-16 rounded-full border border-white/20 flex items-center justify-center transition-all duration-300 group-hover:border-primary/50 group-hover:bg-primary/5">
-                      <Icon size={28} className="text-foreground/60 transition-colors duration-300 group-hover:text-primary" aria-hidden="true" />
+                  {/* Icon — Larger and simpler */}
+                  <div className="mb-8">
+                    <div className="w-14 h-14 flex items-center justify-center transition-all duration-500">
+                      <Icon size={32} className="text-foreground/50 group-hover:text-primary group-hover:scale-110 transition-all duration-500" aria-hidden="true" />
                     </div>
                   </div>
 
-                  {/* Content */}
-                  <div className="flex-1">
-                    <h3 className="font-bold uppercase tracking-[0.1em] text-foreground text-[14px] mb-2">
+                  {/* Title — Larger typography */}
+                  <div className="mb-6">
+                    <h3 className="text-[18px] lg:text-[20px] font-semibold text-foreground leading-tight mb-2 transition-colors duration-500 group-hover:text-primary">
                       {item.title}
                     </h3>
-                    <span className="text-[11px] font-semibold uppercase tracking-[0.12em] text-foreground/40 group-hover:text-primary transition-colors duration-300 block mb-4">
-                      {item.badge}
-                    </span>
-                    <p className="text-[13px] text-foreground/60 leading-relaxed">
-                      {item.description}
-                    </p>
+                    <div className="w-1 h-8 bg-primary/0 group-hover:bg-primary transition-all duration-500" />
                   </div>
 
-                  {/* CTA */}
-                  <Link
-                    href={item.href}
-                    className="focus-ring inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.15em] font-semibold mt-6 text-foreground/50 hover:text-primary transition-colors duration-300"
-                  >
-                    En savoir plus <ArrowRight size={11} aria-hidden="true" />
-                  </Link>
+                  {/* Description — Better spacing */}
+                  <p className="text-[14px] lg:text-[15px] text-foreground/55 leading-relaxed mb-8 max-w-xs">
+                    {item.description}
+                  </p>
+
+                  {/* Badge with hover */}
+                  <div className="flex items-center justify-between">
+                    <span className="text-[11px] font-semibold uppercase tracking-[0.15em] text-foreground/40 group-hover:text-primary/80 transition-colors duration-500">
+                      {item.badge}
+                    </span>
+                    <Link
+                      href={item.href}
+                      className="focus-ring opacity-0 group-hover:opacity-100 transition-opacity duration-500 text-primary"
+                    >
+                      <ArrowRight size={16} aria-hidden="true" />
+                    </Link>
+                  </div>
                 </article>
               );
             })}
+          </div>
+
+          {/* View all link */}
+          <div className="flex justify-end pt-12 border-t border-white/8">
+            <Link
+              href="/expertises"
+              className="focus-ring inline-flex items-center gap-3 text-[13px] uppercase tracking-[0.2em] text-foreground/50 hover:text-primary transition-colors duration-300 font-semibold"
+            >
+              Toutes les expertises <ArrowRight size={14} aria-hidden="true" />
+            </Link>
           </div>
         </div>
       </section>
