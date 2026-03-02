@@ -23,9 +23,9 @@ export function ExpertisesShowcase({ items }: ExpertisesShowcaseProps) {
   const selected = items[selectedIndex]
 
   return (
-    <div className="grid lg:grid-cols-12 gap-8 lg:gap-16 items-start">
+    <div className="grid lg:grid-cols-12 gap-6 lg:gap-12 items-start">
       {/* Left column — Category cards stacked */}
-      <div className="lg:col-span-3 flex flex-row lg:flex-col gap-3 overflow-x-auto lg:overflow-x-visible pb-2 lg:pb-0">
+      <div className="lg:col-span-3 flex flex-row lg:flex-col gap-2 overflow-x-auto lg:overflow-x-visible pb-2 lg:pb-0">
         {items.map((item, index) => {
           const isActive = index === selectedIndex
 
@@ -33,7 +33,7 @@ export function ExpertisesShowcase({ items }: ExpertisesShowcaseProps) {
             <button
               key={item.title}
               onClick={() => setSelectedIndex(index)}
-              className={`focus-ring relative rounded-2xl overflow-hidden flex-shrink-0 w-28 h-28 lg:w-full lg:h-auto lg:aspect-square flex items-center justify-center p-4 group transition-all duration-300 ${
+              className={`focus-ring relative rounded-xl overflow-hidden flex-shrink-0 w-20 h-20 lg:w-full lg:h-auto lg:aspect-square flex items-center justify-center p-3 group transition-all duration-300 ${
                 isActive ? 'ring-2 ring-black' : 'hover:shadow-lg'
               }`}
               style={{ backgroundColor: "#000000" }}
@@ -52,7 +52,7 @@ export function ExpertisesShowcase({ items }: ExpertisesShowcaseProps) {
               </div>
 
               {/* Title only — single line, centered */}
-              <h4 className="font-medium text-center leading-tight text-white line-clamp-1" style={{ fontSize: "0.875rem", letterSpacing: "0" }}>
+              <h4 className="font-medium text-center leading-tight text-white line-clamp-1" style={{ fontSize: "0.75rem", letterSpacing: "0" }}>
                 {item.title}
               </h4>
             </button>
@@ -61,7 +61,7 @@ export function ExpertisesShowcase({ items }: ExpertisesShowcaseProps) {
       </div>
 
       {/* Right column — Selected project content */}
-      <div className="lg:col-span-9 flex flex-col gap-8">
+      <div className="lg:col-span-9 flex flex-col gap-6">
         {/* Project badge */}
         <div className="flex items-center gap-3">
           <div className="w-2 h-2 bg-black rounded-full" />
