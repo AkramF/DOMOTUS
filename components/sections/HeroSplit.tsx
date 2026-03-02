@@ -77,6 +77,31 @@ export default function Hero() {
                 </Link>
               </motion.div>
 
+              {/* Stats — below buttons */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.8, duration: 0.6 }}
+                className="mt-16 grid grid-cols-2 lg:grid-cols-4 gap-8 will-change-opacity"
+              >
+                <div className="flex flex-col">
+                  <span className="text-[20px] lg:text-[24px] font-black text-white mb-2">+150</span>
+                  <span className="text-[12px] text-white/70 leading-snug">Projets livrés<br />au Maroc</span>
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-[20px] lg:text-[24px] font-black text-white mb-2">10 ans</span>
+                  <span className="text-[12px] text-white/70 leading-snug">D&apos;expertise<br />domotique</span>
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-[20px] lg:text-[24px] font-black text-white mb-2">99.8%</span>
+                  <span className="text-[12px] text-white/70 leading-snug">Disponibilité<br />garantie</span>
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-[20px] lg:text-[24px] font-black text-white mb-2">24h</span>
+                  <span className="text-[12px] text-white/70 leading-snug">Étude<br />personnalisée</span>
+                </div>
+              </motion.div>
+
             </motion.div>
 
             {/* ── RIGHT COLUMN: Image with white border ── */}
