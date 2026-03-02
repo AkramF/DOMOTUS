@@ -38,8 +38,8 @@ export default function Hero() {
 
               {/* H1 */}
               <h1
-                className="font-medium leading-tight text-white"
-                style={{ fontSize: "clamp(2.2rem, 6vw, 4rem)", letterSpacing: "-0.02em", fontWeight: 500 }}
+                className="text-white"
+                style={{ fontFamily: "Inter, sans-serif", fontWeight: 500, fontSize: "64px", lineHeight: "70px" }}
               >
                 votre accès à la <span style={{ color: "#efd555" }}>domotique</span> premium.
               </h1>
