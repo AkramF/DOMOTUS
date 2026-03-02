@@ -289,7 +289,7 @@ export default function HomePage() {
       </section>
 
       {/* ── SERVICES GRID — benefit-first ── */}
-      <section className="py-28 lg:py-36" style={{ backgroundColor: "#efd555" }} aria-labelledby="services-heading">
+      <section className="py-28 lg:py-36" style={{ backgroundColor: "#000000" }} aria-labelledby="services-heading">
         <div className="mx-auto max-w-7xl px-4 lg:px-6">
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-12 mb-16">
             <div className="flex-1">
@@ -370,7 +370,7 @@ export default function HomePage() {
       </section>
 
       {/* ── BENEFIT-LED PROPOSITION ── */}
-      <section className="py-28 lg:py-36 bg-background" aria-labelledby="value-prop-heading">
+      <section className="py-28 lg:py-36" style={{ backgroundColor: "#ffffff" }} aria-labelledby="value-prop-heading">
         <div className="mx-auto max-w-7xl px-4 lg:px-6">
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             <div>
