@@ -136,11 +136,6 @@ const testimonials = [
     name: "Laila M.",
     role: "Directrice développement, Groupe Immobilier Marrakech",
   },
-  {
-    quote: "L'intégration KNX de nos espaces de travail par Domotus a modernisé complètement nos capacités de collaboration. Éclairage intelligent, climatisation adaptée aux zones occupées, sécurité biométrique — le tout transparent. Une référence en efficacité diplomatique et confort.",
-    name: "Zhang Wei",
-    role: "Attaché technique, Ambassade de Chine à Rabat",
-  },
 ];
 
 const faqs = [
@@ -292,276 +287,227 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── VALUE PROPOSITION — Premium Centered Layout ── */}
-      <section className="py-32 lg:py-48 bg-background" aria-labelledby="value-prop-heading">
-        <div className="mx-auto max-w-5xl px-6 lg:px-10">
-          {/* Header — Centered & spacious */}
-          <div className="mb-28 text-center">
-            <SectionLabel>La différence Domotus</SectionLabel>
-            <h2
-              id="value-prop-heading"
-              className="font-black leading-tight text-foreground text-balance"
-              style={{ fontSize: "clamp(2.4rem, 8vw, 4.5rem)", letterSpacing: "-0.03em" }}
-            >
-              L&apos;art d&apos;anticiper<br />
-              <span className="italic text-foreground/45">vos besoins.</span>
-            </h2>
-            <p className="mt-8 text-[16px] text-foreground/60 leading-relaxed max-w-3xl mx-auto">
-              Imaginez des espaces qui s&apos;éveillent à votre arrivée : la lumière s&apos;ajuste délicatement à l&apos;heure du jour, l&apos;atmosphère est déjà à la température idéale. Le confort absolu, sans la moindre intervention.
-            </p>
-          </div>
-
-          {/* 4 Benefits Grid — 2x2 with elegant design */}
-          <div className="grid sm:grid-cols-2 gap-12 lg:gap-16 mb-32">
-            {[
-              { 
-                title: "Maîtrise Absolue", 
-                desc: "Pilotage intuitif de chaque élément. Une harmonie, pas du bricolage." 
-              },
-              { 
-                title: "Sérénité Totale", 
-                desc: "Certifications multi-protocoles. Fiabilité garantie 24/7 depuis 10 ans." 
-              },
-              { 
-                title: "Intelligence Énergétique", 
-                desc: "Économies jusqu'à 35%. Gestion thermique et lumineuse optimisées." 
-              },
-              { 
-                title: "Valorisation Patrimoniale", 
-                desc: "Plus-value immobilière mesurée. Un atout pour la revente." 
-              },
-            ].map((benefit, idx) => (
-              <div key={idx} className="group flex flex-col">
-                {/* Divider top */}
-                <div className="w-12 h-px bg-primary/20 group-hover:bg-primary/60 transition-all duration-500 mb-6" />
-                
-                {/* Title */}
-                <h3 className="text-[18px] lg:text-[20px] font-semibold text-foreground mb-3 transition-colors duration-500 group-hover:text-primary">
-                  {benefit.title}
-                </h3>
-                
-                {/* Description */}
-                <p className="text-[14px] text-foreground/60 leading-relaxed flex-1">
-                  {benefit.desc}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          {/* Image Gallery — Masonry layout */}
-          <div className="mb-32 grid grid-cols-2 lg:grid-cols-3 gap-4 h-[500px] lg:h-[600px]">
-            {/* Large featured image */}
-            <div className="relative overflow-hidden rounded-lg lg:col-span-2 lg:row-span-2 group">
-              <Image
-                src="/images/villa-prestige.webp"
-                alt="Villa prestige équipée en domotique KNX par Domotus"
-                fill
-                sizes="(max-width: 1024px) 50vw, 66vw"
-                loading="lazy"
-                quality={85}
-                className="object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500" />
-            </div>
-
-            {/* Top right image */}
-            <div className="relative overflow-hidden rounded-lg group">
-              <Image
-                src="/images/showroom.webp"
-                alt="Showroom domotique Domotus Casablanca"
-                fill
-                sizes="(max-width: 1024px) 50vw, 33vw"
-                loading="lazy"
-                quality={80}
-                className="object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500" />
-            </div>
-
-            {/* Bottom right image */}
-            <div className="relative overflow-hidden rounded-lg group">
-              <Image
-                src="/images/immeuble-tertiaire.webp"
-                alt="Bâtiment tertiaire connecté par Domotus au Maroc"
-                fill
-                sizes="(max-width: 1024px) 50vw, 33vw"
-                loading="lazy"
-                quality={80}
-                className="object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500" />
-            </div>
-          </div>
-
-          {/* Credentials — Trust signals */}
-          <div className="py-12 border-t border-white/8 flex flex-col lg:flex-row items-center justify-between gap-8">
-            <p className="text-[14px] text-foreground/55 max-w-md leading-relaxed">
-              Depuis 10 ans au Maroc, une fiabilité garantie par nos certifications multi-protocoles de référence.
-            </p>
-            <div className="flex items-center gap-6">
-              <span className="text-[12px] uppercase tracking-[0.15em] text-foreground/40 font-semibold">Certifications</span>
-              <div className="flex gap-3">
-                {["KNX", "Crestron", "Lutron"].map((cert) => (
-                  <div key={cert} className="px-4 py-2 border border-white/10 rounded-sm text-[11px] font-semibold text-primary/80 hover:border-primary/40 hover:text-primary transition-colors duration-300">
-                    {cert}
-                  </div>
+      {/* ── BENEFIT-LED PROPOSITION ── */}
+      <section className="py-28 lg:py-36 bg-background" aria-labelledby="value-prop-heading">
+        <div className="mx-auto max-w-7xl px-6 lg:px-10">
+          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+            <div>
+              <SectionLabel>La différence Domotus</SectionLabel>
+              <h2
+                id="value-prop-heading"
+                className="font-black uppercase leading-none text-foreground mb-6 text-balance"
+                style={{ fontSize: "clamp(2.2rem, 5vw, 4rem)", letterSpacing: "-0.02em" }}
+              >
+                L&apos;art d&apos;anticiper vos besoins.{" "}
+                <span className="italic text-foreground/45">Sans effort.</span>
+              </h2>
+              <p className="text-foreground/55 leading-relaxed mb-6 text-[15px]">
+                Imaginez des espaces qui s&apos;éveillent à votre arrivée : la lumière s&apos;ajuste délicatement à l&apos;heure du jour, l&apos;atmosphère est déjà à la température idéale, et les volets accompagnent le coucher du soleil. Le confort absolu, sans la moindre intervention.
+              </p>
+              <p className="text-foreground/55 leading-relaxed mb-10 text-[15px]">
+                Depuis 10 ans au Maroc, c&apos;est le standard d&apos;excellence que nous intégrons dans les résidences et espaces professionnels les plus exigeants. Une fiabilité garantie par nos certifications multi-protocoles de référence (KNX, Crestron, Lutron).
+              </p>
+              <ul className="flex flex-col gap-3 mb-10" role="list">
+                {[
+                  "Maîtrise absolue & intuitive",
+                  "Sérénité totale",
+                  "Intelligence énergétique",
+                  "Valorisation patrimoniale",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-[14px] text-foreground/65">
+                    <CheckCircle2Icon size={15} className="text-primary shrink-0 mt-0.5" aria-hidden="true" />
+                    {item}
+                  </li>
                 ))}
+              </ul>
+              <Link
+                href="/contact"
+                className="focus-ring inline-flex items-center gap-3 bg-primary px-8 py-4 text-[11px] font-black uppercase tracking-[0.2em] transition-all duration-300 hover:bg-primary/85"
+                style={{ color: "#0a0a0a" }}
+              >
+                Découvrir davantage
+                <ArrowRight size={13} aria-hidden="true" />
+              </Link>
+            </div>
+
+            {/* Split image — with aspect-ratio to prevent CLS */}
+            <div className="grid grid-cols-2 gap-3 h-[480px] contain-layout">
+              <div className="relative overflow-hidden rounded-sm row-span-2 aspect-square">
+                <Image
+                  src="/images/villa-prestige.webp"
+                  alt="Villa équipée en domotique KNX par Domotus Casablanca"
+                  fill
+                  sizes="(max-width: 1024px) 50vw, 25vw"
+                  loading="lazy"
+                  quality={80}
+                  className="object-cover"
+                />
+              </div>
+              <div className="relative overflow-hidden rounded-sm aspect-video">
+                <Image
+                  src="/images/showroom.webp"
+                  alt="Showroom domotique Domotus Casablanca"
+                  fill
+                  sizes="(max-width: 1024px) 50vw, 25vw"
+                  loading="lazy"
+                  quality={80}
+                  className="object-cover"
+                />
+              </div>
+              <div className="relative overflow-hidden rounded-sm aspect-video">
+                <Image
+                  src="/images/immeuble-tertiaire.webp"
+                  alt="Bâtiment tertiaire connecté par Domotus au Maroc"
+                  fill
+                  sizes="(max-width: 1024px) 50vw, 25vw"
+                  loading="lazy"
+                  quality={80}
+                  className="object-cover"
+                />
               </div>
             </div>
-          </div>
-
-          {/* CTA — Elegant and minimal */}
-          <div className="mt-12 text-center">
-            <Link
-              href="/contact"
-              className="focus-ring inline-flex items-center gap-3 text-[12px] font-semibold uppercase tracking-[0.15em] text-foreground/50 hover:text-primary transition-colors duration-300"
-            >
-              Découvrir davantage <ArrowRight size={13} aria-hidden="true" />
-            </Link>
           </div>
         </div>
       </section>
 
-      {/* ── SERVICES GRID — Apple-inspired Premium Layout ── */}
-      <section className="py-32 lg:py-48 bg-background" aria-labelledby="services-heading">
+      {/* ── SERVICES GRID — benefit-first ── */}
+      <section className="py-28 lg:py-36 bg-card" aria-labelledby="services-heading">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
-          {/* Header with generous spacing */}
-          <div className="mb-32 max-w-3xl">
-            <SectionLabel>L'intelligence de vos espaces</SectionLabel>
-            <h2
-              id="services-heading"
-              className="font-black leading-tight text-foreground text-balance"
-              style={{ fontSize: "clamp(2.4rem, 8vw, 4.5rem)", letterSpacing: "-0.03em" }}
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-12 mb-16">
+            <div className="flex-1">
+              <SectionLabel>L'intelligence de vos espaces</SectionLabel>
+              <h2
+                id="services-heading"
+                className="font-black uppercase leading-none text-foreground text-balance"
+                style={{ fontSize: "clamp(1.8rem, 4vw, 3.2rem)", letterSpacing: "-0.02em" }}
+              >
+                Maîtrise absolue<br />
+                <span className="italic text-foreground/45">de votre environnement.</span>
+              </h2>
+            </div>
+            <Link
+              href="/expertises"
+              className="focus-ring shrink-0 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.15em] text-foreground/40 hover:text-primary transition-colors duration-300"
             >
-              Maîtrise<br />absolue de votre<br />environnement.
-            </h2>
-            <p className="mt-8 text-[16px] text-foreground/60 leading-relaxed max-w-lg">
-              Contrôlez chaque aspect de vos espaces avec précision. Éclairage, climat, sécurité, confort — tout orchestré en harmonie.
-            </p>
+              Toutes nos expertises <ArrowRight size={12} aria-hidden="true" />
+            </Link>
           </div>
 
-          {/* 3-column grid with premium spacing */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 mb-8">
-            {expertises.map((item, idx) => {
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-white/6">
+            {expertises.map((item) => {
               const Icon = item.icon;
-              
               return (
                 <article
                   key={item.title}
-                  className="group relative flex flex-col justify-between py-12 px-6 lg:px-0 border-b border-white/8 transition-all duration-500 hover:border-primary/40"
+                  className="relative overflow-hidden aspect-[4/3] group"
                 >
-                  {/* Icon — Larger and simpler */}
-                  <div className="mb-6">
-                    <div className="w-12 h-12 flex items-center justify-center transition-all duration-500">
-                      <Icon size={28} className="text-foreground/50 group-hover:text-primary group-hover:scale-110 transition-all duration-500" aria-hidden="true" />
-                    </div>
-                  </div>
+                  {/* Background image */}
+                  <Image
+                    src={item.image}
+                    alt={item.imageAlt}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  />
 
-                  {/* Title — Optimized for 3 columns */}
-                  <div className="mb-4">
-                    <h3 className="text-[16px] lg:text-[18px] font-semibold text-foreground leading-tight mb-2 transition-colors duration-500 group-hover:text-primary">
+                  {/* Permanent dark overlay */}
+                  <div className="absolute inset-0 bg-background/70 group-hover:bg-background/20 transition-colors duration-500" />
+
+                  {/* Default state — icon + title + badge always visible */}
+                  <div className="absolute inset-0 flex flex-col justify-end p-7 transition-all duration-500 group-hover:opacity-0 group-hover:translate-y-2">
+                    <div className="mb-3 w-9 h-9 border border-white/20 flex items-center justify-center text-primary">
+                      <Icon size={16} aria-hidden="true" />
+                    </div>
+                    <h3 className="font-bold uppercase tracking-[0.1em] text-foreground text-[13px] mb-1">
                       {item.title}
                     </h3>
-                    <div className="w-1 h-6 bg-primary/0 group-hover:bg-primary transition-all duration-500" />
-                  </div>
-
-                  {/* Description — Better spacing */}
-                  <p className="text-[13px] lg:text-[14px] text-foreground/55 leading-relaxed mb-6">
-                    {item.description}
-                  </p>
-
-                  {/* Badge with hover */}
-                  <div className="flex items-center justify-between">
-                    <span className="text-[10px] font-semibold uppercase tracking-[0.12em] text-foreground/40 group-hover:text-primary/80 transition-colors duration-500">
+                    <span className="text-[10px] font-semibold uppercase tracking-[0.12em] text-primary">
                       {item.badge}
                     </span>
+                  </div>
+
+                  {/* Hover state — full content revealed */}
+                  <div className="absolute inset-0 flex flex-col justify-end p-7 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-400 ease-out">
+                    <div className="mb-3 w-9 h-9 border border-primary/50 flex items-center justify-center text-primary">
+                      <Icon size={16} aria-hidden="true" />
+                    </div>
+                    <h3 className="font-bold uppercase tracking-[0.1em] text-foreground text-[13px] mb-2">
+                      {item.title}
+                    </h3>
+                    <p className="text-[12px] text-foreground/75 leading-relaxed mb-4">
+                      {item.description}
+                    </p>
                     <Link
                       href={item.href}
-                      className="focus-ring opacity-0 group-hover:opacity-100 transition-opacity duration-500 text-primary"
+                      className="focus-ring inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.15em] text-primary font-semibold"
                     >
-                      <ArrowRight size={14} aria-hidden="true" />
+                      En savoir plus <ArrowRight size={11} aria-hidden="true" />
                     </Link>
                   </div>
                 </article>
               );
             })}
           </div>
-
-          {/* View all link */}
-          <div className="flex justify-end pt-12 border-t border-white/8">
-            <Link
-              href="/expertises"
-              className="focus-ring inline-flex items-center gap-3 text-[13px] uppercase tracking-[0.2em] text-foreground/50 hover:text-primary transition-colors duration-300 font-semibold"
-            >
-              Toutes les expertises <ArrowRight size={14} aria-hidden="true" />
-            </Link>
-          </div>
         </div>
       </section>
 
-      {/* ── PROCESS — 3 steps transition section ── */}
-      <section className="py-16 lg:py-24 bg-background" aria-labelledby="process-heading">
+      {/* ── PROCESS — 3 steps ── */}
+      <section className="py-24 lg:py-36 bg-background" aria-labelledby="process-heading">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
-          {/* Compact header */}
-          <div className="mb-12">
+          <div className="text-center mb-16">
             <SectionLabel>L'accompagnement Domotus</SectionLabel>
             <h2
               id="process-heading"
-              className="font-semibold leading-tight text-foreground text-balance"
-              style={{ fontSize: "clamp(1.6rem, 5vw, 2.8rem)", letterSpacing: "-0.02em" }}
+              className="font-black uppercase leading-none text-foreground text-balance"
+              style={{ fontSize: "clamp(1.8rem, 4vw, 3.2rem)", letterSpacing: "-0.02em" }}
             >
-              De la vision à la perfection, en 3 étapes.
+              De la vision à la perfection,{" "}
+              <span className="italic text-foreground/45">en 3 étapes.</span>
             </h2>
           </div>
-
-          {/* Minimal 3-step layout */}
-          <div className="grid lg:grid-cols-3 gap-8 lg:gap-12">
+          <ol className="grid lg:grid-cols-3 gap-px bg-white/6" role="list">
             {steps.map((step, i) => (
-              <div key={step.num} className="flex flex-col">
-                {/* Step number — Subtle but visible */}
-                <div className="mb-4">
-                  <span className="text-[14px] font-semibold uppercase tracking-[0.15em] text-primary">
-                    Étape {step.num}
-                  </span>
-                </div>
-
-                {/* Title */}
-                <h3 className="text-[16px] lg:text-[17px] font-semibold text-foreground mb-3 leading-tight">
+              <li key={step.num} className="bg-card p-10 flex flex-col gap-5 relative">
+                <span
+                  className="font-black text-foreground/8 leading-none select-none"
+                  style={{ fontSize: "clamp(4rem, 8vw, 7rem)" }}
+                  aria-hidden="true"
+                >
+                  {step.num}
+                </span>
+                <h3 className="font-bold uppercase tracking-[0.1em] text-foreground text-[14px] -mt-4">
                   {step.title}
                 </h3>
-
-                {/* Description */}
-                <p className="text-[13px] lg:text-[14px] text-foreground/55 leading-relaxed">
+                <p className="text-[13px] text-foreground/50 leading-relaxed">
                   {step.description}
                 </p>
-
-                {/* Arrow to next (desktop only) */}
                 {i < steps.length - 1 && (
-                  <div className="hidden lg:flex mt-8 text-primary/30">
-                    <ArrowRight size={18} aria-hidden="true" />
-                  </div>
+                  <ArrowRight
+                    size={16}
+                    className="hidden lg:block absolute -right-2 top-1/2 -translate-y-1/2 z-10 text-primary/40"
+                    aria-hidden="true"
+                  />
                 )}
-              </div>
+              </li>
             ))}
-          </div>
-
-          {/* CTA — Centered, simple */}
-          <div className="mt-12 pt-12 border-t border-white/8 flex justify-center">
+          </ol>
+          <div className="mt-10 text-center">
             <Link
               href="/contact"
-              className="focus-ring inline-flex items-center gap-3 text-[12px] font-semibold uppercase tracking-[0.15em] text-foreground/60 hover:text-primary transition-colors duration-300"
+              className="focus-ring inline-flex items-center gap-3 bg-primary px-10 py-4 text-[11px] font-black uppercase tracking-[0.2em] transition-all duration-300 hover:bg-primary/85"
+              style={{ color: "#0a0a0a" }}
             >
-              Commencer l&apos;audit gratuit
+              Commencer l&apos;étape 1 — Audit technique
               <ArrowRight size={13} aria-hidden="true" />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* ── TESTIMONIALS — 4 testimonials grid ── */}
+      {/* ── TESTIMONIALS ── */}
       <section className="py-28 lg:py-36 bg-card" aria-labelledby="temoignages-heading">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
-          <div className="mb-16 text-center max-w-2xl mx-auto">
+          <div className="mb-14 text-center">
             <SectionLabel>Ils nous font confiance</SectionLabel>
             <h2
               id="temoignages-heading"
@@ -572,29 +518,16 @@ export default function HomePage() {
               <span className="italic text-foreground/45">clients.</span>
             </h2>
           </div>
-          
-          {/* 4 Testimonials Grid — 2x2 on desktop */}
-          <div className="grid sm:grid-cols-2 gap-px bg-white/6">
+          <div className="grid lg:grid-cols-2 gap-px bg-white/6">
             {testimonials.map((t) => (
-              <blockquote key={t.name} className="bg-background p-10 lg:p-12 flex flex-col gap-6 group hover:bg-background/80 transition-colors duration-300">
-                {/* Quote mark */}
-                <div className="text-primary/30 text-[48px] leading-none font-bold">
-                  "
-                </div>
-                
-                {/* Quote text */}
-                <p className="text-[14px] lg:text-[15px] text-foreground/70 leading-relaxed flex-1">
-                  {t.quote}
+              <blockquote key={t.name} className="bg-background p-10 flex flex-col gap-6">
+                <p className="text-[15px] text-foreground/70 leading-relaxed italic">
+                  &ldquo;{t.quote}&rdquo;
                 </p>
-
-                {/* Divider */}
-                <div className="w-8 h-px bg-primary/20 group-hover:bg-primary/50 transition-colors duration-300" />
-
-                {/* Author info */}
-                <footer>
+                <footer className="mt-auto pt-4 border-t border-white/8">
                   <cite className="not-italic">
-                    <span className="block text-[13px] font-semibold text-foreground mb-1">{t.name}</span>
-                    <span className="block text-[11px] text-foreground/50">{t.role}</span>
+                    <span className="block text-[13px] font-bold text-foreground uppercase tracking-[0.08em]">{t.name}</span>
+                    <span className="block text-[11px] text-foreground/40 mt-0.5">{t.role}</span>
                   </cite>
                 </footer>
               </blockquote>
@@ -603,26 +536,72 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── FAQ — Apple-inspired Accordion ── */}
+      {/* ── MARCHÉS — Résidentiel & Tertiaire ── */}
+      <section className="h-[50vh] lg:h-[60vh] grid lg:grid-cols-2 overflow-hidden" aria-label="Nos marchés domotique au Maroc">
+        <Link href="/maison-connectee" className="relative overflow-hidden group focus-ring block h-full">
+          <Image
+            src="/images/villa-prestige.webp"
+            alt="Domotique villas et appartements de luxe au Maroc — Domotus"
+            fill
+            sizes="(max-width: 1024px) 100vw, 50vw"
+            loading="lazy"
+            quality={80}
+            className="object-cover transition-transform duration-700 group-hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-background/50 group-hover:bg-background/35 transition-colors duration-500" />
+          <div className="absolute inset-0 flex flex-col justify-end p-8 lg:p-12">
+            <SectionLabel>Résidentiel</SectionLabel>
+            <h2 className="font-black uppercase text-foreground leading-none text-balance" style={{ fontSize: "clamp(1.6rem, 3vw, 2.6rem)", letterSpacing: "-0.02em" }}>
+              Bâtiment Intelligent
+            </h2>
+            <p className="mt-3 text-[13px] text-foreground/60 max-w-xs leading-relaxed">
+              À partir de 150 000 MAD · Livraison en 4–8 semaines
+            </p>
+            <span className="mt-4 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.15em] text-primary">
+              Voir les réalisations <ArrowRight size={11} aria-hidden="true" />
+            </span>
+          </div>
+        </Link>
+        <Link href="/promoteurs" className="relative overflow-hidden group focus-ring block h-full">
+          <Image
+            src="/images/immeuble-tertiaire.webp"
+            alt="Domotique pour promoteurs et bâtiments tertiaires au Maroc"
+            fill
+            sizes="(max-width: 1024px) 100vw, 50vw"
+            loading="lazy"
+            quality={80}
+            className="object-cover transition-transform duration-700 group-hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-background/60 group-hover:bg-background/40 transition-colors duration-500" />
+          <div className="absolute inset-0 flex flex-col justify-end p-8 lg:p-12">
+            <SectionLabel>Tertiaire &amp; Promoteurs</SectionLabel>
+            <h2 className="font-black uppercase text-foreground leading-none text-balance" style={{ fontSize: "clamp(1.6rem, 3vw, 2.6rem)", letterSpacing: "-0.02em" }}>
+              Immeubles &amp; Bureaux
+            </h2>
+            <p className="mt-3 text-[13px] text-foreground/60 max-w-xs leading-relaxed">
+              Labels HQE, BREEAM · +20% valeur locative
+            </p>
+            <span className="mt-4 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.15em] text-primary">
+              Travailler avec nous <ArrowRight size={11} aria-hidden="true" />
+            </span>
+          </div>
+        </Link>
+      </section>
+
+      {/* ── FAQ ── */}
       <section className="py-28 lg:py-36 bg-background" aria-labelledby="faq-heading">
         <div className="mx-auto max-w-4xl px-6 lg:px-10">
-          {/* Header */}
-          <div className="mb-20">
+          <div className="mb-16">
             <SectionLabel>Pour aller plus loin</SectionLabel>
             <h2
               id="faq-heading"
-              className="font-black leading-tight text-foreground text-balance"
-              style={{ fontSize: "clamp(1.8rem, 5vw, 3.5rem)", letterSpacing: "-0.03em" }}
+              className="font-black uppercase leading-none text-foreground text-balance"
+              style={{ fontSize: "clamp(1.8rem, 4vw, 3.2rem)", letterSpacing: "-0.02em" }}
             >
               Questions fréquentes<br />
               <span className="italic text-foreground/45">sur votre projet.</span>
             </h2>
-            <p className="mt-6 text-[15px] text-foreground/60 leading-relaxed max-w-lg">
-              Retrouvez les réponses aux interrogations les plus courantes. Pour tout autre question, notre équipe est à votre écoute.
-            </p>
           </div>
-
-          {/* Schema.org */}
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{
@@ -637,24 +616,16 @@ export default function HomePage() {
               }),
             }}
           />
-
-          {/* FAQ Items */}
-          <div className="space-y-px bg-white/6">
-            {faqs.map((item, idx) => (
-              <FaqAccordion key={idx} items={[item]} />
-            ))}
-          </div>
-
-          {/* CTA — centered and minimal */}
-          <div className="mt-16 pt-12 border-t border-white/8 text-center">
-            <p className="text-[14px] text-foreground/60 mb-6">
-              Vous n'avez pas trouvé la réponse?
+          <FaqAccordion items={faqs} />
+          <div className="mt-16 pt-12 border-t border-white/8">
+            <p className="text-[13px] text-foreground/50 mb-4">
+              Votre question ne figure pas ci-dessus ?
             </p>
             <Link
               href="/contact"
-              className="focus-ring inline-flex items-center gap-2 text-[12px] font-semibold uppercase tracking-[0.15em] text-foreground/50 hover:text-primary transition-colors duration-300"
+              className="focus-ring inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.15em] text-primary hover:text-primary/70 transition-colors duration-300"
             >
-              Contactez notre équipe <ArrowRight size={13} aria-hidden="true" />
+              Nous contacter directement <ArrowRight size={12} aria-hidden="true" />
             </Link>
           </div>
         </div>
