@@ -445,22 +445,22 @@ export default function HomePage() {
       </section>
 
       {/* ── PROCESS — 3 steps ── */}
-      <section className="py-24 lg:py-36" style={{ backgroundColor: "#000000" }} aria-labelledby="process-heading">
+      <section className="py-16 lg:py-20" style={{ backgroundColor: "#000000" }} aria-labelledby="process-heading">
         <div className="mx-auto max-w-7xl px-4 lg:px-6">
-          <div className="text-center mb-16">
-            <SectionLabel>L'accompagnement Domotus</SectionLabel>
+          <div className="text-center mb-12">
+            <SectionLabel color="#ffffff">L'ACCOMPAGNEMENT DOMOTUS</SectionLabel>
             <h2
               id="process-heading"
-              className="font-black uppercase leading-none text-foreground text-balance"
+              className="font-black uppercase leading-none text-white text-balance"
               style={{ fontSize: "clamp(1.8rem, 4vw, 3.2rem)", letterSpacing: "-0.02em" }}
             >
               De la vision à la perfection,{" "}
-              <span className="italic text-foreground/45">en 3 étapes.</span>
+              <span className="italic text-white/45">en 3 étapes.</span>
             </h2>
           </div>
           <ol className="grid lg:grid-cols-3 gap-px bg-white/6" role="list">
             {steps.map((step, i) => (
-              <li key={step.num} className="bg-card p-10 flex flex-col gap-5 relative">
+              <li key={step.num} className="bg-card p-8 flex flex-col gap-4 relative">
                 <span
                   className="font-black text-foreground/8 leading-none select-none"
                   style={{ fontSize: "clamp(4rem, 8vw, 7rem)" }}
@@ -477,21 +477,24 @@ export default function HomePage() {
                 {i < steps.length - 1 && (
                   <ArrowRight
                     size={16}
-                    className="hidden lg:block absolute -right-2 top-1/2 -translate-y-1/2 z-10 text-primary/40"
+                    className="hidden lg:block absolute -right-2 top-1/2 -translate-y-1/2 z-10"
+                    style={{ color: "#efd555" }}
                     aria-hidden="true"
                   />
                 )}
               </li>
             ))}
           </ol>
-          <div className="mt-10 text-center">
+          <div className="mt-8 text-center">
             <Link
               href="/contact"
-              className="focus-ring inline-flex items-center gap-3 bg-primary px-10 py-4 text-[11px] font-black uppercase tracking-[0.2em] transition-all duration-300 hover:bg-primary/85"
-              style={{ color: "#0a0a0a" }}
+              className="focus-ring inline-flex items-center justify-between px-8 py-4 rounded-full transition-all duration-300 hover:shadow-xl group"
+              style={{ backgroundColor: "#000000", border: "1px solid rgba(255, 255, 255, 0.1)" }}
             >
-              Commencer l&apos;étape 1 — Audit technique
-              <ArrowRight size={13} aria-hidden="true" />
+              <span className="text-white font-semibold" style={{ fontSize: "16px" }}>Commencer l&apos;étape 1 — Audit technique</span>
+              <div className="ml-6 w-10 h-10 rounded-full flex items-center justify-center transition-transform group-hover:scale-110 flex-shrink-0" style={{ backgroundColor: "#efd555" }}>
+                <ArrowRight size={16} className="text-black" aria-hidden="true" />
+              </div>
             </Link>
           </div>
         </div>
