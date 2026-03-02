@@ -5,11 +5,6 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
-const PARTNERS = [
-  "UBIQUITI", "AQARA", "GOVEE", "LEGRAND", "SOMFY", "SCHNEIDER", "KNX", "CRESTRON", "LUTRON",
-  "UBIQUITI", "AQARA", "GOVEE", "LEGRAND", "SOMFY", "SCHNEIDER", "KNX", "CRESTRON", "LUTRON",
-];
-
 export default function Hero() {
   return (
     <section
@@ -106,7 +101,7 @@ export default function Hero() {
               initial={{ opacity: 0, x: 40 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-              className="relative h-[500px] lg:h-[600px] overflow-hidden rounded-xl order-1 lg:order-2"
+              className="relative h-[500px] lg:h-[600px] overflow-hidden rounded-xl order-1 lg:order-2 group"
             >
               <Image
                 src="/images/hero-bg.webp"
