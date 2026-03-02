@@ -277,19 +277,19 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-4 lg:px-6">
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             <div>
-              <SectionLabel>La différence Domotus</SectionLabel>
+              <SectionLabel style={{ color: "#000000" }}>La différence Domotus</SectionLabel>
               <h2
                 id="value-prop-heading"
-                className="font-black uppercase leading-none text-foreground mb-6 text-balance"
-                style={{ fontSize: "clamp(2.2rem, 5vw, 4rem)", letterSpacing: "-0.02em" }}
+                className="font-black uppercase leading-none text-balance mb-6"
+                style={{ fontSize: "clamp(2.2rem, 5vw, 4rem)", letterSpacing: "-0.02em", color: "#000000" }}
               >
                 L&apos;art d&apos;anticiper vos besoins.{" "}
-                <span className="italic text-foreground/45">Sans effort.</span>
+                <span className="italic" style={{ color: "#000000" }}>Sans effort.</span>
               </h2>
-              <p className="text-foreground/55 leading-relaxed mb-6 text-[15px]">
+              <p className="leading-relaxed mb-6 text-[15px]" style={{ color: "#000000" }}>
                 Imaginez des espaces qui s&apos;éveillent à votre arrivée : la lumière s&apos;ajuste délicatement à l&apos;heure du jour, l&apos;atmosphère est déjà à la température idéale, et les volets accompagnent le coucher du soleil. Le confort absolu, sans la moindre intervention.
               </p>
-              <p className="text-foreground/55 leading-relaxed mb-10 text-[15px]">
+              <p className="leading-relaxed mb-10 text-[15px]" style={{ color: "#000000" }}>
                 Depuis 10 ans au Maroc, c&apos;est le standard d&apos;excellence que nous intégrons dans les résidences et espaces professionnels les plus exigeants. Une fiabilité garantie par nos certifications multi-protocoles de référence (KNX, Crestron, Lutron).
               </p>
               <ul className="flex flex-col gap-3 mb-10" role="list">
@@ -299,19 +299,21 @@ export default function HomePage() {
                   "Intelligence énergétique",
                   "Valorisation patrimoniale",
                 ].map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-[14px] text-foreground/65">
-                    <CheckCircle2Icon size={15} className="text-primary shrink-0 mt-0.5" aria-hidden="true" />
+                  <li key={item} className="flex items-start gap-3 text-[14px]" style={{ color: "#000000" }}>
+                    <CheckCircle2Icon size={15} className="shrink-0 mt-0.5" style={{ color: "#000000" }} aria-hidden="true" />
                     {item}
                   </li>
                 ))}
               </ul>
               <Link
                 href="/contact"
-                className="focus-ring inline-flex items-center gap-3 bg-primary px-8 py-4 text-[11px] font-black uppercase tracking-[0.2em] transition-all duration-300 hover:bg-primary/85"
-                style={{ color: "#0a0a0a" }}
+                className="focus-ring inline-flex items-center justify-between px-8 py-4 rounded-full text-[14px] font-semibold transition-all duration-300 hover:shadow-lg will-change-colors group"
+                style={{ backgroundColor: "#000000", color: "#ffffff" }}
               >
                 Découvrir davantage
-                <ArrowRight size={13} aria-hidden="true" />
+                <div className="ml-4 w-10 h-10 rounded-full flex items-center justify-center transition-transform group-hover:scale-110" style={{ backgroundColor: "#efd555" }}>
+                  <ArrowRight size={16} className="text-black" aria-hidden="true" />
+                </div>
               </Link>
             </div>
 
