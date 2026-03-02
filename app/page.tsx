@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import HeroSplit from "@/components/sections/HeroSplit";
 import { ExpertisesShowcase } from "@/components/sections/ExpertisesShowcase";
+import TestimonialCarousel from "@/components/TestimonialCarousel";
 import { ArrowRight } from "lucide-react";
 
 // Lazy load non-critical sections to reduce initial JS bundle
@@ -122,22 +123,32 @@ const steps = [
 
 const testimonials = [
   {
-    quote: "Domotus a sublimé notre villa à Casablanca avec une fluidité KNX remarquable. Ce qui nous a vraiment impressionnés, c'est la rigueur : respect du calendrier, intégration invisible, et une équipe qui comprend l'architecture avant de vendre de la technologie.",
-    name: "Mehdi R.",
-    role: "Propriétaire, Villa Anfa — Casablanca",
-    title: "Functional design",
-    description: "Functional design organizes the project to meet its use objectives.",
+    name: "Particulier Villa",
+    title: "Villa Anfa - Casablanca",
+    description: "Domotus a sublimé notre villa avec une fluidité KNX remarquable. Respect du calendrier, intégration invisible, et une équipe qui comprend l'architecture avant de vendre de la technologie.",
     image: "/images/expertise-eclairage.jpg",
-    imageAlt: "Villa Casablanca - Functional design project",
+    imageAlt: "Villa particulier - Domotique luxe",
   },
   {
-    quote: "En tant que promoteur, intégrer Domotus dès la conception a transformé nos ventes. Les acquéreurs cherchent un atout technologique credible — Domotus le rend accessible, documenté, garanti. C'est un vrai levier commercial.",
-    name: "Laila M.",
-    role: "Directrice développement, Groupe Immobilier Marrakech",
-    title: "Renovation of spaces",
-    description: "Updating existing areas to improve their functionality, aesthetics and comfort.",
+    name: "Directrice Promoteur Immobilier",
+    title: "Groupe Immobilier Marrakech",
+    description: "Intégrer Domotus dès la conception a transformé nos ventes. Les acquéreurs cherchent un atout technologique crédible — Domotus le rend accessible, documenté, garanti.",
     image: "/images/expertise-av.jpg",
-    imageAlt: "Renovation project - Marrakech",
+    imageAlt: "Projet immobilier - Domotique commerciale",
+  },
+  {
+    name: "Ambassade de Chine",
+    title: "Rabat, Maroc",
+    description: "Les systèmes Domotus offrent une sécurité et une gestion énergétique de classe mondiale. Fiabilité exceptionnelle, support technique impeccable, et intégration transparente.",
+    image: "/images/expertise-bms.jpg",
+    imageAlt: "Ambassade - Infrastructure gouvernementale",
+  },
+  {
+    name: "Laboratoire CBS",
+    title: "Centre Biomédicale Casablanca",
+    description: "La précision et la fiabilité des installations Domotus sont cruciales pour nos opérations. Automatisation complète, redondance système, et monitoring en temps réel.",
+    image: "/images/expertise-energie.jpg",
+    imageAlt: "Laboratoire - Installation critique",
   },
 ];
 
@@ -550,62 +561,21 @@ export default function HomePage() {
 
       <section className="py-28 lg:py-36" style={{ backgroundColor: "#000000" }} aria-labelledby="temoignages-heading">
         <div className="mx-auto max-w-7xl px-4 lg:px-6">
-          <div className="mb-16">
-            <SectionLabel color="#ffffff" className="mb-6">CE QUE DISENT NOS CLIENTS</SectionLabel>
+          {/* Title section */}
+          <div className="mb-20 text-center">
+            <SectionLabel color="#ffffff" className="justify-center mb-6">CE QUE DISENT NOS CLIENTS</SectionLabel>
             <h2
               id="temoignages-heading"
               className="font-black uppercase leading-none text-white text-balance"
-              style={{ fontSize: "clamp(1.8rem, 4vw, 3.2rem)", letterSpacing: "-0.02em" }}
+              style={{ fontSize: "clamp(2rem, 5vw, 3.2rem)", letterSpacing: "-0.02em" }}
             >
               Ce que disent nos{" "}
-              <span className="italic" style={{ color: "#ffffff" }}>clients.</span>
+              <span className="italic" style={{ color: "#efd555" }}>clients.</span>
             </h2>
           </div>
-          <div className="grid lg:grid-cols-2 gap-6">
-            {testimonials.map((t) => (
-              <div key={t.name} className="bg-white rounded-3xl overflow-hidden flex flex-col lg:flex-row">
-                {/* Left content */}
-                <div className="flex flex-col justify-between p-8 lg:p-10 lg:w-1/2">
-                  {/* Logo */}
-                  <div className="mb-6">
-                    <div className="w-12 h-12 rounded-full bg-black flex items-center justify-center">
-                      <div className="w-6 h-6 rounded-full" style={{ backgroundColor: "#efd555" }} />
-                    </div>
-                  </div>
-                  
-                  {/* Title and description */}
-                  <div className="mb-8">
-                    <h3 className="text-black font-black text-xl mb-3" style={{ fontSize: "20px", lineHeight: "28px" }}>
-                      {t.title}
-                    </h3>
-                    <p className="text-black/70 text-sm leading-relaxed" style={{ fontSize: "14px", lineHeight: "20px" }}>
-                      {t.description}
-                    </p>
-                  </div>
 
-                  {/* Learn more link */}
-                  <Link
-                    href="#"
-                    className="text-black font-semibold text-sm underline hover:text-black/70 transition-colors w-fit"
-                    style={{ fontSize: "12px", letterSpacing: "0.12em" }}
-                  >
-                    LEARN MORE
-                  </Link>
-                </div>
-
-                {/* Right image */}
-                <div className="relative w-full lg:w-1/2 h-64 lg:h-auto lg:min-h-80">
-                  <Image
-                    src={t.image}
-                    alt={t.imageAlt}
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                    className="object-cover"
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
+          {/* Carousel component */}
+          <TestimonialCarousel testimonials={testimonials} />
         </div>
       </section>
 
