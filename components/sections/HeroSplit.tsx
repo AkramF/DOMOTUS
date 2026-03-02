@@ -45,7 +45,7 @@ export default function Hero() {
               </h1>
 
               {/* Subheading */}
-              <p className="mt-7 text-white max-w-md" style={{ fontFamily: "Inter, sans-serif", fontWeight: 400, fontSize: "16px", lineHeight: "24px" }}>
+              <p className="mt-7 text-white" style={{ fontFamily: "Inter, sans-serif", fontWeight: 400, fontSize: "16px", lineHeight: "24px" }}>
                 L&apos;expérience de vos espaces, réinventée. Là où la technologie crée confort, sécurité et sérénité, Domotus transforme maisons et immeubles en écosystèmes intelligents.
               </p>
 
@@ -82,19 +82,19 @@ export default function Hero() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.8, duration: 0.6 }}
-                className="mt-16 grid grid-cols-2 lg:grid-cols-4 gap-8 will-change-opacity"
+                className="mt-16 grid grid-cols-3 gap-8 will-change-opacity"
               >
                 <div className="flex flex-col">
-                  <span className="text-[20px] lg:text-[24px] font-black text-white mb-2">+150</span>
-                  <span className="text-[12px] text-white/70 leading-snug">Projets livrés<br />au Maroc</span>
+                  <span className="text-white mb-2" style={{ fontFamily: "Inter, sans-serif", fontWeight: 500, fontSize: "40px", lineHeight: "48px" }}>+150</span>
+                  <span className="text-white" style={{ fontFamily: "Inter, sans-serif", fontWeight: 400, fontSize: "16px", lineHeight: "24px" }}>Projets livrés<br />au Maroc</span>
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-[20px] lg:text-[24px] font-black text-white mb-2">10 ans</span>
-                  <span className="text-[12px] text-white/70 leading-snug">D&apos;expertise<br />domotique</span>
+                  <span className="text-white mb-2" style={{ fontFamily: "Inter, sans-serif", fontWeight: 500, fontSize: "40px", lineHeight: "48px" }}>10 ans</span>
+                  <span className="text-white" style={{ fontFamily: "Inter, sans-serif", fontWeight: 400, fontSize: "16px", lineHeight: "24px" }}>D&apos;expertise<br />domotique</span>
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-[20px] lg:text-[24px] font-black text-white mb-2">99.8%</span>
-                  <span className="text-[12px] text-white/70 leading-snug">Disponibilité<br />garantie</span>
+                  <span className="text-white mb-2" style={{ fontFamily: "Inter, sans-serif", fontWeight: 500, fontSize: "40px", lineHeight: "48px" }}>99.8%</span>
+                  <span className="text-white" style={{ fontFamily: "Inter, sans-serif", fontWeight: 400, fontSize: "16px", lineHeight: "24px" }}>Disponibilité<br />garantie</span>
                 </div>
               </motion.div>
 
