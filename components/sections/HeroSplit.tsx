@@ -37,7 +37,7 @@ export default function Hero() {
               >
                 <span className="block w-8 h-px bg-foreground/30" aria-hidden="true" />
                 <p className="text-[10px] uppercase tracking-[0.4em] text-primary font-semibold select-none">
-                  Intégration domotique certifiée
+                  Intégration domotique certifiée — Maroc
                 </p>
               </motion.div>
 
