@@ -18,8 +18,10 @@ export default function CrestronPage() {
   return (
     <>
       {/* ── HERO ── */}
-      <section className="relative w-full h-screen min-h-[600px] overflow-hidden">
-        <Image src="/images/hero-bg.jpg" alt="Système Crestron de contrôle prestige pour domotique au Maroc" fill className="object-cover" priority />
+      <section className="relative w-full h-screen min-h-[600px] overflow-hidden bg-background">
+        <div className="absolute inset-0 w-full h-full">
+          <Image src="/images/hero-bg.jpg" alt="Système Crestron de contrôle prestige pour domotique au Maroc" fill className="object-cover" priority />
+        </div>
         <div className="absolute inset-0 bg-background/65" />
         <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse 80% 70% at 50% 40%, transparent 30%, oklch(0 0 0 / 0.45) 100%)" }} />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
