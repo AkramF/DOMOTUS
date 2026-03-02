@@ -13,8 +13,8 @@ export default function Hero() {
     >
       {/* ── Main split layout ── */}
       <div className="relative z-10 min-h-screen lg:min-h-fit flex items-center">
-        <div className="w-full mx-auto max-w-7xl px-4 lg:px-6">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center py-20 lg:py-32">
+        <div className="w-full mx-auto max-w-full px-4 lg:px-6">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-center py-20 lg:py-32 mx-auto lg:mx-16">
             
             {/* ── LEFT COLUMN: Text Content ── */}
             <motion.div
