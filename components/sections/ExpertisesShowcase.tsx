@@ -4,26 +4,24 @@ import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
-import type { LucideIcon } from 'lucide-react'
 
-interface Expertise {
-  icon: LucideIcon
+interface ExpertiseItem {
   title: string
   badge: string
   description: string
   href: string
   image: string
   imageAlt: string
+  iconName?: string
 }
 
 interface ExpertisesShowcaseProps {
-  items: Expertise[]
+  items: ExpertiseItem[]
 }
 
 export function ExpertisesShowcase({ items }: ExpertisesShowcaseProps) {
   const [selectedIndex, setSelectedIndex] = useState(0)
   const selected = items[selectedIndex]
-  const Icon = selected.icon
 
   return (
     <div className="h-[600px] lg:h-[700px] flex flex-col lg:flex-row gap-8 lg:gap-12">
@@ -44,15 +42,15 @@ export function ExpertisesShowcase({ items }: ExpertisesShowcaseProps) {
 
         {/* Content — Title, description, CTA */}
         <div>
-          <h3 className="font-black uppercase text-white text-balance mb-4" style={{ fontSize: "clamp(1.8rem, 3vw, 2.4rem)", letterSpacing: "-0.02em" }}>
+          <h3 className="font-black uppercase text-black text-balance mb-4" style={{ fontSize: "clamp(1.8rem, 3vw, 2.4rem)", letterSpacing: "-0.02em" }}>
             {selected.title}
           </h3>
-          <p className="text-white/80 leading-relaxed mb-8 text-[14px] lg:text-[15px] max-w-lg">
+          <p className="text-black/70 leading-relaxed mb-8 text-[14px] lg:text-[15px] max-w-lg">
             {selected.description}
           </p>
           <Link
             href={selected.href}
-            className="focus-ring inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.15em] text-white font-semibold hover:text-white/80 transition-colors duration-300"
+            className="focus-ring inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.15em] text-black font-semibold hover:text-black/70 transition-colors duration-300"
           >
             En savoir plus <ArrowRight size={12} aria-hidden="true" />
           </Link>
@@ -62,7 +60,6 @@ export function ExpertisesShowcase({ items }: ExpertisesShowcaseProps) {
       {/* Categories — Right side */}
       <div className="flex lg:flex-col gap-3 lg:gap-4 overflow-x-auto lg:overflow-x-visible lg:w-72 shrink-0">
         {items.map((item, index) => {
-          const ItemIcon = item.icon
           const isActive = index === selectedIndex
 
           return (
@@ -70,7 +67,7 @@ export function ExpertisesShowcase({ items }: ExpertisesShowcaseProps) {
               key={item.title}
               onClick={() => setSelectedIndex(index)}
               className={`focus-ring relative rounded-2xl overflow-hidden transition-all duration-300 flex-shrink-0 w-full lg:w-auto h-40 lg:h-auto lg:flex-1 flex flex-col justify-between p-6 group ${
-                isActive ? 'ring-2 ring-white' : ''
+                isActive ? 'ring-2 ring-black' : ''
               }`}
               style={{ backgroundColor: "#000000" }}
               aria-pressed={isActive}
