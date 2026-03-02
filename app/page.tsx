@@ -3,7 +3,6 @@ import dynamic from "next/dynamic";
 import Link from "next/link";
 import Image from "next/image";
 import HeroSplit from "@/components/sections/HeroSplit";
-import PartnersGrid from "@/components/sections/PartnersGrid";
 import { ExpertisesShowcase } from "@/components/sections/ExpertisesShowcase";
 import { ArrowRight } from "lucide-react";
 
@@ -528,9 +527,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      {/* ── PARTNERS GRID ── */}
-      <PartnersGrid />
 
       {/* ── PROJECT TYPES DIVISION ── */}
       <section className="py-28 lg:py-36" style={{ backgroundColor: "#f0efed" }} aria-labelledby="project-types-heading">
