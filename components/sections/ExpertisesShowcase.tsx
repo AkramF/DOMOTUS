@@ -46,6 +46,7 @@ export function ExpertisesShowcase({ items }: ExpertisesShowcaseProps) {
                   src={item.image}
                   alt={item.imageAlt}
                   fill
+                  sizes="(max-width: 1024px) 128px, 100%"
                   className="object-cover opacity-25 group-hover:opacity-35 transition-opacity duration-300"
                 />
                 <div className="absolute inset-0 bg-black/70 group-hover:bg-black/60 transition-colors duration-300" />
