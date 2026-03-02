@@ -551,10 +551,10 @@ export default function HomePage() {
       </section>
 
       {/* ── CTA FINAL — Schedule consultation ── */}
-      <section className="relative py-16 lg:py-20 overflow-hidden" style={{ backgroundColor: "#efd555" }} aria-labelledby="cta-heading">
+      <section className="relative py-12 lg:py-16 overflow-hidden" style={{ backgroundColor: "#efd555" }} aria-labelledby="cta-heading">
         <div className="relative z-10 mx-auto max-w-7xl px-4 lg:px-12 flex flex-col">
-          {/* Badge — left aligned */}
-          <div className="mb-16">
+          {/* Badge — far left aligned with absolute positioning */}
+          <div className="absolute top-6 left-4 lg:left-6">
             <span className="text-[10px] uppercase tracking-[0.4em] text-black font-black inline-flex items-center gap-2">
               <span className="w-2 h-2 bg-black" />
               GET STARTED
@@ -562,7 +562,7 @@ export default function HomePage() {
           </div>
 
           {/* Asymmetric content — large left space, content on right */}
-          <div className="grid lg:grid-cols-12 gap-8">
+          <div className="grid lg:grid-cols-12 gap-6 mt-8 lg:mt-0">
             {/* Left empty space (4 columns for white space) */}
             <div className="hidden lg:block lg:col-span-4" />
             
@@ -571,7 +571,7 @@ export default function HomePage() {
               {/* Main heading */}
               <h2
                 id="cta-heading"
-                className="text-black text-balance mb-8 leading-tight"
+                className="text-black text-balance mb-4 leading-tight"
                 style={{ fontFamily: "Inter, sans-serif", fontWeight: 500, fontSize: "72px", lineHeight: "79px" }}
               >
                 Schedule a free<br />
@@ -579,7 +579,7 @@ export default function HomePage() {
               </h2>
 
               {/* Description */}
-              <p className="text-black mb-10" style={{ fontFamily: "Inter, sans-serif", fontWeight: 400, fontSize: "16px", lineHeight: "24px", maxWidth: "560px" }}>
+              <p className="text-black mb-6" style={{ fontFamily: "Inter, sans-serif", fontWeight: 400, fontSize: "16px", lineHeight: "24px", maxWidth: "560px" }}>
                 We craft inspiring spaces that blend cutting-edge design with enduring functionality, turning your vision into reality.
               </p>
 
