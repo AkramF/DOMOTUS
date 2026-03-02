@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import HeroSplit from "@/components/sections/HeroSplit";
 import PartnersGrid from "@/components/sections/PartnersGrid";
+import { ExpertisesShowcase } from "@/components/sections/ExpertisesShowcase";
 import { ArrowRight, Zap, Shield, Activity, Wifi, Sun, Lock } from "lucide-react";
 
 // Lazy load non-critical sections to reduce initial JS bundle
@@ -357,7 +358,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── SERVICES GRID — benefit-first ── */}
+      {/* ── L'INTELLIGENCE DE VOS ESPACES — Interactive Showcase ── */}
       <section className="py-28 lg:py-36" style={{ backgroundColor: "#ffffff" }} aria-labelledby="services-heading">
         <div className="mx-auto max-w-7xl px-4 lg:px-6">
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-12 mb-16">
@@ -374,67 +375,13 @@ export default function HomePage() {
             </div>
             <Link
               href="/expertises"
-              className="focus-ring shrink-0 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.15em] text-foreground/40 hover:text-primary transition-colors duration-300"
+              className="focus-ring shrink-0 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.15em] text-black/60 hover:text-black transition-colors duration-300"
             >
               Toutes nos expertises <ArrowRight size={12} aria-hidden="true" />
             </Link>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-white/6">
-            {expertises.map((item) => {
-              const Icon = item.icon;
-              return (
-                <article
-                  key={item.title}
-                  className="relative overflow-hidden aspect-[4/3] group"
-                >
-                  {/* Background image */}
-                  <Image
-                    src={item.image}
-                    alt={item.imageAlt}
-                    fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                  />
-
-                  {/* Permanent dark overlay */}
-                  <div className="absolute inset-0 bg-background/70 group-hover:bg-background/20 transition-colors duration-500" />
-
-                  {/* Default state — icon + title + badge always visible */}
-                  <div className="absolute inset-0 flex flex-col justify-end p-7 transition-all duration-500 group-hover:opacity-0 group-hover:translate-y-2">
-                    <div className="mb-3 w-9 h-9 border border-white/20 flex items-center justify-center text-primary">
-                      <Icon size={16} aria-hidden="true" />
-                    </div>
-                    <h3 className="font-bold uppercase tracking-[0.1em] text-foreground text-[13px] mb-1">
-                      {item.title}
-                    </h3>
-                    <span className="text-[10px] font-semibold uppercase tracking-[0.12em] text-primary">
-                      {item.badge}
-                    </span>
-                  </div>
-
-                  {/* Hover state — full content revealed */}
-                  <div className="absolute inset-0 flex flex-col justify-end p-7 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-400 ease-out">
-                    <div className="mb-3 w-9 h-9 border border-primary/50 flex items-center justify-center text-primary">
-                      <Icon size={16} aria-hidden="true" />
-                    </div>
-                    <h3 className="font-bold uppercase tracking-[0.1em] text-foreground text-[13px] mb-2">
-                      {item.title}
-                    </h3>
-                    <p className="text-[12px] text-foreground/75 leading-relaxed mb-4">
-                      {item.description}
-                    </p>
-                    <Link
-                      href={item.href}
-                      className="focus-ring inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.15em] text-primary font-semibold"
-                    >
-                      En savoir plus <ArrowRight size={11} aria-hidden="true" />
-                    </Link>
-                  </div>
-                </article>
-              );
-            })}
-          </div>
+          <ExpertisesShowcase items={expertises} />
         </div>
       </section>
 
