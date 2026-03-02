@@ -23,9 +23,9 @@ export function ExpertisesShowcase({ items }: ExpertisesShowcaseProps) {
   const selected = items[selectedIndex]
 
   return (
-    <div className="grid lg:grid-cols-12 gap-6 lg:gap-12 items-start">
-      {/* Left column — Category cards stacked */}
-      <div className="lg:col-span-2 flex flex-row lg:flex-col gap-2 overflow-x-auto lg:overflow-x-visible pb-2 lg:pb-0">
+    <div className="grid lg:grid-cols-12 gap-6 lg:gap-12 items-stretch">
+      {/* Left column — Category cards stacked, stretched to match image height */}
+      <div className="lg:col-span-2 flex flex-row lg:flex-col gap-2 overflow-x-auto lg:overflow-x-visible pb-2 lg:pb-0 lg:justify-between">
         {items.map((item, index) => {
           const isActive = index === selectedIndex
 
