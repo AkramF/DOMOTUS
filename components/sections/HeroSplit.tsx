@@ -38,11 +38,11 @@ export default function Hero() {
 
               {/* H1 */}
               <h1
-                className="font-black leading-tight text-foreground"
-                style={{ fontSize: "clamp(2.2rem, 6vw, 4rem)", letterSpacing: "-0.02em" }}
+                className="font-medium leading-tight text-white"
+                style={{ fontSize: "clamp(2.2rem, 6vw, 4rem)", letterSpacing: "-0.02em", fontWeight: 500 }}
               >
-                La signature<br />
-                <span className="italic text-foreground/65">technologique.</span>
+                votre accès à la <span style={{ color: "#efd555" }}>domotique</span><br />
+                <span className="text-white">premium.</span>
               </h1>
 
               {/* Subheading */}
