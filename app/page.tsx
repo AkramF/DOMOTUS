@@ -551,20 +551,20 @@ export default function HomePage() {
       </section>
 
       {/* ── CTA FINAL — Schedule consultation ── */}
-      <section className="relative py-32 lg:py-40 overflow-hidden min-h-96" style={{ backgroundColor: "#efd555" }} aria-labelledby="cta-heading">
-        <div className="relative z-10 mx-auto max-w-4xl px-4 lg:px-6 h-full flex flex-col justify-center items-center text-center">
-          {/* Badge */}
-          <div className="mb-12">
+      <section className="relative py-16 lg:py-20 overflow-hidden" style={{ backgroundColor: "#efd555" }} aria-labelledby="cta-heading">
+        <div className="relative z-10 mx-auto max-w-4xl px-4 lg:px-6 flex flex-col">
+          {/* Badge — left aligned */}
+          <div className="mb-8">
             <span className="text-[10px] uppercase tracking-[0.4em] text-black font-black inline-flex items-center gap-2">
-              <span className="w-2 h-2 bg-black rounded-full" />
+              <span className="w-2 h-2 bg-black" />
               GET STARTED
             </span>
           </div>
 
-          {/* Main heading */}
+          {/* Main heading — left aligned */}
           <h2
             id="cta-heading"
-            className="text-black text-balance mb-8"
+            className="text-black text-balance mb-6"
             style={{ fontFamily: "Inter, sans-serif", fontWeight: 500, fontSize: "72px", lineHeight: "79px" }}
           >
             Schedule a free<br />
@@ -572,21 +572,23 @@ export default function HomePage() {
           </h2>
 
           {/* Description */}
-          <p className="text-black max-w-2xl mb-12" style={{ fontFamily: "Inter, sans-serif", fontWeight: 400, fontSize: "16px", lineHeight: "24px" }}>
+          <p className="text-black max-w-2xl mb-8" style={{ fontFamily: "Inter, sans-serif", fontWeight: 400, fontSize: "16px", lineHeight: "24px" }}>
             We craft inspiring spaces that blend cutting-edge design with enduring functionality, turning your vision into reality.
           </p>
 
           {/* CTA Button */}
-          <Link
-            href="/contact"
-            className="focus-ring inline-flex items-center justify-between px-8 py-4 rounded-full w-fit transition-all duration-300 hover:shadow-xl group"
-            style={{ backgroundColor: "#000000" }}
-          >
-            <span className="text-white font-semibold" style={{ fontSize: "16px" }}>Get started</span>
-            <div className="ml-6 w-10 h-10 rounded-full flex items-center justify-center transition-transform group-hover:scale-110 flex-shrink-0" style={{ backgroundColor: "#efd555" }}>
-              <ArrowRight size={16} className="text-black" aria-hidden="true" />
-            </div>
-          </Link>
+          <div className="w-fit">
+            <Link
+              href="/contact"
+              className="focus-ring inline-flex items-center justify-between px-8 py-4 rounded-full transition-all duration-300 hover:shadow-xl group"
+              style={{ backgroundColor: "#000000" }}
+            >
+              <span className="text-white font-semibold" style={{ fontSize: "16px" }}>Get started</span>
+              <div className="ml-6 w-10 h-10 rounded-full flex items-center justify-center transition-transform group-hover:scale-110 flex-shrink-0" style={{ backgroundColor: "#efd555" }}>
+                <ArrowRight size={16} className="text-black" aria-hidden="true" />
+              </div>
+            </Link>
+          </div>
         </div>
       </section>
     </>
