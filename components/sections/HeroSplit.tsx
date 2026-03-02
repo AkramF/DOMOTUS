@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, Phone } from "lucide-react";
+import { ArrowRight, Phone, CheckCircle2 } from "lucide-react";
 
 const PARTNERS = [
   "UBIQUITI", "AQARA", "GOVEE", "LEGRAND", "SOMFY", "SCHNEIDER", "KNX", "CRESTRON", "LUTRON",
@@ -13,117 +13,143 @@ const PARTNERS = [
 export default function Hero() {
   return (
     <section
-      className="relative w-full h-screen min-h-[600px] overflow-hidden"
+      className="relative w-full min-h-screen bg-background overflow-hidden"
       aria-label="Domotus — Maison connectée au Maroc"
     >
-      {/* Background image wrapper with animation */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, ease: "easeOut" }}
-        className="absolute inset-0"
-      >
-        {/* Background image — WebP with fallback, optimized for performance */}
-        <Image
-          src="/images/hero-bg.webp"
-          alt="Villa intelligente équipée par Domotus au Maroc"
-          fill
-          priority
-          sizes="100vw"
-          quality={85}
-          className="object-cover object-center"
-        />
-      </motion.div>
+      {/* ── Main content split layout ── */}
+      <div className="relative z-10 h-full flex items-center px-6 lg:px-10">
+        <div className="mx-auto w-full max-w-7xl">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center min-h-screen lg:min-h-fit py-20 lg:py-32">
+            
+            {/* ── LEFT COLUMN: Text content ── */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="flex flex-col justify-center"
+            >
+              {/* Overline — keyword-rich for SEO */}
+              <motion.div
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+                className="flex items-center gap-3 mb-8"
+              >
+                <span className="block w-8 h-px bg-foreground/30" aria-hidden="true" />
+                <p className="text-[10px] uppercase tracking-[0.4em] text-primary font-semibold select-none">
+                  Intégrateur domotique premium
+                </p>
+              </motion.div>
 
-      {/* Dark overlay — layered for depth and text readability */}
-      <div className="absolute inset-0 bg-background/65" />
-      {/* Radial vignette — darkens edges, brightens center slightly */}
-      <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse 80% 70% at 50% 40%, transparent 30%, oklch(0 0 0 / 0.45) 100%)" }} />
-      {/* Bottom fade to black */}
-      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
+              {/* H1 — two visual lines */}
+              <h1
+                className="font-black leading-tight text-foreground mb-6"
+                style={{ fontSize: "clamp(2.2rem, 6vw, 4rem)", letterSpacing: "-0.02em" }}
+              >
+                <span className="block">Domotique</span>
+                <span className="block">Premium <span className="text-primary">sur-</span></span>
+                <span className="block"><span className="text-primary">mesure</span> au Maroc</span>
+              </h1>
 
-      {/* ── Main content — vertically centered, padded for navbar top + ticker bottom ── */}
-      <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6 pt-20 pb-24">
+              {/* Subheading — benefit-led */}
+              <p className="text-[14px] lg:text-[15px] text-foreground/65 leading-relaxed max-w-md mb-8">
+                Pour villas, appartements haut standing et espaces professionnels exigeants. Domotus conçoit et intègre des solutions domotiques personnalisées avec les meilleures marques mondiales.
+              </p>
 
-        {/* Overline — keyword-rich for SEO, visually de-emphasised */}
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-          className="flex items-center gap-4 mb-8"
-        >
-          <span className="block w-10 h-px bg-foreground/30" aria-hidden="true" />
-          <p className="text-[10px] uppercase tracking-[0.4em] text-foreground/50 font-medium select-none">
-            Intégration domotique certifiée — Maroc
-          </p>
-          <span className="block w-10 h-px bg-foreground/30" aria-hidden="true" />
-        </motion.div>
+              {/* CTAs */}
+              <motion.div
+                initial={{ opacity: 0, y: 14 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
+                className="flex flex-col sm:flex-row items-start gap-4 mb-12 will-change-transform"
+              >
+                <Link
+                  href="/contact"
+                  className="focus-ring inline-flex items-center gap-3 bg-primary px-8 py-3 text-[11px] font-black uppercase tracking-[0.2em] transition-all duration-300 hover:bg-primary/85 will-change-colors rounded-sm"
+                  style={{ color: "#0a0a0a" }}
+                >
+                  Étude personnalisée gratuite
+                  <ArrowRight size={12} aria-hidden="true" />
+                </Link>
+                <Link
+                  href="/expertises"
+                  className="focus-ring inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] text-foreground/60 hover:text-primary transition-colors duration-300"
+                >
+                  <span className="inline-block w-5 h-5 border border-current rounded-full flex items-center justify-center text-[8px]">
+                    ▶
+                  </span>
+                  Voir nos réalisations
+                </Link>
+              </motion.div>
 
-        {/* H1 — single semantic tag, two visual lines — NO ANIMATION for LCP optimization */}
-        <h1
-          className="font-black uppercase leading-[0.88] text-foreground text-center"
-          style={{ fontSize: "clamp(2.4rem, 7vw, 6rem)", letterSpacing: "-0.02em" }}
-        >
-          <span className="block">La signature</span>
-          <span className="block italic text-foreground/65">technologique.</span>
-        </h1>
+              {/* Stats — horizontal layout */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.6, duration: 0.6 }}
+                className="flex flex-col gap-3 will-change-opacity"
+              >
+                <div className="flex items-center gap-3">
+                  <span className="text-primary font-black text-[18px]">100+</span>
+                  <span className="text-[13px] text-foreground/60">Projets réalisés</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <span className="text-primary font-black text-[18px]">15+</span>
+                  <span className="text-[13px] text-foreground/60">Années d'expertise</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <span className="text-primary font-black text-[18px]">50+</span>
+                  <span className="text-[13px] text-foreground/60">Marques partenaires</span>
+                </div>
+              </motion.div>
+            </motion.div>
 
-        {/* Subheading — benefit-led — NO ANIMATION for LCP optimization */}
-        <p className="mt-7 text-sm md:text-[15px] text-foreground/60 leading-relaxed max-w-lg text-balance">
-          L&apos;expérience de vos espaces, réinventée. Là où la technologie crée confort, sécurité et sérénité, Domotus transforme maisons et immeubles en écosystèmes intelligents.
-        </p>
+            {/* ── RIGHT COLUMN: Image with badge ── */}
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+              className="relative h-[500px] lg:h-[600px] flex items-center justify-end"
+            >
+              {/* Image container with border radius */}
+              <div className="relative w-full h-full rounded-xl lg:rounded-2xl overflow-hidden shadow-2xl group">
+                <Image
+                  src="/images/villa-prestige.webp"
+                  alt="Villa prestige équipée en domotique par Domotus au Maroc"
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  quality={85}
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                {/* Overlay on hover */}
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500" />
+              </div>
 
-        {/* CTAs — B2C Primary + B2B Secondary */}
-        <motion.div
-          initial={{ opacity: 0, y: 14 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.85, ease: "easeOut" }}
-          className="mt-10 flex flex-col sm:flex-row items-center gap-4 will-change-transform"
-        >
-          <Link
-            href="/maison-connectee"
-            className="focus-ring inline-flex items-center gap-3 bg-primary px-8 py-4 text-[11px] font-black uppercase tracking-[0.2em] transition-all duration-300 hover:bg-primary/85 will-change-colors"
-            style={{ color: "#0a0a0a" }}
-          >
-            Votre maison connectée
-            <ArrowRight size={13} aria-hidden="true" />
-          </Link>
-          <Link
-            href="/architectes"
-            className="focus-ring inline-flex items-center gap-3 border border-white/25 px-8 py-4 text-[11px] uppercase tracking-[0.2em] text-foreground/70 transition-all duration-300 hover:border-primary hover:text-primary will-change-colors"
-          >
-            Espace Professionnels
-            <ArrowRight size={13} aria-hidden="true" />
-          </Link>
-        </motion.div>
+              {/* Badge — Certifié & Garanti */}
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.8, duration: 0.6 }}
+                className="absolute bottom-6 right-6 bg-white px-6 py-3 rounded-lg shadow-lg flex items-center gap-3 will-change-transform"
+              >
+                <CheckCircle2 size={20} className="text-primary shrink-0" aria-hidden="true" />
+                <div>
+                  <p className="text-[12px] font-black uppercase tracking-[0.1em] text-foreground">Certifié & Garanti</p>
+                  <p className="text-[10px] text-foreground/60">Installation professionnelle</p>
+                </div>
+              </motion.div>
+            </motion.div>
 
-        {/* Trust badges */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.0, duration: 0.6 }}
-          className="mt-8 flex items-center gap-6 text-[11px] text-foreground/35 uppercase tracking-[0.12em] will-change-opacity"
-        >
-          <span className="flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-primary inline-block" />
-            Certifié Multi Protocoles
-          </span>
-          <span className="flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-primary inline-block" />
-            +150 projets
-          </span>
-          <span className="flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-primary inline-block" />
-            SAV 7/7
-          </span>
-        </motion.div>
+          </div>
+        </div>
       </div>
 
       {/* ── Partners ticker ── */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.3, duration: 0.9 }}
+        transition={{ delay: 1.0, duration: 0.9 }}
         className="absolute bottom-0 left-0 right-0 z-20 overflow-hidden"
         aria-label="Marques partenaires certifiées"
       >
