@@ -23,9 +23,9 @@ export function ExpertisesShowcase({ items }: ExpertisesShowcaseProps) {
   const selected = items[selectedIndex]
 
   return (
-    <div className="grid lg:grid-cols-12 gap-6 lg:gap-12 items-stretch">
+    <div className="grid lg:grid-cols-12 gap-3 lg:gap-3 items-stretch">
       {/* Left column — Category cards stacked, stretched to match image height */}
-      <div className="lg:col-span-2 flex flex-row lg:flex-col gap-1 overflow-x-auto lg:overflow-x-visible pb-2 lg:pb-0 lg:justify-between">
+      <div className="lg:col-span-3 flex flex-row lg:flex-col gap-1 overflow-x-auto lg:overflow-x-visible pb-2 lg:pb-0 lg:justify-between">
         {items.map((item, index) => {
           const isActive = index === selectedIndex
 
@@ -33,7 +33,7 @@ export function ExpertisesShowcase({ items }: ExpertisesShowcaseProps) {
             <button
               key={item.title}
               onClick={() => setSelectedIndex(index)}
-              className={`focus-ring relative rounded-xl overflow-hidden flex-shrink-0 w-36 h-20 lg:w-full lg:h-32 flex items-center justify-center p-4 group transition-all duration-300 ${
+              className={`focus-ring relative rounded-2xl overflow-hidden flex-shrink-0 w-40 h-24 lg:w-full lg:h-40 flex items-center justify-center p-4 group transition-all duration-300 ${
                 isActive ? 'ring-2 ring-black' : 'hover:shadow-lg'
               }`}
               style={{ backgroundColor: "#000000" }}
@@ -46,13 +46,13 @@ export function ExpertisesShowcase({ items }: ExpertisesShowcaseProps) {
                   src={item.image}
                   alt={item.imageAlt}
                   fill
-                  sizes="(max-width: 1024px) 128px, 100%"
+                  sizes="(max-width: 1024px) 160px, 100%"
                   className={`object-cover transition-opacity duration-300 ${
-                    isActive ? 'opacity-100' : 'opacity-0'
+                    isActive ? 'opacity-70' : 'opacity-0'
                   }`}
                 />
                 <div className={`absolute inset-0 transition-colors duration-300 ${
-                  isActive ? 'bg-black/0' : 'bg-black/70 group-hover:bg-black/60'
+                  isActive ? 'bg-black/30' : 'bg-black/70 group-hover:bg-black/60'
                 }`} />
               </div>
 
@@ -78,7 +78,7 @@ export function ExpertisesShowcase({ items }: ExpertisesShowcaseProps) {
       </div>
 
       {/* Right column — Selected project content */}
-      <div className="lg:col-span-10 flex flex-col gap-6">
+      <div className="lg:col-span-9 flex flex-col gap-6">
         {/* Project badge */}
         <div className="flex items-center gap-3">
           <div className="w-2 h-2 bg-black rounded-full" />
