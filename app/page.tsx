@@ -292,85 +292,87 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── BENEFIT-LED PROPOSITION ── */}
-      <section className="py-28 lg:py-36 bg-background" aria-labelledby="value-prop-heading">
-        <div className="mx-auto max-w-7xl px-6 lg:px-10">
-          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-            <div>
-              <SectionLabel>La différence Domotus</SectionLabel>
-              <h2
-                id="value-prop-heading"
-                className="font-black uppercase leading-none text-foreground mb-6 text-balance"
-                style={{ fontSize: "clamp(2.2rem, 5vw, 4rem)", letterSpacing: "-0.02em" }}
-              >
-                L&apos;art d&apos;anticiper vos besoins.{" "}
-                <span className="italic text-foreground/45">Sans effort.</span>
-              </h2>
-              <p className="text-foreground/55 leading-relaxed mb-6 text-[15px]">
-                Imaginez des espaces qui s&apos;éveillent à votre arrivée : la lumière s&apos;ajuste délicatement à l&apos;heure du jour, l&apos;atmosphère est déjà à la température idéale, et les volets accompagnent le coucher du soleil. Le confort absolu, sans la moindre intervention.
-              </p>
-              <p className="text-foreground/55 leading-relaxed mb-10 text-[15px]">
-                Depuis 10 ans au Maroc, c&apos;est le standard d&apos;excellence que nous intégrons dans les résidences et espaces professionnels les plus exigeants. Une fiabilité garantie par nos certifications multi-protocoles de référence (KNX, Crestron, Lutron).
-              </p>
-              <ul className="flex flex-col gap-3 mb-10" role="list">
-                {[
-                  "Maîtrise absolue & intuitive",
-                  "Sérénité totale",
-                  "Intelligence énergétique",
-                  "Valorisation patrimoniale",
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-[14px] text-foreground/65">
-                    <CheckCircle2Icon size={15} className="text-primary shrink-0 mt-0.5" aria-hidden="true" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <Link
-                href="/contact"
-                className="focus-ring inline-flex items-center gap-3 bg-primary px-8 py-4 text-[11px] font-black uppercase tracking-[0.2em] transition-all duration-300 hover:bg-primary/85"
-                style={{ color: "#0a0a0a" }}
-              >
-                Découvrir davantage
-                <ArrowRight size={13} aria-hidden="true" />
-              </Link>
-            </div>
+      {/* ── VALUE PROPOSITION — Premium Centered Layout ── */}
+      <section className="py-32 lg:py-48 bg-background" aria-labelledby="value-prop-heading">
+        <div className="mx-auto max-w-5xl px-6 lg:px-10">
+          {/* Header — Centered & spacious */}
+          <div className="mb-28 text-center">
+            <SectionLabel>La différence Domotus</SectionLabel>
+            <h2
+              id="value-prop-heading"
+              className="font-black leading-tight text-foreground text-balance"
+              style={{ fontSize: "clamp(2.4rem, 8vw, 4.5rem)", letterSpacing: "-0.03em" }}
+            >
+              L&apos;art d&apos;anticiper<br />
+              <span className="italic text-foreground/45">vos besoins.</span>
+            </h2>
+            <p className="mt-8 text-[16px] text-foreground/60 leading-relaxed max-w-3xl mx-auto">
+              Imaginez des espaces qui s&apos;éveillent à votre arrivée : la lumière s&apos;ajuste délicatement à l&apos;heure du jour, l&apos;atmosphère est déjà à la température idéale. Le confort absolu, sans la moindre intervention.
+            </p>
+          </div>
 
-            {/* Split image — with aspect-ratio to prevent CLS */}
-            <div className="grid grid-cols-2 gap-3 h-[480px] contain-layout">
-              <div className="relative overflow-hidden rounded-sm row-span-2 aspect-square">
-                <Image
-                  src="/images/villa-prestige.webp"
-                  alt="Villa équipée en domotique KNX par Domotus Casablanca"
-                  fill
-                  sizes="(max-width: 1024px) 50vw, 25vw"
-                  loading="lazy"
-                  quality={80}
-                  className="object-cover"
-                />
+          {/* 4 Benefits Grid — 2x2 with elegant design */}
+          <div className="grid sm:grid-cols-2 gap-12 lg:gap-16 mb-32">
+            {[
+              { 
+                title: "Maîtrise Absolue", 
+                desc: "Pilotage intuitif de chaque élément. Une harmonie, pas du bricolage." 
+              },
+              { 
+                title: "Sérénité Totale", 
+                desc: "Certifications multi-protocoles. Fiabilité garantie 24/7 depuis 10 ans." 
+              },
+              { 
+                title: "Intelligence Énergétique", 
+                desc: "Économies jusqu'à 35%. Gestion thermique et lumineuse optimisées." 
+              },
+              { 
+                title: "Valorisation Patrimoniale", 
+                desc: "Plus-value immobilière mesurée. Un atout pour la revente." 
+              },
+            ].map((benefit, idx) => (
+              <div key={idx} className="group flex flex-col">
+                {/* Divider top */}
+                <div className="w-12 h-px bg-primary/20 group-hover:bg-primary/60 transition-all duration-500 mb-6" />
+                
+                {/* Title */}
+                <h3 className="text-[18px] lg:text-[20px] font-semibold text-foreground mb-3 transition-colors duration-500 group-hover:text-primary">
+                  {benefit.title}
+                </h3>
+                
+                {/* Description */}
+                <p className="text-[14px] text-foreground/60 leading-relaxed flex-1">
+                  {benefit.desc}
+                </p>
               </div>
-              <div className="relative overflow-hidden rounded-sm aspect-video">
-                <Image
-                  src="/images/showroom.webp"
-                  alt="Showroom domotique Domotus Casablanca"
-                  fill
-                  sizes="(max-width: 1024px) 50vw, 25vw"
-                  loading="lazy"
-                  quality={80}
-                  className="object-cover"
-                />
-              </div>
-              <div className="relative overflow-hidden rounded-sm aspect-video">
-                <Image
-                  src="/images/immeuble-tertiaire.webp"
-                  alt="Bâtiment tertiaire connecté par Domotus au Maroc"
-                  fill
-                  sizes="(max-width: 1024px) 50vw, 25vw"
-                  loading="lazy"
-                  quality={80}
-                  className="object-cover"
-                />
+            ))}
+          </div>
+
+          {/* Credentials — Trust signals */}
+          <div className="py-12 border-t border-white/8 flex flex-col lg:flex-row items-center justify-between gap-8">
+            <p className="text-[14px] text-foreground/55 max-w-md leading-relaxed">
+              Depuis 10 ans au Maroc, une fiabilité garantie par nos certifications multi-protocoles de référence.
+            </p>
+            <div className="flex items-center gap-6">
+              <span className="text-[12px] uppercase tracking-[0.15em] text-foreground/40 font-semibold">Certifications</span>
+              <div className="flex gap-3">
+                {["KNX", "Crestron", "Lutron"].map((cert) => (
+                  <div key={cert} className="px-4 py-2 border border-white/10 rounded-sm text-[11px] font-semibold text-primary/80 hover:border-primary/40 hover:text-primary transition-colors duration-300">
+                    {cert}
+                  </div>
+                ))}
               </div>
             </div>
+          </div>
+
+          {/* CTA — Elegant and minimal */}
+          <div className="mt-12 text-center">
+            <Link
+              href="/contact"
+              className="focus-ring inline-flex items-center gap-3 text-[12px] font-semibold uppercase tracking-[0.15em] text-foreground/50 hover:text-primary transition-colors duration-300"
+            >
+              Découvrir davantage <ArrowRight size={13} aria-hidden="true" />
+            </Link>
           </div>
         </div>
       </section>
