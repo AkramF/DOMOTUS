@@ -141,11 +141,6 @@ const testimonials = [
     name: "Zhang Wei",
     role: "Attaché technique, Ambassade de Chine à Rabat",
   },
-  {
-    quote: "Pour un laboratoire d'analyses médicales, la précision est critiquée. Domotus a conçu une infrastructure domotique garantissant stabilité thermique exacte, stérilité contrôlée et accès sécurisé. Zéro anomalie depuis 18 mois. C'est un partenaire de confiance absolue.",
-    name: "Dr. Imane H.",
-    role: "Directrice, CBS Laboratoire d'Analyses Médicales",
-  },
 ];
 
 const faqs = [
@@ -561,20 +556,26 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── FAQ ── */}
+      {/* ── FAQ — Apple-inspired Accordion ── */}
       <section className="py-28 lg:py-36 bg-background" aria-labelledby="faq-heading">
         <div className="mx-auto max-w-4xl px-6 lg:px-10">
-          <div className="mb-16">
+          {/* Header */}
+          <div className="mb-20">
             <SectionLabel>Pour aller plus loin</SectionLabel>
             <h2
               id="faq-heading"
-              className="font-black uppercase leading-none text-foreground text-balance"
-              style={{ fontSize: "clamp(1.8rem, 4vw, 3.2rem)", letterSpacing: "-0.02em" }}
+              className="font-black leading-tight text-foreground text-balance"
+              style={{ fontSize: "clamp(1.8rem, 5vw, 3.5rem)", letterSpacing: "-0.03em" }}
             >
               Questions fréquentes<br />
               <span className="italic text-foreground/45">sur votre projet.</span>
             </h2>
+            <p className="mt-6 text-[15px] text-foreground/60 leading-relaxed max-w-lg">
+              Retrouvez les réponses aux interrogations les plus courantes. Pour tout autre question, notre équipe est à votre écoute.
+            </p>
           </div>
+
+          {/* Schema.org */}
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{
@@ -589,16 +590,24 @@ export default function HomePage() {
               }),
             }}
           />
-          <FaqAccordion items={faqs} />
-          <div className="mt-16 pt-12 border-t border-white/8">
-            <p className="text-[13px] text-foreground/50 mb-4">
-              Votre question ne figure pas ci-dessus ?
+
+          {/* FAQ Items */}
+          <div className="space-y-px bg-white/6">
+            {faqs.map((item, idx) => (
+              <FaqAccordion key={idx} items={[item]} />
+            ))}
+          </div>
+
+          {/* CTA — centered and minimal */}
+          <div className="mt-16 pt-12 border-t border-white/8 text-center">
+            <p className="text-[14px] text-foreground/60 mb-6">
+              Vous n'avez pas trouvé la réponse?
             </p>
             <Link
               href="/contact"
-              className="focus-ring inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.15em] text-primary hover:text-primary/70 transition-colors duration-300"
+              className="focus-ring inline-flex items-center gap-2 text-[12px] font-semibold uppercase tracking-[0.15em] text-foreground/50 hover:text-primary transition-colors duration-300"
             >
-              Nous contacter directement <ArrowRight size={12} aria-hidden="true" />
+              Contactez notre équipe <ArrowRight size={13} aria-hidden="true" />
             </Link>
           </div>
         </div>
