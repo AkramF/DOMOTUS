@@ -552,43 +552,51 @@ export default function HomePage() {
 
       {/* ── CTA FINAL — Schedule consultation ── */}
       <section className="relative py-16 lg:py-20 overflow-hidden" style={{ backgroundColor: "#efd555" }} aria-labelledby="cta-heading">
-        <div className="relative z-10 mx-auto max-w-6xl px-4 lg:px-6 flex flex-col">
+        <div className="relative z-10 mx-auto max-w-7xl px-4 lg:px-12 flex flex-col">
           {/* Badge — left aligned */}
-          <div className="mb-12">
+          <div className="mb-16">
             <span className="text-[10px] uppercase tracking-[0.4em] text-black font-black inline-flex items-center gap-2">
               <span className="w-2 h-2 bg-black" />
               GET STARTED
             </span>
           </div>
 
-          {/* Centered content — title, description, button */}
-          <div className="flex flex-col items-center text-center">
-            {/* Main heading — centered */}
-            <h2
-              id="cta-heading"
-              className="text-black text-balance mb-6"
-              style={{ fontFamily: "Inter, sans-serif", fontWeight: 500, fontSize: "72px", lineHeight: "79px" }}
-            >
-              Schedule a free<br />
-              consultation
-            </h2>
+          {/* Asymmetric content — large left space, content on right */}
+          <div className="grid lg:grid-cols-12 gap-8">
+            {/* Left empty space (4 columns for white space) */}
+            <div className="hidden lg:block lg:col-span-4" />
+            
+            {/* Right content (8 columns) */}
+            <div className="lg:col-span-8 flex flex-col">
+              {/* Main heading */}
+              <h2
+                id="cta-heading"
+                className="text-black text-balance mb-8 leading-tight"
+                style={{ fontFamily: "Inter, sans-serif", fontWeight: 500, fontSize: "72px", lineHeight: "79px" }}
+              >
+                Schedule a free<br />
+                consultation
+              </h2>
 
-            {/* Description — centered */}
-            <p className="text-black max-w-2xl mb-10" style={{ fontFamily: "Inter, sans-serif", fontWeight: 400, fontSize: "16px", lineHeight: "24px" }}>
-              We craft inspiring spaces that blend cutting-edge design with enduring functionality, turning your vision into reality.
-            </p>
+              {/* Description */}
+              <p className="text-black mb-10" style={{ fontFamily: "Inter, sans-serif", fontWeight: 400, fontSize: "16px", lineHeight: "24px", maxWidth: "560px" }}>
+                We craft inspiring spaces that blend cutting-edge design with enduring functionality, turning your vision into reality.
+              </p>
 
-            {/* CTA Button — centered */}
-            <Link
-              href="/contact"
-              className="focus-ring inline-flex items-center justify-between px-8 py-4 rounded-full transition-all duration-300 hover:shadow-xl group"
-              style={{ backgroundColor: "#000000" }}
-            >
-              <span className="text-white font-semibold" style={{ fontSize: "16px" }}>Get started</span>
-              <div className="ml-6 w-10 h-10 rounded-full flex items-center justify-center transition-transform group-hover:scale-110 flex-shrink-0" style={{ backgroundColor: "#efd555" }}>
-                <ArrowRight size={16} className="text-black" aria-hidden="true" />
+              {/* CTA Button */}
+              <div className="w-fit">
+                <Link
+                  href="/contact"
+                  className="focus-ring inline-flex items-center justify-between px-8 py-4 rounded-full transition-all duration-300 hover:shadow-xl group"
+                  style={{ backgroundColor: "#000000" }}
+                >
+                  <span className="text-white font-semibold" style={{ fontSize: "16px" }}>Get started</span>
+                  <div className="ml-6 w-10 h-10 rounded-full flex items-center justify-center transition-transform group-hover:scale-110 flex-shrink-0" style={{ backgroundColor: "#efd555" }}>
+                    <ArrowRight size={16} className="text-black" aria-hidden="true" />
+                  </div>
+                </Link>
               </div>
-            </Link>
+            </div>
           </div>
         </div>
       </section>
