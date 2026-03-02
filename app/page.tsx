@@ -388,50 +388,46 @@ export default function HomePage() {
             </p>
           </div>
 
-          {/* 2-column grid with premium spacing */}
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 mb-8">
+          {/* 3-column grid with premium spacing */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 mb-8">
             {expertises.map((item, idx) => {
               const Icon = item.icon;
-              // Alternate layout for visual interest
-              const isEven = idx % 2 === 0;
               
               return (
                 <article
                   key={item.title}
-                  className={`group relative flex flex-col justify-between py-12 px-8 lg:px-0 border-b border-white/8 transition-all duration-500 hover:border-primary/40 ${
-                    isEven ? "lg:pr-16" : "lg:pl-16"
-                  }`}
+                  className="group relative flex flex-col justify-between py-12 px-6 lg:px-0 border-b border-white/8 transition-all duration-500 hover:border-primary/40"
                 >
                   {/* Icon — Larger and simpler */}
-                  <div className="mb-8">
-                    <div className="w-14 h-14 flex items-center justify-center transition-all duration-500">
-                      <Icon size={32} className="text-foreground/50 group-hover:text-primary group-hover:scale-110 transition-all duration-500" aria-hidden="true" />
+                  <div className="mb-6">
+                    <div className="w-12 h-12 flex items-center justify-center transition-all duration-500">
+                      <Icon size={28} className="text-foreground/50 group-hover:text-primary group-hover:scale-110 transition-all duration-500" aria-hidden="true" />
                     </div>
                   </div>
 
-                  {/* Title — Larger typography */}
-                  <div className="mb-6">
-                    <h3 className="text-[18px] lg:text-[20px] font-semibold text-foreground leading-tight mb-2 transition-colors duration-500 group-hover:text-primary">
+                  {/* Title — Optimized for 3 columns */}
+                  <div className="mb-4">
+                    <h3 className="text-[16px] lg:text-[18px] font-semibold text-foreground leading-tight mb-2 transition-colors duration-500 group-hover:text-primary">
                       {item.title}
                     </h3>
-                    <div className="w-1 h-8 bg-primary/0 group-hover:bg-primary transition-all duration-500" />
+                    <div className="w-1 h-6 bg-primary/0 group-hover:bg-primary transition-all duration-500" />
                   </div>
 
                   {/* Description — Better spacing */}
-                  <p className="text-[14px] lg:text-[15px] text-foreground/55 leading-relaxed mb-8 max-w-xs">
+                  <p className="text-[13px] lg:text-[14px] text-foreground/55 leading-relaxed mb-6">
                     {item.description}
                   </p>
 
                   {/* Badge with hover */}
                   <div className="flex items-center justify-between">
-                    <span className="text-[11px] font-semibold uppercase tracking-[0.15em] text-foreground/40 group-hover:text-primary/80 transition-colors duration-500">
+                    <span className="text-[10px] font-semibold uppercase tracking-[0.12em] text-foreground/40 group-hover:text-primary/80 transition-colors duration-500">
                       {item.badge}
                     </span>
                     <Link
                       href={item.href}
                       className="focus-ring opacity-0 group-hover:opacity-100 transition-opacity duration-500 text-primary"
                     >
-                      <ArrowRight size={16} aria-hidden="true" />
+                      <ArrowRight size={14} aria-hidden="true" />
                     </Link>
                   </div>
                 </article>
@@ -451,53 +447,59 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── PROCESS — 3 steps ── */}
-      <section className="py-24 lg:py-36 bg-background" aria-labelledby="process-heading">
+      {/* ── PROCESS — 3 steps transition section ── */}
+      <section className="py-16 lg:py-24 bg-background" aria-labelledby="process-heading">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
-          <div className="text-center mb-16">
+          {/* Compact header */}
+          <div className="mb-12">
             <SectionLabel>L'accompagnement Domotus</SectionLabel>
             <h2
               id="process-heading"
-              className="font-black uppercase leading-none text-foreground text-balance"
-              style={{ fontSize: "clamp(1.8rem, 4vw, 3.2rem)", letterSpacing: "-0.02em" }}
+              className="font-semibold leading-tight text-foreground text-balance"
+              style={{ fontSize: "clamp(1.6rem, 5vw, 2.8rem)", letterSpacing: "-0.02em" }}
             >
-              De la vision à la perfection,{" "}
-              <span className="italic text-foreground/45">en 3 étapes.</span>
+              De la vision à la perfection, en 3 étapes.
             </h2>
           </div>
-          <ol className="grid lg:grid-cols-3 gap-px bg-white/6" role="list">
+
+          {/* Minimal 3-step layout */}
+          <div className="grid lg:grid-cols-3 gap-8 lg:gap-12">
             {steps.map((step, i) => (
-              <li key={step.num} className="bg-card p-10 flex flex-col gap-5 relative">
-                <span
-                  className="font-black text-foreground/8 leading-none select-none"
-                  style={{ fontSize: "clamp(4rem, 8vw, 7rem)" }}
-                  aria-hidden="true"
-                >
-                  {step.num}
-                </span>
-                <h3 className="font-bold uppercase tracking-[0.1em] text-foreground text-[14px] -mt-4">
+              <div key={step.num} className="flex flex-col">
+                {/* Step number — Subtle but visible */}
+                <div className="mb-4">
+                  <span className="text-[14px] font-semibold uppercase tracking-[0.15em] text-primary">
+                    Étape {step.num}
+                  </span>
+                </div>
+
+                {/* Title */}
+                <h3 className="text-[16px] lg:text-[17px] font-semibold text-foreground mb-3 leading-tight">
                   {step.title}
                 </h3>
-                <p className="text-[13px] text-foreground/50 leading-relaxed">
+
+                {/* Description */}
+                <p className="text-[13px] lg:text-[14px] text-foreground/55 leading-relaxed">
                   {step.description}
                 </p>
+
+                {/* Arrow to next (desktop only) */}
                 {i < steps.length - 1 && (
-                  <ArrowRight
-                    size={16}
-                    className="hidden lg:block absolute -right-2 top-1/2 -translate-y-1/2 z-10 text-primary/40"
-                    aria-hidden="true"
-                  />
+                  <div className="hidden lg:flex mt-8 text-primary/30">
+                    <ArrowRight size={18} aria-hidden="true" />
+                  </div>
                 )}
-              </li>
+              </div>
             ))}
-          </ol>
-          <div className="mt-10 text-center">
+          </div>
+
+          {/* CTA — Centered, simple */}
+          <div className="mt-12 pt-12 border-t border-white/8 flex justify-center">
             <Link
               href="/contact"
-              className="focus-ring inline-flex items-center gap-3 bg-primary px-10 py-4 text-[11px] font-black uppercase tracking-[0.2em] transition-all duration-300 hover:bg-primary/85"
-              style={{ color: "#0a0a0a" }}
+              className="focus-ring inline-flex items-center gap-3 text-[12px] font-semibold uppercase tracking-[0.15em] text-foreground/60 hover:text-primary transition-colors duration-300"
             >
-              Commencer l&apos;étape 1 — Audit technique
+              Commencer l&apos;audit gratuit
               <ArrowRight size={13} aria-hidden="true" />
             </Link>
           </div>
