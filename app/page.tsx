@@ -550,47 +550,43 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── CTA FINAL — urgence + double action ── */}
-      <section className="relative py-32 lg:py-40 overflow-hidden" style={{ backgroundColor: "#efd555" }} aria-labelledby="cta-heading">
-        <div className="absolute inset-0 bg-card" />
-        <div
-          className="absolute inset-0"
-          style={{ background: "radial-gradient(ellipse 70% 60% at 50% 110%, oklch(0.91 0.12 188 / 0.09), transparent)" }}
-        />
-        <div className="relative z-10 mx-auto max-w-3xl px-4 lg:px-6 text-center">
-          <div className="mb-8">
-            <span className="text-[12px] uppercase tracking-[0.3em] text-primary font-semibold">Démarrez maintenant</span>
+      {/* ── CTA FINAL — Schedule consultation ── */}
+      <section className="relative py-32 lg:py-40 overflow-hidden min-h-96" style={{ backgroundColor: "#efd555" }} aria-labelledby="cta-heading">
+        <div className="relative z-10 mx-auto max-w-4xl px-4 lg:px-6 h-full flex flex-col justify-center items-center text-center">
+          {/* Badge */}
+          <div className="mb-12">
+            <span className="text-[10px] uppercase tracking-[0.4em] text-black font-black inline-flex items-center gap-2">
+              <span className="w-2 h-2 bg-black rounded-full" />
+              GET STARTED
+            </span>
           </div>
+
+          {/* Main heading */}
           <h2
             id="cta-heading"
-            className="font-black uppercase leading-none text-foreground text-balance mb-8"
-            style={{ fontSize: "clamp(2.2rem, 6vw, 5rem)", letterSpacing: "-0.03em" }}
+            className="font-black leading-tight text-black text-balance mb-8"
+            style={{ fontSize: "clamp(2.2rem, 6vw, 3.5rem)", letterSpacing: "-0.02em" }}
           >
-            Transformez votre habitat<br />
-            <span className="italic text-foreground/45">en 24 à 48h.</span>
+            Schedule a free<br />
+            consultation
           </h2>
-          <p className="text-foreground/60 leading-relaxed mb-4 max-w-md mx-auto text-[15px]">
-            Plus de 150 familles et promoteurs au Maroc nous ont fait confiance pour réaliser leur vision d'un habitat intelligent, esthétique et évolutif.
+
+          {/* Description */}
+          <p className="text-black max-w-2xl mb-12 leading-relaxed" style={{ fontSize: "16px", lineHeight: "24px" }}>
+            We craft inspiring spaces that blend cutting-edge design with enduring functionality, turning your vision into reality.
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
-            <Link
-              href="/contact"
-              className="focus-ring inline-flex items-center gap-3 bg-primary px-10 py-5 text-[12px] font-black uppercase tracking-[0.2em] text-background transition-all duration-300 hover:bg-primary/85 w-full sm:w-auto justify-center"
-            >
-              Lancer mon projet
-              <ArrowRight size={14} aria-hidden="true" />
-            </Link>
-            <a
-              href="tel:+212663666627"
-              className="focus-ring inline-flex items-center gap-3 border border-white/20 px-10 py-5 text-[12px] uppercase tracking-[0.2em] text-foreground/60 transition-all duration-300 hover:border-primary hover:text-primary w-full sm:w-auto justify-center"
-            >
-              <PhoneIcon size={13} aria-hidden="true" />
-              +212 663 66 66 27
-            </a>
-          </div>
-          <p className="text-[11px] text-foreground/35 uppercase tracking-[0.1em]">
-            Casablanca · Marrakech · Rabat · Tanger
-          </p>
+
+          {/* CTA Button */}
+          <Link
+            href="/contact"
+            className="focus-ring inline-flex items-center justify-between px-8 py-4 rounded-full w-fit transition-all duration-300 hover:shadow-xl group"
+            style={{ backgroundColor: "#000000" }}
+          >
+            <span className="text-white font-semibold" style={{ fontSize: "16px" }}>Get started</span>
+            <div className="ml-6 w-10 h-10 rounded-full flex items-center justify-center transition-transform group-hover:scale-110 flex-shrink-0" style={{ backgroundColor: "#efd555" }}>
+              <ArrowRight size={16} className="text-black" aria-hidden="true" />
+            </div>
+          </Link>
         </div>
       </section>
     </>
