@@ -564,15 +564,15 @@ export default function HomePage() {
           {/* Main heading */}
           <h2
             id="cta-heading"
-            className="font-black leading-tight text-black text-balance mb-8"
-            style={{ fontSize: "clamp(2.2rem, 6vw, 3.5rem)", letterSpacing: "-0.02em" }}
+            className="text-black text-balance mb-8"
+            style={{ fontFamily: "Inter, sans-serif", fontWeight: 500, fontSize: "72px", lineHeight: "79px" }}
           >
             Schedule a free<br />
             consultation
           </h2>
 
           {/* Description */}
-          <p className="text-black max-w-2xl mb-12 leading-relaxed" style={{ fontSize: "16px", lineHeight: "24px" }}>
+          <p className="text-black max-w-2xl mb-12" style={{ fontFamily: "Inter, sans-serif", fontWeight: 400, fontSize: "16px", lineHeight: "24px" }}>
             We craft inspiring spaces that blend cutting-edge design with enduring functionality, turning your vision into reality.
           </p>
 
