@@ -487,67 +487,6 @@ export default function HomePage() {
       </section>
 
       {/* ── TESTIMONIALS ── */}
-      <section className="py-28 lg:py-36" style={{ backgroundColor: "#000000" }} aria-labelledby="temoignages-heading">
-        <div className="mx-auto max-w-7xl px-4 lg:px-6">
-          <div className="mb-16">
-            <SectionLabel style={{ color: "#ffffff" }}>Ce que disent nos clients</SectionLabel>
-            <h2
-              id="temoignages-heading"
-              className="font-black uppercase leading-none text-white text-balance"
-              style={{ fontSize: "clamp(1.8rem, 4vw, 3.2rem)", letterSpacing: "-0.02em" }}
-            >
-              Ce que disent nos{" "}
-              <span className="italic" style={{ color: "#ffffff" }}>clients.</span>
-            </h2>
-          </div>
-          <div className="grid lg:grid-cols-2 gap-6">
-            {testimonials.map((t) => (
-              <div key={t.name} className="bg-white rounded-3xl overflow-hidden flex flex-col lg:flex-row">
-                {/* Left content */}
-                <div className="flex flex-col justify-between p-8 lg:p-10 lg:w-1/2">
-                  {/* Logo */}
-                  <div className="mb-6">
-                    <div className="w-12 h-12 rounded-full bg-black flex items-center justify-center">
-                      <div className="w-6 h-6 rounded-full" style={{ backgroundColor: "#efd555" }} />
-                    </div>
-                  </div>
-                  
-                  {/* Title and description */}
-                  <div className="mb-8">
-                    <h3 className="text-black font-black text-xl mb-3" style={{ fontSize: "20px", lineHeight: "28px" }}>
-                      {t.title}
-                    </h3>
-                    <p className="text-black/70 text-sm leading-relaxed" style={{ fontSize: "14px", lineHeight: "20px" }}>
-                      {t.description}
-                    </p>
-                  </div>
-
-                  {/* Learn more link */}
-                  <Link
-                    href="#"
-                    className="text-black font-semibold text-sm underline hover:text-black/70 transition-colors w-fit"
-                    style={{ fontSize: "12px", letterSpacing: "0.12em" }}
-                  >
-                    LEARN MORE
-                  </Link>
-                </div>
-
-                {/* Right image */}
-                <div className="relative w-full lg:w-1/2 h-64 lg:h-auto lg:min-h-80">
-                  <Image
-                    src={t.image}
-                    alt={t.imageAlt}
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                    className="object-cover"
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ── PROJECT TYPES DIVISION ── */}
       <section className="py-28 lg:py-36" style={{ backgroundColor: "#f0efed" }} aria-labelledby="project-types-heading">
         <div className="mx-auto max-w-7xl px-4 lg:px-6">
@@ -605,6 +544,67 @@ export default function HomePage() {
                 ))}
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-28 lg:py-36" style={{ backgroundColor: "#000000" }} aria-labelledby="temoignages-heading">
+        <div className="mx-auto max-w-7xl px-4 lg:px-6">
+          <div className="mb-16">
+            <SectionLabel color="#ffffff" className="mb-6">CE QUE DISENT NOS CLIENTS</SectionLabel>
+            <h2
+              id="temoignages-heading"
+              className="font-black uppercase leading-none text-white text-balance"
+              style={{ fontSize: "clamp(1.8rem, 4vw, 3.2rem)", letterSpacing: "-0.02em" }}
+            >
+              Ce que disent nos{" "}
+              <span className="italic" style={{ color: "#ffffff" }}>clients.</span>
+            </h2>
+          </div>
+          <div className="grid lg:grid-cols-2 gap-6">
+            {testimonials.map((t) => (
+              <div key={t.name} className="bg-white rounded-3xl overflow-hidden flex flex-col lg:flex-row">
+                {/* Left content */}
+                <div className="flex flex-col justify-between p-8 lg:p-10 lg:w-1/2">
+                  {/* Logo */}
+                  <div className="mb-6">
+                    <div className="w-12 h-12 rounded-full bg-black flex items-center justify-center">
+                      <div className="w-6 h-6 rounded-full" style={{ backgroundColor: "#efd555" }} />
+                    </div>
+                  </div>
+                  
+                  {/* Title and description */}
+                  <div className="mb-8">
+                    <h3 className="text-black font-black text-xl mb-3" style={{ fontSize: "20px", lineHeight: "28px" }}>
+                      {t.title}
+                    </h3>
+                    <p className="text-black/70 text-sm leading-relaxed" style={{ fontSize: "14px", lineHeight: "20px" }}>
+                      {t.description}
+                    </p>
+                  </div>
+
+                  {/* Learn more link */}
+                  <Link
+                    href="#"
+                    className="text-black font-semibold text-sm underline hover:text-black/70 transition-colors w-fit"
+                    style={{ fontSize: "12px", letterSpacing: "0.12em" }}
+                  >
+                    LEARN MORE
+                  </Link>
+                </div>
+
+                {/* Right image */}
+                <div className="relative w-full lg:w-1/2 h-64 lg:h-auto lg:min-h-80">
+                  <Image
+                    src={t.image}
+                    alt={t.imageAlt}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    className="object-cover"
+                  />
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
