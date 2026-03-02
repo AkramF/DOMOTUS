@@ -293,14 +293,14 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-4 lg:px-6">
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-12 mb-16">
             <div className="flex-1">
-              <SectionLabel>L'intelligence de vos espaces</SectionLabel>
+              <SectionLabel style={{ color: "#000000" }}>L'intelligence de vos espaces</SectionLabel>
               <h2
                 id="services-heading"
-                className="font-black uppercase leading-none text-foreground text-balance"
-                style={{ fontSize: "clamp(1.8rem, 4vw, 3.2rem)", letterSpacing: "-0.02em" }}
+                className="font-black uppercase leading-none text-balance"
+                style={{ fontSize: "clamp(1.8rem, 4vw, 3.2rem)", letterSpacing: "-0.02em", color: "#000000" }}
               >
                 Maîtrise absolue<br />
-                <span className="italic text-foreground/45">de votre environnement.</span>
+                <span className="italic" style={{ color: "#000000" }}>de votre environnement.</span>
               </h2>
             </div>
             <Link

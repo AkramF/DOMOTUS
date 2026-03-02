@@ -41,12 +41,11 @@ export default function Hero() {
                 className="font-medium leading-tight text-white"
                 style={{ fontSize: "clamp(2.2rem, 6vw, 4rem)", letterSpacing: "-0.02em", fontWeight: 500 }}
               >
-                votre accès à la <span style={{ color: "#efd555" }}>domotique</span><br />
-                <span className="text-white">premium.</span>
+                votre accès à la <span style={{ color: "#efd555" }}>domotique premium.</span>
               </h1>
 
               {/* Subheading */}
-              <p className="mt-7 text-[14px] lg:text-[15px] text-foreground/60 leading-relaxed max-w-md">
+              <p className="mt-7 text-[14px] lg:text-[15px] text-white leading-relaxed max-w-md" style={{ fontWeight: 400 }}>
                 L&apos;expérience de vos espaces, réinventée. Là où la technologie crée confort, sécurité et sérénité, Domotus transforme maisons et immeubles en écosystèmes intelligents.
               </p>
 
