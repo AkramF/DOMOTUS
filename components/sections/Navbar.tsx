@@ -83,12 +83,7 @@ export default function Navbar() {
             {/* CONTACT */}
             <Link
               href="/contact"
-              className={cn(
-                "focus-ring inline-flex items-center px-5 py-2.5 text-[10.5px] uppercase tracking-[0.18em] font-semibold border transition-all duration-300",
-                pathname === "/contact"
-                  ? "border-primary text-primary"
-                  : "border-white/20 text-foreground/60 hover:border-white/50 hover:text-foreground"
-              )}
+              className="focus-ring inline-flex items-center px-6 py-2.5 text-[11px] uppercase tracking-[0.15em] font-semibold rounded-full bg-white text-black transition-all duration-300 hover:shadow-lg hover:scale-105"
             >
               Contact
             </Link>
