@@ -416,7 +416,7 @@ export default function HomePage() {
             <div className="grid grid-cols-2 gap-3 h-[480px] contain-layout">
               <div className="relative overflow-hidden rounded-sm row-span-2 aspect-square">
                 <Image
-                  src="/images/villa-prestige.webp"
+                  src="/images/villa-prestige.jpg"
                   alt="Villa équipée en domotique KNX par Domotus Casablanca"
                   fill
                   sizes="(max-width: 1024px) 50vw, 25vw"
@@ -427,7 +427,7 @@ export default function HomePage() {
               </div>
               <div className="relative overflow-hidden rounded-sm aspect-video">
                 <Image
-                  src="/images/showroom.webp"
+                  src="/images/showroom.jpg"
                   alt="Showroom domotique Domotus Casablanca"
                   fill
                   sizes="(max-width: 1024px) 50vw, 25vw"
@@ -438,7 +438,7 @@ export default function HomePage() {
               </div>
               <div className="relative overflow-hidden rounded-sm aspect-video">
                 <Image
-                  src="/images/immeuble-tertiaire.webp"
+                  src="/images/immeuble-tertiaire.jpg"
                   alt="Bâtiment tertiaire connecté par Domotus au Maroc"
                   fill
                   sizes="(max-width: 1024px) 50vw, 25vw"

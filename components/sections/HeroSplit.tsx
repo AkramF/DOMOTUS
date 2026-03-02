@@ -104,7 +104,7 @@ export default function Hero() {
               className="relative h-[500px] lg:h-[600px] overflow-hidden rounded-xl order-1 lg:order-2 group"
             >
               <Image
-                src="/images/hero-bg.webp"
+                src="/images/hero-bg.jpg"
                 alt="Villa intelligente équipée par Domotus au Maroc"
                 fill
                 priority
