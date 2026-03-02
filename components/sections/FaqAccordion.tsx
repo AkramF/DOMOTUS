@@ -21,7 +21,7 @@ export default function FaqAccordion({ items }: { items: FaqItem[] }) {
             className="focus-ring w-full flex items-start justify-between gap-6 py-6 text-left group"
             aria-expanded={openIndex === i}
           >
-            <span className="text-[13px] md:text-[15px] font-semibold uppercase tracking-[0.05em] text-foreground/80 group-hover:text-foreground transition-colors duration-300 leading-snug">
+            <span className="text-black group-hover:text-black/70 transition-colors duration-300" style={{ fontFamily: "Inter, sans-serif", fontWeight: 400, fontSize: "16px", lineHeight: "24px" }}>
               {item.q}
             </span>
             <span className="shrink-0 mt-0.5 text-primary transition-transform duration-300">
@@ -38,7 +38,7 @@ export default function FaqAccordion({ items }: { items: FaqItem[] }) {
                 transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
                 className="overflow-hidden"
               >
-                <p className="pb-6 text-[14px] text-foreground/55 leading-relaxed max-w-3xl">
+                <p className="pb-6 text-black" style={{ fontFamily: "Inter, sans-serif", fontWeight: 400, fontSize: "16px", lineHeight: "24px" }}>
                   {item.a}
                 </p>
               </motion.div>
