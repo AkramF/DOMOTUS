@@ -540,9 +540,9 @@ export default function HomePage() {
                 className="font-black leading-tight text-black text-balance"
                 style={{ fontSize: "clamp(1.8rem, 4vw, 2.8rem)", letterSpacing: "-0.02em" }}
               >
-                Nos domaines
+                Collaborations
                 <br />
-                d&apos;expertise
+                professionnelles
               </h2>
             </div>
 
@@ -612,17 +612,6 @@ export default function HomePage() {
           />
           <div className="max-w-3xl mx-auto">
             <FaqAccordion items={faqs} />
-          </div>
-          <div className="mt-20 pt-16 border-t border-black/10 text-center max-w-3xl mx-auto">
-            <p className="text-[13px] text-foreground/60 mb-6">
-              Votre question ne figure pas ci-dessus ?
-            </p>
-            <Link
-              href="/contact"
-              className="focus-ring inline-flex items-center gap-2 text-[12px] font-bold uppercase tracking-[0.15em] text-foreground hover:text-foreground/70 transition-colors duration-300"
-            >
-              Nous contacter directement <ArrowRight size={12} aria-hidden="true" />
-            </Link>
           </div>
         </div>
       </section>
