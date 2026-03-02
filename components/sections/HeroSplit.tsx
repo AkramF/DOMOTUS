@@ -45,7 +45,7 @@ export default function Hero() {
               </h1>
 
               {/* Subheading */}
-              <p className="mt-7 text-[14px] lg:text-[15px] text-white leading-relaxed max-w-md" style={{ fontWeight: 400 }}>
+              <p className="mt-7 text-white max-w-md" style={{ fontFamily: "Inter, sans-serif", fontWeight: 400, fontSize: "16px", lineHeight: "24px" }}>
                 L&apos;expérience de vos espaces, réinventée. Là où la technologie crée confort, sécurité et sérénité, Domotus transforme maisons et immeubles en écosystèmes intelligents.
               </p>
 
