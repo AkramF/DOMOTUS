@@ -5,7 +5,7 @@ import Image from "next/image";
 import HeroSplit from "@/components/sections/HeroSplit";
 import PartnersGrid from "@/components/sections/PartnersGrid";
 import { ExpertisesShowcase } from "@/components/sections/ExpertisesShowcase";
-import { ArrowRight, Zap, Shield, Activity, Wifi, Sun, Lock } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 // Lazy load non-critical sections to reduce initial JS bundle
 const FaqAccordion = dynamic(() => import("@/components/sections/FaqAccordion"), {
@@ -47,7 +47,6 @@ export const metadata: Metadata = {
 
 const expertises = [
   {
-    icon: Sun,
     title: "Éclairage Intelligent",
     badge: "La signature visuelle de vos espaces",
     description: "L'éclairage suit le rythme naturel du soleil et s'adapte à vos instants de vie grâce au pilotage circadien et aux scènes dynamiques (Lutron HomeWorks). Une élégance qui sublime votre architecture.",
@@ -56,7 +55,6 @@ const expertises = [
     imageAlt: "Éclairage intelligent Lutron dans une villa de luxe au Maroc",
   },
   {
-    icon: Shield,
     title: "Sécurité & Accès",
     badge: "Une tranquillité d'esprit absolue",
     description: "Une protection invisible et infaillible. Accès biométrique discret, vidéosurveillance 4K intelligente et supervision KNX centralisée. Gardez le contrôle total et recevez des alertes ciblées, où que vous soyez.",
@@ -65,7 +63,6 @@ const expertises = [
     imageAlt: "Système de sécurité domotique premium pour villa Maroc",
   },
   {
-    icon: Activity,
     title: "Gestion Énergie & Climat",
     badge: "L'efficience invisible",
     description: "Votre maison optimise automatiquement la température et l'énergie en temps réel. Une intelligence qui allie confort thermique absolu et conformité aux normes d'excellence (LEED/HQE), sans le moindre effort.",
@@ -74,7 +71,6 @@ const expertises = [
     imageAlt: "Gestion intelligente de l'énergie dans un bâtiment connecté au Maroc",
   },
   {
-    icon: Wifi,
     title: "Réseaux & Connectivité",
     badge: "Le système nerveux de votre habitat",
     description: "Profitez d'une couverture Wi-Fi 6E parfaite et d'une infrastructure fibre redondante (Ubiquiti). Une fiabilité de niveau professionnel, supervisée 24/7 pour une fluidité sans la moindre interruption.",
@@ -83,7 +79,6 @@ const expertises = [
     imageAlt: "Infrastructure réseau Ubiquiti premium installée par Domotus Maroc",
   },
   {
-    icon: Zap,
     title: "Audio & Divertissement",
     badge: "L'émotion à l'état pur",
     description: "De la diffusion musicale multi-zones (Sonos) aux salles de cinéma privées 4K Dolby Atmos. L'image et le son haute-fidélité s'intègrent à vos murs avec une discrétion totale, pilotés depuis une interface unique.",
@@ -92,7 +87,6 @@ const expertises = [
     imageAlt: "Home cinema privé Dolby Atmos installé par Domotus au Maroc",
   },
   {
-    icon: Lock,
     title: "Supervision Globale (BMS)",
     badge: "Valorisation patrimoniale",
     description: "Le chef d'orchestre de votre propriété. Centralisez l'ensemble des systèmes sur une interface sur-mesure hyper-intuitive. Un atout technologique majeur qui augmente significativement la valeur de votre bien immobilier.",
