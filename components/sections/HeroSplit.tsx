@@ -30,8 +30,8 @@ export default function Hero() {
                 transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
                 className="flex items-center gap-3 mb-8"
               >
-                <span className="block w-8 h-px bg-foreground/30" aria-hidden="true" />
-                <p className="text-[10px] uppercase tracking-[0.4em] text-primary font-semibold select-none">
+                <span className="block w-2 h-2 bg-white" aria-hidden="true" />
+                <p className="text-[10px] uppercase tracking-[0.4em] text-white font-semibold select-none">
                   Intégration domotique certifiée — Maroc
                 </p>
               </motion.div>
@@ -63,15 +63,17 @@ export default function Hero() {
                 >
                   Votre maison connectée
                   <div className="ml-4 w-10 h-10 bg-black rounded-full flex items-center justify-center transition-transform group-hover:scale-110">
-                    <ArrowRight size={16} className="text-white" aria-hidden="true" />
+                    <ArrowRight size={16} className="text-[#efd555]" aria-hidden="true" />
                   </div>
                 </Link>
                 <Link
                   href="/architectes"
-                  className="focus-ring inline-flex items-center gap-3 border border-white/25 px-8 py-4 text-[11px] uppercase tracking-[0.2em] text-foreground/70 transition-all duration-300 hover:border-primary hover:text-primary will-change-colors"
+                  className="focus-ring inline-flex items-center justify-between bg-black px-8 py-4 rounded-full text-[14px] font-semibold text-white transition-all duration-300 hover:shadow-lg will-change-colors group"
                 >
                   Espace Professionnels
-                  <ArrowRight size={13} aria-hidden="true" />
+                  <div className="ml-4 w-10 h-10 bg-white rounded-full flex items-center justify-center transition-transform group-hover:scale-110">
+                    <ArrowRight size={16} className="text-black" aria-hidden="true" />
+                  </div>
                 </Link>
               </motion.div>
 
