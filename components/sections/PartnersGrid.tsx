@@ -10,7 +10,7 @@ const PARTNERS_DATA = [
 
 export default function PartnersGrid() {
   return (
-    <section className="py-16 lg:py-24 bg-background" aria-label="Marques partenaires certifiées">
+    <section className="py-16 lg:py-24" style={{ backgroundColor: "#f0efed" }} aria-label="Marques partenaires certifiées">
       <div className="mx-auto max-w-7xl px-4 lg:px-6">
         {/* 3-row grid */}
         <div className="space-y-4 lg:space-y-6">

@@ -273,7 +273,7 @@ export default function HomePage() {
       <HeroSplit />
 
       {/* ── BENEFIT-LED PROPOSITION ── */}
-      <section className="py-28 lg:py-36" style={{ backgroundColor: "#ffffff" }} aria-labelledby="value-prop-heading">
+      <section className="py-28 lg:py-36" style={{ backgroundColor: "#efd555" }} aria-labelledby="value-prop-heading">
         <div className="mx-auto max-w-7xl px-4 lg:px-6">
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             <div>
@@ -356,7 +356,7 @@ export default function HomePage() {
       </section>
 
       {/* ── SERVICES GRID — benefit-first ── */}
-      <section className="py-28 lg:py-36" style={{ backgroundColor: "#000000" }} aria-labelledby="services-heading">
+      <section className="py-28 lg:py-36" style={{ backgroundColor: "#ffffff" }} aria-labelledby="services-heading">
         <div className="mx-auto max-w-7xl px-4 lg:px-6">
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-12 mb-16">
             <div className="flex-1">
@@ -437,7 +437,7 @@ export default function HomePage() {
       </section>
 
       {/* ── PROCESS — 3 steps ── */}
-      <section className="py-24 lg:py-36 bg-background" aria-labelledby="process-heading">
+      <section className="py-24 lg:py-36" style={{ backgroundColor: "#ffffff" }} aria-labelledby="process-heading">
         <div className="mx-auto max-w-7xl px-4 lg:px-6">
           <div className="text-center mb-16">
             <SectionLabel>L'accompagnement Domotus</SectionLabel>
@@ -490,7 +490,7 @@ export default function HomePage() {
       </section>
 
       {/* ── TESTIMONIALS ── */}
-      <section className="py-28 lg:py-36 bg-card" aria-labelledby="temoignages-heading">
+      <section className="py-28 lg:py-36" style={{ backgroundColor: "#ffffff" }} aria-labelledby="temoignages-heading">
         <div className="mx-auto max-w-7xl px-4 lg:px-6">
           <div className="mb-14 text-center">
             <SectionLabel>Ils nous font confiance</SectionLabel>
@@ -577,7 +577,7 @@ export default function HomePage() {
       <PartnersGrid />
 
       {/* ── FAQ ── */}
-      <section className="py-28 lg:py-36 bg-background" aria-labelledby="faq-heading">
+      <section className="py-28 lg:py-36" style={{ backgroundColor: "#efd555" }} aria-labelledby="faq-heading">
         <div className="mx-auto max-w-4xl px-4 lg:px-6">
           <div className="mb-16">
             <SectionLabel>Pour aller plus loin</SectionLabel>
