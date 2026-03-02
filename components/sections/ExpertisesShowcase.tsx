@@ -33,7 +33,7 @@ export function ExpertisesShowcase({ items }: ExpertisesShowcaseProps) {
             <button
               key={item.title}
               onClick={() => setSelectedIndex(index)}
-              className={`focus-ring relative rounded-lg overflow-hidden flex-shrink-0 w-20 h-20 lg:w-24 lg:h-24 flex items-center justify-center p-3 group transition-all duration-300 ${
+              className={`focus-ring relative rounded-lg overflow-hidden flex-shrink-0 w-32 h-16 lg:w-full lg:h-20 flex items-center justify-center p-3 group transition-all duration-300 ${
                 isActive ? 'ring-2 ring-black' : 'hover:shadow-lg'
               }`}
               style={{ backgroundColor: "#000000" }}
@@ -51,8 +51,17 @@ export function ExpertisesShowcase({ items }: ExpertisesShowcaseProps) {
                 <div className="absolute inset-0 bg-black/70 group-hover:bg-black/60 transition-colors duration-300" />
               </div>
 
-              {/* Title only — single line, centered */}
-              <h4 className="font-medium text-center leading-tight text-white line-clamp-1" style={{ fontSize: "0.75rem", letterSpacing: "0" }}>
+              {/* Title — full text visible, color changes based on active state */}
+              <h4 
+                className="font-medium text-center leading-snug transition-colors duration-300" 
+                style={{ 
+                  fontSize: "0.875rem", 
+                  letterSpacing: "0",
+                  color: isActive ? "#000000" : "#efd555",
+                  position: "relative",
+                  zIndex: 10
+                }}
+              >
                 {item.title}
               </h4>
             </button>
