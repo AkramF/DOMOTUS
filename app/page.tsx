@@ -370,8 +370,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── SERVICES GRID — benefit-first ── */}
-      <section className="py-28 lg:py-36 bg-card" aria-labelledby="services-heading">
+      {/* ── SERVICES GRID — Modern icon-based layout ── */}
+      <section className="py-28 lg:py-36 bg-background" aria-labelledby="services-heading">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-12 mb-16">
             <div className="flex-1">
@@ -393,57 +393,52 @@ export default function HomePage() {
             </Link>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-white/6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {expertises.map((item) => {
               const Icon = item.icon;
+              const colors = [
+                { bg: "bg-cyan-500/10", border: "border-cyan-500/30", icon: "text-cyan-500", badge: "text-cyan-600" },
+                { bg: "bg-emerald-500/10", border: "border-emerald-500/30", icon: "text-emerald-500", badge: "text-emerald-600" },
+                { bg: "bg-amber-500/10", border: "border-amber-500/30", icon: "text-amber-500", badge: "text-amber-600" },
+                { bg: "bg-violet-500/10", border: "border-violet-500/30", icon: "text-violet-500", badge: "text-violet-600" },
+                { bg: "bg-rose-500/10", border: "border-rose-500/30", icon: "text-rose-500", badge: "text-rose-600" },
+                { bg: "bg-blue-500/10", border: "border-blue-500/30", icon: "text-blue-500", badge: "text-blue-600" },
+              ];
+              const colorIdx = expertises.indexOf(item) % colors.length;
+              const color = colors[colorIdx];
+
               return (
                 <article
                   key={item.title}
-                  className="relative overflow-hidden aspect-[4/3] group"
+                  className={`group relative overflow-hidden ${color.bg} border ${color.border} rounded-lg p-8 flex flex-col justify-between transition-all duration-300 hover:border-opacity-100 hover:shadow-lg hover:shadow-current/5`}
                 >
-                  {/* Background image */}
-                  <Image
-                    src={item.image}
-                    alt={item.imageAlt}
-                    fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                  />
-
-                  {/* Permanent dark overlay */}
-                  <div className="absolute inset-0 bg-background/70 group-hover:bg-background/20 transition-colors duration-500" />
-
-                  {/* Default state — icon + title + badge always visible */}
-                  <div className="absolute inset-0 flex flex-col justify-end p-7 transition-all duration-500 group-hover:opacity-0 group-hover:translate-y-2">
-                    <div className="mb-3 w-9 h-9 border border-white/20 flex items-center justify-center text-primary">
-                      <Icon size={16} aria-hidden="true" />
+                  {/* Icon with background circle */}
+                  <div className="mb-6">
+                    <div className={`w-16 h-16 rounded-full ${color.bg} border ${color.border} flex items-center justify-center transition-transform duration-300 group-hover:scale-110`}>
+                      <Icon size={28} className={`${color.icon} transition-colors duration-300`} aria-hidden="true" />
                     </div>
-                    <h3 className="font-bold uppercase tracking-[0.1em] text-foreground text-[13px] mb-1">
+                  </div>
+
+                  {/* Content */}
+                  <div className="flex-1">
+                    <h3 className="font-bold uppercase tracking-[0.1em] text-foreground text-[14px] mb-2">
                       {item.title}
                     </h3>
-                    <span className="text-[10px] font-semibold uppercase tracking-[0.12em] text-primary">
+                    <span className={`text-[11px] font-semibold uppercase tracking-[0.12em] ${color.badge} block mb-4`}>
                       {item.badge}
                     </span>
-                  </div>
-
-                  {/* Hover state — full content revealed */}
-                  <div className="absolute inset-0 flex flex-col justify-end p-7 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-400 ease-out">
-                    <div className="mb-3 w-9 h-9 border border-primary/50 flex items-center justify-center text-primary">
-                      <Icon size={16} aria-hidden="true" />
-                    </div>
-                    <h3 className="font-bold uppercase tracking-[0.1em] text-foreground text-[13px] mb-2">
-                      {item.title}
-                    </h3>
-                    <p className="text-[12px] text-foreground/75 leading-relaxed mb-4">
+                    <p className="text-[13px] text-foreground/60 leading-relaxed">
                       {item.description}
                     </p>
-                    <Link
-                      href={item.href}
-                      className="focus-ring inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.15em] text-primary font-semibold"
-                    >
-                      En savoir plus <ArrowRight size={11} aria-hidden="true" />
-                    </Link>
                   </div>
+
+                  {/* CTA */}
+                  <Link
+                    href={item.href}
+                    className={`focus-ring inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.15em] font-semibold mt-6 ${color.icon} hover:opacity-70 transition-opacity duration-300`}
+                  >
+                    En savoir plus <ArrowRight size={11} aria-hidden="true" />
+                  </Link>
                 </article>
               );
             })}
@@ -534,58 +529,6 @@ export default function HomePage() {
             ))}
           </div>
         </div>
-      </section>
-
-      {/* ── MARCHÉS — Résidentiel & Tertiaire ── */}
-      <section className="h-[50vh] lg:h-[60vh] grid lg:grid-cols-2 overflow-hidden" aria-label="Nos marchés domotique au Maroc">
-        <Link href="/maison-connectee" className="relative overflow-hidden group focus-ring block h-full">
-          <Image
-            src="/images/villa-prestige.webp"
-            alt="Domotique villas et appartements de luxe au Maroc — Domotus"
-            fill
-            sizes="(max-width: 1024px) 100vw, 50vw"
-            loading="lazy"
-            quality={80}
-            className="object-cover transition-transform duration-700 group-hover:scale-105"
-          />
-          <div className="absolute inset-0 bg-background/50 group-hover:bg-background/35 transition-colors duration-500" />
-          <div className="absolute inset-0 flex flex-col justify-end p-8 lg:p-12">
-            <SectionLabel>Résidentiel</SectionLabel>
-            <h2 className="font-black uppercase text-foreground leading-none text-balance" style={{ fontSize: "clamp(1.6rem, 3vw, 2.6rem)", letterSpacing: "-0.02em" }}>
-              Bâtiment Intelligent
-            </h2>
-            <p className="mt-3 text-[13px] text-foreground/60 max-w-xs leading-relaxed">
-              À partir de 150 000 MAD · Livraison en 4–8 semaines
-            </p>
-            <span className="mt-4 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.15em] text-primary">
-              Voir les réalisations <ArrowRight size={11} aria-hidden="true" />
-            </span>
-          </div>
-        </Link>
-        <Link href="/promoteurs" className="relative overflow-hidden group focus-ring block h-full">
-          <Image
-            src="/images/immeuble-tertiaire.webp"
-            alt="Domotique pour promoteurs et bâtiments tertiaires au Maroc"
-            fill
-            sizes="(max-width: 1024px) 100vw, 50vw"
-            loading="lazy"
-            quality={80}
-            className="object-cover transition-transform duration-700 group-hover:scale-105"
-          />
-          <div className="absolute inset-0 bg-background/60 group-hover:bg-background/40 transition-colors duration-500" />
-          <div className="absolute inset-0 flex flex-col justify-end p-8 lg:p-12">
-            <SectionLabel>Tertiaire &amp; Promoteurs</SectionLabel>
-            <h2 className="font-black uppercase text-foreground leading-none text-balance" style={{ fontSize: "clamp(1.6rem, 3vw, 2.6rem)", letterSpacing: "-0.02em" }}>
-              Immeubles &amp; Bureaux
-            </h2>
-            <p className="mt-3 text-[13px] text-foreground/60 max-w-xs leading-relaxed">
-              Labels HQE, BREEAM · +20% valeur locative
-            </p>
-            <span className="mt-4 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.15em] text-primary">
-              Travailler avec nous <ArrowRight size={11} aria-hidden="true" />
-            </span>
-          </div>
-        </Link>
       </section>
 
       {/* ── FAQ ── */}
