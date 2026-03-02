@@ -101,13 +101,6 @@ const expertises = [
   },
 ];
 
-const stats = [
-  { value: "+150", label: "Projets livrés au Maroc" },
-  { value: "10 ans", label: "D'expertise domotique" },
-  { value: "99.8%", label: "Disponibilité garantie" },
-  { value: "24h", label: "Etude personnalisée" },
-];
-
 const steps = [
   {
     num: "01",
