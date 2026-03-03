@@ -234,12 +234,12 @@
     @apply outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background;
   }
 
-  /* Partner logos: dim grey → subtle cyan on hover (attenuated glow) */
+  /* Partner logos: dim grey → subtle yellow on hover (attenuated glow) */
   .partner-logo:hover {
-    color: oklch(0.91 0.12 188 / 0.75);
+    color: oklch(0.91 0.12 58 / 0.75);
     text-shadow:
-      0 0 10px oklch(0.91 0.12 188 / 0.2),
-      0 0 24px oklch(0.91 0.12 188 / 0.08);
+      0 0 10px oklch(0.91 0.12 58 / 0.2),
+      0 0 24px oklch(0.91 0.12 58 / 0.08);
   }
 
   /* Infinite horizontal ticker — slowed to 45s */

@@ -34,7 +34,7 @@ export default function NotFound() {
         className="absolute inset-0 pointer-events-none"
         aria-hidden="true"
         style={{
-          background: "radial-gradient(ellipse 60% 50% at 50% 60%, oklch(0.91 0.12 188 / 0.04), transparent)",
+          background: "radial-gradient(ellipse 60% 50% at 50% 60%, oklch(0.91 0.12 58 / 0.04), transparent)",
         }}
       />
 
@@ -52,7 +52,7 @@ export default function NotFound() {
         {/* Overline */}
         <div className="flex items-center gap-3 mb-8">
           <span className="block w-8 h-px bg-foreground/25" aria-hidden="true" />
-          <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.4em] text-orange-500 font-semibold">
+          <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.4em] text-[#efd555] font-semibold">
             <AlertCircle size={12} aria-hidden="true" />
             Erreur 404
           </div>

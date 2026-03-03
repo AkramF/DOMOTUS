@@ -27,10 +27,10 @@ export default function MomentsInteractif({ moments }: MomentsInteractifProps) {
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         {/* Header */}
         <div className="mb-20">
-          <p className="text-[11px] uppercase tracking-[0.2em] text-yellow-400 font-semibold mb-4">SERVICES</p>
+          <p className="text-[11px] uppercase tracking-[0.2em] text-[#efd555] font-semibold mb-4">SERVICES</p>
           <h2 className="text-4xl lg:text-5xl font-black leading-tight text-white mb-6 text-balance">
             Seamless property solutions{' '}
-            <span className="text-yellow-400">tailored</span> for you.
+            <span className="text-[#efd555]">tailored</span> for you.
           </h2>
           <Link
             href="/contact"
