@@ -6,6 +6,7 @@ import HeroSplit from "@/components/sections/HeroSplit";
 import { ExpertisesShowcase } from "@/components/sections/ExpertisesShowcase";
 import TestimonialCarousel from "@/components/TestimonialCarousel";
 import StackingCardsSection from "@/components/StackingCardsSection";
+import ArchitecturePortfolio from "@/components/ArchitecturePortfolio";
 import { ArrowRight } from "lucide-react";
 
 // Lazy load non-critical sections to reduce initial JS bundle
@@ -64,6 +65,63 @@ const stackingCards = [
     description: "Beautiful landscapes perfect for walks and outdoor spaces with automated irrigation and ambient lighting control systems.",
     image: "/images/immeuble-tertiaire.jpg",
     imageAlt: "Bâtiment tertiaire connecté par Domotus au Maroc",
+  },
+];
+
+const portfolioProjects = [
+  {
+    id: "shopping-center",
+    title: "Shopping Center",
+    location: "Casablanca, Maroc",
+    description: "Une expérience commerciale révolutionnée par la domotique intelligente. Gestion énergétique centralisée, ambiance adaptative, et parcours client optimisé.",
+    tags: ["Retail", "KNX", "Smart Building"],
+    image: "/images/showroom.jpg",
+    imageAlt: "Shopping Center - Centre Commercial Intelligent",
+  },
+  {
+    id: "villa-prestige",
+    title: "Villa Prestige",
+    location: "Anfa, Casablanca",
+    description: "Une demeure de prestige où chaque pièce anticipe vos besoins. Confort absolu, sécurité renforcée, efficacité énergétique de classe mondiale.",
+    tags: ["Résidentiel", "Multi-protocoles", "Prestige"],
+    image: "/images/villa-prestige.jpg",
+    imageAlt: "Villa Prestige - Résidence Intelligente",
+  },
+  {
+    id: "immeuble-tertiaire",
+    title: "Immeubles Tertiaires",
+    location: "Rabat, Maroc",
+    description: "Espaces de travail productifs et durables. Pilotage centralisé de tous les systèmes pour une performance énergétique maximale et un bien-être collaborateur.",
+    tags: ["Tertiaire", "BMS", "Bureaux"],
+    image: "/images/immeuble-tertiaire.jpg",
+    imageAlt: "Immeuble Tertiaire - Bâtiment Connecté",
+  },
+  {
+    id: "hotel-luxe",
+    title: "Hôtel de Luxe",
+    location: "Marrakech, Maroc",
+    description: "Hospitalité transformée par l'intelligence. Chaque suite offre une expérience personnalisée avec contrôle ambiant intuitif et conciergerie intelligente.",
+    tags: ["Hôtellerie", "Crestron", "Hospitality"],
+    image: "/images/expertise-av.jpg",
+    imageAlt: "Hôtel de Luxe - Hospitalité Intelligente",
+  },
+  {
+    id: "complexe-sportif",
+    title: "Complexe Sportif",
+    location: "Tanger, Maroc",
+    description: "Installations sportives optimisées pour la performance. Gestion climatique précise, éclairage adaptatif, et surveillance intégrée pour une excellence opérationnelle.",
+    tags: ["Sport", "Lutron", "Infrastructure"],
+    image: "/images/expertise-eclairage.jpg",
+    imageAlt: "Complexe Sportif - Infrastructure Intelligente",
+  },
+  {
+    id: "ambassade",
+    title: "Ambassade de Chine",
+    location: "Rabat, Maroc",
+    description: "Infrastructure gouvernementale sécurisée et performante. Systèmes redondants, monitoring en temps réel, et fiabilité garantie pour les opérations critiques.",
+    tags: ["Gouvernemental", "Sécurité", "Mission critique"],
+    image: "/images/expertise-bms.jpg",
+    imageAlt: "Ambassade de Chine - Infrastructure Gouvernementale",
   },
 ];
 
@@ -397,29 +455,21 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── L'INTELLIGENCE DE VOS ESPACES — Interactive Showcase ── */}
-      <section className="py-24 lg:py-32" style={{ backgroundColor: "#ffffff" }} aria-labelledby="services-heading">
+      {/* ── L'INTELLIGENCE DE VOS ESPACES — Architecture Portfolio ── */}
+      <section className="py-20 lg:py-28" style={{ backgroundColor: "#ffffff" }} aria-labelledby="services-heading">
         <div className="mx-auto max-w-7xl px-4 lg:px-6">
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-12 mb-16">
-            <div className="flex-1">
-              <SectionLabel color="#000000">L'INTELLIGENCE DE VOS ESPACES</SectionLabel>
-              <h2
-                id="services-heading"
-                className="font-black leading-tight text-black text-balance"
-                style={{ fontSize: "clamp(1.8rem, 4vw, 2.8rem)", letterSpacing: "-0.02em" }}
-              >
-                Explorez nos expertises
-              </h2>
-            </div>
-            <Link
-              href="/expertises"
-              className="focus-ring shrink-0 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.15em] text-black/60 hover:text-black transition-colors duration-300"
+          <div className="mb-8">
+            <SectionLabel color="#000000">L'INTELLIGENCE DE VOS ESPACES</SectionLabel>
+            <h2
+              id="services-heading"
+              className="font-black leading-tight text-black text-balance"
+              style={{ fontSize: "clamp(1.8rem, 4vw, 2.8rem)", letterSpacing: "-0.02em" }}
             >
-              Toutes nos expertises <ArrowRight size={12} aria-hidden="true" />
-            </Link>
+              Explorez nos expertises
+            </h2>
           </div>
-
-          <ExpertisesShowcase items={expertises} />
+          
+          <ArchitecturePortfolio projects={portfolioProjects} />
         </div>
       </section>
 
