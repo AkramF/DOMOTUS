@@ -33,7 +33,7 @@ export default function ArchitecturePortfolio({ projects }: ArchitecturePortfoli
             key={project.id}
             onClick={() => setActiveProject(idx)}
             className={`flex-shrink-0 w-32 h-32 lg:w-full lg:aspect-square rounded-2xl overflow-hidden transition-all duration-300 relative group ${
-              activeProject === idx ? "ring-2 ring-[#EAB308]" : ""
+              activeProject === idx ? "ring-2 ring-[#efd555]" : ""
             }`}
             aria-label={`Select ${project.title}`}
             aria-pressed={activeProject === idx}
@@ -65,7 +65,7 @@ export default function ArchitecturePortfolio({ projects }: ArchitecturePortfoli
               // Inactive State - solid black
               <div className="absolute inset-0 bg-black flex items-center justify-center p-4">
                 <div className="text-center">
-                  <h3 className="font-bold text-[#EAB308] text-sm lg:text-base line-clamp-2">
+                  <h3 className="font-bold text-[#efd555] text-sm lg:text-base line-clamp-2">
                     {project.title}
                   </h3>
                   <p className="text-xs text-gray-400 mt-2 line-clamp-1">{project.location}</p>
@@ -104,7 +104,7 @@ export default function ArchitecturePortfolio({ projects }: ArchitecturePortfoli
             className="inline-flex items-center justify-between w-fit px-6 py-3 bg-black rounded-full hover:bg-black/90 transition-colors duration-300"
           >
             <span className="text-white font-semibold text-sm">View project</span>
-            <div className="ml-4 w-8 h-8 rounded-full bg-[#EAB308] flex items-center justify-center flex-shrink-0">
+            <div className="ml-4 w-8 h-8 rounded-full bg-[#efd555] flex items-center justify-center flex-shrink-0">
               <ArrowRight size={16} className="text-black" />
             </div>
           </Link>
