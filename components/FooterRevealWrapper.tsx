@@ -13,32 +13,41 @@ export default function FooterRevealWrapper({ children, footer }: FooterRevealWr
   const [footerHeight, setFooterHeight] = useState<number>(0)
 
   useEffect(() => {
-    // Create ResizeObserver to measure footer height dynamically
-    const resizeObserver = new ResizeObserver(() => {
+    // Small delay to allow DOM to fully render
+    const timer = setTimeout(() => {
       if (footerRef.current) {
         const height = footerRef.current.offsetHeight
         setFooterHeight(height)
-        if (contentRef.current) {
-          contentRef.current.style.marginBottom = `${height}px`
-        }
       }
-    })
+    }, 100)
 
-    // Start observing footer
-    if (footerRef.current) {
-      resizeObserver.observe(footerRef.current)
-      // Initial measurement
-      const height = footerRef.current.offsetHeight
-      setFooterHeight(height)
-      if (contentRef.current) {
-        contentRef.current.style.marginBottom = `${height}px`
-      }
-    }
-
-    return () => {
-      resizeObserver.disconnect()
-    }
+    return () => clearTimeout(timer)
   }, [])
+
+  useEffect(() => {
+    if (footerRef.current && footerHeight > 0) {
+      // Create ResizeObserver to detect footer height changes
+      const resizeObserver = new ResizeObserver(() => {
+        if (footerRef.current) {
+          const newHeight = footerRef.current.offsetHeight
+          setFooterHeight(newHeight)
+        }
+      })
+
+      resizeObserver.observe(footerRef.current)
+
+      return () => {
+        resizeObserver.disconnect()
+      }
+    }
+  }, [footerHeight])
+
+  // Apply margin-bottom to content wrapper
+  useEffect(() => {
+    if (contentRef.current && footerHeight > 0) {
+      contentRef.current.style.marginBottom = `${footerHeight}px`
+    }
+  }, [footerHeight])
 
   return (
     <>
@@ -46,7 +55,6 @@ export default function FooterRevealWrapper({ children, footer }: FooterRevealWr
       <div
         ref={contentRef}
         className="relative z-20 bg-white"
-        style={{ marginBottom: `${footerHeight}px` }}
       >
         {children}
       </div>
