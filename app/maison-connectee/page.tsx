@@ -6,6 +6,7 @@ import SectionLabel from "@/components/ui/section-label";
 import MomentsInteractif from "@/components/MomentsInteractif";
 import HeroMaisonConnectee from "@/components/HeroMaisonConnectee";
 import Navbar from "@/components/sections/Navbar";
+import SmartHomeSection from "@/components/SmartHomeSection";
 import SmartHomeDataSection from "@/components/SmartHomeDataSection";
 
 export const metadata: Metadata = {
