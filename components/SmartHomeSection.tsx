@@ -39,7 +39,7 @@ export default function SmartHomeSection() {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Image Cluster - Left */}
           <div className="relative h-96 lg:h-[500px]">
-            <div className="relative w-full h-full flex items-center justify-center">
+            <div style={{ position: 'relative' }} className="w-full h-full flex items-center justify-center">
               {/* Staggered pill-shaped images */}
               {smartHomeImages.map((item, idx) => {
                 const positions = [

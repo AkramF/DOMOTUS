@@ -26,8 +26,9 @@ export default function SmartHomeDataSection() {
 
   return (
     <section
-      className="relative py-20 px-6 lg:px-10 z-20"
+      className="relative w-full py-28 px-6 lg:px-10 z-20"
       style={{ backgroundColor: '#efd555' }}
+      aria-label="Bénéfices Smarthome"
     >
       <div className="mx-auto max-w-7xl">
         {/* Header */}
