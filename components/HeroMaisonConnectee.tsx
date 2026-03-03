@@ -6,7 +6,10 @@ import { useScroll, useTransform, motion } from 'framer-motion'
 
 export default function HeroMaisonConnectee() {
   const containerRef = useRef<HTMLDivElement>(null)
-  const { scrollYProgress } = useScroll({ target: containerRef, offset: ['start start', 'end center'] })
+  const { scrollYProgress } = useScroll({ 
+    target: containerRef, 
+    offset: ['start start', 'end center']
+  })
 
   // Synchronized transformations: image opacity and text translation on same timeline
   const imageOpacity = useTransform(scrollYProgress, [0, 1], [1, 0])
@@ -17,7 +20,8 @@ export default function HeroMaisonConnectee() {
       {/* Hero Section */}
       <section
         ref={containerRef}
-        className="relative w-full h-screen overflow-hidden bg-black pt-24"
+        style={{ position: 'relative' }}
+        className="w-full h-screen overflow-hidden bg-black pt-24"
         aria-label="Smarthome - Domotique intelligente"
       >
         {/* Base Layer: Black Background */}
@@ -33,6 +37,7 @@ export default function HeroMaisonConnectee() {
             alt="Villa de prestige équipée en domotique KNX par Domotus Maroc"
             fill
             priority
+            loading="eager"
             sizes="100vw"
             className="object-cover object-center"
           />
