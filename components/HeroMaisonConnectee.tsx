@@ -2,9 +2,7 @@
 
 import { useRef } from 'react'
 import Image from 'next/image'
-import Link from 'next/link'
 import { useScroll, useTransform, motion } from 'framer-motion'
-import { Phone } from 'lucide-react'
 
 export default function HeroMaisonConnectee() {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -21,30 +19,11 @@ export default function HeroMaisonConnectee() {
 
   return (
     <>
-      {/* Glassmorphism Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-white/5 border-b border-white/10">
-        <div className="mx-auto max-w-7xl px-6 lg:px-10 py-4 flex items-center justify-between">
-          {/* Logo */}
-          <Link href="/" className="font-black text-white text-lg tracking-tight">
-            DOMOTUS
-          </Link>
-
-          {/* Contact Button */}
-          <Link
-            href="/contact"
-            className="flex items-center gap-2 bg-white text-black px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-white/90 transition-colors"
-          >
-            <Phone size={16} />
-            Contact us
-          </Link>
-        </div>
-      </header>
-
       {/* Hero Section */}
       <section
         ref={containerRef}
-        className="relative w-full h-screen overflow-hidden bg-black"
-        aria-label="Maison Connectée - Domotique intelligente"
+        className="relative w-full h-screen overflow-hidden bg-black pt-24"
+        aria-label="Smarthome - Domotique intelligente"
       >
         {/* Base Layer: Black Background */}
         <div className="absolute inset-0 bg-black" />
@@ -83,9 +62,7 @@ export default function HeroMaisonConnectee() {
                   fontWeight: 900,
                 }}
               >
-                Maison
-                <br />
-                <span className="italic font-light opacity-60">Connectée</span>
+                Smarthome
               </h1>
 
               {/* Copyright Symbol */}

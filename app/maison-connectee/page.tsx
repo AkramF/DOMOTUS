@@ -5,6 +5,7 @@ import { ArrowRight, CheckCircle2 } from "lucide-react";
 import SectionLabel from "@/components/ui/section-label";
 import MomentsInteractif from "@/components/MomentsInteractif";
 import HeroMaisonConnectee from "@/components/HeroMaisonConnectee";
+import Navbar from "@/components/sections/Navbar";
 
 export const metadata: Metadata = {
   title: "Maison Connectée — Domotique Multi-Protocoles | Domotus Maroc",
@@ -165,6 +166,9 @@ const espaces = [
 export default function VillasPage() {
   return (
     <>
+      {/* Main Navbar */}
+      <Navbar />
+      
       {/* ── HERO with Scroll Animation ── */}
       <HeroMaisonConnectee />
 
