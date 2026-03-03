@@ -13,56 +13,56 @@ export default function FooterRevealWrapper({ children, footer }: FooterRevealWr
   const [footerHeight, setFooterHeight] = useState<number>(0)
 
   useEffect(() => {
-    // Small delay to allow DOM to fully render
+    // Initial measurement after DOM render
     const timer = setTimeout(() => {
       if (footerRef.current) {
         const height = footerRef.current.offsetHeight
         setFooterHeight(height)
       }
-    }, 100)
+    }, 50)
 
     return () => clearTimeout(timer)
   }, [])
 
   useEffect(() => {
-    if (footerRef.current && footerHeight > 0) {
-      // Create ResizeObserver to detect footer height changes
-      const resizeObserver = new ResizeObserver(() => {
-        if (footerRef.current) {
-          const newHeight = footerRef.current.offsetHeight
-          setFooterHeight(newHeight)
-        }
-      })
+    if (!footerRef.current) return
 
-      resizeObserver.observe(footerRef.current)
-
-      return () => {
-        resizeObserver.disconnect()
+    // Create ResizeObserver to detect footer height changes
+    const resizeObserver = new ResizeObserver(() => {
+      if (footerRef.current) {
+        const newHeight = footerRef.current.offsetHeight
+        setFooterHeight(newHeight)
       }
-    }
-  }, [footerHeight])
+    })
 
-  // Apply margin-bottom to content wrapper
+    resizeObserver.observe(footerRef.current)
+
+    return () => {
+      resizeObserver.disconnect()
+    }
+  }, [])
+
+  // Apply padding-bottom to content wrapper (not margin)
   useEffect(() => {
     if (contentRef.current && footerHeight > 0) {
-      contentRef.current.style.marginBottom = `${footerHeight}px`
+      contentRef.current.style.paddingBottom = `${footerHeight}px`
     }
   }, [footerHeight])
 
   return (
     <>
-      {/* Content Wrapper — White background, relative position, z-20 */}
+      {/* Content Wrapper — Main content sits on top of footer */}
       <div
         ref={contentRef}
-        className="relative z-20 bg-white"
+        className="relative z-10 bg-white"
       >
         {children}
       </div>
 
-      {/* Footer — Sticky positioning, z-10 */}
+      {/* Footer — Sticky, positioned behind content */}
       <footer
         ref={footerRef}
-        className="sticky bottom-0 z-10"
+        className="sticky bottom-0 z-0"
       >
         {footer}
       </footer>
