@@ -172,30 +172,6 @@ export default function VillasPage() {
       {/* ── HERO with Scroll Animation ── */}
       <HeroMaisonConnectee />
 
-      {/* ── TRUST BAR (La Réassurance Immédiate) ── */}
-      <section className="bg-card border-y border-white/6" aria-label="Promesses Domotus">
-        <div className="mx-auto max-w-7xl px-6 lg:px-10">
-          <dl className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-y lg:divide-y-0 divide-white/6">
-            <div className="px-8 py-8 flex flex-col gap-2">
-              <dt className="text-[11px] uppercase tracking-[0.18em] text-foreground/40 leading-snug">10 Ans d'Expertise</dt>
-              <dd className="font-semibold text-foreground text-[13px]">L'intégrateur de référence pour les projets résidentiels de prestige au Maroc.</dd>
-            </div>
-            <div className="px-8 py-8 flex flex-col gap-2">
-              <dt className="text-[11px] uppercase tracking-[0.18em] text-foreground/40 leading-snug">+18% de Valeur</dt>
-              <dd className="font-semibold text-foreground text-[13px]">Valorisez votre patrimoine grâce à une infrastructure technologique pérenne.</dd>
-            </div>
-            <div className="px-8 py-8 flex flex-col gap-2">
-              <dt className="text-[11px] uppercase tracking-[0.18em] text-foreground/40 leading-snug">−22% Facture</dt>
-              <dd className="font-semibold text-foreground text-[13px]">Optimisation intelligente du climat et de l'éclairage dès le premier mois.</dd>
-            </div>
-            <div className="px-8 py-8 flex flex-col gap-2">
-              <dt className="text-[11px] uppercase tracking-[0.18em] text-foreground/40 leading-snug">SAV Prioritaire 4h</dt>
-              <dd className="font-semibold text-foreground text-[13px]">Une assistance VIP dédiée pour une sérénité totale, 7j/7.</dd>
-            </div>
-          </dl>
-        </div>
-      </section>
-
       {/* ── ESPACES INTELLIGENTS ── */}
       <section className="relative py-0 bg-background overflow-hidden" aria-labelledby="espaces-heading">
         <div className="mx-auto max-w-7xl px-6 lg:px-10 pt-28 pb-20">
