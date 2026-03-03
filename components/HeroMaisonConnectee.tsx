@@ -12,10 +12,10 @@ export default function HeroMaisonConnectee() {
   })
 
   // Image Fade: opacity 1 to 0 between scroll 0 to 0.5
-  const imageOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0], { ease: 'linear' })
+  const imageOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
   
   // Text Descent: translate from 0 to 600px over full scroll range (0 to 1)
-  const textY = useTransform(scrollYProgress, [0, 1], [0, 600], { ease: 'linear' })
+  const textY = useTransform(scrollYProgress, [0, 1], [0, 600])
 
   return (
     <>
