@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/react";
 import dynamic from "next/dynamic";
 import Navbar from "@/components/sections/Navbar";
 import Footer from "@/components/sections/Footer";
+import FooterRevealWrapper from "@/components/FooterRevealWrapper";
 import "./globals.css";
 
 // Lazy load non-critical components to reduce render-blocking CSS and JS
@@ -339,9 +340,10 @@ export default function RootLayout({
         </a>
         <ScrollProgress />
         <Navbar />
-        <main id="main-content">{children}</main>
-        <Footer />
-        <StickyMobileCTA />
+        <FooterRevealWrapper footer={<Footer />}>
+          <main id="main-content">{children}</main>
+          <StickyMobileCTA />
+        </FooterRevealWrapper>
         <Analytics />
       </body>
     </html>
