@@ -6,6 +6,7 @@ import SectionLabel from "@/components/ui/section-label";
 import MomentsInteractif from "@/components/MomentsInteractif";
 import HeroMaisonConnectee from "@/components/HeroMaisonConnectee";
 import Navbar from "@/components/sections/Navbar";
+import SmartHomeSection from "@/components/SmartHomeSection";
 
 export const metadata: Metadata = {
   title: "Maison Connectée — Domotique Multi-Protocoles | Domotus Maroc",
@@ -172,107 +173,8 @@ export default function VillasPage() {
       {/* ── HERO with Scroll Animation ── */}
       <HeroMaisonConnectee />
 
-      {/* ── ESPACES INTELLIGENTS ── */}
-      <section className="relative py-0 bg-background overflow-hidden" aria-labelledby="espaces-heading">
-        <div className="mx-auto max-w-7xl px-6 lg:px-10 pt-28 pb-20">
-          <h2
-            id="espaces-heading"
-            className="font-black uppercase leading-none text-foreground text-balance mb-4"
-            style={{ fontSize: "clamp(1.8rem, 4vw, 3.2rem)", letterSpacing: "-0.02em" }}
-          >
-            Le Smart Home,{" "}
-            <span className="italic text-foreground/45">c'est vivre intensément.</span>
-          </h2>
-          <p className="text-[14px] text-foreground/60 max-w-2xl">
-            Découvrez comment chaque pièce de votre maison se transforme en espace intelligent, anticipant vos besoins.
-          </p>
-        </div>
-
-        {/* Scroll snap container */}
-        <div className="relative scroll-snap-type-x-mandatory overflow-x-auto snap-mandatory pb-20" style={{ scrollBehavior: "smooth" }}>
-          <div className="flex gap-0">
-            {espaces.map((espace, idx) => (
-              <article
-                key={espace.title}
-                className="flex-none w-full scroll-snap-align-start snap-start"
-              >
-                {/* Alternate layout - image left/right */}
-                <div className={`grid md:grid-cols-2 gap-0 items-stretch min-h-screen md:min-h-auto ${idx % 2 === 1 ? "md:[direction:rtl]" : ""}`}>
-                  {/* Image */}
-                  <div className={`relative min-h-[60vh] md:min-h-full overflow-hidden group ${idx % 2 === 0 ? "md:order-2" : "md:order-1"}`}>
-                    <Image
-                      src={espace.image}
-                      alt={espace.title}
-                      fill
-                      className="object-cover transition-transform duration-1000 group-hover:scale-110"
-                      loading="lazy"
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                    />
-                    {/* Overlay gradient */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-background/60 via-background/20 to-transparent group-hover:from-background/40 group-hover:via-background/10 transition-all duration-700" />
-                    {/* Floating number background */}
-                    <div className="absolute inset-0 flex items-center justify-end pr-8 md:pr-16 pointer-events-none">
-                      <span className="font-black text-foreground/5 select-none" style={{ fontSize: "clamp(4rem, 20vw, 12rem)" }}>
-                        {String(idx + 1).padStart(2, "0")}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Content */}
-                  <div className={`p-8 md:p-12 lg:p-20 flex flex-col justify-center gap-6 bg-background relative z-10 ${idx % 2 === 0 ? "md:order-1" : "md:order-2"}`}>
-                    <div className="max-w-2xl">
-                      {/* Progress indicator */}
-                      <div className="flex items-center gap-3 mb-8">
-                        <div className="h-px bg-primary" style={{ width: `${((idx + 1) / espaces.length) * 100}%` }} />
-                        <span className="text-[10px] font-black uppercase tracking-widest text-primary">
-                          {idx + 1} / {espaces.length}
-                        </span>
-                      </div>
-
-                      {/* Title with accent */}
-                      <h3 className="font-black uppercase leading-tight text-foreground mb-6" style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", letterSpacing: "-0.01em" }}>
-                        {espace.title}
-                        <span className="block h-1 w-16 bg-primary mt-3" />
-                      </h3>
-
-                      {/* Manifeste */}
-                      <p className="text-[14px] italic text-primary/80 font-medium mb-6 leading-relaxed">
-                        "{espace.manifeste}"
-                      </p>
-
-                      {/* Description */}
-                      <p className="text-[15px] text-foreground/70 leading-relaxed mb-10">
-                        {espace.angle}
-                      </p>
-
-                      {/* Features with icons */}
-                      <ul className="space-y-4 mb-10">
-                        {espace.features.map((feature, f_idx) => (
-                          <li key={f_idx} className="flex items-start gap-3 text-[13px] text-foreground/65">
-                            <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-primary/15 text-primary text-[10px] font-black shrink-0 mt-0.5">
-                              ✓
-                            </span>
-                            <span>{feature}</span>
-                          </li>
-                        ))}
-                      </ul>
-
-                      {/* CTA */}
-                      <Link
-                        href="/contact"
-                        className="inline-flex items-center gap-3 px-8 py-3 bg-primary/10 border border-primary/30 hover:bg-primary/20 hover:border-primary transition-all duration-300 text-[11px] font-black uppercase tracking-[0.15em] text-foreground group/cta"
-                      >
-                        Explorer {espace.title}
-                        <ArrowRight size={12} className="transition-transform group-hover/cta:translate-x-1" aria-hidden="true" />
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* ── SMART HOME SECTION (Refactored) ── */}
+      <SmartHomeSection />
 
       {/* ── L'IMMERSION: VOS MOMENTS DE VIE (Refonte Interactive) ── */}
       <MomentsInteractif moments={modesVie} />
