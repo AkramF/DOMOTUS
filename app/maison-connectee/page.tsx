@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import SectionLabel from "@/components/ui/section-label";
+import MomentsInteractif from "@/components/MomentsInteractif";
 
 export const metadata: Metadata = {
   title: "Maison Connectée — Domotique Multi-Protocoles | Domotus Maroc",
@@ -40,32 +41,36 @@ const benefices = [
 
 const modesVie = [
   {
+    id: "reveil-serenite",
     title: "Réveil Sérénité",
-    experience: "Une transition douce vers la lumière du jour.",
+    description: "Une transition douce vers la lumière du jour.",
     action: "À l'heure choisie, les volets s'entrouvrent, le plancher chauffant de la salle de bain s'active, et une playlist douce accompagne votre premier café.",
-    benefit: "Commencer la journée dans une harmonie parfaite.",
     image: "/images/mode-reveil.jpg",
+    imageAlt: "Réveil Sérénité - Transition douce vers la lumière",
   },
   {
+    id: "reception-royale",
     title: "Réception Royale",
-    experience: "Votre villa devient une mise en scène pour vos convives.",
+    description: "Votre villa devient une mise en scène pour vos convives.",
     action: "Un seul clic active l'éclairage architectural extérieur, les cascades de la piscine et une ambiance lumineuse intérieure 'Ambre chaud'.",
-    benefit: "Sublimer l'architecture et l'accueil sans quitter vos invités.",
     image: "/images/mode-reception.jpg",
+    imageAlt: "Réception Royale - Mise en scène pour vos convives",
   },
   {
+    id: "cinema-prive",
     title: "Cinéma Privé",
-    experience: "L'immersion totale du septième art.",
+    description: "L'immersion totale du septième art.",
     action: "Les rideaux occultants se ferment, les lumières s'éteignent en fondu, et votre système audio haute-fidélité calibré prend le contrôle.",
-    benefit: "Le confort d'une salle obscure, l'intimité de votre foyer.",
     image: "/images/mode-cinema.jpg",
+    imageAlt: "Cinéma Privé - Immersion totale",
   },
   {
+    id: "vigilance-totale",
     title: "Vigilance Totale",
-    experience: "Le sentiment d'un cocon inviolable.",
+    description: "Le sentiment d'un cocon inviolable.",
     action: "Fermeture centralisée, simulation de présence par l'éclairage et activation de la barrière périmétrique invisible.",
-    benefit: "Une tranquillité absolue, que vous soyez chez vous ou à l'autre bout du monde.",
     image: "/images/mode-vigilance.jpg",
+    imageAlt: "Vigilance Totale - Cocon inviolable",
   },
 ];
 
@@ -318,60 +323,8 @@ export default function VillasPage() {
         </div>
       </section>
 
-      {/* ── L'IMMERSION: VOS MODES DE VIE (Le Cœur Émotionnel) ── */}
-      <section id="modes-vie" className="relative py-28 bg-background" aria-labelledby="modes-heading">
-        <div className="mx-auto max-w-6xl px-6 lg:px-10">
-          <div className="mb-20 max-w-2xl">
-            <SectionLabel>Vos moments de vie</SectionLabel>
-            <h2
-              id="modes-heading"
-              className="font-black uppercase leading-none text-foreground text-balance"
-              style={{ fontSize: "clamp(1.8rem, 4vw, 3.2rem)", letterSpacing: "-0.02em" }}
-            >
-              L'immersion: vos<br />
-              <span className="italic text-foreground/45">modes de vie.</span>
-            </h2>
-            <p className="text-[14px] text-foreground/60 leading-relaxed mt-6">
-              Chaque instant transformé en expérience. De l'aube sereine au repos paisible, votre maison s'adapte à chaque moment de votre vie.
-            </p>
-          </div>
-
-          {/* Modes Grid */}
-          <div className="grid md:grid-cols-2 gap-8">
-            {modesVie.map((mode) => (
-              <div key={mode.title} className="group relative bg-card rounded overflow-hidden hover:shadow-lg transition-all duration-300">
-                {/* Image */}
-                <div className="relative h-64 overflow-hidden bg-background/50">
-                  <Image
-                    src={mode.image}
-                    alt={mode.title}
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-110"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
-                </div>
-
-                {/* Content */}
-                <div className="p-8">
-                  <h3 className="font-black uppercase text-foreground text-[14px] mb-3">{mode.title}</h3>
-                  <p className="text-primary text-[13px] font-medium mb-4">{mode.experience}</p>
-                  
-                  <div className="bg-background/50 p-4 rounded mb-4 border border-white/5">
-                    <p className="text-[13px] text-foreground/70 leading-relaxed">{mode.action}</p>
-                  </div>
-
-                  <div className="flex items-start gap-2">
-                    <span className="text-primary font-bold mt-0.5">✓</span>
-                    <p className="text-[13px] text-foreground/60">{mode.benefit}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* ── L'IMMERSION: VOS MOMENTS DE VIE (Refonte Interactive) ── */}
+      <MomentsInteractif moments={modesVie} />
 
       {/* ── LA MÉTHODE DOMOTUS (Le Parcours sans friction) ── */}
       <section className="py-28 bg-card" aria-labelledby="process-heading">
