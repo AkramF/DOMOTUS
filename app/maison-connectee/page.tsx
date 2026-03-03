@@ -4,6 +4,7 @@ import Image from "next/image";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import SectionLabel from "@/components/ui/section-label";
 import MomentsInteractif from "@/components/MomentsInteractif";
+import HeroMaisonConnectee from "@/components/HeroMaisonConnectee";
 
 export const metadata: Metadata = {
   title: "Maison Connectée — Domotique Multi-Protocoles | Domotus Maroc",
@@ -164,38 +165,8 @@ const espaces = [
 export default function VillasPage() {
   return (
     <>
-      {/* ── HERO ── */}
-      <section className="relative w-full h-[80vh] overflow-hidden" aria-label="Domotique villas et appartements prestige au Maroc">
-        <Image src="/images/villa-prestige.jpg" alt="Villa de prestige équipée en domotique KNX par Domotus Maroc" fill priority sizes="100vw" className="object-cover object-center" />
-        <div className="absolute inset-0 bg-background/65" />
-        <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse 80% 70% at 50% 40%, transparent 30%, oklch(0 0 0 / 0.45) 100%)" }} />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
-        <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6 pt-20">
-          <div className="flex items-center gap-4 mb-6">
-            <span className="block w-8 h-px bg-foreground/40" aria-hidden="true" />
-            <p className="text-[11px] uppercase tracking-[0.35em] text-primary font-medium">Domotique pour habitat d'exception — Maroc</p>
-            <span className="block w-8 h-px bg-foreground/40" aria-hidden="true" />
-          </div>
-          <h1
-            className="font-black uppercase leading-none text-foreground text-balance mb-6"
-            style={{ fontSize: "clamp(2.5rem, 7vw, 6rem)", letterSpacing: "-0.03em" }}
-          >
-            Maison intuitive<br />
-            <span className="italic text-foreground/60">&amp; connectée.</span>
-          </h1>
-          <p className="text-[15px] text-foreground/70 max-w-lg text-balance leading-relaxed mb-10">
-            L'intelligence au service de votre confort. Votre espace de vie comprend vos habitudes, ressent vos besoins et adapte votre environnement en temps réel. Sans effort.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Link href="/contact" className="focus-ring inline-flex items-center gap-3 bg-primary px-8 py-4 text-[11px] font-black uppercase tracking-[0.2em] transition-all duration-300 hover:bg-primary/85" style={{ color: "#0a0a0a" }}>
-              Démarrer mon étude personnalisée <ArrowRight size={13} aria-hidden="true" />
-            </Link>
-            <Link href="#modes-vie" className="focus-ring inline-flex items-center gap-3 border border-white/25 px-8 py-4 text-[11px] uppercase tracking-[0.2em] text-foreground/70 hover:border-primary hover:text-primary transition-all duration-300">
-              Explorer les modes de vie <ArrowRight size={13} aria-hidden="true" />
-            </Link>
-          </div>
-        </div>
-      </section>
+      {/* ── HERO with Scroll Animation ── */}
+      <HeroMaisonConnectee />
 
       {/* ── TRUST BAR (La Réassurance Immédiate) ── */}
       <section className="bg-card border-y border-white/6" aria-label="Promesses Domotus">
