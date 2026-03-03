@@ -152,6 +152,60 @@
   --accent-foreground:   oklch(0.05 0 0) !important;
 }
 
+/* Force ALL primary and accent text colors to #efd555 */
+@layer utilities {
+  .text-primary {
+    color: #efd555 !important;
+  }
+
+  .text-accent {
+    color: #efd555 !important;
+  }
+
+  .bg-primary {
+    background-color: #efd555 !important;
+  }
+
+  .bg-accent {
+    background-color: #efd555 !important;
+  }
+
+  .border-primary {
+    border-color: #efd555 !important;
+  }
+
+  .border-accent {
+    border-color: #efd555 !important;
+  }
+
+  .ring-primary {
+    --tw-ring-color: #efd555 !important;
+  }
+
+  .ring-accent {
+    --tw-ring-color: #efd555 !important;
+  }
+
+  /* Override yellow/amber/orange to yellow */
+  .text-yellow-300 { color: #efd555 !important; }
+  .text-yellow-400 { color: #efd555 !important; }
+  .text-yellow-500 { color: #efd555 !important; }
+  .text-amber-300 { color: #efd555 !important; }
+  .text-amber-400 { color: #efd555 !important; }
+  .text-amber-500 { color: #efd555 !important; }
+  .text-orange-400 { color: #efd555 !important; }
+  .text-orange-500 { color: #efd555 !important; }
+
+  .bg-yellow-300 { background-color: #efd555 !important; }
+  .bg-yellow-400 { background-color: #efd555 !important; }
+  .bg-amber-300 { background-color: #efd555 !important; }
+  .bg-amber-400 { background-color: #efd555 !important; }
+  .bg-orange-400 { background-color: #efd555 !important; }
+
+  .border-yellow-400 { border-color: #efd555 !important; }
+  .border-amber-400 { border-color: #efd555 !important; }
+}
+
 /* =========================================================
    ANIMATIONS — Image & Hero optimizations
    ========================================================= */
