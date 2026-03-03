@@ -23,7 +23,7 @@ export default function MomentsInteractif({ moments }: MomentsInteractifProps) {
   const [hoveredId, setHoveredId] = useState<string | null>(null)
 
   return (
-    <div className="bg-black min-h-screen py-20">
+    <div className="relative z-20 bg-black min-h-screen py-20">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         {/* Header */}
         <div className="mb-20">

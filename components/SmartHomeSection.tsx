@@ -34,7 +34,7 @@ const smartHomeImages = [
 
 export default function SmartHomeSection() {
   return (
-    <section className="relative py-28 bg-white overflow-hidden">
+    <section className="relative py-28 bg-white overflow-hidden z-20">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Image Cluster - Left */}
