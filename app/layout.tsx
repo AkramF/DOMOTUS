@@ -340,8 +340,8 @@ export default function RootLayout({
         <ScrollProgress />
         <Navbar />
         <main id="main-content">{children}</main>
-        <StickyMobileCTA />
         <Footer />
+        <StickyMobileCTA />
         <Analytics />
       </body>
     </html>
