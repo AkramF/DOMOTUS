@@ -54,7 +54,7 @@ export default function FooterRevealWrapper({ children, footer }: FooterRevealWr
       {/* Content Wrapper — Main content sits on top of footer */}
       <div
         ref={contentRef}
-        className="relative z-10 bg-white"
+        className="relative z-20 bg-white"
       >
         {children}
       </div>
