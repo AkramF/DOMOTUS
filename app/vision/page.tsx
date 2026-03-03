@@ -51,11 +51,17 @@ export default function VisionPage() {
             Depuis 10 ans au Maroc, nous croyons que la domotique doit servir la qualité de vie, jamais la compliquer. Nos solutions s'effacent pour laisser place à l'expérience pure de vivre dans un espace qui vous comprend.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
-            <Link href="/maison-connectee" className="inline-flex items-center gap-3 bg-primary px-8 py-4 text-[11px] font-black uppercase tracking-[0.2em] hover:bg-primary/85 transition-all duration-300" style={{ color: "#0a0a0a" }}>
-              Découvrir nos réalisations <ArrowRight size={13} aria-hidden="true" />
+            <Link href="/maison-connectee" className="focus-ring inline-flex items-center justify-between bg-white px-8 py-4 rounded-full text-[14px] font-semibold text-black transition-all duration-300 hover:shadow-lg will-change-colors group">
+              Découvrir Maison Connectée
+              <div className="ml-4 w-10 h-10 bg-black rounded-full flex items-center justify-center transition-transform group-hover:scale-110">
+                <ArrowRight size={16} className="text-[#efd555]" aria-hidden="true" />
+              </div>
             </Link>
-            <Link href="/contact" className="inline-flex items-center gap-3 border border-white/25 px-8 py-4 text-[11px] uppercase tracking-[0.2em] text-foreground/70 hover:border-primary hover:text-primary transition-all duration-300">
-              Parler avec un expert <ArrowRight size={13} aria-hidden="true" />
+            <Link href="/contact" className="focus-ring inline-flex items-center justify-between px-8 py-4 rounded-full text-[14px] font-semibold text-white transition-all duration-300 hover:shadow-lg will-change-colors group" style={{ backgroundColor: "#000000", border: "2px solid #efd555" }}>
+              Prenez contact
+              <div className="ml-4 w-10 h-10 rounded-full flex items-center justify-center transition-transform group-hover:scale-110" style={{ backgroundColor: "#efd555" }}>
+                <ArrowRight size={16} className="text-black" aria-hidden="true" />
+              </div>
             </Link>
           </div>
         </div>
@@ -125,9 +131,12 @@ export default function VisionPage() {
             Prêt à vivre<br />
             <span className="italic text-foreground/50">différemment ?</span>
           </h2>
-          <Link href="/maison-connectee" className="inline-flex items-center gap-3 bg-primary px-10 py-5 text-[11px] font-black uppercase tracking-[0.2em] hover:bg-primary/85 transition-all duration-300" style={{ color: "#0a0a0a" }}>
-            Débuter votre étude personnalisée <ArrowRight size={13} aria-hidden="true" />
-          </Link>
+            <Link href="/maison-connectee" className="focus-ring inline-flex items-center justify-between bg-white px-10 py-5 rounded-full text-[14px] font-semibold text-black transition-all duration-300 hover:shadow-lg will-change-colors group">
+              Démarrer
+              <div className="ml-4 w-10 h-10 bg-black rounded-full flex items-center justify-center transition-transform group-hover:scale-110">
+                <ArrowRight size={16} className="text-[#efd555]" aria-hidden="true" />
+              </div>
+            </Link>
         </div>
       </section>
     </main>

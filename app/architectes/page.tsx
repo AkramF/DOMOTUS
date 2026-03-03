@@ -44,9 +44,27 @@ export default function ArchitectesPage() {
             <p className="text-[16px] text-foreground/65 leading-relaxed max-w-xl mb-10">
               Domotus collabore avec les meilleurs architectes et designers du Maroc pour intégrer la domotique sans compromettre l'intégrité de leurs projets. Multi-protocoles, invisible, garantie.
             </p>
-            <Link href="/contact" className="inline-flex items-center gap-3 bg-primary px-8 py-4 text-[11px] font-black uppercase tracking-[0.2em] transition-all duration-300 hover:bg-primary/85" style={{ color: "#0a0a0a" }}>
-              Discutons de votre projet <ArrowRight size={13} aria-hidden="true" />
-            </Link>
+            <div className="flex flex-col sm:flex-row items-start gap-4">
+              <Link
+                href="/contact"
+                className="focus-ring inline-flex items-center justify-between bg-white px-8 py-4 rounded-full text-[14px] font-semibold text-black transition-all duration-300 hover:shadow-lg will-change-colors group"
+              >
+                Discutons de votre projet
+                <div className="ml-4 w-10 h-10 bg-black rounded-full flex items-center justify-center transition-transform group-hover:scale-110">
+                  <ArrowRight size={16} className="text-[#efd555]" aria-hidden="true" />
+                </div>
+              </Link>
+              <Link
+                href="/maison-connectee"
+                className="focus-ring inline-flex items-center justify-between px-8 py-4 rounded-full text-[14px] font-semibold text-white transition-all duration-300 hover:shadow-lg will-change-colors group"
+                style={{ backgroundColor: "#000000", border: "2px solid #efd555" }}
+              >
+                Voir Solutions Residentielles
+                <div className="ml-4 w-10 h-10 rounded-full flex items-center justify-center transition-transform group-hover:scale-110" style={{ backgroundColor: "#efd555" }}>
+                  <ArrowRight size={16} className="text-black" aria-hidden="true" />
+                </div>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
