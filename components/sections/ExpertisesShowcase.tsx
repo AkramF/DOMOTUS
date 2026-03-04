@@ -108,15 +108,19 @@ export function ExpertisesShowcase({ items }: ExpertisesShowcaseProps) {
           </div>
         </Link>
 
-        {/* Large project image — using CSS gradient instead of Image component */}
+        {/* Large project image */}
         <div 
           className="relative overflow-hidden rounded-3xl flex-1 min-h-0" 
-          style={{ 
-            position: 'relative',
-            background: 'linear-gradient(135deg, #d1d5db 0%, #6b7280 100%)',
-          }}
+          style={{ position: 'relative' }}
         >
-          {/* CSS gradient placeholder - avoids Image loading issues */}
+          <Image
+            src={selected.image}
+            alt={selected.imageAlt}
+            fill
+            sizes="(max-width: 1024px) 100vw, 60vw"
+            className="object-cover"
+            priority
+          />
         </div>
       </div>
     </div>

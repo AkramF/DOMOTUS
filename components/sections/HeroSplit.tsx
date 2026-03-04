@@ -109,15 +109,20 @@ export default function Hero() {
             >
               {/* White border frame */}
               <div className="p-4 lg:p-6 bg-white rounded-2xl h-full shadow-xl">
-              {/* Image inside white frame - using CSS gradient instead of Image component */}
+              {/* Image inside white frame */}
                 <div 
                   className="w-full h-full overflow-hidden rounded-xl group" 
-                  style={{ 
-                    position: 'relative',
-                    background: 'linear-gradient(135deg, #d1d5db 0%, #9ca3af 50%, #6b7280 100%)',
-                  }}
+                  style={{ position: 'relative' }}
                 >
-                  {/* No Image component - using pure CSS gradient to avoid loading issues */}
+                  <Image
+                    src="/images/hero-bg.jpg"
+                    alt="Villa intelligente équipée par Domotus au Maroc"
+                    fill
+                    priority
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    quality={85}
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
                 </div>
               </div>
             </motion.div>

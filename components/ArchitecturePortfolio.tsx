@@ -109,18 +109,22 @@ export default function ArchitecturePortfolio({ projects }: ArchitecturePortfoli
           </Link>
         </motion.div>
 
-        {/* Main Image - using CSS gradient instead of Image component */}
+        {/* Main Image */}
         <motion.div
           key={`image-${current.id}`}
           initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.4 }}
           className="relative flex-1 rounded-3xl overflow-hidden min-h-96 lg:min-h-0"
-          style={{
-            background: 'linear-gradient(135deg, #d1d5db 0%, #6b7280 100%)',
-          }}
         >
-          {/* CSS gradient placeholder - avoids Image loading issues */}
+          <Image
+            src={current.image}
+            alt={current.imageAlt}
+            fill
+            className="object-cover"
+            sizes="(max-width: 1024px) 100vw, 75vw"
+            priority
+          />
         </motion.div>
       </div>
     </div>

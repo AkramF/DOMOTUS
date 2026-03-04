@@ -77,14 +77,16 @@ export default function TestimonialCarousel({ testimonials }: { testimonials: Te
                 </Link>
               </div>
 
-              {/* Right Image Section — using CSS gradient instead of Image */}
-              <div 
-                className="relative w-full lg:w-2/5 h-64 lg:h-auto lg:min-h-96 flex-shrink-0 mt-6 lg:mt-0 lg:ml-6 rounded-3xl overflow-hidden"
-                style={{
-                  background: 'linear-gradient(135deg, #d1d5db 0%, #9ca3af 100%)',
-                }}
-              >
-                {/* CSS gradient placeholder - avoids Image loading issues */}
+              {/* Right Image Section — Portrait Format */}
+              <div className="relative w-full lg:w-2/5 h-64 lg:h-auto lg:min-h-96 flex-shrink-0 mt-6 lg:mt-0 lg:ml-6 rounded-3xl overflow-hidden">
+                <Image
+                  src={t.image}
+                  alt={t.imageAlt}
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  className="object-cover rounded-3xl"
+                  loading="lazy"
+                />
               </div>
             </div>
           </motion.div>

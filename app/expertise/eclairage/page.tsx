@@ -20,13 +20,15 @@ export default function EclairagePage() {
   return (
     <>
       {/* ── HERO ── */}
-      <section 
-        className="relative h-screen min-h-[700px] overflow-hidden flex items-center justify-center"
-        style={{ 
-          position: 'relative',
-          background: 'linear-gradient(135deg, #1f2937 0%, #111827 100%)',
-        }}
-      >
+      <section className="relative h-screen min-h-[700px] overflow-hidden flex items-center justify-center" style={{ position: 'relative' }}>
+        <Image
+          src="/images/expertise-eclairage-hero.jpg"
+          alt="Éclairage intelligent Lutron dans une villa de luxe au Maroc"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+        />
         <div className="absolute inset-0 bg-background/65" />
         <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse 80% 70% at 50% 40%, transparent 30%, oklch(0 0 0 / 0.45) 100%)" }} />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
@@ -60,12 +62,15 @@ export default function EclairagePage() {
             </div>
             <div 
               className="aspect-video relative overflow-hidden border border-white/8 rounded-xl"
-              style={{ 
-                position: 'relative',
-                background: 'linear-gradient(135deg, #404040 0%, #1f2937 100%)',
-              }}
+              style={{ position: 'relative' }}
             >
-              {/* CSS gradient placeholder instead of Image component */}
+              <Image
+                src="/images/expertise-eclairage.jpg"
+                alt="Installation d'éclairage intelligent Lutron"
+                fill
+                sizes="50vw"
+                className="object-cover"
+              />
             </div>
           </div>
         </div>

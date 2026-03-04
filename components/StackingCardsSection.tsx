@@ -61,14 +61,17 @@ export default function StackingCardsSection({ cards }: { cards: StackingCard[] 
           onMouseLeave={() => setHoveredIndex(null)}
         >
           <div className="relative w-full h-full bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
-            {/* Image container - using CSS gradient instead of Image component */}
-            <div 
-              className="relative w-full h-1/2 overflow-hidden"
-              style={{
-                background: 'linear-gradient(135deg, #d1d5db 0%, #9ca3af 100%)',
-              }}
-            >
-              {/* CSS gradient placeholder - avoids async loading issues */}
+            {/* Image container */}
+            <div className="relative w-full h-1/2 overflow-hidden">
+              <Image
+                src={card.image}
+                alt={card.imageAlt}
+                fill
+                sizes="(max-width: 640px) 100vw, 450px"
+                className="object-cover"
+                quality={85}
+                loading="lazy"
+              />
             </div>
 
             {/* Content container */}
