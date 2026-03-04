@@ -40,18 +40,15 @@ export function ExpertisesShowcase({ items }: ExpertisesShowcaseProps) {
               aria-pressed={isActive}
               aria-label={`Sélectionner ${item.title}`}
             >
-              {/* Background image with overlay — visible when active */}
+              {/* Background gradient with overlay — visible when active */}
               <div className="absolute inset-0 -z-10" style={{ position: 'relative' }}>
-                <Image
-                  src={item.image}
-                  alt={item.imageAlt}
-                  fill
-                  sizes="(max-width: 1024px) 160px, 100%"
-                  className={`object-cover transition-opacity duration-300 ${
-                    isActive ? 'opacity-70' : 'opacity-0'
+                <div
+                  className={`absolute inset-0 transition-opacity duration-300 ${
+                    isActive ? 'opacity-100' : 'opacity-0'
                   }`}
-                  placeholder="blur"
-                  blurDataURL="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 160'%3E%3Crect width='160' height='160' fill='%23404040' /%3E%3C/svg%3E"
+                  style={{
+                    background: 'linear-gradient(135deg, #404040 0%, #1f2937 100%)',
+                  }}
                 />
                 <div className={`absolute inset-0 transition-colors duration-300 ${
                   isActive ? 'bg-black/30' : 'bg-black/70 group-hover:bg-black/60'
@@ -111,18 +108,15 @@ export function ExpertisesShowcase({ items }: ExpertisesShowcaseProps) {
           </div>
         </Link>
 
-        {/* Large project image — stretched to fill remaining space */}
-        <div className="relative overflow-hidden rounded-3xl flex-1 min-h-0" style={{ position: 'relative' }}>
-          <Image
-            src={selected.image}
-            alt={selected.imageAlt}
-            fill
-            sizes="(max-width: 1024px) 100vw, 60vw"
-            className="object-cover"
-            priority
-            placeholder="blur"
-            blurDataURL="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 600'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23d1d5db;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%239ca3af;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='1200' height='600' fill='url(%23grad)' /%3E%3C/svg%3E"
-          />
+        {/* Large project image — using CSS gradient instead of Image component */}
+        <div 
+          className="relative overflow-hidden rounded-3xl flex-1 min-h-0" 
+          style={{ 
+            position: 'relative',
+            background: 'linear-gradient(135deg, #d1d5db 0%, #6b7280 100%)',
+          }}
+        >
+          {/* CSS gradient placeholder - avoids Image loading issues */}
         </div>
       </div>
     </div>
