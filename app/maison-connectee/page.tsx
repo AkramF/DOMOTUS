@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { ArrowRight, CheckCircle2, Star } from "lucide-react";
 import SectionLabel from "@/components/ui/section-label";
 import MomentsInteractif from "@/components/MomentsInteractif";
 import HeroMaisonConnectee from "@/components/HeroMaisonConnectee";
@@ -165,6 +165,30 @@ const espaces = [
   },
 ];
 
+const temoignages = [
+  {
+    id: "client-1",
+    nom: "Mohamed Al-Mansouri",
+    titre: "Entrepreneur, Casablanca",
+    texte: "C'est l'investissement le plus intelligent que j'ai fait dans ma villa. Plus que le confort, c'est la tranquillité d'esprit. Tout fonctionne sans effort.",
+    rating: 5,
+  },
+  {
+    id: "client-2",
+    nom: "Fatima Bennani",
+    titre: "Médecin, Marrakech",
+    texte: "L'équipe Domotus a compris exactement ce que je voulais. L'installation était invisible, l'interface intuitive. Un vrai savoir-faire.",
+    rating: 5,
+  },
+  {
+    id: "client-3",
+    nom: "Hassan Qoraichi",
+    titre: "Homme d'affaires, Tanger",
+    texte: "Les économies énergétiques sont réelles et immédiates. Mais surtout, ma famille adore le confort. On ne pourrait plus s'en passer.",
+    rating: 5,
+  },
+];
+
 export default function VillasPage() {
   return (
     <>
@@ -236,6 +260,58 @@ export default function VillasPage() {
                   <p className="text-[10px] uppercase tracking-[0.2em] text-primary mb-2 font-semibold">{r.tag}</p>
                   <p className="font-bold uppercase tracking-[0.05em] text-foreground text-[13px]">{r.title}</p>
                   <p className="text-[12px] text-foreground/55 mt-1">{r.subtitle}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── CE QUE DISENT NOS CLIENTS ── */}
+      <section className="py-28 bg-background" aria-labelledby="testimonials-heading">
+        <div className="mx-auto max-w-7xl px-6 lg:px-10">
+          <div className="mb-20 flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <div>
+              <SectionLabel>Témoignages</SectionLabel>
+              <h2
+                id="testimonials-heading"
+                className="font-black uppercase leading-none text-foreground"
+                style={{ fontSize: "clamp(1.8rem, 4vw, 3.2rem)", letterSpacing: "-0.02em" }}
+              >
+                Ce que disent<br />
+                <span className="italic text-foreground/45">nos clients.</span>
+              </h2>
+            </div>
+          </div>
+          
+          {/* Testimonials Grid */}
+          <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+            {temoignages.map((t) => (
+              <div
+                key={t.id}
+                className="relative bg-card border border-white/8 rounded-3xl p-8 lg:p-10 flex flex-col h-full hover:border-primary/30 transition-all duration-300"
+              >
+                {/* Stars */}
+                <div className="flex gap-1 mb-6">
+                  {Array.from({ length: t.rating }).map((_, i) => (
+                    <Star
+                      key={i}
+                      size={16}
+                      className="fill-primary text-primary"
+                      aria-hidden="true"
+                    />
+                  ))}
+                </div>
+
+                {/* Quote */}
+                <p className="text-sm lg:text-base text-foreground/80 leading-relaxed mb-8 flex-grow italic">
+                  "{t.texte}"
+                </p>
+
+                {/* Author Info */}
+                <div className="border-t border-white/8 pt-6">
+                  <p className="font-bold text-foreground text-sm">{t.nom}</p>
+                  <p className="text-xs text-foreground/50 mt-1">{t.titre}</p>
                 </div>
               </div>
             ))}

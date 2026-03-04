@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import HeroSplit from "@/components/sections/HeroSplit";
 import { ExpertisesShowcase } from "@/components/sections/ExpertisesShowcase";
-import TestimonialCarousel from "@/components/TestimonialCarousel";
+import StackedTestimonialCards from "@/components/StackedTestimonialCards";
 import StackingCardsSection from "@/components/StackingCardsSection";
 import ArchitecturePortfolio from "@/components/ArchitecturePortfolio";
 import { ArrowRight } from "lucide-react";
@@ -455,11 +455,11 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── L'INTELLIGENCE DE VOS ESPACES — Architecture Portfolio ── */}
+      {/* ── LA DIFFÉRENCE DOMOTUS — Architecture Portfolio ── */}
       <section className="py-20 lg:py-28" style={{ backgroundColor: "#ffffff" }} aria-labelledby="services-heading">
         <div className="mx-auto max-w-7xl px-4 lg:px-6">
           <div className="mb-8">
-            <SectionLabel color="#000000">L'INTELLIGENCE DE VOS ESPACES</SectionLabel>
+            <SectionLabel color="#000000">LA DIFFÉRENCE DOMOTUS</SectionLabel>
             <h2
               id="services-heading"
               className="font-black leading-tight text-black text-balance"
@@ -611,7 +611,7 @@ export default function HomePage() {
           </div>
 
           {/* Carousel component */}
-          <TestimonialCarousel testimonials={testimonials} />
+          <StackedTestimonialCards testimonials={testimonials} />
         </div>
       </section>
 
@@ -622,12 +622,11 @@ export default function HomePage() {
             <SectionLabel color="#000000" className="justify-center mb-6">POUR ALLER PLUS LOIN</SectionLabel>
             <h2
               id="faq-heading"
-              className="font-black uppercase leading-none text-foreground text-balance mb-4"
+              className="font-black uppercase leading-none text-black text-balance mb-4"
               style={{ fontSize: "clamp(1.8rem, 4vw, 3.2rem)", letterSpacing: "-0.03em" }}
             >
-              Questions
-              <br />
-              <span className="italic text-foreground/45">fréquentes.</span>
+              Questions<br />
+              <span className="italic text-black">fréquentes.</span>
             </h2>
           </div>
           <script
