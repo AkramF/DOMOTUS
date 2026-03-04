@@ -30,23 +30,20 @@ export default function Navbar({ variant = "default" }: { variant?: "default" | 
 
   // Determine styles based on variant
   const textColor = variant === "contact" ? "text-black" : "text-foreground";
-  const textColorMuted = variant === "contact" ? "text-black/50" : "text-foreground/45";
+  const textColorMuted = variant === "contact" ? "text-black/60" : "text-foreground/45";
   const textColorHover = variant === "contact" ? "hover:text-black" : "hover:text-foreground";
   const borderColor = variant === "contact" ? "border-black" : "border-foreground";
   const logoColor = variant === "contact" ? "text-black" : "text-foreground";
   const logoBorderColor = variant === "contact" ? "border-black" : "border-foreground";
   const contactBgColor = variant === "contact" ? "bg-black text-white" : "bg-white text-black";
+  const headerBgScrolled = variant === "contact" ? "bg-white/95 backdrop-blur-md border-b border-black/10" : "bg-background/85 backdrop-blur-md border-b border-white/10";
 
   return (
     <>
       <header
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
-          scrolled
-            ? variant === "contact"
-              ? "bg-white/85 backdrop-blur-md border-b border-black/10"
-              : "bg-background/85 backdrop-blur-md border-b border-white/10"
-            : "bg-transparent"
+          scrolled ? headerBgScrolled : "bg-transparent"
         )}
       >
         <nav
