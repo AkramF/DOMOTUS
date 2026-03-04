@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import HeroSplit from "@/components/sections/HeroSplit";
 import { ExpertisesShowcase } from "@/components/sections/ExpertisesShowcase";
-import TestimonialCarousel from "@/components/TestimonialCarousel";
+import StackedTestimonialCards from "@/components/StackedTestimonialCards";
 import StackingCardsSection from "@/components/StackingCardsSection";
 import ArchitecturePortfolio from "@/components/ArchitecturePortfolio";
 import { ArrowRight } from "lucide-react";
@@ -611,7 +611,7 @@ export default function HomePage() {
           </div>
 
           {/* Carousel component */}
-          <TestimonialCarousel testimonials={testimonials} />
+          <StackedTestimonialCards testimonials={testimonials} />
         </div>
       </section>
 
