@@ -63,101 +63,65 @@ const directContacts = [
 export default function ContactPage() {
   return (
     <>
-      {/* ── HERO ── */}
-      <section className="pt-36 pb-16 bg-background">
+      {/* ── CONTACT SECTION ── */}
+      <section className="min-h-screen pt-32 pb-20 bg-white" aria-labelledby="contact-heading">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
-          <div className="flex items-center gap-4 mb-6">
-            <span className="block w-8 h-px bg-foreground/30" aria-hidden="true" />
-            <p className="text-[11px] uppercase tracking-[0.35em] text-primary font-semibold">Contactez-nous</p>
-          </div>
-          <div className="grid lg:grid-cols-2 gap-12 items-end">
-            <div>
-          <h1
-            className="font-black uppercase leading-none text-foreground text-balance"
-            style={{ fontSize: "clamp(2.5rem, 6vw, 5rem)", letterSpacing: "-0.03em" }}
-          >
-            Parlons de<br />
-            <span className="italic text-foreground/50">votre projet.</span>
-          </h1>
-          <p className="mt-6 text-[15px] text-foreground/55 leading-relaxed max-w-md">
-            Remplissez le formulaire ou contactez-nous directement. Un expert Domotus revient vers vous
-            sous 24h pour un audit gratuit et sans engagement.
-          </p>
-          <p className="mt-4 text-[13px] text-foreground/50 leading-relaxed max-w-md">
-            Depuis 18 ans, Domotus accompagne propriétaires, architectes et promoteurs immobiliers au Maroc. Expertise certifiée KNX, Crestron, Lutron — solutions domotiques qui maximisent confort, efficacité énergétique et valorisation immobilière.
-          </p>
-        </div>
-            {/* Guarantees — trust signals above the form */}
-            <ul className="flex flex-col gap-3">
-              {guarantees.map((g) => (
-                <li key={g} className="flex items-center gap-3 text-[13px] text-foreground/60">
-                  <CheckCircle2 size={14} className="text-primary shrink-0" aria-hidden="true" />
-                  {g}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </section>
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
+            
+            {/* LEFT: Info + CTA */}
+            <div className="flex flex-col justify-start">
+              {/* Label */}
+              <div className="flex items-center gap-3 mb-8">
+                <div className="w-3 h-3 bg-black" aria-hidden="true" />
+                <p className="text-xs uppercase tracking-[0.3em] font-bold text-black">Contact</p>
+              </div>
 
-      <div className="h-px bg-white/8" />
+              {/* Title */}
+              <h1
+                id="contact-heading"
+                className="font-black text-black text-balance"
+                style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", letterSpacing: "-0.03em", lineHeight: 1.1 }}
+              >
+                Connect with us
+              </h1>
 
-      {/* ── FORM + CONTACTS ── */}
-      <section className="py-20 bg-background" aria-label="Formulaire de contact et coordonnées">
-        <div className="mx-auto max-w-7xl px-6 lg:px-10 grid lg:grid-cols-[1fr_400px] gap-16 items-start">
+              {/* Subtitle */}
+              <p className="mt-4 text-base text-gray-600">Share your vision with us.</p>
 
-          {/* Form — main conversion island */}
-          <div>
-            <p className="text-[11px] uppercase tracking-[0.25em] text-foreground/40 mb-8">
-              01 — Votre demande
-            </p>
-            <ContactForm />
-          </div>
+              {/* Contact Cards */}
+              <div className="mt-16 space-y-8">
+                {directContacts.map((item) => {
+                  const Icon = item.icon;
+                  return (
+                    <a
+                      key={item.label}
+                      href={item.href}
+                      className="group flex items-start gap-4"
+                      target={item.href.startsWith("http") ? "_blank" : undefined}
+                      rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                    >
+                      {/* Icon Circle */}
+                      <div className="w-14 h-14 rounded-full bg-black flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                        <Icon size={20} className="text-white" aria-hidden="true" />
+                      </div>
 
-          {/* Direct contacts — sidebar */}
-          <aside aria-label="Contacts directs et adresses">
-            <p className="text-[11px] uppercase tracking-[0.25em] text-foreground/40 mb-8">
-              02 — Nous joindre directement
-            </p>
-            <div className="flex flex-col gap-px bg-white/8">
-              {directContacts.map((item) => {
-                const Icon = item.icon;
-                return (
-                  <a
-                    key={item.label}
-                    href={item.href}
-                    className="group bg-background hover:bg-card transition-colors duration-300 p-6 flex items-start gap-4"
-                    target={item.href.startsWith("http") ? "_blank" : undefined}
-                    rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                  >
-                    <div className="w-9 h-9 border border-white/15 group-hover:border-primary/40 flex items-center justify-center text-primary shrink-0 transition-colors duration-300">
-                      <Icon size={15} aria-hidden="true" />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <p className="text-[10px] uppercase tracking-[0.2em] text-foreground/40 mb-0.5">{item.label}</p>
-                      <p className="text-[14px] font-semibold text-foreground group-hover:text-primary transition-colors duration-300 truncate">
-                        {item.value}
-                      </p>
-                      <p className="text-[11px] text-foreground/35 mt-0.5">{item.note}</p>
-                    </div>
-                    <ArrowRight size={13} className="text-foreground/20 group-hover:text-primary transition-colors duration-300 shrink-0 mt-1" aria-hidden="true" />
-                  </a>
-                );
-              })}
-            </div>
-
-            {/* Certifications */}
-            <div className="mt-8 p-6 border border-white/8">
-              <p className="text-[10px] uppercase tracking-[0.25em] text-foreground/35 mb-4">Certifications partenaires</p>
-              <div className="flex flex-wrap gap-2">
-                {["KNX Certified", "Ubiquiti Elite", "Lutron Auth.", "Aqara Partner", "Somfy Pro"].map((c) => (
-                  <span key={c} className="text-[10px] uppercase tracking-[0.12em] text-primary/70 border border-primary/20 px-2.5 py-1">
-                    {c}
-                  </span>
-                ))}
+                      {/* Content */}
+                      <div className="flex-1">
+                        <p className="font-bold text-black text-lg group-hover:text-gray-700 transition-colors">{item.label}</p>
+                        <p className="text-sm text-gray-600 mt-1">{item.value}</p>
+                        {item.note && <p className="text-xs text-gray-500 mt-1">{item.note}</p>}
+                      </div>
+                    </a>
+                  );
+                })}
               </div>
             </div>
-          </aside>
+
+            {/* RIGHT: Form */}
+            <div className="rounded-3xl bg-gray-50 p-10 lg:p-12">
+              <ContactForm />
+            </div>
+          </div>
         </div>
       </section>
     </>

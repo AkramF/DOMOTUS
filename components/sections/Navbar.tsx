@@ -66,10 +66,10 @@ export default function Navbar() {
                 <Link
                   href={link.href}
                   className={cn(
-                    "focus-ring font-medium transition-colors duration-300 whitespace-nowrap pb-0.5",
+                    "focus-ring font-medium transition-colors duration-300 whitespace-nowrap pb-0.5 text-black",
                     pathname === link.href
-                      ? "text-foreground border-b border-foreground"
-                      : "text-foreground/45 hover:text-foreground"
+                      ? "text-black border-b border-black"
+                      : "text-black/50 hover:text-black"
                   )}
                   style={{ fontFamily: "Inter, sans-serif", fontWeight: 500, fontSize: "16px", lineHeight: "24px" }}
                 >
@@ -84,7 +84,7 @@ export default function Navbar() {
             {/* CONTACT */}
             <Link
               href="/contact"
-              className="focus-ring inline-flex items-center px-6 py-2.5 rounded-full bg-white text-black transition-all duration-300 hover:shadow-lg hover:scale-105"
+              className="focus-ring inline-flex items-center px-6 py-2.5 rounded-full bg-black text-white transition-all duration-300 hover:shadow-lg hover:scale-105"
               style={{ fontFamily: "Inter, sans-serif", fontWeight: 400, fontSize: "16px", lineHeight: "24px" }}
             >
               Contact
