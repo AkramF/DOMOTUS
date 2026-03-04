@@ -61,17 +61,19 @@ export default function StackingCardsSection({ cards }: { cards: StackingCard[] 
           onMouseLeave={() => setHoveredIndex(null)}
         >
           <div className="relative w-full h-full bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
-            {/* Image container */}
-            <div className="relative w-full h-1/2 overflow-hidden">
-              <Image
-                src={card.image}
-                alt={card.imageAlt}
-                fill
-                sizes="(max-width: 640px) 100vw, 450px"
-                className="object-cover"
-                quality={85}
-                loading="lazy"
-              />
+            {/* Image container with white border */}
+            <div className="relative w-full h-1/2 overflow-hidden p-4">
+              <div className="relative w-full h-full overflow-hidden rounded-2xl border-8 border-white">
+                <Image
+                  src={card.image}
+                  alt={card.imageAlt}
+                  fill
+                  sizes="(max-width: 640px) 100vw, 450px"
+                  className="object-cover"
+                  quality={85}
+                  loading="lazy"
+                />
+              </div>
             </div>
 
             {/* Content container */}
