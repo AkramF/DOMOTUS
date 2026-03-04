@@ -78,7 +78,7 @@ export default function TestimonialCarousel({ testimonials }: { testimonials: Te
               </div>
 
               {/* Right Image Section — Portrait Format */}
-              <div className="relative w-full lg:w-2/5 h-64 lg:h-auto lg:min-h-96 flex-shrink-0 mt-6 lg:mt-0 lg:ml-6 bg-gradient-to-br from-gray-300 to-gray-400 rounded-3xl">
+              <div className="relative w-full lg:w-2/5 h-64 lg:h-auto lg:min-h-96 flex-shrink-0 mt-6 lg:mt-0 lg:ml-6 rounded-3xl overflow-hidden">
                 <Image
                   src={t.image}
                   alt={t.imageAlt}
@@ -86,6 +86,8 @@ export default function TestimonialCarousel({ testimonials }: { testimonials: Te
                   sizes="(max-width: 1024px) 100vw, 40vw"
                   className="object-cover rounded-3xl"
                   loading="lazy"
+                  placeholder="blur"
+                  blurDataURL="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 600'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23d1d5db;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%239ca3af;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='600' fill='url(%23grad)' /%3E%3C/svg%3E"
                 />
               </div>
             </div>

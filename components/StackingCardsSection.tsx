@@ -62,7 +62,7 @@ export default function StackingCardsSection({ cards }: { cards: StackingCard[] 
         >
           <div className="relative w-full h-full bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
             {/* Image container */}
-            <div className="relative w-full h-1/2 overflow-hidden bg-gradient-to-br from-gray-200 to-gray-300">
+            <div className="relative w-full h-1/2 overflow-hidden">
               <Image
                 src={card.image}
                 alt={card.imageAlt}
@@ -71,6 +71,8 @@ export default function StackingCardsSection({ cards }: { cards: StackingCard[] 
                 className="object-cover"
                 quality={85}
                 loading="lazy"
+                placeholder="blur"
+                blurDataURL="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 450 300'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23d1d5db;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%239ca3af;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='450' height='300' fill='url(%23grad)' /%3E%3C/svg%3E"
               />
             </div>
 

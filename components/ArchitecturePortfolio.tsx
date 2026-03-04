@@ -41,7 +41,6 @@ export default function ArchitecturePortfolio({ projects }: ArchitecturePortfoli
             {/* Active State - with image background */}
             {activeProject === idx ? (
               <>
-                <div className="absolute inset-0 bg-gradient-to-br from-gray-300 to-gray-400" />
                 <Image
                   src={project.image}
                   alt={project.imageAlt}
@@ -49,6 +48,8 @@ export default function ArchitecturePortfolio({ projects }: ArchitecturePortfoli
                   className="object-cover"
                   sizes="(max-width: 1024px) 128px, 25vw"
                   loading="lazy"
+                  placeholder="blur"
+                  blurDataURL="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'%3E%3Crect width='128' height='128' fill='%23d1d5db' /%3E%3C/svg%3E"
                 />
                 <div className="absolute inset-0 bg-black/30" />
                 <div className="absolute inset-0 flex flex-col justify-end p-4 text-white">
@@ -118,7 +119,7 @@ export default function ArchitecturePortfolio({ projects }: ArchitecturePortfoli
           initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.4 }}
-          className="relative flex-1 rounded-3xl overflow-hidden min-h-96 lg:min-h-0 bg-gradient-to-br from-gray-300 to-gray-400"
+          className="relative flex-1 rounded-3xl overflow-hidden min-h-96 lg:min-h-0"
         >
           <Image
             src={current.image}
@@ -127,6 +128,8 @@ export default function ArchitecturePortfolio({ projects }: ArchitecturePortfoli
             className="object-cover"
             sizes="(max-width: 1024px) 100vw, 75vw"
             priority
+            placeholder="blur"
+            blurDataURL="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 600'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23d1d5db;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%239ca3af;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='1200' height='600' fill='url(%23grad)' /%3E%3C/svg%3E"
           />
         </motion.div>
       </div>
