@@ -110,7 +110,7 @@ export default function Hero() {
               {/* White border frame */}
               <div className="p-4 lg:p-6 bg-white rounded-2xl h-[500px] lg:h-[600px] shadow-xl">
                 {/* Image inside white frame */}
-                <div className="relative w-full h-full overflow-hidden rounded-xl group">
+                <div className="w-full h-full overflow-hidden rounded-xl group" style={{ position: 'relative' }}>
                   <Image
                     src="/images/hero-bg.jpg"
                     alt="Villa intelligente équipée par Domotus au Maroc"
