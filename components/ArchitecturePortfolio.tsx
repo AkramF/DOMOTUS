@@ -41,12 +41,14 @@ export default function ArchitecturePortfolio({ projects }: ArchitecturePortfoli
             {/* Active State - with image background */}
             {activeProject === idx ? (
               <>
+                <div className="absolute inset-0 bg-gradient-to-br from-gray-300 to-gray-400" />
                 <Image
                   src={project.image}
                   alt={project.imageAlt}
                   fill
                   className="object-cover"
                   sizes="(max-width: 1024px) 128px, 25vw"
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-black/30" />
                 <div className="absolute inset-0 flex flex-col justify-end p-4 text-white">
@@ -116,7 +118,7 @@ export default function ArchitecturePortfolio({ projects }: ArchitecturePortfoli
           initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.4 }}
-          className="relative flex-1 rounded-3xl overflow-hidden min-h-96 lg:min-h-0"
+          className="relative flex-1 rounded-3xl overflow-hidden min-h-96 lg:min-h-0 bg-gradient-to-br from-gray-300 to-gray-400"
         >
           <Image
             src={current.image}

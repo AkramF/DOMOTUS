@@ -62,7 +62,7 @@ export default function StackingCardsSection({ cards }: { cards: StackingCard[] 
         >
           <div className="relative w-full h-full bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
             {/* Image container */}
-            <div className="relative w-full h-1/2 overflow-hidden">
+            <div className="relative w-full h-1/2 overflow-hidden bg-gradient-to-br from-gray-200 to-gray-300">
               <Image
                 src={card.image}
                 alt={card.imageAlt}
@@ -70,6 +70,7 @@ export default function StackingCardsSection({ cards }: { cards: StackingCard[] 
                 sizes="(max-width: 640px) 100vw, 450px"
                 className="object-cover"
                 quality={85}
+                loading="lazy"
               />
             </div>
 

@@ -78,13 +78,14 @@ export default function TestimonialCarousel({ testimonials }: { testimonials: Te
               </div>
 
               {/* Right Image Section — Portrait Format */}
-              <div className="relative w-full lg:w-2/5 h-64 lg:h-auto lg:min-h-96 flex-shrink-0 mt-6 lg:mt-0 lg:ml-6">
+              <div className="relative w-full lg:w-2/5 h-64 lg:h-auto lg:min-h-96 flex-shrink-0 mt-6 lg:mt-0 lg:ml-6 bg-gradient-to-br from-gray-300 to-gray-400 rounded-3xl">
                 <Image
                   src={t.image}
                   alt={t.imageAlt}
                   fill
                   sizes="(max-width: 1024px) 100vw, 40vw"
                   className="object-cover rounded-3xl"
+                  loading="lazy"
                 />
               </div>
             </div>
