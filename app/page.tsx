@@ -642,14 +642,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── CTA FINAL — Schedule consultation ── */}
+      {/* ── CTA FINAL — Consultation Gratuite ── */}
       <section className="relative py-12 lg:py-16 overflow-hidden" style={{ backgroundColor: "#efd555" }} aria-labelledby="cta-heading">
         <div className="relative z-10 mx-auto max-w-7xl px-4 lg:px-12 flex flex-col">
           {/* Badge — far left aligned with absolute positioning */}
           <div className="absolute top-6 left-4 lg:left-6">
             <span className="text-[10px] uppercase tracking-[0.4em] text-black font-black inline-flex items-center gap-2">
               <span className="w-2 h-2 bg-black" />
-              GET STARTED
+              DÉMARRER MAINTENANT
             </span>
           </div>
 
@@ -666,13 +666,13 @@ export default function HomePage() {
                 className="text-black text-balance mb-4 leading-tight"
                 style={{ fontFamily: "Inter, sans-serif", fontWeight: 500, fontSize: "72px", lineHeight: "79px" }}
               >
-                Schedule a free<br />
-                consultation
+                Planifiez votre<br />
+                étude personnalisée
               </h2>
 
               {/* Description */}
               <p className="text-black mb-6" style={{ fontFamily: "Inter, sans-serif", fontWeight: 400, fontSize: "16px", lineHeight: "24px", maxWidth: "560px" }}>
-                We craft inspiring spaces that blend cutting-edge design with enduring functionality, turning your vision into reality.
+                Découvrez comment la domotique KNX transforme votre maison en espace intelligent. Nos experts analysent vos besoins et créent une solution sur mesure qui allie performance, design et durabilité.
               </p>
 
               {/* CTA Button */}
@@ -682,7 +682,7 @@ export default function HomePage() {
                   className="focus-ring inline-flex items-center justify-between px-8 py-4 rounded-full transition-all duration-300 hover:shadow-xl group"
                   style={{ backgroundColor: "#000000" }}
                 >
-                  <span className="text-white font-semibold" style={{ fontSize: "16px" }}>Get started</span>
+                  <span className="text-white font-semibold" style={{ fontSize: "16px" }}>Consulter nos experts</span>
                   <div className="ml-6 w-10 h-10 rounded-full flex items-center justify-center transition-transform group-hover:scale-110 flex-shrink-0" style={{ backgroundColor: "#efd555" }}>
                     <ArrowRight size={16} className="text-black" aria-hidden="true" />
                   </div>
