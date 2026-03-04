@@ -16,8 +16,8 @@ export default function HeroMaisonConnectee() {
         {/* Image Layer */}
         <div className="absolute inset-0">
           <Image
-            src="/images/villa-prestige.jpg"
-            alt="Villa de prestige équipée en domotique KNX par Domotus Maroc"
+            src="/images/maison-connectee-hero.webp"
+            alt="Villa intelligente avec éclairage adaptatif et domotique multi-protocoles par Domotus Maroc"
             fill
             priority
             loading="eager"
@@ -34,7 +34,7 @@ export default function HeroMaisonConnectee() {
             <h1
               className="font-black text-white leading-none text-balance"
               style={{
-                fontSize: 'clamp(3rem, 20vw, 25vw)',
+                fontSize: 'clamp(2.5rem, 12vw, 18vw)',
                 letterSpacing: '-0.04em',
                 fontFamily: 'system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif',
                 fontWeight: 900,

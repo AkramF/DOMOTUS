@@ -622,11 +622,10 @@ export default function HomePage() {
             <SectionLabel color="#000000" className="justify-center mb-6">POUR ALLER PLUS LOIN</SectionLabel>
             <h2
               id="faq-heading"
-              className="font-black uppercase leading-none text-foreground text-balance mb-4"
+              className="font-black uppercase leading-none text-black text-balance mb-4"
               style={{ fontSize: "clamp(1.8rem, 4vw, 3.2rem)", letterSpacing: "-0.03em" }}
             >
-              Questions
-              <br />
+              Questions<br />
               <span className="italic text-black">fréquentes.</span>
             </h2>
           </div>
