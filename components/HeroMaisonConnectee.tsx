@@ -42,8 +42,6 @@ export default function HeroMaisonConnectee() {
             >
               Smarthome
             </h1>
-            {/* Copyright Symbol */}
-            <div className="absolute -bottom-6 -right-12 text-white/40 text-4xl">©</div>
           </div>
         </div>
       </div>
