@@ -627,7 +627,7 @@ export default function HomePage() {
             >
               Questions
               <br />
-              <span className="italic text-foreground/45">fréquentes.</span>
+              <span className="italic text-black">fréquentes.</span>
             </h2>
           </div>
           <script
