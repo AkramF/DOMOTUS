@@ -455,11 +455,11 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── L'INTELLIGENCE DE VOS ESPACES — Architecture Portfolio ── */}
+      {/* ── LA DIFFÉRENCE DOMOTUS — Architecture Portfolio ── */}
       <section className="py-20 lg:py-28" style={{ backgroundColor: "#ffffff" }} aria-labelledby="services-heading">
         <div className="mx-auto max-w-7xl px-4 lg:px-6">
           <div className="mb-8">
-            <SectionLabel color="#000000">L'INTELLIGENCE DE VOS ESPACES</SectionLabel>
+            <SectionLabel color="#000000">LA DIFFÉRENCE DOMOTUS</SectionLabel>
             <h2
               id="services-heading"
               className="font-black leading-tight text-black text-balance"

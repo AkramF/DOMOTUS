@@ -102,7 +102,7 @@ export default function ArchitecturePortfolio({ projects }: ArchitecturePortfoli
             href="#"
             className="inline-flex items-center justify-between w-fit px-6 py-3 bg-black rounded-full hover:bg-black/90 transition-colors duration-300"
           >
-            <span className="text-white font-semibold text-sm">View project</span>
+            <span className="text-white font-semibold text-sm">Voir le projet</span>
             <div className="ml-4 w-8 h-8 rounded-full bg-[#efd555] flex items-center justify-center flex-shrink-0">
               <ArrowRight size={16} className="text-black" />
             </div>
