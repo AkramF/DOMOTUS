@@ -36,20 +36,19 @@ export function ExpertisesShowcase({ items }: ExpertisesShowcaseProps) {
               className={`focus-ring relative rounded-2xl overflow-hidden flex-shrink-0 w-40 h-24 lg:w-full lg:h-40 flex items-center justify-center p-4 group transition-all duration-300 ${
                 isActive ? 'ring-2 ring-black' : 'hover:shadow-lg'
               }`}
-              style={{ backgroundColor: "#000000" }}
+              style={{ backgroundColor: "#000000", position: 'relative' }}
               aria-pressed={isActive}
               aria-label={`Sélectionner ${item.title}`}
             >
-              {/* Background image with overlay — visible when active */}
-              <div className="absolute inset-0 -z-10">
-                <Image
-                  src={item.image}
-                  alt={item.imageAlt}
-                  fill
-                  sizes="(max-width: 1024px) 160px, 100%"
-                  className={`object-cover transition-opacity duration-300 ${
-                    isActive ? 'opacity-70' : 'opacity-0'
+              {/* Background gradient with overlay — visible when active */}
+              <div className="absolute inset-0 -z-10" style={{ position: 'relative' }}>
+                <div
+                  className={`absolute inset-0 transition-opacity duration-300 ${
+                    isActive ? 'opacity-100' : 'opacity-0'
                   }`}
+                  style={{
+                    background: 'linear-gradient(135deg, #404040 0%, #1f2937 100%)',
+                  }}
                 />
                 <div className={`absolute inset-0 transition-colors duration-300 ${
                   isActive ? 'bg-black/30' : 'bg-black/70 group-hover:bg-black/60'
@@ -109,8 +108,11 @@ export function ExpertisesShowcase({ items }: ExpertisesShowcaseProps) {
           </div>
         </Link>
 
-        {/* Large project image — stretched to fill remaining space */}
-        <div className="relative overflow-hidden rounded-3xl flex-1 min-h-0">
+        {/* Large project image */}
+        <div 
+          className="relative overflow-hidden rounded-3xl flex-1 min-h-0" 
+          style={{ position: 'relative' }}
+        >
           <Image
             src={selected.image}
             alt={selected.imageAlt}

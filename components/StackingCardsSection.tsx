@@ -70,6 +70,7 @@ export default function StackingCardsSection({ cards }: { cards: StackingCard[] 
                 sizes="(max-width: 640px) 100vw, 450px"
                 className="object-cover"
                 quality={85}
+                loading="lazy"
               />
             </div>
 

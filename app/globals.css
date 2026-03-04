@@ -27,8 +27,8 @@
   --popover:             oklch(0.11 0 0);
   --popover-foreground:  oklch(0.91 0 0);
 
-  /* Brand: cyan #66FCF1 */
-  --primary:             oklch(0.91 0.12 188);       /* #66FCF1 – cyan */
+  /* Brand: #efd555 yellow */
+  --primary:             oklch(0.91 0.12 58);        /* #efd555 – yellow */
   --primary-foreground:  oklch(0.065 0 0);
 
   /* Neutrals */
@@ -37,8 +37,8 @@
   --muted:               oklch(0.16 0 0);
   --muted-foreground:    oklch(0.55 0 0);
 
-  /* Accent = same cyan */
-  --accent:              oklch(0.91 0.12 188);
+  /* Accent = same yellow */
+  --accent:              oklch(0.91 0.12 58);
   --accent-foreground:   oklch(0.065 0 0);
 
   /* System */
@@ -46,11 +46,11 @@
   --destructive-foreground: oklch(0.91 0 0);
   --border:              oklch(1 0 0 / 0.08);
   --input:               oklch(1 0 0 / 0.06);
-  --ring:                oklch(0.91 0.12 188);       /* cyan focus ring */
+  --ring:                oklch(0.91 0.12 58);        /* yellow focus ring */
 
   /* Chart */
-  --chart-1: oklch(0.91 0.12 188);
-  --chart-2: oklch(0.7 0.10 188);
+  --chart-1: oklch(0.91 0.12 58);
+  --chart-2: oklch(0.7 0.10 58);
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
@@ -59,8 +59,8 @@
   --radius: 0.25rem;
 
   /* Custom brand tokens */
-  --gold:         oklch(0.91 0.12 188);   /* renamed but token kept as --gold for compatibility */
-  --gold-dim:     oklch(0.75 0.09 188);
+  --gold:         oklch(0.91 0.12 58);   /* #efd555 yellow */
+  --gold-dim:     oklch(0.75 0.09 58);
   --glass-bg:     oklch(1 0 0 / 0.04);
   --glass-border: oklch(1 0 0 / 0.10);
 }
@@ -73,27 +73,27 @@
   --card-foreground:     oklch(0.91 0 0);
   --popover:             oklch(0.11 0 0);
   --popover-foreground:  oklch(0.91 0 0);
-  --primary:             oklch(0.91 0.12 188);
+  --primary:             oklch(0.91 0.12 58);
   --primary-foreground:  oklch(0.065 0 0);
   --secondary:           oklch(0.16 0 0);
   --secondary-foreground:oklch(0.91 0 0);
   --muted:               oklch(0.16 0 0);
   --muted-foreground:    oklch(0.55 0 0);
-  --accent:              oklch(0.91 0.12 188);
+  --accent:              oklch(0.91 0.12 58);
   --accent-foreground:   oklch(0.065 0 0);
   --destructive:         oklch(0.396 0.141 25.723);
   --destructive-foreground: oklch(0.91 0 0);
   --border:              oklch(1 0 0 / 0.08);
   --input:               oklch(1 0 0 / 0.06);
-  --ring:                oklch(0.91 0.12 188);
+  --ring:                oklch(0.91 0.12 58);
   --sidebar:                      oklch(0.11 0 0);
   --sidebar-foreground:           oklch(0.91 0 0);
-  --sidebar-primary:              oklch(0.91 0.12 188);
+  --sidebar-primary:              oklch(0.91 0.12 58);
   --sidebar-primary-foreground:   oklch(0.065 0 0);
   --sidebar-accent:               oklch(0.16 0 0);
   --sidebar-accent-foreground:    oklch(0.91 0 0);
   --sidebar-border:               oklch(1 0 0 / 0.08);
-  --sidebar-ring:                 oklch(0.91 0.12 188);
+  --sidebar-ring:                 oklch(0.91 0.12 58);
 }
 
 @theme inline {
@@ -145,11 +145,65 @@
    ========================================================= */
 :root, .dark {
   color-scheme: dark;
-  --primary:             oklch(0.91 0.12 188) !important;   /* #66FCF1 cyan */
-  --primary-foreground:  oklch(0.05 0 0) !important;        /* near-black for legibility on cyan */
-  --ring:                oklch(0.91 0.12 188) !important;
-  --accent:              oklch(0.91 0.12 188) !important;
+  --primary:             oklch(0.91 0.12 58) !important;    /* #efd555 yellow */
+  --primary-foreground:  oklch(0.05 0 0) !important;        /* near-black for legibility on yellow */
+  --ring:                oklch(0.91 0.12 58) !important;
+  --accent:              oklch(0.91 0.12 58) !important;
   --accent-foreground:   oklch(0.05 0 0) !important;
+}
+
+/* Force ALL primary and accent text colors to #efd555 */
+@layer utilities {
+  .text-primary {
+    color: #efd555 !important;
+  }
+
+  .text-accent {
+    color: #efd555 !important;
+  }
+
+  .bg-primary {
+    background-color: #efd555 !important;
+  }
+
+  .bg-accent {
+    background-color: #efd555 !important;
+  }
+
+  .border-primary {
+    border-color: #efd555 !important;
+  }
+
+  .border-accent {
+    border-color: #efd555 !important;
+  }
+
+  .ring-primary {
+    --tw-ring-color: #efd555 !important;
+  }
+
+  .ring-accent {
+    --tw-ring-color: #efd555 !important;
+  }
+
+  /* Override yellow/amber/orange to yellow */
+  .text-yellow-300 { color: #efd555 !important; }
+  .text-yellow-400 { color: #efd555 !important; }
+  .text-yellow-500 { color: #efd555 !important; }
+  .text-amber-300 { color: #efd555 !important; }
+  .text-amber-400 { color: #efd555 !important; }
+  .text-amber-500 { color: #efd555 !important; }
+  .text-orange-400 { color: #efd555 !important; }
+  .text-orange-500 { color: #efd555 !important; }
+
+  .bg-yellow-300 { background-color: #efd555 !important; }
+  .bg-yellow-400 { background-color: #efd555 !important; }
+  .bg-amber-300 { background-color: #efd555 !important; }
+  .bg-amber-400 { background-color: #efd555 !important; }
+  .bg-orange-400 { background-color: #efd555 !important; }
+
+  .border-yellow-400 { border-color: #efd555 !important; }
+  .border-amber-400 { border-color: #efd555 !important; }
 }
 
 /* =========================================================
@@ -234,12 +288,12 @@
     @apply outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background;
   }
 
-  /* Partner logos: dim grey → subtle cyan on hover (attenuated glow) */
+  /* Partner logos: dim grey → subtle yellow on hover (attenuated glow) */
   .partner-logo:hover {
-    color: oklch(0.91 0.12 188 / 0.75);
+    color: oklch(0.91 0.12 58 / 0.75);
     text-shadow:
-      0 0 10px oklch(0.91 0.12 188 / 0.2),
-      0 0 24px oklch(0.91 0.12 188 / 0.08);
+      0 0 10px oklch(0.91 0.12 58 / 0.2),
+      0 0 24px oklch(0.91 0.12 58 / 0.08);
   }
 
   /* Infinite horizontal ticker — slowed to 45s */

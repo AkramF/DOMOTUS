@@ -43,7 +43,7 @@ export default function DivisionProjetsPage() {
       {/* ── HERO ── */}
       <section className="py-32 lg:py-40" aria-labelledby="hero-heading">
         <div className="mx-auto max-w-5xl px-6 lg:px-10">
-          <p className="text-[12px] uppercase tracking-[0.3em] text-primary font-medium mb-8">
+          <p className="text-[12px] uppercase tracking-[0.3em] text-[#efd555] font-medium mb-8">
             Solutions domotiques certifiées pour professionnels
           </p>
           <h1
@@ -62,11 +62,17 @@ export default function DivisionProjetsPage() {
             Fort de 150+ projets réalisés au Maroc, notre Division Projets maîtrise chaque étape de l'intégration domotique : études de faisabilité, conceptions d'architecture, pose de câblage, intégration multi-protocoles, tests certifiés et mise en service garantie. Nos solutions offrent efficience énergétique (-22-35% consommation), supervision BMS avancée et conformité totale aux normes CCTP, HQE et LEED.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
-            <Link href="/contact" className="inline-flex items-center gap-3 bg-primary px-8 py-4 text-[11px] font-black uppercase tracking-[0.2em] hover:bg-primary/85 transition-all duration-300" style={{ color: "#0a0a0a" }}>
-              Consulter nos solutions <ArrowRight size={13} aria-hidden="true" />
+            <Link href="/contact" className="focus-ring inline-flex items-center justify-between bg-white px-8 py-4 rounded-full text-[14px] font-semibold text-black transition-all duration-300 hover:shadow-lg will-change-colors group">
+              Consulter nos solutions
+              <div className="ml-4 w-10 h-10 bg-black rounded-full flex items-center justify-center transition-transform group-hover:scale-110">
+                <ArrowRight size={16} className="text-[#efd555]" aria-hidden="true" />
+              </div>
             </Link>
-            <Link href="/contact" className="inline-flex items-center gap-3 border border-white/25 px-8 py-4 text-[11px] uppercase tracking-[0.2em] text-foreground/70 hover:border-primary hover:text-primary transition-all duration-300">
-              Demander un cahier des charges <ArrowRight size={13} aria-hidden="true" />
+            <Link href="/contact" className="focus-ring inline-flex items-center justify-between px-8 py-4 rounded-full text-[14px] font-semibold text-white transition-all duration-300 hover:shadow-lg will-change-colors group" style={{ backgroundColor: "#000000", border: "2px solid #efd555" }}>
+              Demander un cahier des charges
+              <div className="ml-4 w-10 h-10 rounded-full flex items-center justify-center transition-transform group-hover:scale-110" style={{ backgroundColor: "#efd555" }}>
+                <ArrowRight size={16} className="text-black" aria-hidden="true" />
+              </div>
             </Link>
           </div>
         </div>
@@ -91,7 +97,7 @@ export default function DivisionProjetsPage() {
               <Link key={m.title} href={m.href} className="group bg-background p-8 rounded hover:bg-foreground/5 transition-all duration-300">
                 <h3 className="font-black uppercase text-foreground text-[13px] mb-3">{m.title}</h3>
                 <p className="text-foreground/60 text-[14px] leading-relaxed mb-6">{m.desc}</p>
-                <div className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.15em] text-primary group-hover:gap-3 transition-all duration-300">
+                <div className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.15em] text-[#efd555] group-hover:gap-3 transition-all duration-300">
                   En savoir plus <ArrowRight size={12} aria-hidden="true" />
                 </div>
               </Link>
@@ -135,8 +141,11 @@ export default function DivisionProjetsPage() {
             Collaborons<br />
             <span className="italic text-foreground/50">sur votre prochain projet.</span>
           </h2>
-          <Link href="/contact" className="inline-flex items-center gap-3 bg-primary px-10 py-5 text-[11px] font-black uppercase tracking-[0.2em] hover:bg-primary/85 transition-all duration-300" style={{ color: "#0a0a0a" }}>
-            Prendre rendez-vous <ArrowRight size={13} aria-hidden="true" />
+          <Link href="/contact" className="focus-ring inline-flex items-center justify-between bg-white px-10 py-5 rounded-full text-[14px] font-semibold text-black transition-all duration-300 hover:shadow-lg will-change-colors group">
+            Prendre rendez-vous
+            <div className="ml-4 w-10 h-10 bg-black rounded-full flex items-center justify-center transition-transform group-hover:scale-110">
+              <ArrowRight size={16} className="text-[#efd555]" aria-hidden="true" />
+            </div>
           </Link>
         </div>
       </section>

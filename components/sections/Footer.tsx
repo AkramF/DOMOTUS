@@ -69,7 +69,7 @@ function AccordionCol({ title, links }: { title: string; links: { href: string; 
         <ul className="flex flex-col gap-3">
           {links.map((l, i) => (
             <li key={`${l.label}-${i}`}>
-              <Link href={l.href} className={cn("text-sm transition-colors duration-200", l.highlight ? "text-[#66FCF1] hover:text-[#66FCF1]/80 font-semibold" : "text-white/50 hover:text-[#66FCF1]")}>
+              <Link href={l.href} className={cn("text-sm transition-colors duration-200", l.highlight ? "text-[#efd555] hover:text-[#efd555]/80 font-semibold" : "text-white/50 hover:text-[#efd555]")}>
                 {l.label}
               </Link>
             </li>
@@ -117,21 +117,21 @@ export default function Footer() {
               <span>{CITIES.join(" · ")}</span>
               <div className="pt-2 border-t border-white/10 flex flex-col gap-2">
                 <a href="tel:+212663666627" className="flex items-center gap-2 hover:text-white transition-colors">
-                  <Phone size={12} className="shrink-0 text-[#66FCF1]" aria-hidden="true" />
+                  <Phone size={12} className="shrink-0 text-[#efd555]" aria-hidden="true" />
                   +212 663 66 66 27
                 </a>
                 <a href="mailto:contact@domotus.ma" className="flex items-center gap-2 hover:text-white transition-colors">
-                  <Mail size={12} className="shrink-0 text-[#66FCF1]" aria-hidden="true" />
+                  <Mail size={12} className="shrink-0 text-[#efd555]" aria-hidden="true" />
                   contact@domotus.ma
                 </a>
               </div>
             </address>
 
             <div className="flex items-center gap-3">
-              <a href="https://www.linkedin.com/company/domotusmaroc/" target="_blank" rel="noopener noreferrer" className="text-[#66FCF1] hover:text-[#66FCF1]/80 transition-colors" aria-label="LinkedIn Domotus">
+              <a href="https://www.linkedin.com/company/domotusmaroc/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#efd555] transition-colors" aria-label="LinkedIn Domotus">
                 <Linkedin size={16} />
               </a>
-              <a href="https://www.instagram.com/domotus.ma/" target="_blank" rel="noopener noreferrer" className="text-[#66FCF1] hover:text-[#66FCF1]/80 transition-colors" aria-label="Instagram Domotus Maroc">
+              <a href="https://www.instagram.com/domotus.ma/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#efd555] transition-colors" aria-label="Instagram Domotus Maroc">
                 <Instagram size={16} />
               </a>
             </div>
@@ -144,7 +144,7 @@ export default function Footer() {
               <ul className="flex flex-col gap-3">
                 {col.links.map((l, i) => (
                   <li key={`${l.label}-${i}`}>
-                    <Link href={l.href} className={cn("text-[13px] transition-colors duration-200", l.highlight ? "text-[#66FCF1] hover:text-[#66FCF1]/80 font-semibold" : "text-white/50 hover:text-[#66FCF1]")}>
+                    <Link href={l.href} className={cn("text-[13px] transition-colors duration-200", l.highlight ? "text-[#efd555] hover:text-[#efd555]/80 font-semibold" : "text-white/50 hover:text-[#efd555]")}>
                       {l.label}
                     </Link>
                   </li>
@@ -206,7 +206,7 @@ export default function Footer() {
                 <ul className="flex flex-col gap-3">
                   {col.links.map((l, i) => (
                     <li key={`${l.label}-${i}`}>
-                      <Link href={l.href} className={cn("text-sm transition-colors duration-200", l.highlight ? "text-[#66FCF1] hover:text-[#66FCF1]/80 font-semibold" : "text-white/50 hover:text-[#66FCF1]")}>
+                      <Link href={l.href} className={cn("text-sm transition-colors duration-200", l.highlight ? "text-[#efd555] hover:text-[#efd555]/80 font-semibold" : "text-white/50 hover:text-[#efd555]")}>
                         {l.label}
                       </Link>
                     </li>
@@ -219,20 +219,20 @@ export default function Footer() {
 
         <address className="not-italic flex flex-col gap-3 mt-8 text-sm text-white/50">
           <a href="tel:+212663666627" className="flex items-center gap-2 hover:text-white transition-colors">
-            <Phone size={13} className="text-[#66FCF1]" />
+            <Phone size={13} className="text-[#efd555]" />
             +212 663 66 66 27
           </a>
           <a href="mailto:contact@domotus.ma" className="flex items-center gap-2 hover:text-white transition-colors">
-            <Mail size={13} className="text-[#66FCF1]" />
+            <Mail size={13} className="text-[#efd555]" />
             contact@domotus.ma
           </a>
         </address>
 
         <div className="flex items-center gap-4 mt-6">
-          <a href="https://www.linkedin.com/company/domotusmaroc/" target="_blank" rel="noopener noreferrer" className="text-[#66FCF1] hover:text-[#66FCF1]/80 transition-colors" aria-label="LinkedIn">
+          <a href="https://www.linkedin.com/company/domotusmaroc/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#efd555] transition-colors" aria-label="LinkedIn">
             <Linkedin size={16} />
           </a>
-          <a href="https://www.instagram.com/domotus.ma/" target="_blank" rel="noopener noreferrer" className="text-[#66FCF1] hover:text-[#66FCF1]/80 transition-colors" aria-label="Instagram">
+          <a href="https://www.instagram.com/domotus.ma/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#efd555] transition-colors" aria-label="Instagram">
             <Instagram size={16} />
           </a>
         </div>

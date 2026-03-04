@@ -6,6 +6,7 @@ import HeroSplit from "@/components/sections/HeroSplit";
 import { ExpertisesShowcase } from "@/components/sections/ExpertisesShowcase";
 import TestimonialCarousel from "@/components/TestimonialCarousel";
 import StackingCardsSection from "@/components/StackingCardsSection";
+import ArchitecturePortfolio from "@/components/ArchitecturePortfolio";
 import { ArrowRight } from "lucide-react";
 
 // Lazy load non-critical sections to reduce initial JS bundle
@@ -64,6 +65,63 @@ const stackingCards = [
     description: "Beautiful landscapes perfect for walks and outdoor spaces with automated irrigation and ambient lighting control systems.",
     image: "/images/immeuble-tertiaire.jpg",
     imageAlt: "Bâtiment tertiaire connecté par Domotus au Maroc",
+  },
+];
+
+const portfolioProjects = [
+  {
+    id: "eclairage-intelligent",
+    title: "Éclairage Intelligent",
+    location: "Solutions d'ambiance adaptative",
+    description: "Créez des ambiances lumineuses dynamiques qui s'adaptent à vos besoins. Économies énergétiques jusqu'à 70%, transition douce entre scènes prédéfinies, et synchronisation automatique avec les rythmes circadiens.",
+    tags: ["KNX", "Lutron", "Philips Hue"],
+    image: "/images/expertise-eclairage.jpg",
+    imageAlt: "Éclairage Intelligent - Ambiance Adaptative",
+  },
+  {
+    id: "securite-acces",
+    title: "Sécurité & Accès",
+    location: "Protection complète et gestion d'accès",
+    description: "Protégez vos espaces avec systèmes intégrés multi-couches. Contrôle d'accès biométrique, alarme intelligente, caméras IP, et rapports en temps réel. Tranquillité d'esprit totale avec surveillance 24/7.",
+    tags: ["Sécurité", "Biométrique", "Surveillance"],
+    image: "/images/showroom.jpg",
+    imageAlt: "Sécurité & Accès - Système Intégré",
+  },
+  {
+    id: "gestion-energie-climat",
+    title: "Gestion Énergie & Climat",
+    location: "Confort thermique et efficacité énergétique",
+    description: "Optimisez votre consommation énergétique tout en maximisant le confort. Contrôle climatique zone par zone, anticipation météo, et réduction jusqu'à 40% des factures d'énergie grâce à l'IA.",
+    tags: ["BMS", "Climatisation", "Efficacité"],
+    image: "/images/expertise-energie.jpg",
+    imageAlt: "Gestion Énergie & Climat - Régulation Intelligente",
+  },
+  {
+    id: "reseaux-connectivite",
+    title: "Réseaux & Connectivité",
+    location: "Infrastructure réseau fiable et performante",
+    description: "Fondation solide pour tous vos systèmes intelligents. WiFi 7, connectivité mesh redondante, et cybersécurité intégrée. Latence ultra-faible garantie pour les applications critiques.",
+    tags: ["WiFi 7", "Matter", "Thread"],
+    image: "/images/villa-prestige.jpg",
+    imageAlt: "Réseaux & Connectivité - Infrastructure Sécurisée",
+  },
+  {
+    id: "audio-divertissement",
+    title: "Audio & Divertissement",
+    location: "Immersion sensorielle multimédia",
+    description: "Transformez vos espaces en théâtres privés. Systèmes audio surround immersifs, distribution vidéo multi-zone, et gaming haute fidélité. Qualité studio professionnel à portée de main.",
+    tags: ["Cinéma", "Son surround", "Streaming"],
+    image: "/images/expertise-av.jpg",
+    imageAlt: "Audio & Divertissement - Expérience Immersive",
+  },
+  {
+    id: "supervision-globale",
+    title: "Supervision Globale (BMS)",
+    location: "Pilotage centralisé complète",
+    description: "Tableau de bord unique pour tous vos systèmes domotiques. Automatisations complexes, scénarios programmés, et analytics prédictive. Gestion intelligente de l'ensemble de votre infrastructure connectée.",
+    tags: ["BMS", "Automatisation", "Analytics"],
+    image: "/images/immeuble-tertiaire.jpg",
+    imageAlt: "Supervision Globale - Pilotage Centralisé BMS",
   },
 ];
 
@@ -397,29 +455,21 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── L'INTELLIGENCE DE VOS ESPACES — Interactive Showcase ── */}
-      <section className="py-24 lg:py-32" style={{ backgroundColor: "#ffffff" }} aria-labelledby="services-heading">
+      {/* ── L'INTELLIGENCE DE VOS ESPACES — Architecture Portfolio ── */}
+      <section className="py-20 lg:py-28" style={{ backgroundColor: "#ffffff" }} aria-labelledby="services-heading">
         <div className="mx-auto max-w-7xl px-4 lg:px-6">
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-12 mb-16">
-            <div className="flex-1">
-              <SectionLabel color="#000000">L'INTELLIGENCE DE VOS ESPACES</SectionLabel>
-              <h2
-                id="services-heading"
-                className="font-black leading-tight text-black text-balance"
-                style={{ fontSize: "clamp(1.8rem, 4vw, 2.8rem)", letterSpacing: "-0.02em" }}
-              >
-                Explorez nos expertises
-              </h2>
-            </div>
-            <Link
-              href="/expertises"
-              className="focus-ring shrink-0 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.15em] text-black/60 hover:text-black transition-colors duration-300"
+          <div className="mb-8">
+            <SectionLabel color="#000000">L'INTELLIGENCE DE VOS ESPACES</SectionLabel>
+            <h2
+              id="services-heading"
+              className="font-black leading-tight text-black text-balance"
+              style={{ fontSize: "clamp(1.8rem, 4vw, 2.8rem)", letterSpacing: "-0.02em" }}
             >
-              Toutes nos expertises <ArrowRight size={12} aria-hidden="true" />
-            </Link>
+              Explorez nos expertises
+            </h2>
           </div>
-
-          <ExpertisesShowcase items={expertises} />
+          
+          <ArchitecturePortfolio projects={portfolioProjects} />
         </div>
       </section>
 
@@ -592,14 +642,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── CTA FINAL — Schedule consultation ── */}
+      {/* ── CTA FINAL — Consultation Gratuite ── */}
       <section className="relative py-12 lg:py-16 overflow-hidden" style={{ backgroundColor: "#efd555" }} aria-labelledby="cta-heading">
         <div className="relative z-10 mx-auto max-w-7xl px-4 lg:px-12 flex flex-col">
           {/* Badge — far left aligned with absolute positioning */}
           <div className="absolute top-6 left-4 lg:left-6">
             <span className="text-[10px] uppercase tracking-[0.4em] text-black font-black inline-flex items-center gap-2">
               <span className="w-2 h-2 bg-black" />
-              GET STARTED
+              DÉMARRER MAINTENANT
             </span>
           </div>
 
@@ -616,13 +666,13 @@ export default function HomePage() {
                 className="text-black text-balance mb-4 leading-tight"
                 style={{ fontFamily: "Inter, sans-serif", fontWeight: 500, fontSize: "72px", lineHeight: "79px" }}
               >
-                Schedule a free<br />
-                consultation
+                Planifiez votre<br />
+                étude personnalisée
               </h2>
 
               {/* Description */}
               <p className="text-black mb-6" style={{ fontFamily: "Inter, sans-serif", fontWeight: 400, fontSize: "16px", lineHeight: "24px", maxWidth: "560px" }}>
-                We craft inspiring spaces that blend cutting-edge design with enduring functionality, turning your vision into reality.
+                Découvrez comment la domotique KNX transforme votre maison en espace intelligent. Nos experts analysent vos besoins et créent une solution sur mesure qui allie performance, design et durabilité.
               </p>
 
               {/* CTA Button */}
@@ -632,7 +682,7 @@ export default function HomePage() {
                   className="focus-ring inline-flex items-center justify-between px-8 py-4 rounded-full transition-all duration-300 hover:shadow-xl group"
                   style={{ backgroundColor: "#000000" }}
                 >
-                  <span className="text-white font-semibold" style={{ fontSize: "16px" }}>Get started</span>
+                  <span className="text-white font-semibold" style={{ fontSize: "16px" }}>Consulter nos experts</span>
                   <div className="ml-6 w-10 h-10 rounded-full flex items-center justify-center transition-transform group-hover:scale-110 flex-shrink-0" style={{ backgroundColor: "#efd555" }}>
                     <ArrowRight size={16} className="text-black" aria-hidden="true" />
                   </div>

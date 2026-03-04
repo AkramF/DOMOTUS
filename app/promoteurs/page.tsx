@@ -145,11 +145,17 @@ export default function PromoteursPage() {
             Accélérez la commercialisation de vos programmes grâce à la labellisation Smart Building. Domotus intègre des solutions certifiées multi-protocoles qui valorisent vos actifs, séduisent une clientèle exigeante et augmentent votre prix de vente moyen jusqu&apos;à 18%.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
-            <Link href="/contact" className="focus-ring inline-flex items-center gap-3 bg-primary px-8 py-4 text-[11px] font-black uppercase tracking-[0.2em] transition-all duration-300 hover:bg-primary/85" style={{ color: "#0a0a0a" }}>
-              Discutons de votre programme <ArrowRight size={13} aria-hidden="true" />
+            <Link href="/contact" className="focus-ring inline-flex items-center justify-between bg-white px-8 py-4 rounded-full text-[14px] font-semibold text-black transition-all duration-300 hover:shadow-lg will-change-colors group">
+              Discutons de votre programme
+              <div className="ml-4 w-10 h-10 bg-black rounded-full flex items-center justify-center transition-transform group-hover:scale-110">
+                <ArrowRight size={16} className="text-[#efd555]" aria-hidden="true" />
+              </div>
             </Link>
-            <Link href="/division-projets" className="focus-ring inline-flex items-center gap-3 border border-white/25 px-8 py-4 text-[11px] uppercase tracking-[0.2em] text-foreground/70 hover:border-primary hover:text-primary transition-all duration-300">
-              Division Projets <ArrowRight size={13} aria-hidden="true" />
+            <Link href="/division-projets" className="focus-ring inline-flex items-center justify-between px-8 py-4 rounded-full text-[14px] font-semibold text-white transition-all duration-300 hover:shadow-lg will-change-colors group" style={{ backgroundColor: "#000000", border: "2px solid #efd555" }}>
+              Division Projets
+              <div className="ml-4 w-10 h-10 rounded-full flex items-center justify-center transition-transform group-hover:scale-110" style={{ backgroundColor: "#efd555" }}>
+                <ArrowRight size={16} className="text-black" aria-hidden="true" />
+              </div>
             </Link>
           </div>
         </div>
@@ -202,8 +208,11 @@ export default function PromoteursPage() {
                 </li>
               ))}
             </ul>
-            <Link href="/contact" className="focus-ring inline-flex items-center gap-3 bg-primary px-8 py-4 text-[11px] font-black uppercase tracking-[0.2em] hover:bg-primary/85 transition-all duration-300" style={{ color: "#0a0a0a" }}>
-              Planifier un échange <ArrowRight size={13} aria-hidden="true" />
+            <Link href="/contact" className="focus-ring inline-flex items-center justify-between bg-white px-8 py-4 rounded-full text-[14px] font-semibold text-black transition-all duration-300 hover:shadow-lg will-change-colors group">
+              Planifier un échange
+              <div className="ml-4 w-10 h-10 bg-black rounded-full flex items-center justify-center transition-transform group-hover:scale-110">
+                <ArrowRight size={16} className="text-[#efd555]" aria-hidden="true" />
+              </div>
             </Link>
           </div>
           <div className="relative aspect-[3/4] overflow-hidden">
@@ -373,11 +382,17 @@ export default function PromoteursPage() {
             Plus tôt nous intervenons dans votre programme, plus le coût est optimisé et la valeur créée est importante. Prenez rendez-vous cette semaine.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contact" className="focus-ring inline-flex items-center gap-3 bg-primary px-10 py-4 text-[11px] font-black uppercase tracking-[0.2em] hover:bg-primary/85 transition-all duration-300" style={{ color: "#0a0a0a" }}>
-              Prendre rendez-vous <ArrowRight size={13} aria-hidden="true" />
+            <Link href="/contact" className="focus-ring inline-flex items-center justify-between bg-white px-10 py-4 rounded-full text-[14px] font-semibold text-black transition-all duration-300 hover:shadow-lg will-change-colors group">
+              Prendre rendez-vous
+              <div className="ml-4 w-10 h-10 bg-black rounded-full flex items-center justify-center transition-transform group-hover:scale-110">
+                <ArrowRight size={16} className="text-[#efd555]" aria-hidden="true" />
+              </div>
             </Link>
-            <Link href="/expertises" className="focus-ring inline-flex items-center gap-3 border border-white/20 px-8 py-4 text-[11px] uppercase tracking-[0.2em] text-foreground/60 hover:border-primary hover:text-primary transition-all duration-300">
-              Nos expertises <ArrowRight size={13} aria-hidden="true" />
+            <Link href="/expertises" className="focus-ring inline-flex items-center justify-between px-8 py-4 rounded-full text-[14px] font-semibold text-white transition-all duration-300 hover:shadow-lg will-change-colors group" style={{ backgroundColor: "#000000", border: "2px solid #efd555" }}>
+              Nos expertises
+              <div className="ml-4 w-10 h-10 rounded-full flex items-center justify-center transition-transform group-hover:scale-110" style={{ backgroundColor: "#efd555" }}>
+                <ArrowRight size={16} className="text-black" aria-hidden="true" />
+              </div>
             </Link>
           </div>
         </div>

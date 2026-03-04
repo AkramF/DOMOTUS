@@ -201,30 +201,30 @@ export default function BlogArticleKNX() {
                     <tr className="border-b border-white/10 hover:bg-white/5">
                       <td className="p-3 font-medium">Indépendance</td>
                       <td className="p-3 text-center text-primary">★★★★★</td>
-                      <td className="p-3 text-center text-orange-400">★★☆☆☆</td>
-                      <td className="p-3 text-center text-orange-400">★★☆☆☆</td>
+                      <td className="p-3 text-center text-[#efd555]">★★☆☆☆</td>
+                      <td className="p-3 text-center text-[#efd555]">★★☆☆☆</td>
                       <td className="p-3 text-center text-red-400">★☆☆☆☆</td>
                     </tr>
                     <tr className="border-b border-white/10 hover:bg-white/5">
                       <td className="p-3 font-medium">Scalabilité</td>
                       <td className="p-3 text-center text-primary">★★★★★</td>
-                      <td className="p-3 text-center text-yellow-400">★★★☆☆</td>
-                      <td className="p-3 text-center text-orange-400">★★☆☆☆</td>
-                      <td className="p-3 text-center text-yellow-400">★★★☆☆</td>
+                      <td className="p-3 text-center text-[#efd555]">★★★☆☆</td>
+                      <td className="p-3 text-center text-[#efd555]">★★☆☆☆</td>
+                      <td className="p-3 text-center text-[#efd555]">★★★☆☆</td>
                     </tr>
                     <tr className="border-b border-white/10 hover:bg-white/5">
                       <td className="p-3 font-medium">Fiabilité 24/7</td>
                       <td className="p-3 text-center text-primary">★★★★★</td>
-                      <td className="p-3 text-center text-orange-400">★★☆☆☆</td>
-                      <td className="p-3 text-center text-orange-400">★★☆☆☆</td>
-                      <td className="p-3 text-center text-yellow-400">★★★★☆</td>
+                      <td className="p-3 text-center text-[#efd555]">★★☆☆☆</td>
+                      <td className="p-3 text-center text-[#efd555]">★★☆☆☆</td>
+                      <td className="p-3 text-center text-[#efd555]">★★★★☆</td>
                     </tr>
                     <tr className="border-b border-white/10 hover:bg-white/5">
                       <td className="p-3 font-medium">Coût installation</td>
                       <td className="p-3 text-center">★★★☆☆</td>
                       <td className="p-3 text-center text-primary">★★★★★</td>
                       <td className="p-3 text-center text-primary">★★★★★</td>
-                      <td className="p-3 text-center text-orange-400">★★☆☆☆</td>
+                      <td className="p-3 text-center text-[#efd555]">★★☆☆☆</td>
                     </tr>
                   </tbody>
                 </table>

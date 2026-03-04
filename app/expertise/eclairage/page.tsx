@@ -20,7 +20,7 @@ export default function EclairagePage() {
   return (
     <>
       {/* ── HERO ── */}
-      <section className="relative h-screen min-h-[700px] overflow-hidden flex items-center justify-center">
+      <section className="relative h-screen min-h-[700px] overflow-hidden flex items-center justify-center" style={{ position: 'relative' }}>
         <Image
           src="/images/expertise-eclairage-hero.jpg"
           alt="Éclairage intelligent Lutron dans une villa de luxe au Maroc"
@@ -60,7 +60,10 @@ export default function EclairagePage() {
                 Pilotage circadien : vos lumières suivent les rythmes naturels du jour pour optimiser concentration, bien-être et sommeil. Compatible iOS, Android, Apple HomeKit, Google Home.
               </p>
             </div>
-            <div className="aspect-video relative overflow-hidden border border-white/8">
+            <div 
+              className="aspect-video relative overflow-hidden border border-white/8 rounded-xl"
+              style={{ position: 'relative' }}
+            >
               <Image
                 src="/images/expertise-eclairage.jpg"
                 alt="Installation d'éclairage intelligent Lutron"
