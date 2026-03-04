@@ -15,7 +15,7 @@ const navLinks = [
   { href: "/blog", label: "Blog" },
 ];
 
-export default function Navbar() {
+export default function Navbar({ variant = "default" }: { variant?: "default" | "contact" }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
@@ -28,13 +28,24 @@ export default function Navbar() {
 
   useEffect(() => { setMenuOpen(false); }, [pathname]);
 
+  // Determine styles based on variant
+  const textColor = variant === "contact" ? "text-black" : "text-foreground";
+  const textColorMuted = variant === "contact" ? "text-black/50" : "text-foreground/45";
+  const textColorHover = variant === "contact" ? "hover:text-black" : "hover:text-foreground";
+  const borderColor = variant === "contact" ? "border-black" : "border-foreground";
+  const logoColor = variant === "contact" ? "text-black" : "text-foreground";
+  const logoBorderColor = variant === "contact" ? "border-black" : "border-foreground";
+  const contactBgColor = variant === "contact" ? "bg-black text-white" : "bg-white text-black";
+
   return (
     <>
       <header
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
           scrolled
-            ? "bg-background/85 backdrop-blur-md border-b border-white/10"
+            ? variant === "contact"
+              ? "bg-white/85 backdrop-blur-md border-b border-black/10"
+              : "bg-background/85 backdrop-blur-md border-b border-white/10"
             : "bg-transparent"
         )}
       >
@@ -48,10 +59,10 @@ export default function Navbar() {
             className="focus-ring flex items-center gap-3 shrink-0"
             aria-label="Domotus – Accueil"
           >
-            <div className="w-9 h-9 border border-foreground flex items-center justify-center">
-              <span className="text-sm font-bold text-foreground">D</span>
+            <div className={cn("w-9 h-9 border flex items-center justify-center", logoBorderColor)}>
+              <span className={cn("text-sm font-bold", logoColor)}>D</span>
             </div>
-            <span className="hidden sm:block text-sm font-bold tracking-[0.25em] uppercase text-foreground">
+            <span className={cn("hidden sm:block text-sm font-bold tracking-[0.25em] uppercase", logoColor)}>
               DOMOTUS
             </span>
           </Link>
@@ -66,10 +77,10 @@ export default function Navbar() {
                 <Link
                   href={link.href}
                   className={cn(
-                    "focus-ring font-medium transition-colors duration-300 whitespace-nowrap pb-0.5 text-black",
+                    "focus-ring font-medium transition-colors duration-300 whitespace-nowrap pb-0.5",
                     pathname === link.href
-                      ? "text-black border-b border-black"
-                      : "text-black/50 hover:text-black"
+                      ? cn(textColor, "border-b", borderColor)
+                      : cn(textColorMuted, textColorHover)
                   )}
                   style={{ fontFamily: "Inter, sans-serif", fontWeight: 500, fontSize: "16px", lineHeight: "24px" }}
                 >
@@ -84,7 +95,7 @@ export default function Navbar() {
             {/* CONTACT */}
             <Link
               href="/contact"
-              className="focus-ring inline-flex items-center px-6 py-2.5 rounded-full bg-black text-white transition-all duration-300 hover:shadow-lg hover:scale-105"
+              className={cn("focus-ring inline-flex items-center px-6 py-2.5 rounded-full transition-all duration-300 hover:shadow-lg hover:scale-105", contactBgColor)}
               style={{ fontFamily: "Inter, sans-serif", fontWeight: 400, fontSize: "16px", lineHeight: "24px" }}
             >
               Contact
@@ -102,7 +113,7 @@ export default function Navbar() {
 
           {/* Burger mobile */}
           <button
-            className="focus-ring lg:hidden text-foreground p-1 ml-auto"
+            className={cn("focus-ring lg:hidden p-1 ml-auto", variant === "contact" ? "text-black" : "text-foreground")}
             onClick={() => setMenuOpen((v) => !v)}
             aria-label={menuOpen ? "Fermer le menu" : "Ouvrir le menu"}
             aria-expanded={menuOpen}
@@ -121,7 +132,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -16 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
-            className="fixed inset-0 z-40 flex flex-col bg-background pt-24 px-8"
+            className={cn("fixed inset-0 z-40 flex flex-col pt-24 px-8", variant === "contact" ? "bg-white" : "bg-background")}
             role="dialog"
             aria-modal="true"
             aria-label="Menu de navigation"
@@ -139,8 +150,8 @@ export default function Navbar() {
                     className={cn(
                       "focus-ring block text-2xl font-bold uppercase tracking-widest transition-colors duration-300",
                       pathname === link.href
-                        ? "text-primary"
-                        : "text-foreground/60 hover:text-primary"
+                        ? variant === "contact" ? "text-black" : "text-primary"
+                        : variant === "contact" ? "text-black/60 hover:text-black" : "text-foreground/60 hover:text-primary"
                     )}
                   >
                     {link.label}
@@ -148,7 +159,7 @@ export default function Navbar() {
                 </motion.li>
               ))}
             </ul>
-            <div className="my-8 h-px bg-white/10" />
+            <div className={cn("my-8 h-px", variant === "contact" ? "bg-black/10" : "bg-white/10")} />
             <Link
               href="/espace-client"
               className="focus-ring inline-flex w-max items-center gap-2 bg-primary px-6 py-3 text-sm uppercase tracking-widest font-bold transition-all duration-300 hover:bg-primary/80"
