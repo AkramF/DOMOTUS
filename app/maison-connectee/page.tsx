@@ -207,6 +207,44 @@ export default function VillasPage() {
       {/* ── SMART HOME DATA SECTION (Bénéfices) ── */}
       <SmartHomeDataSection />
 
+      {/* ── NOS ESPACES CONNECTÉS ── */}
+      <section className="py-28 bg-background" aria-labelledby="espaces-heading">
+        <div className="mx-auto max-w-7xl px-6 lg:px-10">
+          <div className="mb-16">
+            <SectionLabel>Architecture</SectionLabel>
+            <h2
+              id="espaces-heading"
+              className="font-black uppercase leading-none text-foreground text-balance max-w-2xl"
+              style={{ fontSize: "clamp(1.8rem, 4vw, 3.2rem)", letterSpacing: "-0.02em" }}
+            >
+              Chaque espace de votre<br />
+              <span className="italic text-foreground/45">maison devient vivant.</span>
+            </h2>
+          </div>
+
+          {/* Espaces Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/6 mb-px">
+            {espaces.map((e) => (
+              <div key={e.title} className="bg-card p-8 lg:p-10 flex flex-col h-full">
+                <p className="text-[10px] uppercase tracking-[0.2em] text-primary/60 font-bold mb-4">{e.title}</p>
+                <p className="font-bold uppercase tracking-[0.05em] text-foreground text-[13px] mb-2">{e.manifeste}</p>
+                <p className="text-[12px] text-foreground/60 leading-relaxed mb-8">{e.angle}</p>
+                
+                {/* Features */}
+                <ul className="space-y-3 flex-grow">
+                  {e.features.map((f, i) => (
+                    <li key={i} className="flex gap-3 items-start text-[12px] text-foreground/70">
+                      <CheckCircle2 size={14} className="text-primary/50 flex-shrink-0 mt-0.5" aria-hidden="true" />
+                      <span>{f}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── LA MÉTHODE DOMOTUS (Le Parcours sans friction) ── */}
       <section className="py-28 bg-card" aria-labelledby="process-heading">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
