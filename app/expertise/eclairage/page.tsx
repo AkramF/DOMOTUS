@@ -20,7 +20,7 @@ export default function EclairagePage() {
   return (
     <>
       {/* ── HERO ── */}
-      <section className="relative h-screen min-h-[700px] overflow-hidden flex items-center justify-center">
+      <section className="relative h-screen min-h-[700px] overflow-hidden flex items-center justify-center" style={{ position: 'relative' }}>
         <Image
           src="/images/expertise-eclairage-hero.jpg"
           alt="Éclairage intelligent Lutron dans une villa de luxe au Maroc"
@@ -28,6 +28,8 @@ export default function EclairagePage() {
           priority
           sizes="100vw"
           className="object-cover"
+          placeholder="blur"
+          blurDataURL="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1920 1080'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23404040;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23262626;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='1920' height='1080' fill='url(%23grad)' /%3E%3C/svg%3E"
         />
         <div className="absolute inset-0 bg-background/65" />
         <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse 80% 70% at 50% 40%, transparent 30%, oklch(0 0 0 / 0.45) 100%)" }} />
@@ -60,13 +62,15 @@ export default function EclairagePage() {
                 Pilotage circadien : vos lumières suivent les rythmes naturels du jour pour optimiser concentration, bien-être et sommeil. Compatible iOS, Android, Apple HomeKit, Google Home.
               </p>
             </div>
-            <div className="aspect-video relative overflow-hidden border border-white/8">
+            <div className="aspect-video relative overflow-hidden border border-white/8" style={{ position: 'relative' }}>
               <Image
                 src="/images/expertise-eclairage.jpg"
                 alt="Installation d'éclairage intelligent Lutron"
                 fill
                 sizes="50vw"
                 className="object-cover"
+                placeholder="blur"
+                blurDataURL="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 562'%3E%3Crect width='1000' height='562' fill='%23404040' /%3E%3C/svg%3E"
               />
             </div>
           </div>
