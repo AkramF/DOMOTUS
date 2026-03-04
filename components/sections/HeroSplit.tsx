@@ -105,10 +105,10 @@ export default function Hero() {
               initial={{ opacity: 0, x: 40 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-              className="relative order-1 lg:order-2"
+              className="relative order-1 lg:order-2 h-[500px] lg:h-[600px]"
             >
               {/* White border frame */}
-              <div className="p-4 lg:p-6 bg-white rounded-2xl h-[500px] lg:h-[600px] shadow-xl">
+              <div className="p-4 lg:p-6 bg-white rounded-2xl h-full shadow-xl">
                 {/* Image inside white frame */}
                 <div className="w-full h-full overflow-hidden rounded-xl group" style={{ position: 'relative' }}>
                   <Image
