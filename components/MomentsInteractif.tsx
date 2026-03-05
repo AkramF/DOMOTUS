@@ -28,7 +28,10 @@ export default function MomentsInteractif({ moments }: MomentsInteractifProps) {
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         {/* Header */}
         <div className="mb-20">
-          <p className="text-[11px] uppercase tracking-[0.2em] text-[#efd555] font-semibold mb-4">Vos moments de vie</p>
+          <div className="inline-flex items-center gap-2 mb-4">
+            <div className="w-3 h-3 bg-white" aria-hidden="true"></div>
+            <p style={{ fontFamily: "Inter, sans-serif", fontWeight: 600, fontSize: "14px", lineHeight: "20px", color: "#ffffff" }}>VOS MOMENTS DE VIE</p>
+          </div>
           <h2 className="text-4xl lg:text-5xl font-black leading-tight text-white mb-6 text-balance">
             Automatisez<br />
             <span className="text-[#efd555]">vos routines</span> quotidiennes.

@@ -66,15 +66,9 @@ export default function DivisionProjetsPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Link href="/contact" className="focus-ring inline-flex items-center justify-between bg-white px-8 py-4 rounded-full text-[14px] font-semibold text-black transition-all duration-300 hover:shadow-lg will-change-colors group">
-              Consulter nos solutions
+              Consulter nos solutions métiers
               <div className="ml-4 w-10 h-10 bg-black rounded-full flex items-center justify-center transition-transform group-hover:scale-110">
                 <ArrowRight size={16} className="text-[#efd555]" aria-hidden="true" />
-              </div>
-            </Link>
-            <Link href="/contact" className="focus-ring inline-flex items-center justify-between px-8 py-4 rounded-full text-[14px] font-semibold text-white transition-all duration-300 hover:shadow-lg will-change-colors group" style={{ backgroundColor: "#000000", border: "2px solid #efd555" }}>
-              Demander un cahier des charges
-              <div className="ml-4 w-10 h-10 rounded-full flex items-center justify-center transition-transform group-hover:scale-110" style={{ backgroundColor: "#efd555" }}>
-                <ArrowRight size={16} className="text-black" aria-hidden="true" />
               </div>
             </Link>
           </div>
