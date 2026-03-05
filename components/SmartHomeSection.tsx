@@ -64,10 +64,13 @@ export default function SmartHomeSection() {
 
         {/* Title Section */}
         <div className="mb-20">
-          <h2 style={{ fontFamily: "Inter, sans-serif", fontWeight: 500, fontSize: "64px", lineHeight: "70px", color: "#000000", letterSpacing: '-0.03em' }}>
-            Des scénarios infinis<br />
-            <span style={{ fontStyle: 'italic', color: '#000000' }}>pour votre maison intelligente</span>
-          </h2>
+          <div className="flex items-start gap-3">
+            <div className="w-3 h-3 bg-black flex-shrink-0 mt-2" aria-hidden="true" />
+            <h2 style={{ fontFamily: "Inter, sans-serif", fontWeight: 500, fontSize: "64px", lineHeight: "70px", color: "#000000", letterSpacing: '-0.03em' }}>
+              Des scénarios infinis<br />
+              <span style={{ fontStyle: 'italic', color: '#000000' }}>pour votre maison intelligente</span>
+            </h2>
+          </div>
         </div>
 
         {/* Main Grid Layout */}
