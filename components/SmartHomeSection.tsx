@@ -65,8 +65,8 @@ export default function SmartHomeSection() {
         {/* Title Section */}
         <div className="mb-20">
           <h2 style={{ fontFamily: "Inter, sans-serif", fontWeight: 500, fontSize: "64px", lineHeight: "70px", color: "#000000", letterSpacing: '-0.03em' }}>
-            Solutions domotiques<br />
-            <span style={{ color: '#efd555' }}>adaptées</span> pour vous.
+            Automatisez<br />
+            <span style={{ color: '#efd555' }}>votre bien-être</span>.
           </h2>
         </div>
 
