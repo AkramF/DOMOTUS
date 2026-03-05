@@ -8,6 +8,7 @@ import { ArrowRight } from 'lucide-react'
 
 interface Moment {
   id: string
+  num?: string
   title: string
   description: string
   action: string
@@ -27,16 +28,16 @@ export default function MomentsInteractif({ moments }: MomentsInteractifProps) {
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         {/* Header */}
         <div className="mb-20">
-          <p className="text-[11px] uppercase tracking-[0.2em] text-[#efd555] font-semibold mb-4">SERVICES</p>
+          <p className="text-[11px] uppercase tracking-[0.2em] text-[#efd555] font-semibold mb-4">Vos moments de vie</p>
           <h2 className="text-4xl lg:text-5xl font-black leading-tight text-white mb-6 text-balance">
-            Seamless property solutions{' '}
-            <span className="text-[#efd555]">tailored</span> for you.
+            Automatisez<br />
+            <span className="text-[#efd555]">vos routines</span> quotidiennes.
           </h2>
           <Link
             href="/contact"
             className="inline-flex items-center gap-2 px-6 py-3 bg-white text-black font-semibold hover:bg-white/90 transition-colors"
           >
-            Learn more
+            En savoir plus
             <ArrowRight size={16} aria-hidden="true" />
           </Link>
         </div>
@@ -61,7 +62,7 @@ export default function MomentsInteractif({ moments }: MomentsInteractifProps) {
               >
                 {/* Content Grid */}
                 <div className="grid grid-cols-12 gap-6 items-center relative z-10">
-                  {/* Index Number */}
+                  {/* Time */}
                   <div className="col-span-2 lg:col-span-1">
                     <motion.p
                       animate={{
@@ -70,7 +71,7 @@ export default function MomentsInteractif({ moments }: MomentsInteractifProps) {
                       transition={{ duration: 0.3 }}
                       className="text-xl font-black"
                     >
-                      {String(idx + 1).padStart(3, '0')}
+                      {moment.num || String(idx + 1).padStart(3, '0')}
                     </motion.p>
                   </div>
 
@@ -100,8 +101,8 @@ export default function MomentsInteractif({ moments }: MomentsInteractifProps) {
                     </motion.p>
                   </div>
 
-                  {/* Learn More Link */}
-                  <div className="col-span-12 lg:col-span-2 lg:col-start-11">
+                  {/* Learn More Link - Moved to Left */}
+                  <div className="col-span-12 lg:col-span-2 lg:col-start-7">
                     <motion.a
                       animate={{
                         color: hoveredId === moment.id ? '#000000' : '#ffffff',
@@ -110,7 +111,7 @@ export default function MomentsInteractif({ moments }: MomentsInteractifProps) {
                       href="#"
                       className="text-xs font-black uppercase tracking-widest underline inline-block hover:opacity-70 transition-opacity"
                     >
-                      Learn More
+                      En savoir plus
                     </motion.a>
                   </div>
                 </div>
