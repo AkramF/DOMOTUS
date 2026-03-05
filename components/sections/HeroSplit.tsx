@@ -39,7 +39,7 @@ export default function Hero() {
               {/* H1 */}
               <h1
                 className="text-white"
-                style={{ fontFamily: "Inter, sans-serif", fontWeight: 500, fontSize: "64px", lineHeight: "70px" }}
+                style={{ fontFamily: "system-ui, ui-sans-serif, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'", fontWeight: 900, fontSize: "64px", lineHeight: "64px", fontStyle: "normal" }}
               >
                 votre accès à la <span style={{ color: "#efd555" }}>domotique</span> premium.
               </h1>
