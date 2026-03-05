@@ -37,10 +37,11 @@ export default function SmartHomeDataSection() {
           <div className="flex items-center gap-3 flex-shrink-0">
             <div className="w-3 h-3 bg-black" aria-hidden="true" />
             <h2
-              className="font-black uppercase leading-none text-balance"
               style={{
-                fontSize: 'clamp(1.5rem, 4vw, 2.5rem)',
-                letterSpacing: '-0.02em',
+                fontFamily: 'Inter, sans-serif',
+                fontWeight: 600,
+                fontSize: '14px',
+                lineHeight: '20px',
                 color: '#000000',
               }}
             >

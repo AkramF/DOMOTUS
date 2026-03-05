@@ -211,7 +211,9 @@ export default function VillasPage() {
       <section className="py-28" style={{ backgroundColor: "#f0efed" }} aria-labelledby="espaces-heading">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <div className="mb-16">
-            <SectionLabel>Architecture</SectionLabel>
+            <div style={{ fontFamily: "Inter, sans-serif", fontWeight: 600, fontSize: "14px", lineHeight: "20px", color: "#efd555" }}>
+              Architecture
+            </div>
             <h2
               id="espaces-heading"
               className="font-black uppercase leading-none text-balance max-w-2xl"

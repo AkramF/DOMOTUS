@@ -54,11 +54,11 @@ export default function SmartHomeSection() {
   return (
     <section className="relative py-24 lg:py-32 bg-white overflow-hidden z-20">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
-        {/* Section Label with Bullet */}
+        {/* Section Label with Bullet and Infinity Symbol */}
         <div className="mb-12 flex items-center gap-3">
           <div className="w-3 h-3 bg-black" aria-hidden="true" />
-          <p style={{ fontFamily: "Inter, sans-serif", fontWeight: 600, fontSize: "14px", lineHeight: "20px", color: "#000000" }}>
-            SERVICES
+          <p style={{ fontFamily: "Inter, sans-serif", fontWeight: 600, fontSize: "14px", lineHeight: "20px", color: "#efd555" }}>
+            SERVICES <span style={{ color: "#efd555" }}>∞</span>
           </p>
         </div>
 
@@ -129,7 +129,7 @@ export default function SmartHomeSection() {
           <div className="flex flex-col gap-10">
             {/* Description */}
             <p className="text-base lg:text-lg text-gray-600 leading-relaxed max-w-lg">
-              Solutions domotiques intelligentes et personnalisées pour automatiser chaque aspect de votre maison. Du confort quotidien à la sécurité avancée, créez les scénarios parfaits pour votre style de vie.
+              Solutions domotiques évolutives qui s'adaptent à votre mode de vie. Créez des scénarios sur mesure, automatisez vos espaces et profitez d'un confort sans limites.
             </p>
 
             {/* Benefits Grid */}
@@ -148,17 +148,6 @@ export default function SmartHomeSection() {
                   </div>
                 )
               })}
-            </div>
-
-            {/* CTA Button */}
-            <div className="pt-4">
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-3 bg-black hover:bg-gray-900 text-white px-8 py-4 rounded-full font-semibold text-sm transition-all duration-300 group"
-              >
-                <span>En savoir plus</span>
-                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform duration-300" />
-              </Link>
             </div>
           </div>
         </div>
