@@ -38,12 +38,31 @@ const getIconForEspace = (title: string) => {
 export default function EspacesSlider({ espaces }: EspacesSliderProps) {
   const [activeIndex, setActiveIndex] = useState(0)
   const containerRef = useRef<HTMLDivElement>(null)
+  const trackRef = useRef<HTMLDivElement>(null)
   const [isDragging, setIsDragging] = useState(false)
   const [startX, setStartX] = useState(0)
   const [scrollLeft, setScrollLeft] = useState(0)
 
-  // Filter to only 6 spaces (remove Piscine)
+  // Filter to only 6 spaces
   const filteredEspaces = espaces.slice(0, 6)
+  const CARD_WIDTH = 384 // w-96 = 24rem = 384px
+  const GAP = 24 // gap-6 = 1.5rem = 24px
+  const CARD_WITH_GAP = CARD_WIDTH + GAP
+
+  // Auto-scroll to center the active card
+  useEffect(() => {
+    if (!containerRef.current || !trackRef.current) return
+
+    // Calculate the scroll position to center the active card
+    const containerWidth = containerRef.current.clientWidth
+    const trackWidth = trackRef.current.scrollWidth
+    const targetScroll = activeIndex * CARD_WITH_GAP - (containerWidth - CARD_WIDTH) / 2
+
+    containerRef.current.scrollTo({
+      left: targetScroll,
+      behavior: 'smooth',
+    })
+  }, [activeIndex])
 
   const handlePrev = () => {
     setActiveIndex((prev) => (prev - 1 + filteredEspaces.length) % filteredEspaces.length)
@@ -61,13 +80,44 @@ export default function EspacesSlider({ espaces }: EspacesSliderProps) {
 
   const handleMouseUp = () => {
     setIsDragging(false)
+    // Snap to nearest card after drag
+    if (containerRef.current) {
+      const scrollPos = containerRef.current.scrollLeft
+      const nearestIndex = Math.round(scrollPos / CARD_WITH_GAP)
+      const clampedIndex = Math.max(0, Math.min(nearestIndex, filteredEspaces.length - 1))
+      setActiveIndex(clampedIndex)
+    }
   }
 
   const handleMouseMove = (e: React.MouseEvent) => {
     if (!isDragging || !containerRef.current) return
     e.preventDefault()
     const x = e.pageX - (containerRef.current?.offsetLeft || 0)
-    const walk = x - startX
+    const walk = (x - startX) * 0.5
+    containerRef.current.scrollLeft = scrollLeft - walk
+  }
+
+  // Touch support
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setIsDragging(true)
+    setStartX(e.touches[0].clientX - (containerRef.current?.offsetLeft || 0))
+    setScrollLeft(containerRef.current?.scrollLeft || 0)
+  }
+
+  const handleTouchEnd = () => {
+    setIsDragging(false)
+    if (containerRef.current) {
+      const scrollPos = containerRef.current.scrollLeft
+      const nearestIndex = Math.round(scrollPos / CARD_WITH_GAP)
+      const clampedIndex = Math.max(0, Math.min(nearestIndex, filteredEspaces.length - 1))
+      setActiveIndex(clampedIndex)
+    }
+  }
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!isDragging || !containerRef.current) return
+    const x = e.touches[0].clientX - (containerRef.current?.offsetLeft || 0)
+    const walk = (x - startX) * 0.5
     containerRef.current.scrollLeft = scrollLeft - walk
   }
 
@@ -82,17 +132,29 @@ export default function EspacesSlider({ espaces }: EspacesSliderProps) {
         <ChevronLeft size={28} className="text-black" />
       </button>
 
-      {/* Slider Container */}
+      {/* Slider Container with snap scrolling */}
       <div
         ref={containerRef}
         onMouseDown={handleMouseDown}
         onMouseUp={handleMouseUp}
         onMouseLeave={handleMouseUp}
         onMouseMove={handleMouseMove}
-        className="overflow-hidden cursor-grab active:cursor-grabbing select-none scroll-smooth"
-        style={{ scrollBehavior: 'smooth' }}
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+        onTouchMove={handleTouchMove}
+        className="overflow-hidden cursor-grab active:cursor-grabbing select-none"
+        style={{
+          scrollBehavior: 'smooth',
+          scrollSnapType: 'x mandatory',
+        }}
       >
-        <div className="flex gap-6 pb-4">
+        <div
+          ref={trackRef}
+          className="flex gap-6 pb-4"
+          style={{
+            width: 'fit-content',
+          }}
+        >
           {filteredEspaces.map((espace, idx) => {
             const isActive = idx === activeIndex
             const isLeft = idx === (activeIndex - 1 + filteredEspaces.length) % filteredEspaces.length
@@ -118,7 +180,8 @@ export default function EspacesSlider({ espaces }: EspacesSliderProps) {
                 animate={{ scale, opacity }}
                 transition={{ duration: 0.4, ease: 'easeOut' }}
                 style={{ zIndex }}
-                className="flex-shrink-0 w-96"
+                className="flex-shrink-0"
+                style={{ width: CARD_WIDTH, scrollSnapAlign: 'center' }}
               >
                 <div
                   className="bg-white rounded-2xl p-8 flex flex-col h-96 transition-all duration-300 group"
@@ -174,7 +237,7 @@ export default function EspacesSlider({ espaces }: EspacesSliderProps) {
         <ChevronRight size={28} className="text-black" />
       </button>
 
-      {/* Dots Navigation */}
+      {/* Dots Navigation with infinite loop indication */}
       <div className="flex justify-center gap-2 mt-8">
         {filteredEspaces.map((_, idx) => (
           <button
