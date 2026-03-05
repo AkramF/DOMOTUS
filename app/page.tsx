@@ -595,55 +595,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── DIVISION PROJETS — Introduction ── */}
-      <section className="py-20 lg:py-28 bg-white" aria-labelledby="division-intro-heading">
-        <div className="mx-auto max-w-7xl px-6 lg:px-10">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            {/* Left: Text Content */}
-            <div className="flex flex-col gap-6">
-              <div>
-                <p className="text-[11px] uppercase tracking-[0.3em] font-bold text-black/50 mb-6">Division Projets</p>
-                <h2
-                  id="division-intro-heading"
-                  className="font-black text-black text-balance leading-tight"
-                  style={{ fontSize: "clamp(2rem, 5vw, 3.2rem)", letterSpacing: "-0.03em" }}
-                >
-                  Nous accompagnons vos<br />
-                  <span className="italic text-black/50">plus grands projets</span>
-                </h2>
-              </div>
-              <p className="text-base lg:text-lg text-black/70 leading-relaxed max-w-lg">
-                De la conception à la livraison, nous pilotons des projets domotiques complexes pour les promoteurs immobiliers, les architectes et les maîtres d'ouvrage au Maroc. Notre expertise en intégration multi-protocoles et notre gestion de projet rigoureuse garantissent la réussite de vos ambitions.
-              </p>
-              <Link
-                href="/division-projets"
-                className="inline-flex items-center gap-3 w-fit text-black font-semibold hover:text-black/70 transition-colors duration-300 group"
-              >
-                <span>En savoir plus</span>
-                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform duration-300" aria-hidden="true" />
-              </Link>
-            </div>
-
-            {/* Right: Stats or Key Points */}
-            <div className="grid grid-cols-2 gap-6">
-              {[
-                { label: "Projets", value: "150+" },
-                { label: "Immeubles", value: "45+" },
-                { label: "Logements", value: "2500+" },
-                { label: "Années", value: "18" },
-              ].map((stat) => (
-                <div key={stat.label} className="bg-gray-50 rounded-2xl p-8 flex flex-col gap-2">
-                  <p className="text-[10px] uppercase tracking-[0.25em] text-black/50 font-bold">{stat.label}</p>
-                  <p className="font-black text-black" style={{ fontSize: "clamp(1.8rem, 4vw, 2.4rem)", lineHeight: 1 }}>
-                    {stat.value}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
       <section className="py-16 lg:py-20" style={{ backgroundColor: "#000000" }} aria-labelledby="temoignages-heading">
         <div className="mx-auto max-w-7xl px-4 lg:px-6">
           {/* Title section */}
