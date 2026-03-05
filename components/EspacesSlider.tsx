@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
+import Image from 'next/image'
 import { ChevronLeft, ChevronRight, Home, Utensils, Bed, Bath, Briefcase, Trees } from 'lucide-react'
 import { motion } from 'framer-motion'
 
@@ -19,19 +20,19 @@ interface EspacesSliderProps {
 const getIconForEspace = (title: string) => {
   switch (title.toLowerCase()) {
     case 'salon':
-      return <Home size={24} className="text-black" />
+      return <Home size={24} className="text-white" />
     case 'cuisine':
-      return <Utensils size={24} className="text-black" />
+      return <Utensils size={24} className="text-white" />
     case 'chambre':
-      return <Bed size={24} className="text-black" />
+      return <Bed size={24} className="text-white" />
     case 'salle de bain':
-      return <Bath size={24} className="text-black" />
+      return <Bath size={24} className="text-white" />
     case 'bureau':
-      return <Briefcase size={24} className="text-black" />
+      return <Briefcase size={24} className="text-white" />
     case 'jardin & terrasse':
-      return <Trees size={24} className="text-black" />
+      return <Trees size={24} className="text-white" />
     default:
-      return <Home size={24} className="text-black" />
+      return <Home size={24} className="text-white" />
   }
 }
 
@@ -184,42 +185,72 @@ export default function EspacesSlider({ espaces }: EspacesSliderProps) {
                 style={{ width: CARD_WIDTH, scrollSnapAlign: 'center' }}
               >
                 <div
-                  className="bg-white rounded-2xl p-8 flex flex-col h-96 transition-all duration-300 group"
+                  className="bg-white rounded-2xl flex flex-col h-96 transition-all duration-300 overflow-hidden group relative"
                   style={{
                     boxShadow: isActive ? '0 20px 40px rgba(0, 0, 0, 0.15)' : '0 4px 12px rgba(0, 0, 0, 0.08)',
                   }}
                 >
-                  {/* Icon & Title */}
-                  <div className="flex items-start justify-between mb-6">
-                    <div>
-                      <h3 className="text-black font-bold text-xl mb-1">{espace.title}</h3>
-                      <p className="text-xs text-black/50 uppercase tracking-widest font-semibold">Espace Connecté</p>
-                    </div>
-                    {getIconForEspace(espace.title)}
-                  </div>
+                  {/* Mode OFF: Image + Icon + Title */}
+                  {!isActive && (
+                    <>
+                      {/* Background Image */}
+                      <div className="absolute inset-0">
+                        <Image
+                          src={espace.image}
+                          alt={espace.title}
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
 
-                  {/* Content */}
-                  <p className="text-sm font-semibold text-black mb-3">{espace.manifeste}</p>
-                  <p className="text-xs text-black/60 mb-5 flex-grow leading-relaxed">{espace.angle}</p>
+                      {/* Overlay Gradient */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
 
-                  {/* Features - Only show for active card */}
+                      {/* Content - Bottom aligned */}
+                      <div className="absolute bottom-0 left-0 right-0 p-6 text-white flex flex-col gap-3">
+                        <div className="flex items-center justify-between">
+                          <h3 className="font-bold text-lg">{espace.title}</h3>
+                          {getIconForEspace(espace.title)}
+                        </div>
+                        <p className="text-xs text-white/70 uppercase tracking-widest font-semibold">Espace Connecté</p>
+                      </div>
+                    </>
+                  )}
+
+                  {/* Mode FOCUS: Text Content */}
                   {isActive && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.3, delay: 0.2 }}
-                      className="border-t border-black/10 pt-4"
-                    >
-                      <p className="text-[10px] uppercase tracking-widest font-bold text-black/50 mb-3">Avantages</p>
-                      <ul className="space-y-2">
-                        {espace.features.slice(0, 3).map((feature, i) => (
-                          <li key={i} className="text-xs text-black flex gap-2">
-                            <span className="text-[#efd555] font-bold">→</span>
-                            <span>{feature}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </motion.div>
+                    <div className="p-8 flex flex-col h-full">
+                      {/* Icon & Title */}
+                      <div className="flex items-start justify-between mb-6">
+                        <div>
+                          <h3 className="text-black font-bold text-xl mb-1">{espace.title}</h3>
+                          <p className="text-xs text-black/50 uppercase tracking-widest font-semibold">Espace Connecté</p>
+                        </div>
+                        <div className="text-black">{getIconForEspace(espace.title)}</div>
+                      </div>
+
+                      {/* Description */}
+                      <p className="text-sm font-semibold text-black mb-3">{espace.manifeste}</p>
+                      <p className="text-xs text-black/60 mb-5 flex-grow leading-relaxed">{espace.angle}</p>
+
+                      {/* Features */}
+                      <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.3, delay: 0.2 }}
+                        className="border-t border-black/10 pt-4"
+                      >
+                        <p className="text-[10px] uppercase tracking-widest font-bold text-black/50 mb-3">Avantages</p>
+                        <ul className="space-y-2">
+                          {espace.features.slice(0, 3).map((feature, i) => (
+                            <li key={i} className="text-xs text-black flex gap-2">
+                              <span className="text-[#efd555] font-bold">→</span>
+                              <span>{feature}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </motion.div>
+                    </div>
                   )}
                 </div>
               </motion.div>
