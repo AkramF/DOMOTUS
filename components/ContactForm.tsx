@@ -1,23 +1,42 @@
 'use client'
 
 import { useState } from 'react'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, ChevronDown } from 'lucide-react'
+
+const serviceTypes = [
+  'Maison connectée',
+  'Division projets',
+  'Expertise technique',
+  'Support',
+]
+
+const projectTypes = [
+  'Architectes & Designer',
+  'Promoteur immobilier',
+  'Hospitalité & Retail',
+  'Bâtiment tertiaire',
+  'Projets spéciaux',
+]
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
     fullName: '',
+    phone: '',
     email: '',
-    company: '',
+    serviceType: '',
+    projectType: '',
     projectInfo: '',
   })
 
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitted, setSubmitted] = useState(false)
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target
     setFormData((prev) => ({
       ...prev,
       [name]: value,
+      ...(name === 'serviceType' && value !== 'Division projets' ? { projectType: '' } : {}),
     }))
   }
 
@@ -33,8 +52,9 @@ export default function ContactForm() {
       })
 
       if (response.ok) {
-        setFormData({ fullName: '', email: '', company: '', projectInfo: '' })
-        alert('Merci ! Nous reviendrons vers vous très bientôt.')
+        setFormData({ fullName: '', phone: '', email: '', serviceType: '', projectType: '', projectInfo: '' })
+        setSubmitted(true)
+        setTimeout(() => setSubmitted(false), 5000)
       } else {
         alert('Une erreur est survenue. Veuillez réessayer.')
       }
@@ -51,7 +71,7 @@ export default function ContactForm() {
       {/* Full Name */}
       <div>
         <label htmlFor="fullName" className="block text-sm font-bold text-gray-800 mb-3">
-          Full name
+          Nom complet
         </label>
         <input
           type="text"
@@ -59,16 +79,33 @@ export default function ContactForm() {
           name="fullName"
           value={formData.fullName}
           onChange={handleChange}
-          placeholder="First Name"
+          placeholder="Votre nom"
           required
-          className="w-full px-6 py-3 rounded-full bg-white border border-gray-300 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-black/20 focus:border-transparent transition-all duration-300"
+          className="w-full px-6 py-3 rounded-full bg-white border border-gray-200 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-black/10 focus:border-transparent transition-all duration-300"
+        />
+      </div>
+
+      {/* Phone */}
+      <div>
+        <label htmlFor="phone" className="block text-sm font-bold text-gray-800 mb-3">
+          Numéro de téléphone
+        </label>
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+          value={formData.phone}
+          onChange={handleChange}
+          placeholder="+212 6 XX XX XX XX"
+          required
+          className="w-full px-6 py-3 rounded-full bg-white border border-gray-200 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-black/10 focus:border-transparent transition-all duration-300"
         />
       </div>
 
       {/* Email */}
       <div>
         <label htmlFor="email" className="block text-sm font-bold text-gray-800 mb-3">
-          Email address
+          Adresse email
         </label>
         <input
           type="email"
@@ -76,41 +113,77 @@ export default function ContactForm() {
           name="email"
           value={formData.email}
           onChange={handleChange}
-          placeholder="First Name"
+          placeholder="votre@email.com"
           required
-          className="w-full px-6 py-3 rounded-full bg-white border border-gray-300 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-black/20 focus:border-transparent transition-all duration-300"
+          className="w-full px-6 py-3 rounded-full bg-white border border-gray-200 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-black/10 focus:border-transparent transition-all duration-300"
         />
       </div>
 
-      {/* Company */}
+      {/* Service Type */}
       <div>
-        <label htmlFor="company" className="block text-sm font-bold text-gray-800 mb-3">
-          Company name
+        <label htmlFor="serviceType" className="block text-sm font-bold text-gray-800 mb-3">
+          Type de service
         </label>
-        <input
-          type="text"
-          id="company"
-          name="company"
-          value={formData.company}
-          onChange={handleChange}
-          placeholder="Company name"
-          className="w-full px-6 py-3 rounded-full bg-white border border-gray-300 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-black/20 focus:border-transparent transition-all duration-300"
-        />
+        <div className="relative">
+          <select
+            id="serviceType"
+            name="serviceType"
+            value={formData.serviceType}
+            onChange={handleChange}
+            required
+            className="w-full px-6 py-3 rounded-full bg-white border border-gray-200 text-gray-900 appearance-none focus:outline-none focus:ring-2 focus:ring-black/10 focus:border-transparent transition-all duration-300 pr-12"
+          >
+            <option value="">Sélectionner un service</option>
+            {serviceTypes.map((service) => (
+              <option key={service} value={service}>
+                {service}
+              </option>
+            ))}
+          </select>
+          <ChevronDown size={18} className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-600 pointer-events-none" />
+        </div>
       </div>
+
+      {/* Project Type - Conditional */}
+      {formData.serviceType === 'Division projets' && (
+        <div>
+          <label htmlFor="projectType" className="block text-sm font-bold text-gray-800 mb-3">
+            Type de projet
+          </label>
+          <div className="relative">
+            <select
+              id="projectType"
+              name="projectType"
+              value={formData.projectType}
+              onChange={handleChange}
+              required
+              className="w-full px-6 py-3 rounded-full bg-white border border-gray-200 text-gray-900 appearance-none focus:outline-none focus:ring-2 focus:ring-black/10 focus:border-transparent transition-all duration-300 pr-12"
+            >
+              <option value="">Sélectionner un type de projet</option>
+              {projectTypes.map((project) => (
+                <option key={project} value={project}>
+                  {project}
+                </option>
+              ))}
+            </select>
+            <ChevronDown size={18} className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-600 pointer-events-none" />
+          </div>
+        </div>
+      )}
 
       {/* Project Info */}
       <div>
         <label htmlFor="projectInfo" className="block text-sm font-bold text-gray-800 mb-3">
-          Project information
+          Informations sur le projet
         </label>
         <textarea
           id="projectInfo"
           name="projectInfo"
           value={formData.projectInfo}
           onChange={handleChange}
-          placeholder="Project information"
+          placeholder="Décrivez votre projet..."
           rows={6}
-          className="w-full px-6 py-4 rounded-2xl bg-white border border-gray-300 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-black/20 focus:border-transparent transition-all duration-300 resize-none"
+          className="w-full px-6 py-4 rounded-2xl bg-white border border-gray-200 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-black/10 focus:border-transparent transition-all duration-300 resize-none font-sans"
         />
       </div>
 
@@ -118,10 +191,10 @@ export default function ContactForm() {
       <div className="pt-4">
         <button
           type="submit"
-          disabled={isSubmitting}
-          className="inline-flex items-center gap-0 bg-black hover:bg-gray-900 disabled:bg-gray-400 text-white px-8 py-3 rounded-full font-semibold text-sm transition-all duration-300 group"
+          disabled={isSubmitting || submitted}
+          className="inline-flex items-center gap-0 bg-black hover:bg-gray-900 disabled:bg-gray-400 disabled:cursor-not-allowed text-white px-8 py-3 rounded-full font-semibold text-sm transition-all duration-300 group"
         >
-          <span>{isSubmitting ? 'Envoi...' : 'Submit'}</span>
+          <span>{isSubmitting ? 'Envoi...' : submitted ? 'Merci!' : 'Envoyer'}</span>
           <div className="w-9 h-9 rounded-full bg-[#e8e27c] ml-3 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
             <ArrowRight size={18} className="text-black" strokeWidth={2.5} aria-hidden="true" />
           </div>
