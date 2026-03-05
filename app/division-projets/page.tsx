@@ -48,11 +48,12 @@ export default function DivisionProjetsPage() {
           </p>
           <h1
             id="hero-heading"
-            className="font-black uppercase leading-none text-foreground text-balance mb-8"
-            style={{ fontSize: "clamp(2.8rem, 7vw, 5.5rem)", letterSpacing: "-0.03em" }}
+            className="font-black uppercase leading-none text-balance mb-8 flex items-start gap-4"
+            style={{ fontSize: "clamp(2.8rem, 7vw, 5.5rem)", letterSpacing: "-0.03em", color: "#000000" }}
           >
-            L&apos;ingénierie domotique<br />
-            <span className="italic text-foreground/50">au service de vos projets.</span>
+            <div className="w-4 h-4 bg-black flex-shrink-0 mt-2" style={{ minWidth: "16px", minHeight: "16px" }} aria-hidden="true" />
+            <span>L&apos;ingénierie domotique<br />
+            <span className="italic text-black/50">au service de vos projets.</span></span>
           </h1>
           <p className="text-[16px] text-foreground/65 leading-relaxed max-w-2xl mb-12">
             Nous accompagnons architectes, promoteurs et maîtres d'ouvrage dans la création de bâtiments intelligents et durables. De la conception à la mise en service, solutions multi-protocoles certifiées (KNX, BACnet, Matter).
@@ -88,11 +89,12 @@ export default function DivisionProjetsPage() {
             </div>
             <h2
               id="metiers-heading"
-              className="font-black leading-tight text-balance"
+              className="font-black leading-tight text-balance flex items-start gap-4"
               style={{ fontSize: "clamp(2.2rem, 5vw, 3.8rem)", letterSpacing: "-0.03em", color: "#000000" }}
             >
-              Quelle que soit votre<br />
-              <span className="italic text-black/60">industrie, nous avons la solution.</span>
+              <div className="w-4 h-4 bg-black flex-shrink-0 mt-2" style={{ minWidth: "16px", minHeight: "16px" }} aria-hidden="true" />
+              <span>Quelle que soit votre<br />
+              <span className="italic text-black/60">industrie, nous avons la solution.</span></span>
             </h2>
           </div>
           
@@ -144,11 +146,12 @@ export default function DivisionProjetsPage() {
         <div className="mx-auto max-w-4xl px-6 lg:px-10">
           <div className="mb-12">
             <h2
-              className="font-black leading-tight text-balance text-black"
-              style={{ fontSize: "clamp(2.2rem, 5vw, 4rem)", letterSpacing: "-0.03em" }}
+              className="font-black leading-tight text-balance flex items-start gap-4 text-black"
+              style={{ fontSize: "clamp(2.2rem, 5vw, 4rem)", letterSpacing: "-0.03em", color: "#000000" }}
             >
-              Collaborons<br />
-              <span className="italic text-black/50">sur votre prochain projet.</span>
+              <div className="w-4 h-4 bg-black flex-shrink-0 mt-2" style={{ minWidth: "16px", minHeight: "16px" }} aria-hidden="true" />
+              <span>Collaborons<br />
+              <span className="italic text-black/50">sur votre prochain projet.</span></span>
             </h2>
           </div>
           
