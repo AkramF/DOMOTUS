@@ -619,17 +619,17 @@ export default function HomePage() {
       </section>
 
       {/* ── FAQ ── */}
-      <section className="py-16 lg:py-20" style={{ backgroundColor: "#000000" }} aria-labelledby="faq-heading">
-        <div className="mx-auto max-w-7xl px-4 lg:px-6">
-          <div className="mb-16 text-center">
-            <SectionLabel color="#ffffff" className="justify-center mb-6">FAQ</SectionLabel>
+      <section className="py-16 lg:py-20" style={{ backgroundColor: "#ffffff" }} aria-labelledby="faq-heading">
+        <div className="mx-auto max-w-5xl px-4 lg:px-6">
+          <div className="mb-12 text-center">
+            <SectionLabel color="#000000" className="justify-center mb-6">POUR ALLER PLUS LOIN</SectionLabel>
             <h2
               id="faq-heading"
-              className="font-black uppercase leading-none text-white text-balance"
-              style={{ fontSize: "clamp(2rem, 5vw, 3.2rem)", letterSpacing: "-0.02em" }}
+              className="font-black uppercase leading-none text-black text-balance mb-4"
+              style={{ fontSize: "clamp(1.8rem, 4vw, 3.2rem)", letterSpacing: "-0.03em" }}
             >
-              Vos questions,<br />
-              <span className="italic" style={{ color: "#efd555" }}>nos réponses.</span>
+              Questions<br />
+              <span className="italic text-black">fréquentes.</span>
             </h2>
           </div>
           <script
