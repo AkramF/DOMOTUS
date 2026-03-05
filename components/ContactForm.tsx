@@ -195,7 +195,7 @@ export default function ContactForm() {
           className="inline-flex items-center gap-0 bg-black hover:bg-gray-900 disabled:bg-gray-400 disabled:cursor-not-allowed text-white px-8 py-3 rounded-full font-semibold text-sm transition-all duration-300 group"
         >
           <span>{isSubmitting ? 'Envoi...' : submitted ? 'Merci!' : 'Envoyer'}</span>
-          <div className="w-9 h-9 rounded-full bg-[#e8e27c] ml-3 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+          <div className="w-9 h-9 rounded-full bg-[#efd555] ml-3 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
             <ArrowRight size={18} className="text-black" strokeWidth={2.5} aria-hidden="true" />
           </div>
         </button>

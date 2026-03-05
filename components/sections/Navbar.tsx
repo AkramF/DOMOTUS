@@ -77,7 +77,7 @@ export default function Navbar({ variant = "default" }: { variant?: "default" | 
                     "focus-ring font-medium transition-colors duration-300 whitespace-nowrap pb-0.5",
                     pathname === link.href
                       ? cn(textColor, "border-b", borderColor)
-                      : cn(textColorMuted, textColorHover)
+                      : cn(textColorMuted, "hover:text-[#efd555]")
                   )}
                   style={{ fontFamily: "Inter, sans-serif", fontWeight: 500, fontSize: "16px", lineHeight: "24px" }}
                 >
