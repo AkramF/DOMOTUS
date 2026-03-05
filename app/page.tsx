@@ -618,7 +618,7 @@ export default function HomePage() {
       <section className="py-16 lg:py-20" style={{ backgroundColor: "#ffffff" }} aria-labelledby="faq-heading">
         <div className="mx-auto max-w-5xl px-4 lg:px-6">
           <div className="mb-12 text-center">
-            <SectionLabel color="#000000" className="justify-center mb-6">POUR ALLER PLUS LOIN</SectionLabel>
+            <SectionLabel color="#000000" className="justify-center mb-6">FAQ</SectionLabel>
             <h2
               id="faq-heading"
               className="font-black uppercase leading-none text-black text-balance mb-4"
