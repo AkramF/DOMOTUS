@@ -198,14 +198,14 @@ export default function VillasPage() {
       {/* ── HERO with Scroll Animation ── */}
       <HeroMaisonConnectee />
 
+      {/* ── SMART HOME DATA SECTION (Bénéfices) ── */}
+      <SmartHomeDataSection />
+
       {/* ── SMART HOME SECTION (Refactored) ── */}
       <SmartHomeSection />
 
       {/* ── L'IMMERSION: VOS MOMENTS DE VIE (Refonte Interactive) ── */}
       <MomentsInteractif moments={modesVie} />
-
-      {/* ── SMART HOME DATA SECTION (Bénéfices) ── */}
-      <SmartHomeDataSection />
 
       {/* ── NOS ESPACES CONNECTÉS ── */}
       <section className="py-28 bg-background" aria-labelledby="espaces-heading">
