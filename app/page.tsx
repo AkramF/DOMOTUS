@@ -536,7 +536,7 @@ export default function HomePage() {
           <div className="grid lg:grid-cols-12 gap-12 items-start">
             {/* Left column — Title and badge */}
             <div className="lg:col-span-4">
-              <SectionLabel color="#000000" className="mb-6">NOTRE DIVISION PROJETS</SectionLabel>
+              <SectionLabel color="#000000" className="mb-6">DIVISION PROJETS</SectionLabel>
               <h2
                 id="project-types-heading"
                 className="font-black leading-tight text-black text-balance"
