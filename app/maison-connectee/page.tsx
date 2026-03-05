@@ -204,36 +204,33 @@ export default function VillasPage() {
       {/* ── SMART HOME SECTION (Refactored) ── */}
       <SmartHomeSection />
 
-      {/* ── L'IMMERSION: VOS MOMENTS DE VIE (Refonte Interactive) ── */}
-      <MomentsInteractif moments={modesVie} />
-
       {/* ── NOS ESPACES CONNECTÉS ── */}
-      <section className="py-28 bg-background" aria-labelledby="espaces-heading">
+      <section className="py-28" style={{ backgroundColor: "#000000" }} aria-labelledby="espaces-heading">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <div className="mb-16">
             <SectionLabel>Architecture</SectionLabel>
             <h2
               id="espaces-heading"
-              className="font-black uppercase leading-none text-foreground text-balance max-w-2xl"
-              style={{ fontSize: "clamp(1.8rem, 4vw, 3.2rem)", letterSpacing: "-0.02em" }}
+              className="font-black uppercase leading-none text-balance max-w-2xl"
+              style={{ fontSize: "clamp(1.8rem, 4vw, 3.2rem)", letterSpacing: "-0.02em", color: "#ffffff" }}
             >
               Chaque espace de votre<br />
-              <span className="italic text-foreground/45">maison devient vivant.</span>
+              <span className="italic" style={{ color: "rgba(255, 255, 255, 0.45)" }}>maison devient vivant.</span>
             </h2>
           </div>
 
           {/* Espaces Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/6 mb-px">
             {espaces.map((e) => (
-              <div key={e.title} className="bg-card p-8 lg:p-10 flex flex-col h-full">
+              <div key={e.title} className="p-8 lg:p-10 flex flex-col h-full" style={{ backgroundColor: "#1a1a1a" }}>
                 <p className="text-[10px] uppercase tracking-[0.2em] text-primary/60 font-bold mb-4">{e.title}</p>
-                <p className="font-bold uppercase tracking-[0.05em] text-foreground text-[13px] mb-2">{e.manifeste}</p>
-                <p className="text-[12px] text-foreground/60 leading-relaxed mb-8">{e.angle}</p>
+                <p className="font-bold uppercase tracking-[0.05em] text-[13px] mb-2" style={{ color: "#ffffff" }}>{e.manifeste}</p>
+                <p className="text-[12px] leading-relaxed mb-8" style={{ color: "rgba(255, 255, 255, 0.6)" }}>{e.angle}</p>
                 
                 {/* Features */}
                 <ul className="space-y-3 flex-grow">
                   {e.features.map((f, i) => (
-                    <li key={i} className="flex gap-3 items-start text-[12px] text-foreground/70">
+                    <li key={i} className="flex gap-3 items-start text-[12px]" style={{ color: "rgba(255, 255, 255, 0.7)" }}>
                       <CheckCircle2 size={14} className="text-primary/50 flex-shrink-0 mt-0.5" aria-hidden="true" />
                       <span>{f}</span>
                     </li>
@@ -245,127 +242,15 @@ export default function VillasPage() {
         </div>
       </section>
 
-      {/* ── LA MÉTHODE DOMOTUS (Le Parcours sans friction) ── */}
-      <section className="py-28 bg-card" aria-labelledby="process-heading">
-        <div className="mx-auto max-w-7xl px-6 lg:px-10">
-          <div className="mb-16">
-            <SectionLabel>Du rêve à la réalité</SectionLabel>
-            <h2
-              id="process-heading"
-              className="font-black uppercase leading-none text-foreground text-balance max-w-xl"
-              style={{ fontSize: "clamp(1.8rem, 4vw, 3.2rem)", letterSpacing: "-0.02em" }}
-            >
-              La méthode<br />
-              <span className="italic text-foreground/45">Domotus.</span>
-            </h2>
-          </div>
-          <ol className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-white/6">
-            {etapes.map((e) => (
-              <li key={e.num} className="bg-background p-8 flex flex-col gap-4">
-                <span className="text-[10px] font-bold text-primary/60 uppercase tracking-widest">{e.num}</span>
-                <h3 className="font-bold uppercase tracking-[0.08em] text-foreground text-[13px]">{e.title}</h3>
-                <p className="text-[13px] text-foreground/50 leading-relaxed">{e.desc}</p>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
-
-      {/* ── REALISATIONS ── */}
-      <section id="realisations" className="py-28 bg-background" aria-labelledby="real-heading">
-        <div className="mx-auto max-w-7xl px-6 lg:px-10">
-          <div className="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6">
-            <div>
-              <SectionLabel>Portfolio</SectionLabel>
-              <h2
-                id="real-heading"
-                className="font-black uppercase leading-none text-foreground"
-                style={{ fontSize: "clamp(1.8rem, 4vw, 3.2rem)", letterSpacing: "-0.02em" }}
-              >
-                Réalisations au Maroc.
-              </h2>
-            </div>
-            <Link href="/contact" className="focus-ring shrink-0 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.15em] text-foreground/40 hover:text-primary transition-colors duration-300">
-              Votre projet <ArrowRight size={12} aria-hidden="true" />
-            </Link>
-          </div>
-          <div className="grid md:grid-cols-3 gap-px bg-white/6">
-            {realisations.map((r) => (
-              <div key={r.title} className="relative overflow-hidden group aspect-[4/5]">
-                <Image src={r.image} alt={`${r.title} — ${r.subtitle}`} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover transition-transform duration-700 group-hover:scale-105" />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/30 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <p className="text-[10px] uppercase tracking-[0.2em] text-primary mb-2 font-semibold">{r.tag}</p>
-                  <p className="font-bold uppercase tracking-[0.05em] text-foreground text-[13px]">{r.title}</p>
-                  <p className="text-[12px] text-foreground/55 mt-1">{r.subtitle}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── CE QUE DISENT NOS CLIENTS ── */}
-      <section className="py-28 bg-background" aria-labelledby="testimonials-heading">
-        <div className="mx-auto max-w-7xl px-6 lg:px-10">
-          <div className="mb-20 flex flex-col md:flex-row md:items-end justify-between gap-6">
-            <div>
-              <SectionLabel>Témoignages</SectionLabel>
-              <h2
-                id="testimonials-heading"
-                className="font-black uppercase leading-none text-foreground"
-                style={{ fontSize: "clamp(1.8rem, 4vw, 3.2rem)", letterSpacing: "-0.02em" }}
-              >
-                Ce que disent<br />
-                <span className="italic text-foreground/45">nos clients.</span>
-              </h2>
-            </div>
-          </div>
-          
-          {/* Testimonials Grid */}
-          <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
-            {temoignages.map((t) => (
-              <div
-                key={t.id}
-                className="relative bg-card border border-white/8 rounded-3xl p-8 lg:p-10 flex flex-col h-full hover:border-primary/30 transition-all duration-300"
-              >
-                {/* Stars */}
-                <div className="flex gap-1 mb-6">
-                  {Array.from({ length: t.rating }).map((_, i) => (
-                    <Star
-                      key={i}
-                      size={16}
-                      className="fill-primary text-primary"
-                      aria-hidden="true"
-                    />
-                  ))}
-                </div>
-
-                {/* Quote */}
-                <p className="text-sm lg:text-base text-foreground/80 leading-relaxed mb-8 flex-grow italic">
-                  "{t.texte}"
-                </p>
-
-                {/* Author Info */}
-                <div className="border-t border-white/8 pt-6">
-                  <p className="font-bold text-foreground text-sm">{t.nom}</p>
-                  <p className="text-xs text-foreground/50 mt-1">{t.titre}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ── CTA ── */}
-      <section className="py-28 bg-card" aria-label="Demande de devis domotique Maroc">
+      <section className="py-28" style={{ backgroundColor: "#000000" }} aria-label="Demande de devis domotique Maroc">
         <div className="mx-auto max-w-3xl px-6 text-center">
           <h2
-            className="font-black uppercase leading-none text-foreground text-balance mb-10"
-            style={{ fontSize: "clamp(2rem, 5vw, 3.8rem)", letterSpacing: "-0.03em" }}
+            className="font-black uppercase leading-none text-balance mb-10"
+            style={{ fontSize: "clamp(2rem, 5vw, 3.8rem)", letterSpacing: "-0.03em", color: "#ffffff" }}
           >
             Votre villa mérite mieux<br />
-            <span className="italic text-foreground/50">qu'un interrupteur.</span>
+            <span className="italic" style={{ color: "rgba(255, 255, 255, 0.5)" }}>qu'un interrupteur.</span>
           </h2>
           <Link href="/contact" className="focus-ring inline-flex items-center gap-3 bg-primary px-10 py-5 text-[11px] font-black uppercase tracking-[0.2em] hover:bg-primary/85 transition-all duration-300" style={{ color: "#0a0a0a" }}>
             Demander mon audit technique gratuit <ArrowRight size={13} aria-hidden="true" />
