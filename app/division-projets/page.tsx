@@ -78,27 +78,35 @@ export default function DivisionProjetsPage() {
         </div>
       </section>
 
-      {/* ── HUB MÉTIERS ── */}
-      <section className="py-28 lg:py-36 bg-card" aria-labelledby="metiers-heading">
+      {/* ── HUB MÉTIERS — Yellow Background ── */}
+      <section className="py-28 lg:py-40" style={{ backgroundColor: "#efd555" }} aria-labelledby="metiers-heading">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <div className="mb-16">
-            <SectionLabel>Vos besoins spécifiques</SectionLabel>
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-3 h-3 bg-black rounded-full" aria-hidden="true" />
+              <p className="text-xs uppercase tracking-[0.3em] font-bold text-black">Vos besoins spécifiques</p>
+            </div>
             <h2
               id="metiers-heading"
-              className="font-black uppercase leading-none text-foreground text-balance"
-              style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", letterSpacing: "-0.02em" }}
+              className="font-black leading-tight text-balance"
+              style={{ fontSize: "clamp(2.2rem, 5vw, 3.8rem)", letterSpacing: "-0.03em", color: "#000000" }}
             >
-              Quelle que soit votre industrie,<br />
-              <span className="italic text-foreground/45">nous avons la solution.</span>
+              Quelle que soit votre<br />
+              <span className="italic text-black/60">industrie, nous avons la solution.</span>
             </h2>
           </div>
-          <div className="grid md:grid-cols-2 gap-8">
+          
+          <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
             {metiers.map((m) => (
-              <Link key={m.title} href={m.href} className="group bg-background p-8 rounded hover:bg-foreground/5 transition-all duration-300">
-                <h3 className="font-black uppercase text-foreground text-[13px] mb-3">{m.title}</h3>
-                <p className="text-foreground/60 text-[14px] leading-relaxed mb-6">{m.desc}</p>
-                <div className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.15em] text-[#efd555] group-hover:gap-3 transition-all duration-300">
-                  En savoir plus <ArrowRight size={12} aria-hidden="true" />
+              <Link 
+                key={m.title} 
+                href={m.href} 
+                className="group bg-black text-white p-8 lg:p-10 rounded-2xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"
+              >
+                <h3 className="font-black uppercase text-white text-sm lg:text-base mb-3 tracking-[0.05em]">{m.title}</h3>
+                <p className="text-white/80 text-sm lg:text-base leading-relaxed mb-8">{m.desc}</p>
+                <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.15em] text-[#efd555] group-hover:gap-3 transition-all duration-300">
+                  En savoir plus <ArrowRight size={14} aria-hidden="true" />
                 </div>
               </Link>
             ))}
@@ -131,20 +139,30 @@ export default function DivisionProjetsPage() {
         </div>
       </section>
 
-      {/* ── CTA FINAL ── */}
-      <section className="py-28 bg-background text-center" aria-label="Appel à l'action final">
-        <div className="mx-auto max-w-3xl px-6 lg:px-10">
-          <h2
-            className="font-black uppercase leading-none text-foreground text-balance mb-10"
-            style={{ fontSize: "clamp(2rem, 5vw, 3.8rem)", letterSpacing: "-0.03em" }}
+      {/* ── CTA FINAL — Pure White Background ── */}
+      <section className="py-32 lg:py-40 bg-white text-center" aria-label="Appel à l'action final">
+        <div className="mx-auto max-w-4xl px-6 lg:px-10">
+          <div className="mb-12">
+            <h2
+              className="font-black leading-tight text-balance text-black"
+              style={{ fontSize: "clamp(2.2rem, 5vw, 4rem)", letterSpacing: "-0.03em" }}
+            >
+              Collaborons<br />
+              <span className="italic text-black/50">sur votre prochain projet.</span>
+            </h2>
+          </div>
+          
+          <p className="text-base lg:text-lg text-black/70 leading-relaxed mb-12 max-w-2xl mx-auto">
+            De la conception à la mise en service, notre Division Projets accompagne les leaders de la construction et de l'immobilier dans leurs ambitions domotiques.
+          </p>
+
+          <Link 
+            href="/contact" 
+            className="focus-ring inline-flex items-center justify-between bg-black hover:bg-gray-900 text-white px-10 py-5 rounded-full text-sm lg:text-base font-semibold transition-all duration-300 hover:shadow-2xl group"
           >
-            Collaborons<br />
-            <span className="italic text-foreground/50">sur votre prochain projet.</span>
-          </h2>
-          <Link href="/contact" className="focus-ring inline-flex items-center justify-between bg-white px-10 py-5 rounded-full text-[14px] font-semibold text-black transition-all duration-300 hover:shadow-lg will-change-colors group">
             Prendre rendez-vous
-            <div className="ml-4 w-10 h-10 bg-black rounded-full flex items-center justify-center transition-transform group-hover:scale-110">
-              <ArrowRight size={16} className="text-[#efd555]" aria-hidden="true" />
+            <div className="ml-4 w-11 h-11 bg-[#efd555] rounded-full flex items-center justify-center transition-transform group-hover:scale-110">
+              <ArrowRight size={18} className="text-black" aria-hidden="true" />
             </div>
           </Link>
         </div>
