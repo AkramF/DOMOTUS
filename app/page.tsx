@@ -572,10 +572,6 @@ export default function HomePage() {
 
                     {/* Content */}
                     <div className="p-6 flex flex-col justify-between flex-1">
-                      {/* Segment tag */}
-                      <span className="text-[11px] font-bold uppercase tracking-[0.1em] text-black/50 mb-2">
-                        {project.segment}
-                      </span>
                       <h3 className="text-black font-bold text-lg mb-3" style={{ fontSize: "18px", lineHeight: "26px" }}>
                         {project.title}
                       </h3>
