@@ -7,6 +7,7 @@ import MomentsInteractif from "@/components/MomentsInteractif";
 import HeroMaisonConnectee from "@/components/HeroMaisonConnectee";
 import Navbar from "@/components/sections/Navbar";
 import SmartHomeSection from "@/components/SmartHomeSection";
+import EspacesSlider from "@/components/EspacesSlider";
 
 export const metadata: Metadata = {
   title: "Maison Connectée — Domotique Multi-Protocoles | Domotus Maroc",
@@ -208,9 +209,9 @@ export default function VillasPage() {
       <MomentsInteractif moments={modesVie} />
 
       {/* ── NOS ESPACES CONNECTÉS ── */}
-      <section className="py-28" style={{ backgroundColor: "#f0efed" }} aria-labelledby="espaces-heading">
+      <section className="py-20" style={{ backgroundColor: "#efd555" }} aria-labelledby="espaces-heading">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
-          <div className="mb-16">
+          <div className="mb-12">
             <div className="inline-flex items-center gap-2 mb-4">
               <div className="w-3 h-3 bg-black" aria-hidden="true"></div>
               <span style={{ fontFamily: "Inter, sans-serif", fontWeight: 600, fontSize: "14px", lineHeight: "20px", color: "#000000" }}>ARCHITECTURE</span>
@@ -225,26 +226,8 @@ export default function VillasPage() {
             </h2>
           </div>
 
-          {/* Espaces Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4" style={{ backgroundColor: "transparent" }}>
-            {espaces.map((e) => (
-              <div key={e.title} className="p-8 lg:p-10 flex flex-col h-full rounded-2xl" style={{ backgroundColor: "#ffffff", boxShadow: "0 2px 8px rgba(0, 0, 0, 0.08)" }}>
-                <p className="text-[10px] uppercase tracking-[0.2em] font-bold mb-4" style={{ color: "#efd555" }}>{e.title}</p>
-                <p className="font-bold uppercase tracking-[0.05em] text-[13px] mb-2" style={{ color: "#000000" }}>{e.manifeste}</p>
-                <p className="text-[12px] leading-relaxed mb-8" style={{ color: "rgba(0, 0, 0, 0.60)" }}>{e.angle}</p>
-                
-                {/* Features */}
-                <ul className="space-y-3 flex-grow">
-                  {e.features.map((f, i) => (
-                    <li key={i} className="flex gap-3 items-start text-[12px]" style={{ color: "rgba(0, 0, 0, 0.70)" }}>
-                      <CheckCircle2 size={14} className="flex-shrink-0 mt-0.5" style={{ color: "rgba(239, 213, 85, 0.50)" }} aria-hidden="true" />
-                      <span>{f}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
+          {/* Center-Focused Horizontal Slider */}
+          <EspacesSlider espaces={espaces} />
         </div>
       </section>
 
