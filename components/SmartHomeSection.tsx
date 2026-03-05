@@ -64,9 +64,9 @@ export default function SmartHomeSection() {
 
         {/* Title Section */}
         <div className="mb-20">
-          <h2 className="font-black text-black leading-tight text-balance" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', letterSpacing: '-0.03em' }}>
+          <h2 style={{ fontFamily: "Inter, sans-serif", fontWeight: 500, fontSize: "64px", lineHeight: "70px", color: "#000000", letterSpacing: '-0.03em' }}>
             Des scénarios infinis<br />
-            <span className="italic text-black/50">pour votre maison intelligente</span>
+            <span style={{ fontStyle: 'italic', color: '#000000' }}>pour votre maison intelligente</span>
           </h2>
         </div>
 
