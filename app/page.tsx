@@ -484,7 +484,7 @@ export default function HomePage() {
               style={{ fontSize: "clamp(1.8rem, 4vw, 3.2rem)", letterSpacing: "-0.02em" }}
             >
               De la vision à la perfection,{" "}
-              <span className="italic text-white/45">en 3 étapes.</span>
+              <span className="italic" style={{ color: "#f0efed" }}>en 3 étapes.</span>
             </h2>
           </div>
           <ol className="grid lg:grid-cols-3 gap-px bg-white/6" role="list">
