@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { ArrowRight, Home, Zap, Shield, Volume2, Smartphone, Settings } from 'lucide-react'
+import { ArrowRight, Zap, Shield, Volume2, Smartphone } from 'lucide-react'
 import { motion } from 'framer-motion'
 
 export default function HeroMaisonConnectee() {
@@ -14,28 +14,8 @@ export default function HeroMaisonConnectee() {
 
   return (
     <div className="bg-black relative overflow-hidden">
-      {/* Navigation Bar */}
-      <nav className="relative z-10 border-b border-white/10">
-        <div className="mx-auto max-w-7xl px-6 lg:px-10 py-4 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-[#efd555] rounded-lg flex items-center justify-center">
-              <Home size={18} className="text-black" />
-            </div>
-            <span className="text-white font-bold hidden sm:inline">Domotus</span>
-          </Link>
-          <div className="flex items-center gap-8">
-            <Link href="/maison-connectee" className="text-white hover:text-[#efd555] transition-colors text-sm font-medium">
-              Accueil
-            </Link>
-            <Link href="/contact" className="text-white hover:text-[#efd555] transition-colors text-sm font-medium">
-              Contact
-            </Link>
-          </div>
-        </div>
-      </nav>
-
       {/* Hero Content */}
-      <section className="relative min-h-[calc(100vh-80px)] flex items-center justify-center py-20 lg:py-32">
+      <section className="relative min-h-screen flex items-center justify-center py-20 lg:py-32">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-20">
           <div className="absolute top-20 right-20 w-72 h-72 bg-[#efd555]/20 rounded-full blur-3xl"></div>
