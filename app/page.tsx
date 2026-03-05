@@ -518,11 +518,11 @@ export default function HomePage() {
             <Link
               href="/contact"
               className="focus-ring inline-flex items-center justify-between px-8 py-4 rounded-full transition-all duration-300 hover:shadow-xl group"
-              style={{ backgroundColor: "#000000", border: "1px solid rgba(255, 255, 255, 0.1)" }}
+              style={{ backgroundColor: "#ffffff", border: "1px solid rgba(0, 0, 0, 0.1)" }}
             >
-              <span className="text-white font-semibold" style={{ fontSize: "16px" }}>Commencer l&apos;étape 1 — Audit technique</span>
+              <span className="text-black font-semibold" style={{ fontSize: "16px" }}>Commencer l&apos;étape 1 — Audit technique</span>
               <div className="ml-6 w-10 h-10 rounded-full flex items-center justify-center transition-transform group-hover:scale-110 flex-shrink-0" style={{ backgroundColor: "#efd555" }}>
-                <ArrowRight size={16} className="text-black" aria-hidden="true" />
+                <ArrowRight size={16} className="text-white" aria-hidden="true" />
               </div>
             </Link>
           </div>
