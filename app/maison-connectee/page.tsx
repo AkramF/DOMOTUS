@@ -214,17 +214,14 @@ export default function VillasPage() {
             <div style={{ fontFamily: "Inter, sans-serif", fontWeight: 600, fontSize: "14px", lineHeight: "20px", color: "#efd555" }}>
               Architecture
             </div>
-            <div className="flex items-start gap-3">
-              <div className="w-3 h-3 bg-black flex-shrink-0 mt-1" aria-hidden="true" />
-              <h2
-                id="espaces-heading"
-                className="font-black uppercase leading-none text-balance max-w-2xl"
-                style={{ fontSize: "clamp(1.8rem, 4vw, 3.2rem)", letterSpacing: "-0.02em", color: "#000000" }}
-              >
-                Chaque espace de votre<br />
-                <span className="italic" style={{ color: "rgba(0, 0, 0, 0.45)" }}>maison devient vivant.</span>
-              </h2>
-            </div>
+            <h2
+              id="espaces-heading"
+              className="font-black uppercase leading-none text-balance max-w-2xl"
+              style={{ fontSize: "clamp(1.8rem, 4vw, 3.2rem)", letterSpacing: "-0.02em", color: "#000000" }}
+            >
+              Chaque espace de votre<br />
+              <span className="italic" style={{ color: "rgba(0, 0, 0, 0.45)" }}>maison devient vivant.</span>
+            </h2>
           </div>
 
           {/* Espaces Grid */}
@@ -255,17 +252,14 @@ export default function VillasPage() {
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <div className="mb-16">
             <SectionLabel>Du rêve à la réalité</SectionLabel>
-            <div className="flex items-start gap-3">
-              <div className="w-3 h-3 bg-foreground flex-shrink-0 mt-1" aria-hidden="true" />
-              <h2
-                id="process-heading"
-                className="font-black uppercase leading-none text-foreground text-balance max-w-xl"
-                style={{ fontSize: "clamp(1.8rem, 4vw, 3.2rem)", letterSpacing: "-0.02em" }}
-              >
-                La méthode<br />
-                <span className="italic text-foreground/45">Domotus.</span>
-              </h2>
-            </div>
+            <h2
+              id="process-heading"
+              className="font-black uppercase leading-none text-foreground text-balance max-w-xl"
+              style={{ fontSize: "clamp(1.8rem, 4vw, 3.2rem)", letterSpacing: "-0.02em" }}
+            >
+              La méthode<br />
+              <span className="italic text-foreground/45">Domotus.</span>
+            </h2>
           </div>
           <ol className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-white/6">
             {etapes.map((e) => (
@@ -285,16 +279,13 @@ export default function VillasPage() {
           <div className="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div>
               <SectionLabel>Portfolio</SectionLabel>
-              <div className="flex items-start gap-3">
-                <div className="w-3 h-3 bg-foreground flex-shrink-0 mt-1" aria-hidden="true" />
-                <h2
-                  id="real-heading"
-                  className="font-black uppercase leading-none text-foreground"
-                  style={{ fontSize: "clamp(1.8rem, 4vw, 3.2rem)", letterSpacing: "-0.02em" }}
-                >
-                  Réalisations au Maroc.
-                </h2>
-              </div>
+              <h2
+                id="real-heading"
+                className="font-black uppercase leading-none text-foreground"
+                style={{ fontSize: "clamp(1.8rem, 4vw, 3.2rem)", letterSpacing: "-0.02em" }}
+              >
+                Réalisations au Maroc.
+              </h2>
             </div>
             <Link href="/contact" className="focus-ring shrink-0 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.15em] text-foreground/40 hover:text-primary transition-colors duration-300">
               Votre projet <ArrowRight size={12} aria-hidden="true" />
@@ -319,17 +310,13 @@ export default function VillasPage() {
       {/* ── CTA ── */}
       <section className="py-28 bg-card" aria-label="Demande de devis domotique Maroc">
         <div className="mx-auto max-w-3xl px-6 text-center">
-          <div className="flex items-center justify-center gap-3 mb-10">
-            <div className="w-3 h-3 bg-foreground" aria-hidden="true" />
-            <h2
-              className="font-black uppercase leading-none text-foreground text-balance"
-              style={{ fontSize: "clamp(2rem, 5vw, 3.8rem)", letterSpacing: "-0.03em" }}
-            >
-              Votre villa mérite mieux<br />
-              <span className="italic text-foreground/50">qu'un interrupteur.</span>
-            </h2>
-            <div className="w-3 h-3 bg-foreground" aria-hidden="true" />
-          </div>
+          <h2
+            className="font-black uppercase leading-none text-foreground text-balance mb-10"
+            style={{ fontSize: "clamp(2rem, 5vw, 3.8rem)", letterSpacing: "-0.03em" }}
+          >
+            Votre villa mérite mieux<br />
+            <span className="italic text-foreground/50">qu'un interrupteur.</span>
+          </h2>
           <Link href="/contact" className="focus-ring inline-flex items-center gap-3 bg-primary px-10 py-5 text-[11px] font-black uppercase tracking-[0.2em] hover:bg-primary/85 transition-all duration-300" style={{ color: "#0a0a0a" }}>
             Demander mon audit technique gratuit <ArrowRight size={13} aria-hidden="true" />
           </Link>
