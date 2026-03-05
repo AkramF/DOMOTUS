@@ -181,11 +181,12 @@ export default function EspacesSlider({ espaces }: EspacesSliderProps) {
                 animate={{ scale, opacity }}
                 transition={{ duration: 0.4, ease: 'easeOut' }}
                 style={{ zIndex }}
-                className="flex-shrink-0"
+                className="flex-shrink-0 cursor-pointer"
                 style={{ width: CARD_WIDTH, scrollSnapAlign: 'center' }}
+                onClick={() => setActiveIndex(idx)}
               >
                 <div
-                  className="bg-white rounded-2xl flex flex-col h-96 transition-all duration-300 overflow-hidden group relative"
+                  className="bg-white rounded-2xl flex flex-col h-96 transition-all duration-300 overflow-hidden group relative hover:shadow-2xl"
                   style={{
                     boxShadow: isActive ? '0 20px 40px rgba(0, 0, 0, 0.15)' : '0 4px 12px rgba(0, 0, 0, 0.08)',
                   }}
@@ -207,12 +208,13 @@ export default function EspacesSlider({ espaces }: EspacesSliderProps) {
                       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
 
                       {/* Content - Bottom aligned */}
-                      <div className="absolute bottom-0 left-0 right-0 p-6 text-white flex flex-col gap-3">
+                      <div className="absolute bottom-0 left-0 right-0 p-6 text-white flex flex-col gap-3 group-hover:opacity-110 transition-opacity">
                         <div className="flex items-center justify-between">
                           <h3 className="font-bold text-lg">{espace.title}</h3>
                           {getIconForEspace(espace.title)}
                         </div>
                         <p className="text-xs text-white/70 uppercase tracking-widest font-semibold">Espace Connecté</p>
+                        <p className="text-[10px] text-white/50 opacity-0 group-hover:opacity-100 transition-opacity">Cliquez pour voir plus</p>
                       </div>
                     </>
                   )}
