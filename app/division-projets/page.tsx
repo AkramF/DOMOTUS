@@ -26,7 +26,7 @@ export const metadata: Metadata = {
 const metiers = [
   { title: "Architectes & Designers", desc: "Une intégration invisible pour une esthétique préservée.", href: "/architectes" },
   { title: "Promoteurs Immobiliers", desc: "Accélérez vos ventes grâce à la labellisation Smart Building.", href: "/promoteurs" },
-  { title: "Hôtellerie & Hospitalité", desc: "Optimisez l'expérience client et réduisez les coûts d'exploitation.", href: "/hospitalite" },
+  { title: "Hospitalité & Retail", desc: "Optimisez l'expérience client et réduisez les coûts d'exploitation. Pour hôtels, spas et commerces.", href: "/hospitalite" },
   { title: "Bureaux d'Études & Tertiaire", desc: "Une expertise technique pour des bâtiments connectés et conformes.", href: "/bureaux" },
 ];
 
@@ -106,10 +106,11 @@ export default function DivisionProjetsPage() {
               <Link 
                 key={m.title} 
                 href={m.href} 
-                className="group bg-black text-white p-8 lg:p-10 rounded-2xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"
+                className="group p-8 lg:p-10 rounded-2xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"
+                style={{ backgroundColor: "#f0efed" }}
               >
-                <h3 className="font-black uppercase text-white text-sm lg:text-base mb-3 tracking-[0.05em]">{m.title}</h3>
-                <p className="text-white/80 text-sm lg:text-base leading-relaxed mb-8">{m.desc}</p>
+                <h3 className="font-black uppercase text-black text-sm lg:text-base mb-3 tracking-[0.05em]">{m.title}</h3>
+                <p className="text-black/70 text-sm lg:text-base leading-relaxed mb-8">{m.desc}</p>
                 <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.15em] text-[#efd555] group-hover:gap-3 transition-all duration-300">
                   En savoir plus <ArrowRight size={14} aria-hidden="true" />
                 </div>
@@ -150,19 +151,23 @@ export default function DivisionProjetsPage() {
       </section>
 
       {/* ── CTA FINAL — Pure White Background ── */}
-      <section className="py-32 lg:py-40 bg-white text-center" aria-label="Appel à l'action final">
+      <section className="py-16 lg:py-20 bg-white text-center" aria-label="Appel à l'action final">
         <div className="mx-auto max-w-4xl px-6 lg:px-10">
-          <div className="mb-12">
-            <h2
-              className="font-black leading-tight text-balance text-black"
-              style={{ fontSize: "clamp(2.2rem, 5vw, 4rem)", letterSpacing: "-0.03em", color: "#000000" }}
-            >
-              Collaborons<br />
-              <span className="italic text-black/50">sur votre prochain projet.</span>
-            </h2>
+          <div className="mb-8">
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <div className="w-3 h-3 bg-black" aria-hidden="true" />
+              <h2
+                className="font-black leading-tight text-balance text-black"
+                style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", letterSpacing: "-0.03em", color: "#000000" }}
+              >
+                Collaborons<br />
+                <span className="italic text-black/50">sur votre prochain projet.</span>
+              </h2>
+              <div className="w-3 h-3 bg-black" aria-hidden="true" />
+            </div>
           </div>
           
-          <p className="text-base lg:text-lg text-black/70 leading-relaxed mb-12 max-w-2xl mx-auto">
+          <p className="text-base lg:text-lg text-black/70 leading-relaxed mb-8 max-w-2xl mx-auto">
             De la conception à la mise en service, notre Division Projets accompagne les leaders de la construction et de l'immobilier dans leurs ambitions domotiques.
           </p>
 

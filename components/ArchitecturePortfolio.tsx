@@ -1,28 +1,47 @@
-"use client";
+'use client'
 
-import { useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { useState } from 'react'
+import Image from 'next/image'
+import Link from 'next/link'
+import { motion } from 'framer-motion'
+import { ArrowRight, Lightbulb, Shield, Thermometer, Wifi, Volume2, Activity } from 'lucide-react'
 
 interface PortfolioProject {
-  id: string;
-  title: string;
-  location: string;
-  description: string;
-  tags: string[];
-  image: string;
-  imageAlt: string;
+  id: string
+  title: string
+  location: string
+  description: string
+  tags: string[]
+  image: string
+  imageAlt: string
 }
 
 interface ArchitecturePortfolioProps {
-  projects: PortfolioProject[];
+  projects: PortfolioProject[]
+}
+
+const getIconForProject = (projectTitle: string) => {
+  switch (projectTitle.toLowerCase()) {
+    case 'éclairage intelligent':
+      return <Lightbulb size={48} className="text-white" />
+    case 'sécurité & accès':
+      return <Shield size={48} className="text-white" />
+    case 'gestion énergie & climat':
+      return <Thermometer size={48} className="text-white" />
+    case 'réseaux & connectivité':
+      return <Wifi size={48} className="text-white" />
+    case 'audio & divertissement':
+      return <Volume2 size={48} className="text-white" />
+    case 'supervision globale (bms)':
+      return <Activity size={48} className="text-white" />
+    default:
+      return <Activity size={48} className="text-white" />
+  }
 }
 
 export default function ArchitecturePortfolio({ projects }: ArchitecturePortfolioProps) {
-  const [activeProject, setActiveProject] = useState(0);
-  const current = projects[activeProject];
+  const [activeProject, setActiveProject] = useState(0)
+  const current = projects[activeProject]
 
   return (
     <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 h-screen lg:h-full">
@@ -32,36 +51,25 @@ export default function ArchitecturePortfolio({ projects }: ArchitecturePortfoli
           <button
             key={project.id}
             onClick={() => setActiveProject(idx)}
-            className={`flex-shrink-0 w-32 h-32 lg:w-full lg:aspect-square rounded-2xl overflow-hidden transition-all duration-300 relative group ${
-              activeProject === idx ? "ring-2 ring-[#efd555]" : ""
-            }`}
+            className="flex-shrink-0 w-32 h-32 lg:w-full lg:aspect-square rounded-2xl overflow-hidden transition-all duration-300 relative group"
             aria-label={`Select ${project.title}`}
             aria-pressed={activeProject === idx}
           >
-            {/* Active State - with CSS gradient background */}
+            {/* Active State - Icon only on black background */}
             {activeProject === idx ? (
               <>
                 <div 
                   className="absolute inset-0"
                   style={{
-                    background: 'linear-gradient(135deg, #404040 0%, #1f2937 100%)',
+                    background: '#000000',
                   }}
                 />
-                <div className="absolute inset-0 bg-black/30" />
-                <div className="absolute inset-0 flex flex-col justify-end p-4 text-white">
-                  <h3 className="font-bold text-sm lg:text-base">{project.title}</h3>
-                  <p className="text-xs text-white/80">{project.location}</p>
-                  <div className="flex flex-wrap gap-1 mt-2">
-                    {project.tags.map((tag) => (
-                      <span key={tag} className="text-[10px] bg-white/20 px-2 py-1 rounded">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
+                <div className="absolute inset-0 flex items-center justify-center">
+                  {getIconForProject(project.title)}
                 </div>
               </>
             ) : (
-              // Inactive State - solid black
+              // Inactive State - solid black with project info
               <div className="absolute inset-0 bg-black flex items-center justify-center p-4">
                 <div className="text-center">
                   <h3 className="font-bold text-[#efd555] text-sm lg:text-base line-clamp-2">
@@ -90,22 +98,11 @@ export default function ArchitecturePortfolio({ projects }: ArchitecturePortfoli
               <h2 className="font-black text-2xl lg:text-4xl uppercase tracking-tight text-black">
                 {current.title}
               </h2>
-              <p className="text-sm lg:text-base text-gray-600 mt-2 leading-relaxed">
+              <p className="text-sm lg:text-base text-gray-600 mt-4 leading-relaxed">
                 {current.description}
               </p>
             </div>
           </div>
-
-          {/* View Project Button */}
-          <Link
-            href="#"
-            className="inline-flex items-center justify-between w-fit px-6 py-3 bg-black rounded-full hover:bg-black/90 transition-colors duration-300"
-          >
-            <span className="text-white font-semibold text-sm">Voir le projet</span>
-            <div className="ml-4 w-8 h-8 rounded-full bg-[#efd555] flex items-center justify-center flex-shrink-0">
-              <ArrowRight size={16} className="text-black" />
-            </div>
-          </Link>
         </motion.div>
 
         {/* Main Image */}
@@ -127,5 +124,5 @@ export default function ArchitecturePortfolio({ projects }: ArchitecturePortfoli
         </motion.div>
       </div>
     </div>
-  );
+  )
 }

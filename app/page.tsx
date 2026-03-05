@@ -73,7 +73,7 @@ const portfolioProjects = [
     id: "eclairage-intelligent",
     title: "Éclairage Intelligent",
     location: "Solutions d'ambiance adaptative",
-    description: "Créez des ambiances lumineuses dynamiques qui s'adaptent à vos besoins. Économies énergétiques jusqu'à 70%, transition douce entre scènes prédéfinies, et synchronisation automatique avec les rythmes circadiens.",
+    description: "Créez des ambiances lumineuses dynamiques qui s'adaptent naturellement à vos besoins et à votre rythme circadien. Économies énergétiques jusqu'à 70%, transition douce entre scènes prédéfinies, synchronisation automatique avec les rythmes solaires, et contrôle intuitif depuis votre appli mobile.",
     tags: ["KNX", "Lutron", "Philips Hue"],
     image: "/images/expertise-eclairage.jpg",
     imageAlt: "Éclairage Intelligent - Ambiance Adaptative",
@@ -82,7 +82,7 @@ const portfolioProjects = [
     id: "securite-acces",
     title: "Sécurité & Accès",
     location: "Protection complète et gestion d'accès",
-    description: "Protégez vos espaces avec systèmes intégrés multi-couches. Contrôle d'accès biométrique, alarme intelligente, caméras IP, et rapports en temps réel. Tranquillité d'esprit totale avec surveillance 24/7.",
+    description: "Protégez vos espaces avec systèmes intégrés multi-couches et invisible. Contrôle d'accès biométrique discret, alarme intelligente, caméras IP 4K, rapports en temps réel, et supervision centralisée 24/7. Une tranquillité d'esprit totale en toutes circonstances.",
     tags: ["Sécurité", "Biométrique", "Surveillance"],
     image: "/images/showroom.jpg",
     imageAlt: "Sécurité & Accès - Système Intégré",
@@ -91,7 +91,7 @@ const portfolioProjects = [
     id: "gestion-energie-climat",
     title: "Gestion Énergie & Climat",
     location: "Confort thermique et efficacité énergétique",
-    description: "Optimisez votre consommation énergétique tout en maximisant le confort. Contrôle climatique zone par zone, anticipation météo, et réduction jusqu'à 40% des factures d'énergie grâce à l'IA.",
+    description: "Optimisez votre consommation énergétique tout en maximisant le confort absolu. Contrôle climatique zone par zone intelligent, anticipation météo prédictive, réduction jusqu'à 40% des factures grâce à l'IA, et conformité automatique aux normes d'excellence (LEED/HQE).",
     tags: ["BMS", "Climatisation", "Efficacité"],
     image: "/images/expertise-energie.jpg",
     imageAlt: "Gestion Énergie & Climat - Régulation Intelligente",
@@ -100,7 +100,7 @@ const portfolioProjects = [
     id: "reseaux-connectivite",
     title: "Réseaux & Connectivité",
     location: "Infrastructure réseau fiable et performante",
-    description: "Fondation solide pour tous vos systèmes intelligents. WiFi 7, connectivité mesh redondante, et cybersécurité intégrée. Latence ultra-faible garantie pour les applications critiques.",
+    description: "Fondation solide et invisible pour tous vos systèmes intelligents. WiFi 7 ultra-performant, connectivité mesh redondante pour zéro perte, cybersécurité intégrée de grade militaire, et latence ultra-faible garantie pour les applications critiques.",
     tags: ["WiFi 7", "Matter", "Thread"],
     image: "/images/villa-prestige.jpg",
     imageAlt: "Réseaux & Connectivité - Infrastructure Sécurisée",
@@ -109,7 +109,7 @@ const portfolioProjects = [
     id: "audio-divertissement",
     title: "Audio & Divertissement",
     location: "Immersion sensorielle multimédia",
-    description: "Transformez vos espaces en théâtres privés. Systèmes audio surround immersifs, distribution vidéo multi-zone, et gaming haute fidélité. Qualité studio professionnel à portée de main.",
+    description: "Transformez vos espaces en théâtres privés professionnels. Systèmes audio surround immersifs calibrés, distribution vidéo multi-zone fluide, gaming haute fidélité sans latence, et qualité studio professionnel indistinguable du live.",
     tags: ["Cinéma", "Son surround", "Streaming"],
     image: "/images/expertise-av.jpg",
     imageAlt: "Audio & Divertissement - Expérience Immersive",
@@ -118,7 +118,7 @@ const portfolioProjects = [
     id: "supervision-globale",
     title: "Supervision Globale (BMS)",
     location: "Pilotage centralisé complète",
-    description: "Tableau de bord unique pour tous vos systèmes domotiques. Automatisations complexes, scénarios programmés, et analytics prédictive. Gestion intelligente de l'ensemble de votre infrastructure connectée.",
+    description: "Tableau de bord unique pour piloter tous vos systèmes domotiques en harmonie. Automatisations complexes intelligentes, scénarios programmés adaptatifs, analytics prédictive puissante, et gestion en temps réel de l'ensemble de votre infrastructure connectée.",
     tags: ["BMS", "Automatisation", "Analytics"],
     image: "/images/immeuble-tertiaire.jpg",
     imageAlt: "Supervision Globale - Pilotage Centralisé BMS",
@@ -256,10 +256,10 @@ const projectTypes = [
     segment: "B2B",
   },
   {
-    title: "Hôtellerie & Hospitalité",
-    description: "Gestion centralisée pour chaînes hôtelières. Confort client, efficacité opérationnelle, économies énergétiques garanties.",
+    title: "Hospitalité & Retail",
+    description: "Gestion centralisée pour hôtels, spas et commerces. Confort client, efficacité opérationnelle, engagement digital et économies énergétiques garanties.",
     image: "/images/expertise-bms.jpg",
-    imageAlt: "Hôtellerie et hospitalité",
+    imageAlt: "Hospitalité et retail",
     segment: "B2B2C",
   },
   {
@@ -484,7 +484,7 @@ export default function HomePage() {
               style={{ fontSize: "clamp(1.8rem, 4vw, 3.2rem)", letterSpacing: "-0.02em" }}
             >
               De la vision à la perfection,{" "}
-              <span className="italic text-white/45">en 3 étapes.</span>
+              <span className="italic" style={{ color: "#f0efed" }}>en 3 étapes.</span>
             </h2>
           </div>
           <ol className="grid lg:grid-cols-3 gap-px bg-white/6" role="list">
@@ -521,8 +521,8 @@ export default function HomePage() {
               style={{ backgroundColor: "#ffffff", border: "1px solid rgba(0, 0, 0, 0.1)" }}
             >
               <span className="text-black font-semibold" style={{ fontSize: "16px" }}>Commencer l&apos;étape 1 — Audit technique</span>
-              <div className="ml-6 w-10 h-10 rounded-full flex items-center justify-center transition-transform group-hover:scale-110 flex-shrink-0" style={{ backgroundColor: "#efd555" }}>
-                <ArrowRight size={16} className="text-white" aria-hidden="true" />
+              <div className="ml-6 w-10 h-10 rounded-full flex items-center justify-center transition-transform group-hover:scale-110 flex-shrink-0" style={{ backgroundColor: "#000000" }}>
+                <ArrowRight size={16} className="text-[#efd555]" aria-hidden="true" />
               </div>
             </Link>
           </div>
@@ -536,7 +536,7 @@ export default function HomePage() {
           <div className="grid lg:grid-cols-12 gap-12 items-start">
             {/* Left column — Title and badge */}
             <div className="lg:col-span-4">
-              <SectionLabel color="#000000" className="mb-6">NOTRE DIVISION PROJETS</SectionLabel>
+              <SectionLabel color="#000000" className="mb-6">DIVISION PROJETS</SectionLabel>
               <h2
                 id="project-types-heading"
                 className="font-black leading-tight text-black text-balance"
@@ -572,10 +572,6 @@ export default function HomePage() {
 
                     {/* Content */}
                     <div className="p-6 flex flex-col justify-between flex-1">
-                      {/* Segment tag */}
-                      <span className="text-[11px] font-bold uppercase tracking-[0.1em] text-black/50 mb-2">
-                        {project.segment}
-                      </span>
                       <h3 className="text-black font-bold text-lg mb-3" style={{ fontSize: "18px", lineHeight: "26px" }}>
                         {project.title}
                       </h3>
@@ -602,7 +598,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-4 lg:px-6">
           {/* Title section */}
           <div className="mb-12 text-center">
-            <SectionLabel color="#ffffff" className="justify-center mb-6">CE QUE DISENT NOS CLIENTS</SectionLabel>
+            <SectionLabel color="#ffffff" className="justify-center mb-6">Témoignages</SectionLabel>
             <h2
               id="temoignages-heading"
               className="font-black uppercase leading-none text-white text-balance"
@@ -622,7 +618,7 @@ export default function HomePage() {
       <section className="py-16 lg:py-20" style={{ backgroundColor: "#ffffff" }} aria-labelledby="faq-heading">
         <div className="mx-auto max-w-5xl px-4 lg:px-6">
           <div className="mb-12 text-center">
-            <SectionLabel color="#000000" className="justify-center mb-6">POUR ALLER PLUS LOIN</SectionLabel>
+            <SectionLabel color="#000000" className="justify-center mb-6">FAQ</SectionLabel>
             <h2
               id="faq-heading"
               className="font-black uppercase leading-none text-black text-balance mb-4"
@@ -666,7 +662,7 @@ export default function HomePage() {
               <h2
                 id="cta-heading"
                 className="text-black text-balance mb-4 leading-tight"
-                style={{ fontFamily: "Inter, sans-serif", fontWeight: 500, fontSize: "72px", lineHeight: "79px" }}
+                style={{ fontFamily: "system-ui, ui-sans-serif, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'", fontWeight: 900, fontSize: "64px", lineHeight: "64px", fontStyle: "normal" }}
               >
                 Planifiez votre<br />
                 étude personnalisée

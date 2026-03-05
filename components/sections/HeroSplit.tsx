@@ -32,14 +32,14 @@ export default function Hero() {
               >
                 <span className="block w-2 h-2 bg-white" aria-hidden="true" />
                 <p className="text-white select-none" style={{ fontFamily: "Inter, sans-serif", fontWeight: 600, fontSize: "14px", lineHeight: "20px" }}>
-                  Intégration domotique certifiée — Maroc
+                  INTÉGRATION DOMOTIQUE CERTIFIÉE — MAROC
                 </p>
               </motion.div>
 
               {/* H1 */}
               <h1
                 className="text-white"
-                style={{ fontFamily: "Inter, sans-serif", fontWeight: 500, fontSize: "64px", lineHeight: "70px" }}
+                style={{ fontFamily: "system-ui, ui-sans-serif, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'", fontWeight: 900, fontSize: "64px", lineHeight: "64px", fontStyle: "normal" }}
               >
                 votre accès à la <span style={{ color: "#efd555" }}>domotique</span> premium.
               </h1>
@@ -85,16 +85,16 @@ export default function Hero() {
                 className="mt-16 grid grid-cols-3 gap-8 will-change-opacity"
               >
                 <div className="flex flex-col">
-                  <span className="text-white mb-2" style={{ fontFamily: "Inter, sans-serif", fontWeight: 500, fontSize: "40px", lineHeight: "48px" }}>+150</span>
-                  <span className="text-white" style={{ fontFamily: "Inter, sans-serif", fontWeight: 400, fontSize: "16px", lineHeight: "24px" }}>Projets livrés<br />au Maroc</span>
+                  <span className="text-white mb-2" style={{ fontFamily: "Inter, sans-serif", fontWeight: 500, fontSize: "28px", lineHeight: "36px" }}>+150</span>
+                  <span className="text-white" style={{ fontFamily: "Inter, sans-serif", fontWeight: 400, fontSize: "14px", lineHeight: "20px" }}>Projets livrés<br />au Maroc</span>
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-white mb-2" style={{ fontFamily: "Inter, sans-serif", fontWeight: 500, fontSize: "40px", lineHeight: "48px" }}>10 ans</span>
-                  <span className="text-white" style={{ fontFamily: "Inter, sans-serif", fontWeight: 400, fontSize: "16px", lineHeight: "24px" }}>D&apos;expertise<br />domotique</span>
+                  <span className="text-white mb-2" style={{ fontFamily: "Inter, sans-serif", fontWeight: 500, fontSize: "28px", lineHeight: "36px" }}>10 ans</span>
+                  <span className="text-white" style={{ fontFamily: "Inter, sans-serif", fontWeight: 400, fontSize: "14px", lineHeight: "20px" }}>D&apos;expertise<br />domotique</span>
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-white mb-2" style={{ fontFamily: "Inter, sans-serif", fontWeight: 500, fontSize: "40px", lineHeight: "48px" }}>99.8%</span>
-                  <span className="text-white" style={{ fontFamily: "Inter, sans-serif", fontWeight: 400, fontSize: "16px", lineHeight: "24px" }}>Disponibilité<br />garantie</span>
+                  <span className="text-white mb-2" style={{ fontFamily: "Inter, sans-serif", fontWeight: 500, fontSize: "28px", lineHeight: "36px" }}>99.8%</span>
+                  <span className="text-white" style={{ fontFamily: "Inter, sans-serif", fontWeight: 400, fontSize: "14px", lineHeight: "20px" }}>Disponibilité<br />garantie</span>
                 </div>
               </motion.div>
 
