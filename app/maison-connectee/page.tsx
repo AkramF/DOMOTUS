@@ -301,9 +301,15 @@ export default function VillasPage() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="py-28 bg-white" aria-label="Demande de devis domotique Maroc">
+      <section className="py-28" style={{ backgroundColor: "#efd555" }} aria-label="Demande de devis domotique Maroc">
         <div className="mx-auto max-w-3xl px-6">
           <div className="flex flex-col items-center text-center">
+            {/* Surtitre */}
+            <div className="inline-flex items-center gap-2 mb-6">
+              <div className="w-3 h-3 bg-black" aria-hidden="true"></div>
+              <span style={{ fontFamily: "Inter, sans-serif", fontWeight: 600, fontSize: "14px", lineHeight: "20px", color: "#000000" }}>VOTRE PROJET</span>
+            </div>
+
             {/* Main heading */}
             <h2
               id="cta-heading"
