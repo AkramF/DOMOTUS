@@ -7,7 +7,6 @@ import MomentsInteractif from "@/components/MomentsInteractif";
 import HeroMaisonConnectee from "@/components/HeroMaisonConnectee";
 import Navbar from "@/components/sections/Navbar";
 import SmartHomeSection from "@/components/SmartHomeSection";
-import SmartHomeDataSection from "@/components/SmartHomeDataSection";
 
 export const metadata: Metadata = {
   title: "Maison Connectée — Domotique Multi-Protocoles | Domotus Maroc",
@@ -197,9 +196,6 @@ export default function VillasPage() {
       
       {/* ── HERO with Scroll Animation ── */}
       <HeroMaisonConnectee />
-
-      {/* ── SMART HOME DATA SECTION (Bénéfices) ── */}
-      <SmartHomeDataSection />
 
       {/* ── SMART HOME SECTION (Refactored) ── */}
       <SmartHomeSection />
