@@ -232,25 +232,28 @@ export default function VillasPage() {
       </section>
 
       {/* ── LA MÉTHODE DOMOTUS (Le Parcours sans friction) ── */}
-      <section className="py-28 bg-card" aria-labelledby="process-heading">
+      <section className="py-28 bg-black" aria-labelledby="process-heading">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <div className="mb-16">
-            <SectionLabel>Du rêve à la réalité</SectionLabel>
+            <div className="inline-flex items-center gap-2 mb-4">
+              <div className="w-3 h-3 bg-white" aria-hidden="true"></div>
+              <span style={{ fontFamily: "Inter, sans-serif", fontWeight: 600, fontSize: "14px", lineHeight: "20px", color: "#ffffff" }}>DU RÊVE À LA RÉALITÉ</span>
+            </div>
             <h2
               id="process-heading"
-              className="font-black uppercase leading-none text-foreground text-balance max-w-xl"
+              className="font-black uppercase leading-none text-white text-balance max-w-xl"
               style={{ fontSize: "clamp(1.8rem, 4vw, 3.2rem)", letterSpacing: "-0.02em" }}
             >
               La méthode<br />
-              <span className="italic text-foreground/45">Domotus.</span>
+              <span className="italic" style={{ color: "#efd555" }}>Domotus.</span>
             </h2>
           </div>
           <ol className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-white/6">
             {etapes.map((e) => (
-              <li key={e.num} className="bg-background p-8 flex flex-col gap-4">
-                <span className="text-[10px] font-bold text-primary/60 uppercase tracking-widest">{e.num}</span>
-                <h3 className="font-bold uppercase tracking-[0.08em] text-foreground text-[13px]">{e.title}</h3>
-                <p className="text-[13px] text-foreground/50 leading-relaxed">{e.desc}</p>
+              <li key={e.num} className="bg-black/50 p-8 flex flex-col gap-4 border border-white/10">
+                <span className="text-[10px] font-bold text-[#efd555] uppercase tracking-widest">{e.num}</span>
+                <h3 className="font-bold uppercase tracking-[0.08em] text-white text-[13px]">{e.title}</h3>
+                <p className="text-[13px] text-white/60 leading-relaxed">{e.desc}</p>
               </li>
             ))}
           </ol>
@@ -258,35 +261,38 @@ export default function VillasPage() {
       </section>
 
       {/* ── REALISATIONS ── */}
-      <section id="realisations" className="py-28 bg-background" aria-labelledby="real-heading">
+      <section id="realisations" className="py-28" style={{ backgroundColor: "#f0efed" }} aria-labelledby="real-heading">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <div className="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div>
-              <SectionLabel>Portfolio</SectionLabel>
+              <div className="inline-flex items-center gap-2 mb-4">
+                <div className="w-3 h-3 bg-black" aria-hidden="true"></div>
+                <span style={{ fontFamily: "Inter, sans-serif", fontWeight: 600, fontSize: "14px", lineHeight: "20px", color: "#000000" }}>PORTFOLIO & INSPIRATIONS</span>
+              </div>
               <h2
                 id="real-heading"
-                className="font-black uppercase leading-none text-foreground"
+                className="font-black uppercase leading-none text-black text-balance"
                 style={{ fontSize: "clamp(1.8rem, 4vw, 3.2rem)", letterSpacing: "-0.02em" }}
               >
                 Réalisations au Maroc.
               </h2>
             </div>
-            <Link href="/contact" className="focus-ring shrink-0 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.15em] text-foreground/40 hover:text-primary transition-colors duration-300">
+            <Link href="/contact" className="focus-ring shrink-0 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.15em] text-black/40 hover:text-black transition-colors duration-300">
               Votre projet <ArrowRight size={12} aria-hidden="true" />
             </Link>
           </div>
-          <div className="grid md:grid-cols-3 gap-px bg-white/6">
+          <div className="grid md:grid-cols-3 gap-px bg-black/6">
             {realisations.map((r) => (
               <div key={r.title} className="relative overflow-hidden group aspect-[4/5]">
                 <Image src={r.image} alt={`${r.title} — ${r.subtitle}`} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover transition-transform duration-700 group-hover:scale-105" />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/30 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-6">
                   <div className="inline-flex items-center gap-2 mb-2">
                     <div className="w-2 h-2 bg-[#efd555]" aria-hidden="true"></div>
                     <span style={{ fontFamily: "Inter, sans-serif", fontWeight: 600, fontSize: "14px", lineHeight: "20px", color: "#efd555" }}>{r.tag}</span>
                   </div>
-                  <p className="font-bold uppercase tracking-[0.05em] text-foreground text-[13px]">{r.title}</p>
-                  <p className="text-[12px] text-foreground/55 mt-1">{r.subtitle}</p>
+                  <p className="font-bold uppercase tracking-[0.05em] text-white text-[13px]">{r.title}</p>
+                  <p className="text-[12px] text-white/70 mt-1">{r.subtitle}</p>
                 </div>
               </div>
             ))}
