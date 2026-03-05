@@ -598,10 +598,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-4 lg:px-6">
           {/* Title section */}
           <div className="mb-12 text-center">
-            <SectionLabel color="#ffffff" className="justify-center mb-6 flex items-center justify-center gap-3">
-          <div className="w-2.5 h-2.5 bg-white rounded-full" aria-hidden="true" />
-          Témoignages
-        </SectionLabel>
+            <SectionLabel color="#ffffff" className="justify-center mb-6">Témoignages</SectionLabel>
             <h2
               id="temoignages-heading"
               className="font-black uppercase leading-none text-white text-balance"
