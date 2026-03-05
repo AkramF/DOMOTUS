@@ -491,8 +491,8 @@ export default function HomePage() {
             {steps.map((step, i) => (
               <li key={step.num} className="bg-card p-8 flex flex-col gap-4 relative">
                 <span
-                  className="font-black text-foreground/8 leading-none select-none"
-                  style={{ fontSize: "clamp(4rem, 8vw, 7rem)" }}
+                  className="font-black leading-none select-none"
+                  style={{ fontSize: "clamp(4rem, 8vw, 7rem)", color: "#efd555" }}
                   aria-hidden="true"
                 >
                   {step.num}
@@ -518,11 +518,11 @@ export default function HomePage() {
             <Link
               href="/contact"
               className="focus-ring inline-flex items-center justify-between px-8 py-4 rounded-full transition-all duration-300 hover:shadow-xl group"
-              style={{ backgroundColor: "#000000", border: "1px solid rgba(255, 255, 255, 0.1)" }}
+              style={{ backgroundColor: "#ffffff", border: "1px solid rgba(0, 0, 0, 0.1)" }}
             >
-              <span className="text-white font-semibold" style={{ fontSize: "16px" }}>Commencer l&apos;étape 1 — Audit technique</span>
+              <span className="text-black font-semibold" style={{ fontSize: "16px" }}>Commencer l&apos;étape 1 — Audit technique</span>
               <div className="ml-6 w-10 h-10 rounded-full flex items-center justify-center transition-transform group-hover:scale-110 flex-shrink-0" style={{ backgroundColor: "#efd555" }}>
-                <ArrowRight size={16} className="text-black" aria-hidden="true" />
+                <ArrowRight size={16} className="text-white" aria-hidden="true" />
               </div>
             </Link>
           </div>
@@ -546,6 +546,9 @@ export default function HomePage() {
                 <br />
                 professionnelles
               </h2>
+              <p className="mt-6 text-base text-black/70 leading-relaxed max-w-sm">
+                De la conception à la livraison, nous pilotons des projets domotiques complexes pour les promoteurs immobiliers, les architectes et les maîtres d'ouvrage au Maroc. Notre expertise en intégration multi-protocoles et notre gestion de projet rigoureuse garantissent la réussite de vos ambitions.
+              </p>
             </div>
 
             {/* Right column — Grid of project types */}
@@ -590,55 +593,6 @@ export default function HomePage() {
                   </div>
                 ))}
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── DIVISION PROJETS — Introduction ── */}
-      <section className="py-20 lg:py-28 bg-white" aria-labelledby="division-intro-heading">
-        <div className="mx-auto max-w-7xl px-6 lg:px-10">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            {/* Left: Text Content */}
-            <div className="flex flex-col gap-6">
-              <div>
-                <p className="text-[11px] uppercase tracking-[0.3em] font-bold text-black/50 mb-6">Division Projets</p>
-                <h2
-                  id="division-intro-heading"
-                  className="font-black text-black text-balance leading-tight"
-                  style={{ fontSize: "clamp(2rem, 5vw, 3.2rem)", letterSpacing: "-0.03em" }}
-                >
-                  Nous accompagnons vos<br />
-                  <span className="italic text-black/50">plus grands projets</span>
-                </h2>
-              </div>
-              <p className="text-base lg:text-lg text-black/70 leading-relaxed max-w-lg">
-                De la conception à la livraison, nous pilotons des projets domotiques complexes pour les promoteurs immobiliers, les architectes et les maîtres d'ouvrage au Maroc. Notre expertise en intégration multi-protocoles et notre gestion de projet rigoureuse garantissent la réussite de vos ambitions.
-              </p>
-              <Link
-                href="/division-projets"
-                className="inline-flex items-center gap-3 w-fit text-black font-semibold hover:text-black/70 transition-colors duration-300 group"
-              >
-                <span>En savoir plus</span>
-                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform duration-300" aria-hidden="true" />
-              </Link>
-            </div>
-
-            {/* Right: Stats or Key Points */}
-            <div className="grid grid-cols-2 gap-6">
-              {[
-                { label: "Projets", value: "150+" },
-                { label: "Immeubles", value: "45+" },
-                { label: "Logements", value: "2500+" },
-                { label: "Années", value: "18" },
-              ].map((stat) => (
-                <div key={stat.label} className="bg-gray-50 rounded-2xl p-8 flex flex-col gap-2">
-                  <p className="text-[10px] uppercase tracking-[0.25em] text-black/50 font-bold">{stat.label}</p>
-                  <p className="font-black text-black" style={{ fontSize: "clamp(1.8rem, 4vw, 2.4rem)", lineHeight: 1 }}>
-                    {stat.value}
-                  </p>
-                </div>
-              ))}
             </div>
           </div>
         </div>

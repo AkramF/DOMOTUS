@@ -86,7 +86,6 @@ export default function ArchitecturePortfolio({ projects }: ArchitecturePortfoli
           className="flex flex-col gap-4"
         >
           <div className="flex items-start gap-4">
-            <div className="w-3 h-3 bg-black flex-shrink-0 mt-2" />
             <div className="flex-1">
               <h2 className="font-black text-2xl lg:text-4xl uppercase tracking-tight text-black">
                 {current.title}
