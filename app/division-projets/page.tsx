@@ -43,17 +43,19 @@ export default function DivisionProjetsPage() {
       {/* ── HERO ── */}
       <section className="py-32 lg:py-40" aria-labelledby="hero-heading">
         <div className="mx-auto max-w-5xl px-6 lg:px-10">
-          <p className="text-[12px] uppercase tracking-[0.3em] text-[#efd555] font-medium mb-8">
-            Solutions domotiques certifiées pour professionnels
-          </p>
+          <div className="flex items-center gap-3 mb-8">
+            <div className="w-3 h-3 bg-[#efd555]" aria-hidden="true" />
+            <p style={{ fontFamily: "Inter, sans-serif", fontWeight: 600, fontSize: "14px", lineHeight: "20px", color: "#efd555" }}>
+              Solutions domotiques Pro
+            </p>
+          </div>
           <h1
             id="hero-heading"
-            className="font-black uppercase leading-none text-balance mb-8 flex items-start gap-4"
+            className="font-black uppercase leading-none text-balance mb-8"
             style={{ fontSize: "clamp(2.8rem, 7vw, 5.5rem)", letterSpacing: "-0.03em", color: "#000000" }}
           >
-            <div className="w-4 h-4 bg-black flex-shrink-0 mt-2" style={{ minWidth: "16px", minHeight: "16px" }} aria-hidden="true" />
-            <span>L&apos;ingénierie domotique<br />
-            <span className="italic text-black/50">au service de vos projets.</span></span>
+            L&apos;ingénierie domotique<br />
+            <span className="italic text-black/50">au service de vos projets.</span>
           </h1>
           <p className="text-[16px] text-foreground/65 leading-relaxed max-w-2xl mb-12">
             Nous accompagnons architectes, promoteurs et maîtres d'ouvrage dans la création de bâtiments intelligents et durables. De la conception à la mise en service, solutions multi-protocoles certifiées (KNX, BACnet, Matter).
@@ -84,17 +86,18 @@ export default function DivisionProjetsPage() {
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <div className="mb-16">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-3 h-3 bg-black rounded-full" aria-hidden="true" />
-              <p className="text-xs uppercase tracking-[0.3em] font-bold text-black">Vos besoins spécifiques</p>
+              <div className="w-3 h-3 bg-black" aria-hidden="true" />
+              <p style={{ fontFamily: "Inter, sans-serif", fontWeight: 600, fontSize: "14px", lineHeight: "20px", color: "#000000" }}>
+                Vos besoins spécifiques
+              </p>
             </div>
             <h2
               id="metiers-heading"
-              className="font-black leading-tight text-balance flex items-start gap-4"
+              className="font-black leading-tight text-balance"
               style={{ fontSize: "clamp(2.2rem, 5vw, 3.8rem)", letterSpacing: "-0.03em", color: "#000000" }}
             >
-              <div className="w-4 h-4 bg-black flex-shrink-0 mt-2" style={{ minWidth: "16px", minHeight: "16px" }} aria-hidden="true" />
-              <span>Quelle que soit votre<br />
-              <span className="italic text-black/60">industrie, nous avons la solution.</span></span>
+              Quelle que soit votre<br />
+              <span className="italic text-black/60">industrie, nous avons la solution.</span>
             </h2>
           </div>
           
@@ -120,7 +123,12 @@ export default function DivisionProjetsPage() {
       <section className="py-28 lg:py-36 bg-background" aria-labelledby="engagements-heading">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <div className="mb-16">
-            <SectionLabel>Nos promesses</SectionLabel>
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-3 h-3 bg-foreground" aria-hidden="true" />
+              <p style={{ fontFamily: "Inter, sans-serif", fontWeight: 600, fontSize: "14px", lineHeight: "20px", color: "#ffffff" }}>
+                Nos promesses
+              </p>
+            </div>
             <h2
               id="engagements-heading"
               className="font-black uppercase leading-none text-foreground text-balance"
@@ -146,12 +154,11 @@ export default function DivisionProjetsPage() {
         <div className="mx-auto max-w-4xl px-6 lg:px-10">
           <div className="mb-12">
             <h2
-              className="font-black leading-tight text-balance flex items-start gap-4 text-black"
+              className="font-black leading-tight text-balance text-black"
               style={{ fontSize: "clamp(2.2rem, 5vw, 4rem)", letterSpacing: "-0.03em", color: "#000000" }}
             >
-              <div className="w-4 h-4 bg-black flex-shrink-0 mt-2" style={{ minWidth: "16px", minHeight: "16px" }} aria-hidden="true" />
-              <span>Collaborons<br />
-              <span className="italic text-black/50">sur votre prochain projet.</span></span>
+              Collaborons<br />
+              <span className="italic text-black/50">sur votre prochain projet.</span>
             </h2>
           </div>
           
