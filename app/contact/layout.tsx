@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Navbar from "@/components/sections/Navbar";
-import Footer from "@/components/sections/Footer";
 
 export const metadata: Metadata = {
   title: "Contact | Domotus",
@@ -16,7 +15,6 @@ export default function ContactLayout({
     <>
       <Navbar variant="contact" />
       <main id="main-content">{children}</main>
-      <Footer />
     </>
   );
 }
