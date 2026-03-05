@@ -211,8 +211,9 @@ export default function VillasPage() {
       <section className="py-28" style={{ backgroundColor: "#f0efed" }} aria-labelledby="espaces-heading">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <div className="mb-16">
-            <div style={{ fontFamily: "Inter, sans-serif", fontWeight: 600, fontSize: "14px", lineHeight: "20px", color: "#efd555" }}>
-              Architecture
+            <div className="inline-flex items-center gap-2 mb-4">
+              <div className="w-3 h-3 bg-black" aria-hidden="true"></div>
+              <span style={{ fontFamily: "Inter, sans-serif", fontWeight: 600, fontSize: "14px", lineHeight: "20px", color: "#000000" }}>ARCHITECTURE</span>
             </div>
             <h2
               id="espaces-heading"
@@ -297,7 +298,10 @@ export default function VillasPage() {
                 <Image src={r.image} alt={`${r.title} — ${r.subtitle}`} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover transition-transform duration-700 group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/30 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <p className="text-[10px] uppercase tracking-[0.2em] text-primary mb-2 font-semibold">{r.tag}</p>
+                  <div className="inline-flex items-center gap-2 mb-2">
+                    <div className="w-2 h-2 bg-[#efd555]" aria-hidden="true"></div>
+                    <span style={{ fontFamily: "Inter, sans-serif", fontWeight: 600, fontSize: "14px", lineHeight: "20px", color: "#efd555" }}>{r.tag}</span>
+                  </div>
                   <p className="font-bold uppercase tracking-[0.05em] text-foreground text-[13px]">{r.title}</p>
                   <p className="text-[12px] text-foreground/55 mt-1">{r.subtitle}</p>
                 </div>

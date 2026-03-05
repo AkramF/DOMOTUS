@@ -31,9 +31,9 @@ export default function HeroMaisonConnectee() {
             className="space-y-8"
           >
             {/* Overline */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 rounded-full border border-white/10">
-              <div className="w-2 h-2 bg-[#efd555] rounded-full"></div>
-              <span className="text-xs uppercase tracking-widest text-white font-semibold">Maison Connectée</span>
+            <div className="inline-flex items-center gap-2">
+              <div className="w-3 h-3 bg-white" aria-hidden="true"></div>
+              <span className="text-white" style={{ fontFamily: "Inter, sans-serif", fontWeight: 600, fontSize: "14px", lineHeight: "20px" }}>MAISON CONNECTÉE</span>
             </div>
 
             {/* Main Headline */}
