@@ -491,8 +491,8 @@ export default function HomePage() {
             {steps.map((step, i) => (
               <li key={step.num} className="bg-card p-8 flex flex-col gap-4 relative">
                 <span
-                  className="font-black text-foreground/8 leading-none select-none"
-                  style={{ fontSize: "clamp(4rem, 8vw, 7rem)" }}
+                  className="font-black leading-none select-none"
+                  style={{ fontSize: "clamp(4rem, 8vw, 7rem)", color: "#efd555" }}
                   aria-hidden="true"
                 >
                   {step.num}
