@@ -305,58 +305,6 @@ export default function VillasPage() {
         </div>
       </section>
 
-      {/* ── CE QUE DISENT NOS CLIENTS ── */}
-      <section className="py-28 bg-background" aria-labelledby="testimonials-heading">
-        <div className="mx-auto max-w-7xl px-6 lg:px-10">
-          <div className="mb-20 flex flex-col md:flex-row md:items-end justify-between gap-6">
-            <div>
-              <SectionLabel>Témoignages</SectionLabel>
-              <h2
-                id="testimonials-heading"
-                className="font-black uppercase leading-none text-foreground"
-                style={{ fontSize: "clamp(1.8rem, 4vw, 3.2rem)", letterSpacing: "-0.02em" }}
-              >
-                Ce que disent<br />
-                <span className="italic text-foreground/45">nos clients.</span>
-              </h2>
-            </div>
-          </div>
-          
-          {/* Testimonials Grid */}
-          <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
-            {temoignages.map((t) => (
-              <div
-                key={t.id}
-                className="relative bg-card border border-white/8 rounded-3xl p-8 lg:p-10 flex flex-col h-full hover:border-primary/30 transition-all duration-300"
-              >
-                {/* Stars */}
-                <div className="flex gap-1 mb-6">
-                  {Array.from({ length: t.rating }).map((_, i) => (
-                    <Star
-                      key={i}
-                      size={16}
-                      className="fill-primary text-primary"
-                      aria-hidden="true"
-                    />
-                  ))}
-                </div>
-
-                {/* Quote */}
-                <p className="text-sm lg:text-base text-foreground/80 leading-relaxed mb-8 flex-grow italic">
-                  "{t.texte}"
-                </p>
-
-                {/* Author Info */}
-                <div className="border-t border-white/8 pt-6">
-                  <p className="font-bold text-foreground text-sm">{t.nom}</p>
-                  <p className="text-xs text-foreground/50 mt-1">{t.titre}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ── CTA ── */}
       <section className="py-28 bg-card" aria-label="Demande de devis domotique Maroc">
         <div className="mx-auto max-w-3xl px-6 text-center">

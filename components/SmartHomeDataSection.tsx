@@ -31,9 +31,10 @@ export default function SmartHomeDataSection() {
       aria-label="Bénéfices Smarthome"
     >
       <div className="mx-auto max-w-7xl">
-        {/* Header */}
-        <div className="mb-12 max-w-3xl">
-          <div className="flex items-center gap-3 mb-4">
+        {/* Header - Title and Description Side by Side */}
+        <div className="mb-12 flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8 lg:gap-12">
+          {/* Title with Bullet */}
+          <div className="flex items-center gap-3 flex-shrink-0">
             <div className="w-3 h-3 bg-black" aria-hidden="true" />
             <h2
               className="font-black uppercase leading-none text-balance"
@@ -46,9 +47,17 @@ export default function SmartHomeDataSection() {
               Les bénéfices
             </h2>
           </div>
+
+          {/* Description with Inter 600 styling */}
           <p
-            className="text-[13px] leading-relaxed max-w-2xl"
-            style={{ color: '#000000' }}
+            className="max-w-md"
+            style={{
+              fontFamily: 'Inter, sans-serif',
+              fontWeight: 600,
+              fontSize: '14px',
+              lineHeight: '20px',
+              color: '#000000',
+            }}
           >
             Découvrez comment la domotique intelligente transforme votre quotidien en réduisant la consommation énergétique, en augmentant le confort et en simplifiant le contrôle.
           </p>
@@ -61,11 +70,11 @@ export default function SmartHomeDataSection() {
               key={stat.label}
               className="space-y-2"
             >
-              {/* Value */}
+              {/* Value - Reduced */}
               <div
                 className="font-black leading-none"
                 style={{
-                  fontSize: 'clamp(2rem, 6vw, 3rem)',
+                  fontSize: 'clamp(1.2rem, 4vw, 2rem)',
                   letterSpacing: '-0.03em',
                   color: '#000000',
                 }}
@@ -73,17 +82,17 @@ export default function SmartHomeDataSection() {
                 {stat.value}
               </div>
 
-              {/* Label */}
+              {/* Label - Reduced */}
               <h3
-                className="font-bold uppercase text-xs tracking-wide"
+                className="font-bold uppercase text-[10px] tracking-wide"
                 style={{ color: '#000000' }}
               >
                 {stat.label}
               </h3>
 
-              {/* Description */}
+              {/* Description - Reduced */}
               <p
-                className="text-[12px] leading-tight"
+                className="text-[11px] leading-tight"
                 style={{ color: '#1a1a1a' }}
               >
                 {stat.description}
