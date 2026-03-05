@@ -521,8 +521,8 @@ export default function HomePage() {
               style={{ backgroundColor: "#ffffff", border: "1px solid rgba(0, 0, 0, 0.1)" }}
             >
               <span className="text-black font-semibold" style={{ fontSize: "16px" }}>Commencer l&apos;étape 1 — Audit technique</span>
-              <div className="ml-6 w-10 h-10 rounded-full flex items-center justify-center transition-transform group-hover:scale-110 flex-shrink-0" style={{ backgroundColor: "#efd555" }}>
-                <ArrowRight size={16} className="text-white" aria-hidden="true" />
+              <div className="ml-6 w-10 h-10 rounded-full flex items-center justify-center transition-transform group-hover:scale-110 flex-shrink-0" style={{ backgroundColor: "#000000" }}>
+                <ArrowRight size={16} className="text-[#efd555]" aria-hidden="true" />
               </div>
             </Link>
           </div>
@@ -598,7 +598,10 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-4 lg:px-6">
           {/* Title section */}
           <div className="mb-12 text-center">
-            <SectionLabel color="#ffffff" className="justify-center mb-6">CE QUE DISENT NOS CLIENTS</SectionLabel>
+            <SectionLabel color="#ffffff" className="justify-center mb-6 flex items-center justify-center gap-3">
+          <div className="w-2.5 h-2.5 bg-white rounded-full" aria-hidden="true" />
+          Témoignages
+        </SectionLabel>
             <h2
               id="temoignages-heading"
               className="font-black uppercase leading-none text-white text-balance"
