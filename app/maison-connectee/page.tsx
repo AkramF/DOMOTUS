@@ -301,18 +301,38 @@ export default function VillasPage() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="py-28 bg-card" aria-label="Demande de devis domotique Maroc">
-        <div className="mx-auto max-w-3xl px-6 text-center">
-          <h2
-            className="font-black uppercase leading-none text-foreground text-balance mb-10"
-            style={{ fontSize: "clamp(2rem, 5vw, 3.8rem)", letterSpacing: "-0.03em" }}
-          >
-            Votre villa mérite mieux<br />
-            <span className="italic text-foreground/50">qu'un interrupteur.</span>
-          </h2>
-          <Link href="/contact" className="focus-ring inline-flex items-center gap-3 bg-primary px-10 py-5 text-[11px] font-black uppercase tracking-[0.2em] hover:bg-primary/85 transition-all duration-300" style={{ color: "#0a0a0a" }}>
-            Demander mon audit technique gratuit <ArrowRight size={13} aria-hidden="true" />
-          </Link>
+      <section className="py-28 bg-white" aria-label="Demande de devis domotique Maroc">
+        <div className="mx-auto max-w-3xl px-6">
+          <div className="flex flex-col items-center text-center">
+            {/* Main heading */}
+            <h2
+              id="cta-heading"
+              className="text-black text-balance mb-6 leading-tight"
+              style={{ fontFamily: "system-ui, ui-sans-serif, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'", fontWeight: 900, fontSize: "64px", lineHeight: "64px", fontStyle: "normal" }}
+            >
+              Votre villa mérite mieux<br />
+              <span className="italic" style={{ color: "#000000" }}>qu'un interrupteur.</span>
+            </h2>
+
+            {/* Description */}
+            <p className="text-black mb-8" style={{ fontFamily: "Inter, sans-serif", fontWeight: 400, fontSize: "16px", lineHeight: "24px", maxWidth: "560px" }}>
+              Audit technique personnalisé. Aucun engagement. Découvrez comment la domotique premium transforme votre villa en espace intelligent.
+            </p>
+
+            {/* CTA Button */}
+            <div className="w-fit">
+              <Link
+                href="/contact"
+                className="focus-ring inline-flex items-center justify-between px-8 py-4 rounded-full transition-all duration-300 hover:shadow-xl group"
+                style={{ backgroundColor: "#000000" }}
+              >
+                <span className="text-white font-semibold" style={{ fontSize: "16px" }}>Consulter nos experts</span>
+                <div className="ml-6 w-10 h-10 rounded-full flex items-center justify-center transition-transform group-hover:scale-110 flex-shrink-0" style={{ backgroundColor: "#efd555" }}>
+                  <ArrowRight size={16} className="text-black" aria-hidden="true" />
+                </div>
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
     </>
