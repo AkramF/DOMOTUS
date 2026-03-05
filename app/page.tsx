@@ -546,6 +546,9 @@ export default function HomePage() {
                 <br />
                 professionnelles
               </h2>
+              <p className="mt-6 text-base text-black/70 leading-relaxed max-w-sm">
+                De la conception à la livraison, nous pilotons des projets domotiques complexes pour les promoteurs immobiliers, les architectes et les maîtres d'ouvrage au Maroc. Notre expertise en intégration multi-protocoles et notre gestion de projet rigoureuse garantissent la réussite de vos ambitions.
+              </p>
             </div>
 
             {/* Right column — Grid of project types */}
