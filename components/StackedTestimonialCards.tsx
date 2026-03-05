@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
+import { ArrowRight } from 'lucide-react'
 
 interface Testimonial {
   name: string
@@ -16,156 +17,95 @@ interface Testimonial {
 }
 
 export default function StackedTestimonialCards({ testimonials }: { testimonials: Testimonial[] }) {
-  const [isHovering, setIsHovering] = useState(false)
-  const [activeIndex, setActiveIndex] = useState(0)
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
 
   if (testimonials.length === 0) return null
 
-  // Get center, left, and right cards
-  const centerCard = testimonials[activeIndex]
-  const leftCard = testimonials[(activeIndex - 1 + testimonials.length) % testimonials.length]
-  const rightCard = testimonials[(activeIndex + 1) % testimonials.length]
-
-  const handleNext = () => {
-    setActiveIndex((prev) => (prev + 1) % testimonials.length)
-  }
-
-  const handlePrev = () => {
-    setActiveIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length)
-  }
-
   return (
-    <div className="py-24">
-      <div
-        className="relative h-[600px] flex items-center justify-center perspective"
-        onMouseEnter={() => setIsHovering(true)}
-        onMouseLeave={() => setIsHovering(false)}
-      >
-        {/* Left Card — Behind, Tilted -12deg */}
-        <motion.div
-          animate={{
-            x: isHovering ? -120 : -60,
-            rotateZ: -12,
-            opacity: 0.7,
-          }}
-          transition={{ duration: 0.5, ease: 'easeOut' }}
-          className="absolute w-96 pointer-events-none"
-          style={{ zIndex: 1 }}
-        >
-          <div className="bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-lg p-8">
-            {/* Image */}
-            <div className="relative w-full h-64 rounded-2xl overflow-hidden mb-6">
-              <Image
-                src={leftCard.image}
-                alt={leftCard.imageAlt}
-                fill
-                className="object-cover"
-                sizes="384px"
-              />
-            </div>
+    <section className="py-20 lg:py-28" style={{ backgroundColor: "#000000" }}>
+      <div className="mx-auto max-w-7xl px-6 lg:px-10">
+        {/* Header */}
+        <div className="mb-16 text-center">
+          <p className="text-[11px] uppercase tracking-[0.2em] text-[#efd555] font-semibold mb-4">CE QUE DISENT NOS CLIENTS</p>
+          <h2 
+            className="font-black uppercase leading-none text-white text-balance"
+            style={{ fontSize: "clamp(2rem, 5vw, 3.2rem)", letterSpacing: "-0.02em" }}
+          >
+            Satisfait ne suffit pas.<br />
+            <span className="italic" style={{ color: "#efd555" }}>Nos clients reviennent.</span>
+          </h2>
+        </div>
 
-            {/* Content */}
-            <div className="space-y-4">
-              <div className="w-10 h-10 rounded-full bg-black flex items-center justify-center">
-                <div className="w-4 h-4 rounded-full" style={{ backgroundColor: '#efd555' }} />
+        {/* Testimonials Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          {testimonials.map((testimonial, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              onMouseEnter={() => setHoveredIndex(index)}
+              onMouseLeave={() => setHoveredIndex(null)}
+              className="group"
+            >
+              <div 
+                className="relative overflow-hidden rounded-2xl bg-white border border-white/10 transition-all duration-300"
+                style={{
+                  transform: hoveredIndex === index ? 'translateY(-8px)' : 'translateY(0)',
+                  boxShadow: hoveredIndex === index ? '0 20px 60px rgba(239, 213, 85, 0.15)' : '0 4px 12px rgba(0, 0, 0, 0.3)',
+                }}
+              >
+                {/* Image Section */}
+                <div className="relative h-64 overflow-hidden bg-gray-200">
+                  <Image
+                    src={testimonial.image}
+                    alt={testimonial.imageAlt}
+                    fill
+                    className="object-cover transition-transform duration-500"
+                    style={{
+                      transform: hoveredIndex === index ? 'scale(1.05)' : 'scale(1)',
+                    }}
+                  />
+                  {/* Segment Badge */}
+                  <div className="absolute top-4 right-4 px-3 py-1 bg-black/60 backdrop-blur rounded-full">
+                    <span className="text-xs font-bold text-[#efd555] uppercase tracking-widest">{testimonial.segment}</span>
+                  </div>
+                </div>
+
+                {/* Content Section */}
+                <div className="p-8 flex flex-col gap-6">
+                  {/* Yellow Accent Line */}
+                  <div className="w-8 h-1" style={{ backgroundColor: "#efd555" }} />
+
+                  {/* Citation */}
+                  <p className="text-base leading-relaxed text-black font-medium italic">
+                    "{testimonial.description}"
+                  </p>
+
+                  {/* Author */}
+                  <div className="pt-4 border-t border-gray-200">
+                    <h3 className="font-black text-black text-sm uppercase tracking-wider mb-1">
+                      {testimonial.firstName}
+                    </h3>
+                    <p className="text-xs text-gray-600 uppercase tracking-widest">
+                      {testimonial.title}
+                    </p>
+                  </div>
+
+                  {/* CTA Link */}
+                  <Link 
+                    href="#" 
+                    className="inline-flex items-center gap-2 text-xs font-bold text-black uppercase tracking-wider hover:gap-3 transition-all duration-300 group/link"
+                  >
+                    <span>Lire l'histoire</span>
+                    <ArrowRight size={14} className="group-hover/link:translate-x-1 transition-transform" />
+                  </Link>
+                </div>
               </div>
-              <h3 className="font-bold text-lg text-black leading-tight">{leftCard.title}</h3>
-              <p className="text-sm text-gray-600 leading-relaxed">{leftCard.description}</p>
-              <Link href="#" className="text-xs font-semibold text-black uppercase tracking-wider hover:opacity-70">
-                {leftCard.firstName.toUpperCase()}
-              </Link>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Center Card — Front, Lifted on Hover */}
-        <motion.div
-          animate={{
-            y: isHovering ? -20 : 0,
-            scale: isHovering ? 1.02 : 1,
-            zIndex: 10,
-          }}
-          transition={{ duration: 0.5, ease: 'easeOut' }}
-          className="absolute w-96"
-        >
-          <div className="bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-2xl p-8">
-            {/* Image */}
-            <div className="relative w-full h-64 rounded-2xl overflow-hidden mb-6">
-              <Image
-                src={centerCard.image}
-                alt={centerCard.imageAlt}
-                fill
-                className="object-cover"
-                sizes="384px"
-                priority
-              />
-            </div>
-
-            {/* Content */}
-            <div className="space-y-4">
-              <div className="w-10 h-10 rounded-full bg-black flex items-center justify-center">
-                <div className="w-4 h-4 rounded-full" style={{ backgroundColor: '#efd555' }} />
-              </div>
-              <h3 className="font-bold text-lg text-black leading-tight">{centerCard.title}</h3>
-              <p className="text-sm text-gray-600 leading-relaxed">{centerCard.description}</p>
-              <Link href="#" className="text-xs font-semibold text-black uppercase tracking-wider hover:opacity-70">
-                {centerCard.firstName.toUpperCase()}
-              </Link>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Right Card — Behind, Tilted +12deg */}
-        <motion.div
-          animate={{
-            x: isHovering ? 120 : 60,
-            rotateZ: 12,
-            opacity: 0.7,
-          }}
-          transition={{ duration: 0.5, ease: 'easeOut' }}
-          className="absolute w-96 pointer-events-none"
-          style={{ zIndex: 1 }}
-        >
-          <div className="bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-lg p-8">
-            {/* Image */}
-            <div className="relative w-full h-64 rounded-2xl overflow-hidden mb-6">
-              <Image
-                src={rightCard.image}
-                alt={rightCard.imageAlt}
-                fill
-                className="object-cover"
-                sizes="384px"
-              />
-            </div>
-
-            {/* Content */}
-            <div className="space-y-4">
-              <div className="w-10 h-10 rounded-full bg-black flex items-center justify-center">
-                <div className="w-4 h-4 rounded-full" style={{ backgroundColor: '#efd555' }} />
-              </div>
-              <h3 className="font-bold text-lg text-black leading-tight">{rightCard.title}</h3>
-              <p className="text-sm text-gray-600 leading-relaxed">{rightCard.description}</p>
-              <Link href="#" className="text-xs font-semibold text-black uppercase tracking-wider hover:opacity-70">
-                {rightCard.firstName.toUpperCase()}
-              </Link>
-            </div>
-          </div>
-        </motion.div>
+            </motion.div>
+          ))}
+        </div>
       </div>
-
-      {/* Navigation Dots — Centered Below */}
-      <div className="mt-12 flex justify-center gap-3">
-        {testimonials.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setActiveIndex(index)}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
-              index === activeIndex ? 'bg-black w-8' : 'bg-gray-300 hover:bg-gray-400'
-            }`}
-            aria-label={`View testimonial ${index + 1}`}
-          />
-        ))}
-      </div>
-    </div>
+    </section>
   )
 }
