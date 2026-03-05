@@ -24,18 +24,6 @@ export default function StackedTestimonialCards({ testimonials }: { testimonials
   return (
     <section className="py-20 lg:py-28" style={{ backgroundColor: "#000000" }}>
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
-        {/* Header */}
-        <div className="mb-16 text-center">
-          <p className="text-[11px] uppercase tracking-[0.2em] text-[#efd555] font-semibold mb-4">CE QUE DISENT NOS CLIENTS</p>
-          <h2 
-            className="font-black uppercase leading-none text-white text-balance"
-            style={{ fontSize: "clamp(2rem, 5vw, 3.2rem)", letterSpacing: "-0.02em" }}
-          >
-            Satisfait ne suffit pas.<br />
-            <span className="italic" style={{ color: "#efd555" }}>Nos clients reviennent.</span>
-          </h2>
-        </div>
-
         {/* Testimonials Horizontal Scroll */}
         <div className="overflow-x-auto pb-4 -mx-6 lg:-mx-10 px-6 lg:px-10 scroll-smooth" style={{ scrollBehavior: 'smooth' }}>
           <div className="flex gap-6 lg:gap-8 min-w-min">
