@@ -54,13 +54,19 @@ export default function SmartHomeSection() {
   return (
     <section className="relative py-24 lg:py-32 bg-white overflow-hidden z-20">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
+        {/* Section Label with Bullet and Infinity Symbol */}
+        <div className="mb-12 flex items-center gap-3">
+          <div className="w-3 h-3 bg-black" aria-hidden="true" />
+          <p style={{ fontFamily: "Inter, sans-serif", fontWeight: 600, fontSize: "14px", lineHeight: "20px", color: "#efd555" }}>
+            SERVICES <span style={{ color: "#efd555" }}>∞</span>
+          </p>
+        </div>
+
         {/* Title Section */}
         <div className="mb-20">
-          <h2 className="font-black text-black leading-tight text-balance" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', letterSpacing: '-0.03em' }}>
-            Domesticating your spaces
-            <br />
-            for comfort and efficiency
-            <span className="text-sm ml-2 align-super">©</span>
+          <h2 style={{ fontFamily: "Inter, sans-serif", fontWeight: 500, fontSize: "64px", lineHeight: "70px", color: "#000000", letterSpacing: '-0.03em' }}>
+            Solutions domotiques<br />
+            <span style={{ color: '#efd555' }}>adaptées</span> pour vous.
           </h2>
         </div>
 
@@ -123,7 +129,7 @@ export default function SmartHomeSection() {
           <div className="flex flex-col gap-10">
             {/* Description */}
             <p className="text-base lg:text-lg text-gray-600 leading-relaxed max-w-lg">
-              Transformez votre maison en un écosystème intelligent qui s'adapte à vos besoins. Confort, sécurité et efficacité énergétique en parfaite harmonie.
+              Solutions domotiques évolutives qui s'adaptent à votre mode de vie. Créez des scénarios sur mesure, automatisez vos espaces et profitez d'un confort sans limites.
             </p>
 
             {/* Benefits Grid */}
@@ -142,17 +148,6 @@ export default function SmartHomeSection() {
                   </div>
                 )
               })}
-            </div>
-
-            {/* CTA Button */}
-            <div className="pt-4">
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-3 bg-black hover:bg-gray-900 text-white px-8 py-4 rounded-full font-semibold text-sm transition-all duration-300 group"
-              >
-                <span>Découvrir plus</span>
-                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform duration-300" />
-              </Link>
             </div>
           </div>
         </div>
