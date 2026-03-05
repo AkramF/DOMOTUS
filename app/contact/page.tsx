@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Phone, Mail, MapPin, Clock, ArrowRight, CheckCircle2 } from "lucide-react";
-import ContactForm from "@/components/sections/ContactForm";
+import ContactForm from "@/components/ContactForm";
 
 export const metadata: Metadata = {
   title: "Contact & Devis — Domotique Maroc | Domotus",
