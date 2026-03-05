@@ -24,6 +24,8 @@ export default function HeroMaisonConnectee() {
             sizes="100vw"
             className="object-cover object-center"
           />
+          {/* Gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/30" />
         </div>
 
         {/* Title Layer */}
@@ -44,7 +46,8 @@ export default function HeroMaisonConnectee() {
         </div>
       </div>
 
-      {/* Content starts immediately - no spacer */}
+      {/* Spacer - This creates the scroll space for sections to cover the hero */}
+      <div className="relative z-20 h-screen bg-transparent" />
     </div>
   )
 }
