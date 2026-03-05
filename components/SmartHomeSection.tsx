@@ -2,155 +2,153 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { ArrowRight, Zap, Shield, Leaf } from 'lucide-react'
+import { ArrowRight, Zap, Shield, Smile } from 'lucide-react'
+import { motion } from 'framer-motion'
 
-const smartHomeImages = [
+const services = [
   {
-    id: 1,
+    icon: Smile,
+    title: 'Confort',
+    description: 'Ambiance personnalisée qui s'adapte à vos préférences et routines quotidiennes',
+    color: '#efd555',
     image: '/images/smart-home-1.jpg',
-    alt: 'Modern living room with smart lighting',
   },
-  {
-    id: 2,
-    image: '/images/smart-home-2.jpg',
-    alt: 'Kitchen with smart appliances',
-  },
-  {
-    id: 3,
-    image: '/images/smart-home-3.jpg',
-    alt: 'Bedroom with automated blinds',
-  },
-  {
-    id: 4,
-    image: '/images/smart-home-4.jpg',
-    alt: 'Home theater system',
-  },
-  {
-    id: 5,
-    image: '/images/smart-home-5.jpg',
-    alt: 'Outdoor terrace with connected features',
-  },
-]
-
-const benefits = [
   {
     icon: Zap,
-    label: 'Energy',
-    description: 'Optimisation intelligente de votre consommation énergétique',
+    title: 'Efficacité',
+    description: 'Optimisation énergétique automatisée qui réduit votre consommation de 22%',
+    color: '#f0efed',
+    image: '/images/smart-home-2.jpg',
   },
   {
     icon: Shield,
-    label: 'Sécurité',
-    description: 'Protection 24/7 et surveillance en temps réel',
-  },
-  {
-    icon: Leaf,
-    label: 'Durabilité',
-    description: 'Empreinte carbone réduite et gestion responsable',
+    title: 'Sécurité',
+    description: 'Protection 24/7 avec surveillance en temps réel et alertes instantanées',
+    color: '#efd555',
+    image: '/images/smart-home-3.jpg',
   },
 ]
 
 export default function SmartHomeSection() {
   return (
-    <section className="relative py-24 lg:py-32 bg-white overflow-hidden z-20">
+    <section className="relative py-28 lg:py-40 bg-white overflow-hidden z-20">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
-        {/* Section Label with Bullet and Infinity Symbol */}
-        <div className="mb-12 flex items-center gap-3">
-          <div className="w-3 h-3 bg-black" aria-hidden="true" />
-          <p style={{ fontFamily: "Inter, sans-serif", fontWeight: 600, fontSize: "14px", lineHeight: "20px", color: "#efd555" }}>
-            SERVICES <span style={{ color: "#efd555" }}>∞</span>
-          </p>
-        </div>
-
-        {/* Title Section */}
+        {/* Header */}
         <div className="mb-20">
-          <h2 style={{ fontFamily: "Inter, sans-serif", fontWeight: 500, fontSize: "64px", lineHeight: "70px", color: "#000000", letterSpacing: '-0.03em' }}>
+          <div className="flex items-center gap-3 mb-8">
+            <div className="w-3 h-3 bg-black" aria-hidden="true" />
+            <p style={{ fontFamily: "Inter, sans-serif", fontWeight: 600, fontSize: "14px", lineHeight: "20px", color: "#000000" }}>
+              SERVICES <span style={{ color: "#efd555" }}>∞</span>
+            </p>
+          </div>
+          
+          <h2
+            className="text-balance leading-tight"
+            style={{
+              fontFamily: "system-ui, ui-sans-serif, sans-serif",
+              fontWeight: 900,
+              fontSize: "clamp(2.2rem, 6vw, 4rem)",
+              letterSpacing: "-0.03em",
+              color: "#000000",
+              maxWidth: "800px"
+            }}
+          >
             Automatisez<br />
-            <span style={{ color: '#efd555' }}>votre bien-être</span>.
+            <span style={{ color: "#efd555" }}>votre bien-être</span>.
           </h2>
         </div>
 
-        {/* Main Grid Layout */}
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-          
-          {/* Left: Image Gallery with Modern Layout */}
-          <div className="relative h-80 lg:h-96">
-            <div style={{ position: 'relative' }} className="w-full h-full">
-              {/* Featured Large Image - Left Center */}
-              <div className="absolute left-0 top-1/2 -translate-y-1/2 w-40 h-56 rounded-2xl overflow-hidden border-2 border-white shadow-lg hover:shadow-2xl transition-shadow duration-300 z-30">
-                <Image
-                  src={smartHomeImages[0].image}
-                  alt={smartHomeImages[0].alt}
-                  fill
-                  className="object-cover"
-                  sizes="160px"
-                />
-              </div>
+        {/* Bento Grid - Services */}
+        <div className="grid lg:grid-cols-3 gap-6 auto-rows-max">
+          {services.map((service, idx) => {
+            const Icon = service.icon
+            const isCenter = idx === 1
 
-              {/* Top right smaller images grid */}
-              <div className="absolute right-0 top-0 grid grid-cols-2 gap-3 w-40">
-                {smartHomeImages.slice(1, 3).map((item) => (
-                  <div
-                    key={item.id}
-                    className="w-20 h-24 rounded-xl overflow-hidden border border-gray-100 shadow-md hover:shadow-lg transition-shadow duration-300"
-                  >
-                    <Image
-                      src={item.image}
-                      alt={item.alt}
-                      fill
-                      className="object-cover"
-                      sizes="80px"
+            return (
+              <motion.div
+                key={service.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                className={`group relative rounded-3xl overflow-hidden transition-all duration-300 hover:shadow-2xl ${
+                  isCenter ? 'lg:row-span-2' : ''
+                }`}
+                style={{
+                  backgroundColor: service.color,
+                  minHeight: isCenter ? "500px" : "250px",
+                }}
+              >
+                {/* Background Image with overlay */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-300">
+                  <Image
+                    src={service.image}
+                    alt=""
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+
+                {/* Content */}
+                <div className="relative z-10 h-full flex flex-col p-8 lg:p-10">
+                  {/* Icon */}
+                  <div className="w-14 h-14 rounded-2xl bg-black/5 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <Icon
+                      size={28}
+                      className="text-black"
+                      strokeWidth={1.5}
+                      aria-hidden="true"
                     />
                   </div>
-                ))}
-              </div>
 
-              {/* Bottom right images grid */}
-              <div className="absolute right-0 bottom-0 grid grid-cols-2 gap-3 w-40">
-                {smartHomeImages.slice(3, 5).map((item) => (
-                  <div
-                    key={item.id}
-                    className="w-20 h-24 rounded-xl overflow-hidden border border-gray-100 shadow-md hover:shadow-lg transition-shadow duration-300"
-                  >
-                    <Image
-                      src={item.image}
-                      alt={item.alt}
-                      fill
-                      className="object-cover"
-                      sizes="80px"
-                    />
+                  {/* Title & Description */}
+                  <div className="flex-grow">
+                    <h3 className="font-bold text-2xl lg:text-3xl text-black mb-3">
+                      {service.title}
+                    </h3>
+                    <p className="text-sm lg:text-base text-black/70 leading-relaxed">
+                      {service.description}
+                    </p>
                   </div>
-                ))}
-              </div>
-            </div>
-          </div>
 
-          {/* Right: Content with Benefits */}
-          <div className="flex flex-col gap-10">
-            {/* Description */}
-            <p className="text-base lg:text-lg text-gray-600 leading-relaxed max-w-lg">
-              Solutions domotiques évolutives qui s'adaptent à votre mode de vie. Créez des scénarios sur mesure, automatisez vos espaces et profitez d'un confort sans limites.
-            </p>
-
-            {/* Benefits Grid */}
-            <div className="space-y-4">
-              {benefits.map((benefit, idx) => {
-                const Icon = benefit.icon
-                return (
-                  <div key={idx} className="flex gap-4 items-start group">
-                    <div className="w-12 h-12 rounded-xl bg-gray-50 border border-gray-200 flex items-center justify-center flex-shrink-0 group-hover:bg-gray-100 transition-colors duration-300">
-                      <Icon size={20} className="text-black" strokeWidth={1.5} aria-hidden="true" />
-                    </div>
-                    <div>
-                      <p className="font-bold text-black text-sm">{benefit.label}</p>
-                      <p className="text-xs lg:text-sm text-gray-500 mt-1">{benefit.description}</p>
+                  {/* Arrow CTA */}
+                  <div className="mt-6 flex items-center justify-between group/arrow">
+                    <span style={{ fontFamily: "Inter, sans-serif", fontWeight: 600, fontSize: "12px", color: "#000000", letterSpacing: "0.1em" }} className="uppercase">
+                      En savoir plus
+                    </span>
+                    <div className="w-10 h-10 rounded-full bg-black flex items-center justify-center group-hover/arrow:scale-110 transition-transform">
+                      <ArrowRight size={16} className="text-[#efd555]" />
                     </div>
                   </div>
-                )
-              })}
-            </div>
-          </div>
+                </div>
+              </motion.div>
+            )
+          })}
         </div>
+
+        {/* Bottom CTA Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="mt-20 pt-20 border-t border-black/10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8"
+        >
+          <div className="max-w-lg">
+            <p className="text-base lg:text-lg text-black leading-relaxed mb-4">
+              Solutions domotiques évolutives qui s'adaptent à votre mode de vie et vos besoins futurs.
+            </p>
+            <p className="text-sm text-black/60">
+              Créez des scénarios personnalisés et profitez d'un confort sans limites.
+            </p>
+          </div>
+          
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-3 px-8 py-4 bg-black text-white rounded-full font-semibold hover:shadow-lg transition-all duration-300 group flex-shrink-0"
+          >
+            <span>Commencer</span>
+            <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+          </Link>
+        </motion.div>
       </div>
     </section>
   )
