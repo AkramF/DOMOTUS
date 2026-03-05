@@ -662,7 +662,7 @@ export default function HomePage() {
               <h2
                 id="cta-heading"
                 className="text-black text-balance mb-4 leading-tight"
-                style={{ fontFamily: "Inter, sans-serif", fontWeight: 500, fontSize: "72px", lineHeight: "79px" }}
+                style={{ fontFamily: "system-ui, ui-sans-serif, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'", fontWeight: 900, fontSize: "64px", lineHeight: "64px", fontStyle: "normal" }}
               >
                 Planifiez votre<br />
                 étude personnalisée
