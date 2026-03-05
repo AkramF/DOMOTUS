@@ -84,21 +84,21 @@ export default function ArchitecturePortfolio({ projects }: ArchitecturePortfoli
       </div>
 
       {/* Main Content — Right */}
-      <div className="flex-1 flex flex-col lg:gap-6">
+      <div className="flex-1 flex flex-col lg:gap-4">
         {/* Header */}
         <motion.div
           key={current.id}
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
-          className="flex flex-col gap-4"
+          className="flex flex-col gap-2"
         >
           <div className="flex items-start gap-4">
             <div className="flex-1">
-              <h2 className="font-black text-2xl lg:text-4xl uppercase tracking-tight text-black">
+              <h2 className="font-black text-2xl lg:text-3xl uppercase tracking-tight text-black">
                 {current.title}
               </h2>
-              <p className="text-sm lg:text-base text-gray-600 mt-4 leading-relaxed">
+              <p className="text-sm text-gray-600 mt-2 leading-relaxed line-clamp-3">
                 {current.description}
               </p>
             </div>

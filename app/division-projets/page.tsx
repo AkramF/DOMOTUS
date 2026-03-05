@@ -52,10 +52,10 @@ export default function DivisionProjetsPage() {
           <h1
             id="hero-heading"
             className="font-black uppercase leading-none text-balance mb-8"
-            style={{ fontSize: "clamp(2.8rem, 7vw, 5.5rem)", letterSpacing: "-0.03em", color: "#000000" }}
+            style={{ fontSize: "clamp(2.8rem, 7vw, 5.5rem)", letterSpacing: "-0.03em", color: "#ffffff" }}
           >
-            L&apos;ingénierie domotique<br />
-            <span className="italic text-black/50">au service de vos projets.</span>
+            Domotus,<br />
+            <span className="italic" style={{ color: "#ffffff" }}>au service de vos projets.</span>
           </h1>
           <p className="text-[16px] text-foreground/65 leading-relaxed max-w-2xl mb-12">
             Nous accompagnons architectes, promoteurs et maîtres d'ouvrage dans la création de bâtiments intelligents et durables. De la conception à la mise en service, solutions multi-protocoles certifiées (KNX, BACnet, Matter).
