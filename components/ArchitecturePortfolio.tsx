@@ -90,22 +90,11 @@ export default function ArchitecturePortfolio({ projects }: ArchitecturePortfoli
               <h2 className="font-black text-2xl lg:text-4xl uppercase tracking-tight text-black">
                 {current.title}
               </h2>
-              <p className="text-sm lg:text-base text-gray-600 mt-2 leading-relaxed">
+              <p className="text-sm lg:text-base text-gray-600 mt-4 leading-relaxed">
                 {current.description}
               </p>
             </div>
           </div>
-
-          {/* View Project Button */}
-          <Link
-            href="#"
-            className="inline-flex items-center justify-between w-fit px-6 py-3 bg-black rounded-full hover:bg-black/90 transition-colors duration-300"
-          >
-            <span className="text-white font-semibold text-sm">Voir le projet</span>
-            <div className="ml-4 w-8 h-8 rounded-full bg-[#efd555] flex items-center justify-center flex-shrink-0">
-              <ArrowRight size={16} className="text-black" />
-            </div>
-          </Link>
         </motion.div>
 
         {/* Main Image */}
