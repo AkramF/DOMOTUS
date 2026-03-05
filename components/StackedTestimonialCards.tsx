@@ -25,7 +25,7 @@ export default function StackedTestimonialCards({ testimonials }: { testimonials
     <section className="py-8 lg:py-12" style={{ backgroundColor: "#000000" }}>
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         {/* Testimonials Horizontal Scroll */}
-        <div className="overflow-x-auto pb-4 -mx-6 lg:-mx-10 px-6 lg:px-10 scroll-smooth" style={{ scrollBehavior: 'smooth' }}>
+        <div className="overflow-x-auto overflow-y-hidden pb-4 -mx-6 lg:-mx-10 px-6 lg:px-10 scroll-smooth" style={{ scrollBehavior: 'smooth' }}>
           <div className="flex gap-6 lg:gap-8 min-w-min">
             {testimonials.map((testimonial, index) => (
               <motion.div
