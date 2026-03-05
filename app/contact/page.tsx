@@ -65,11 +65,11 @@ export default function ContactPage() {
     <>
       {/* ── CONTACT SECTION ── */}
       <section className="min-h-screen pt-32 pb-20 bg-white" aria-labelledby="contact-heading">
-        <div className="mx-auto max-w-7xl px-6 lg:px-10">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
+        <div className="mx-auto max-w-6xl px-6 lg:px-10">
+          <div className="grid lg:grid-cols-3 gap-12 lg:gap-20">
             
             {/* LEFT: Info + CTA */}
-            <div className="flex flex-col justify-start">
+            <div className="flex flex-col justify-start lg:col-span-1">
               {/* Label */}
               <div className="flex items-center gap-3 mb-8">
                 <div className="w-3 h-3 bg-black" aria-hidden="true" />
@@ -82,11 +82,11 @@ export default function ContactPage() {
                 className="font-black text-black text-balance"
                 style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", letterSpacing: "-0.03em", lineHeight: 1.1 }}
               >
-                Connect with us
+                Parlons de votre projet
               </h1>
 
               {/* Subtitle */}
-              <p className="mt-4 text-base text-gray-600">Share your vision with us.</p>
+              <p className="mt-4 text-base text-gray-600">Partagez votre vision avec nous.</p>
 
               {/* Contact Cards */}
               <div className="mt-16 space-y-8">
@@ -117,8 +117,8 @@ export default function ContactPage() {
               </div>
             </div>
 
-            {/* RIGHT: Form */}
-            <div className="rounded-3xl bg-gray-50 p-10 lg:p-12">
+            {/* RIGHT: Form — Wider */}
+            <div className="rounded-3xl bg-gray-50 p-10 lg:p-12 lg:col-span-2">
               <ContactForm />
             </div>
           </div>

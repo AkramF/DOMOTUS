@@ -53,7 +53,7 @@ export default function ContactForm() {
       {/* Full Name */}
       <div>
         <label htmlFor="fullName" className="block text-sm font-bold text-gray-800 mb-3">
-          Full name
+          Nom complet
         </label>
         <input
           type="text"
@@ -61,7 +61,7 @@ export default function ContactForm() {
           name="fullName"
           value={formData.fullName}
           onChange={handleChange}
-          placeholder="First Name"
+          placeholder="Votre nom"
           required
           className="w-full px-6 py-3 rounded-full bg-white border border-gray-200 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-black/10 focus:border-transparent transition-all duration-300"
         />
@@ -70,7 +70,7 @@ export default function ContactForm() {
       {/* Email */}
       <div>
         <label htmlFor="email" className="block text-sm font-bold text-gray-800 mb-3">
-          Email address
+          Adresse email
         </label>
         <input
           type="email"
@@ -78,7 +78,7 @@ export default function ContactForm() {
           name="email"
           value={formData.email}
           onChange={handleChange}
-          placeholder="your@email.com"
+          placeholder="votre@email.com"
           required
           className="w-full px-6 py-3 rounded-full bg-white border border-gray-200 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-black/10 focus:border-transparent transition-all duration-300"
         />
@@ -87,7 +87,7 @@ export default function ContactForm() {
       {/* Company */}
       <div>
         <label htmlFor="company" className="block text-sm font-bold text-gray-800 mb-3">
-          Company name
+          Nom de l'entreprise
         </label>
         <input
           type="text"
@@ -95,7 +95,7 @@ export default function ContactForm() {
           name="company"
           value={formData.company}
           onChange={handleChange}
-          placeholder="Company name"
+          placeholder="Votre entreprise"
           className="w-full px-6 py-3 rounded-full bg-white border border-gray-200 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-black/10 focus:border-transparent transition-all duration-300"
         />
       </div>
@@ -103,14 +103,14 @@ export default function ContactForm() {
       {/* Project Info */}
       <div>
         <label htmlFor="projectInfo" className="block text-sm font-bold text-gray-800 mb-3">
-          Project information
+          Informations sur le projet
         </label>
         <textarea
           id="projectInfo"
           name="projectInfo"
           value={formData.projectInfo}
           onChange={handleChange}
-          placeholder="Tell us about your project..."
+          placeholder="Décrivez votre projet..."
           rows={6}
           className="w-full px-6 py-4 rounded-2xl bg-white border border-gray-200 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-black/10 focus:border-transparent transition-all duration-300 resize-none font-sans"
         />
@@ -123,7 +123,7 @@ export default function ContactForm() {
           disabled={isSubmitting || submitted}
           className="inline-flex items-center gap-0 bg-black hover:bg-gray-900 disabled:bg-gray-400 disabled:cursor-not-allowed text-white px-8 py-3 rounded-full font-semibold text-sm transition-all duration-300 group"
         >
-          <span>{isSubmitting ? 'Envoi...' : submitted ? 'Merci!' : 'Submit'}</span>
+          <span>{isSubmitting ? 'Envoi...' : submitted ? 'Merci!' : 'Envoyer'}</span>
           <div className="w-9 h-9 rounded-full bg-[#e8e27c] ml-3 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
             <ArrowRight size={18} className="text-black" strokeWidth={2.5} aria-hidden="true" />
           </div>
