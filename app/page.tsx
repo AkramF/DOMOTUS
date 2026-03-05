@@ -256,10 +256,10 @@ const projectTypes = [
     segment: "B2B",
   },
   {
-    title: "Hôtellerie & Hospitalité",
-    description: "Gestion centralisée pour chaînes hôtelières. Confort client, efficacité opérationnelle, économies énergétiques garanties.",
+    title: "Hospitalité & Retail",
+    description: "Gestion centralisée pour hôtels, spas et commerces. Confort client, efficacité opérationnelle, engagement digital et économies énergétiques garanties.",
     image: "/images/expertise-bms.jpg",
-    imageAlt: "Hôtellerie et hospitalité",
+    imageAlt: "Hospitalité et retail",
     segment: "B2B2C",
   },
   {

@@ -5,20 +5,20 @@ import { ArrowRight, Check } from "lucide-react";
 import SectionLabel from "@/components/ui/section-label";
 
 export const metadata: Metadata = {
-  title: "Hôtellerie & Hospitalité — Domotique KNX | Domotus",
+  title: "Hospitalité & Retail — Domotique KNX | Domotus",
   description:
-    "Hôtellerie intelligente : gestion chambres, confort client, efficience énergétique. GRMS, KNX certifié au Maroc.",
+    "Hospitalité & retail intelligente : gestion espaces, confort client, efficience énergétique. GRMS, KNX certifié au Maroc.",
   alternates: { canonical: "https://www.domotus.ma/hospitalite" },
   openGraph: {
-    title: "Hôtellerie — Domotique Intelligente | Domotus",
-    description: "Satisfaction client. Efficience opérationnelle. Gestion GRMS.",
+    title: "Hospitalité & Retail — Domotique Intelligente | Domotus",
+    description: "Satisfaction client. Efficience opérationnelle. Gestion centralisée.",
     url: "https://www.domotus.ma/hospitalite",
     images: [
       {
         url: "https://www.domotus.ma/images/og-domotus.jpg",
         width: 1200,
         height: 630,
-        alt: "Hôtellerie domotique",
+        alt: "Hospitalité & Retail domotique",
       },
     ],
   },
@@ -31,7 +31,7 @@ export default function HospitalitePage() {
       <section className="py-32 lg:py-40" aria-labelledby="hero-heading">
         <div className="mx-auto max-w-5xl px-6 lg:px-10">
           <p className="text-[12px] uppercase tracking-[0.3em] text-primary font-medium mb-8">
-            Hôtellerie, spas & établissements de santé
+            Hôtellerie, spas, établissements de santé & commerce
           </p>
           <h1
             id="hero-heading"
@@ -42,7 +42,7 @@ export default function HospitalitePage() {
             <span className="italic text-foreground/50">réduisez les coûts.</span>
           </h1>
           <p className="text-[16px] text-foreground/65 leading-relaxed max-w-2xl mb-12">
-            Domotus transforme les établissements hôteliers, spas et centres de soins en écosystèmes intelligents. Gestion centralisée des chambres, optimisation énergétique, confort premium pour vos clients.
+            Domotus transforme les établissements hôteliers, spas, centres de soins et espaces commerciaux en écosystèmes intelligents. Gestion centralisée des espaces, optimisation énergétique, confort premium pour vos clients, engagement digital pour vos visiteurs.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Link href="/contact" className="inline-flex items-center gap-3 bg-primary px-8 py-4 text-[11px] font-black uppercase tracking-[0.2em] hover:bg-primary/85 transition-all duration-300" style={{ color: "#0a0a0a" }}>
@@ -71,10 +71,10 @@ export default function HospitalitePage() {
           </div>
           <div className="grid md:grid-cols-2 gap-8">
             {[
-              { title: "Confort Client Premium", desc: "Chambre intelligente : éclairage, température, rideaux pilotés depuis l'appli mobile ou la télécommande. Les clients découvrent ce qu'ils attendent." },
-              { title: "Réduction Énergétique", desc: "Gestion centralisée du chauffage, ventilation, éclairage. Jusqu'à 25% de réduction sur les factures énergétiques. ROI en 3-4 ans." },
-              { title: "Opérations Simplifiées", desc: "Gestion chambres (check-in/out automatisé), alertes maintenance, monitoring consommation temps réel. Votre équipe se concentre sur le service client." },
-              { title: "Fidélisation Client", desc: "L'expérience smart distinguish votre établissement. Les clients reconnaissent et apprécient. Satisfaction & NPS en hausse." },
+              { title: "Confort Client Premium", desc: "Chambre/espace intelligente : éclairage, température, rideaux pilotés depuis l'appli mobile ou la télécommande. Les clients découvrent ce qu'ils attendent. Pour le retail, signalétique dynamique et guidance client." },
+              { title: "Réduction Énergétique", desc: "Gestion centralisée du chauffage, ventilation, éclairage, détection présence. Jusqu'à 25% de réduction sur les factures énergétiques. ROI en 3-4 ans." },
+              { title: "Opérations Simplifiées", desc: "Gestion chambres (check-in/out automatisé), alertes maintenance, monitoring consommation temps réel. Pour le retail : gestion d'ambiance, promotion digitale. Votre équipe se concentre sur le service client." },
+              { title: "Fidélisation Client", desc: "L'expérience smart distingue votre établissement. Les clients reconnaissent et apprécient. Pour le retail, expérience immersive et engagement. Satisfaction & NPS en hausse." },
             ].map((item) => (
               <div key={item.title} className="bg-background p-8 rounded">
                 <h3 className="font-black uppercase text-foreground text-[13px] mb-3">{item.title}</h3>
@@ -130,10 +130,10 @@ export default function HospitalitePage() {
           </div>
           <div className="grid lg:grid-cols-2 gap-8">
             {[
-              { title: "GRMS Intégrée", desc: "Gestion complète des chambres : check-in/out auto, préférence client sauvegardée, maintenance programmée, nettoyage coordonné." },
-              { title: "Support 24/7", desc: "Équipe technique dédiée. Intervention rapide sur site si besoin. Votre établissement ne s'arrête jamais." },
-              { title: "Multi-établissements", desc: "Une seule plateforme pour piloter plusieurs hôtels ou spas. Benchmark énergétique, management centralisé." },
-              { title: "Intégration Fluide", desc: "Compatible avec vos systèmes existants (PMS, gestion énergétique). Installation sans interruption de service." },
+              { title: "GRMS Intégrée", desc: "Gestion complète des chambres : check-in/out auto, préférence client sauvegardée, maintenance programmée, nettoyage coordonné. Pour retail : gestion inventaire et présence client." },
+              { title: "Support 24/7", desc: "Équipe technique dédiée. Intervention rapide sur site si besoin. Votre établissement ou commerce ne s'arrête jamais." },
+              { title: "Multi-établissements", desc: "Une seule plateforme pour piloter plusieurs hôtels, spas ou points de vente. Benchmark énergétique, management centralisé, reporting cohérent." },
+              { title: "Intégration Fluide", desc: "Compatible avec vos systèmes existants (PMS, gestion énergétique, systèmes PoS). Installation sans interruption de service." },
             ].map((item) => (
               <div key={item.title} className="bg-background p-8 rounded">
                 <h3 className="font-black uppercase text-foreground text-[13px] mb-3">{item.title}</h3>
