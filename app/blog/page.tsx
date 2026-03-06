@@ -103,7 +103,10 @@ export default function BlogPage() {
     fetchArticles();
   }, []);
 
-  const featured = articles.find((a) => a.attributes.Featured) || articles[0];
+  // Safely get featured article
+  const featured = articles.length > 0 
+    ? (articles.find((a) => a.attributes?.Featured) || articles[0])
+    : null;
   const rest = articles.filter((a) => a !== featured);
 
   return (
@@ -168,7 +171,7 @@ export default function BlogPage() {
       )}
 
       {/* ── FEATURED ── */}
-      {!loading && !error && featured && (
+      {!loading && !error && featured && featured.attributes?.Image_Principale?.data?.attributes?.url && (
         <section className="pb-4 bg-background" aria-label="Article à la une">
           <div className="mx-auto max-w-7xl px-6 lg:px-10">
             <Link
