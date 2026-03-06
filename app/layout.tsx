@@ -30,20 +30,22 @@ export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
 
   title: {
-    default: "Domotique Maroc — Maison Intelligente Certifiée KNX | Domotus",
+    default: "Domotique Maroc | Domotus : Expert en Espaces Intelligents",
     template: "%s | Domotus",
   },
   description:
-    "Domotus : intégrateur domotique certifié KNX au Maroc. Smart home de prestige pour villas de luxe et bâtiments tertiaires. Multi-protocoles, SAV 7/7.",
+    "Optimisez vos espaces de vie et de travail avec Domotus, intégrateur certifié au Maroc. Sécurité, confort et maîtrise énergétique (KNX, Loxone). Étude de projet et audit d'expert : confiez-nous votre projet résidentiel ou tertiaire.",
 
   keywords: [
     "domotique Maroc",
+    "domotique Rabat",
     "domotique Casablanca",
     "domotique Marrakech",
     "maison intelligente Maroc",
     "smart home Maroc",
     "intégrateur domotique multi-protocoles Maroc",
     "domotique KNX Maroc",
+    "Loxone Maroc",
     "Crestron Maroc",
     "Lutron Maroc",
     "automatisation villa Maroc",
@@ -51,6 +53,7 @@ export const metadata: Metadata = {
     "maison connectée Maroc",
     "gestion éclairage intelligent",
     "sécurité maison connectée",
+    "maîtrise énergétique",
     "Domotus",
   ],
 
@@ -68,24 +71,24 @@ export const metadata: Metadata = {
     locale: "fr_MA",
     url: BASE_URL,
     siteName: "Domotus",
-    title: "Domotus — Domotique Premium & Maison Intelligente au Maroc",
+    title: "Domotique Maroc | Domotus : Expert en Espaces Intelligents",
     description:
-      "Intégrateur domotique certifié KNX, Crestron & Lutron. Villas de luxe, appartements prestige et bâtiments tertiaires au Maroc.",
+      "Optimisez vos espaces de vie et de travail avec Domotus, intégrateur certifié au Maroc. Sécurité, confort et maîtrise énergétique (KNX, Loxone). Étude de projet et audit d'expert : confiez-nous votre projet résidentiel ou tertiaire.",
     images: [
       {
         url: "/images/og-domotus.jpg",
         width: 1200,
         height: 630,
-        alt: "Domotus — Ingénierie de l'invisible au Maroc",
+        alt: "Domotus — Expert en Espaces Intelligents au Maroc",
       },
     ],
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "Domotus — Domotique Premium au Maroc",
+    title: "Domotique Maroc | Domotus : Expert en Espaces Intelligents",
     description:
-      "Intégrateur domotique certifié KNX · Crestron · Lutron pour résidences de prestige et bâtiments tertiaires au Maroc.",
+      "Intégrateur certifié KNX · Loxone · Crestron · Lutron pour résidences de prestige et bâtiments tertiaires au Maroc.",
     images: ["/images/og-domotus.jpg"],
   },
 
@@ -186,30 +189,31 @@ export default function RootLayout({
               email: "contact@domotus.ma",
               address: {
                 "@type": "PostalAddress",
-                streetAddress: "Casablanca",
-                addressLocality: "Casablanca",
-                addressRegion: "Grand Casablanca-Settat",
-                postalCode: "20000",
+                streetAddress: "2 place Aboubaker Essadiq - Agdal",
+                addressLocality: "Rabat",
+                addressRegion: "Rabat-Salé-Kénitra",
+                postalCode: "10090",
                 addressCountry: "MA",
               },
               geo: {
                 "@type": "GeoCoordinates",
-                latitude: 33.5731,
-                longitude: -7.5898,
+                latitude: 34.0209,
+                longitude: -6.8416,
               },
-              areaServed: [
-                { "@type": "AdministrativeArea", name: "Casablanca" },
-                { "@type": "AdministrativeArea", name: "Marrakech" },
-                { "@type": "AdministrativeArea", name: "Rabat" },
-                { "@type": "AdministrativeArea", name: "Tanger" },
-              ],
+              areaServed: {
+                "@type": "Country",
+                name: "Maroc"
+              },
               serviceType: [
-                "Domotique Multi-Protocoles",
+                "Domotique Sur-Mesure",
                 "Intégration KNX",
+                "Intégration Loxone",
                 "Intégration Crestron",
                 "Automatisation Lutron",
                 "Maison Intelligente",
                 "Bâtiment Tertiaire Intelligent",
+                "Audit Technique",
+                "Maîtrise Énergétique",
               ],
               priceRange: "$$$",
               openingHoursSpecification: [
