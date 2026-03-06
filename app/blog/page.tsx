@@ -1,79 +1,60 @@
+'use client';
+
+import { useState, useEffect } from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Mail } from "lucide-react";
 import NewsletterForm from "@/components/sections/NewsletterForm";
 
-export const metadata: Metadata = {
-  title: "Blog Domotique — Guides KNX, Crestron | Domotus Maroc",
-  description:
-    "Blog domotique : guides multi-protocoles, projets, actualités. KNX, Crestron, Lutron, tendances smart home au Maroc.",
-  alternates: { canonical: "https://www.domotus.ma/blog" },
-  openGraph: {
-    title: "Blog — Actualités Domotique | Domotus",
-    description: "Guides, études de cas, tendances domotique.",
-    url: "https://www.domotus.ma/blog",
-    images: [
-      {
-        url: "https://www.domotus.ma/images/og-domotus.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Blog Domotus",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Blog Domotique Maroc | Domotus",
-    description: "Guides multi-protocoles, retours projets et actualités domotique au Maroc.",
-  },
-};
+// Note: Metadata export must be in a separate file for client components
+// See metadata export below in the non-client part
 
-// ── Schema.org BlogPosting list ──────────────────────────────────────────────
-const schemaOrg = {
-  "@context": "https://schema.org",
-  "@type": "Blog",
-  name: "Blog Domotus — Domotique premium au Maroc",
-  description:
-    "Guides, retours de projets et actualités domotique par Domotus, intégrateur certifié multi-protocoles au Maroc.",
-  url: "https://www.domotus.ma/blog",
-  publisher: {
-    "@type": "Organization",
-    name: "Domotus",
-    url: "https://www.domotus.ma",
-    logo: { "@type": "ImageObject", url: "https://www.domotus.ma/images/hero-bg.jpg" },
-  },
-};
+interface Article {
+  id: number;
+  attributes: {
+    Titre: string;
+    Description_SEO: string;
+    Slug: string;
+    Image_Principale: {
+      data: {
+        attributes: {
+          url: string;
+        };
+      };
+    };
+    publishedAt: string;
+    Tag?: string;
+    Featured?: boolean;
+  };
+}
 
-const articles = [
-  {
-    slug: "knx-vs-autres-protocoles",
-    tag: "Technologie",
-    date: "Mars 2026",
-    title: "KNX vs Autres Protocoles — Quel Standard Choisir ?",
-    excerpt: "Comparatif KNX, Zigbee, Matter, Crestron. Découvrez pourquoi KNX reste le standard domotique #1 pour 20+ ans de garantie.",
-    image: "/images/hero-bg.jpg",
-    featured: true,
-  },
-  {
-    slug: "domotique-roi-promoteurs",
-    tag: "B2B - ROI",
-    date: "Février 2026",
-    title: "Domotique & ROI : +18% Vente, +15% Valeur Immobilière",
-    excerpt: "Étude complète du retour sur investissement pour promoteurs — Comment la domotique augmente la rentabilité de vos programmes immobiliers au Maroc.",
-    image: "/images/immeuble-tertiaire.jpg",
-    featured: false,
-  },
-  {
-    slug: "maison-intelligente-prestige",
-    tag: "B2C - Villa",
-    date: "Janvier 2026",
-    title: "Maison Intelligente de Prestige — Confort & Efficacité",
-    excerpt: "Guide complet pour villas de luxe — éclairage circadien, gestion énergétique intelligente, sécurité 24/7, home cinéma Dolby Atmos.",
-    image: "/images/villa-prestige.jpg",
-    featured: false,
-  },
-];
+interface ApiResponse {
+  data: Article[];
+}
+
+const API_BASE_URL = "https://thoughtful-amusement-037aae48eb.strapiapp.com";
+const API_ENDPOINT = `${API_BASE_URL}/api/articles?populate=*`;
+
+function formatDateFrench(dateString: string): string {
+  const date = new Date(dateString);
+  const formatter = new Intl.DateTimeFormat("fr-FR", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+  return formatter.format(date);
+}
+
+function getImageUrl(imagePath: string): string {
+  if (imagePath.startsWith("http")) {
+    return imagePath;
+  }
+  if (imagePath.startsWith("/")) {
+    return `${API_BASE_URL}${imagePath}`;
+  }
+  return `${API_BASE_URL}/${imagePath}`;
+}
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
@@ -84,18 +65,49 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
   );
 }
 
+function LoadingSkeleton() {
+  return (
+    <div className="space-y-4 animate-pulse">
+      <div className="h-96 bg-card rounded-lg" />
+      <div className="h-8 bg-card rounded w-3/4" />
+      <div className="h-4 bg-card rounded w-full" />
+      <div className="h-4 bg-card rounded w-1/2" />
+    </div>
+  );
+}
+
 export default function BlogPage() {
-  const featured = articles.find((a) => a.featured)!;
-  const rest = articles.filter((a) => !a.featured);
+  const [articles, setArticles] = useState<Article[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchArticles = async () => {
+      try {
+        setLoading(true);
+        const response = await fetch(API_ENDPOINT);
+        if (!response.ok) {
+          throw new Error(`Erreur API: ${response.status}`);
+        }
+        const data: ApiResponse = await response.json();
+        setArticles(data.data || []);
+      } catch (err) {
+        const errorMessage = err instanceof Error ? err.message : "Erreur inconnue";
+        setError(errorMessage);
+        console.error("[v0] Erreur fetch articles:", errorMessage);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchArticles();
+  }, []);
+
+  const featured = articles.find((a) => a.attributes.Featured) || articles[0];
+  const rest = articles.filter((a) => a !== featured);
 
   return (
     <>
-      {/* ── Schema.org ── */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrg) }}
-      />
-
       {/* ── HEADER ── */}
       <header className="pt-40 pb-20 bg-background">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
@@ -110,7 +122,7 @@ export default function BlogPage() {
           <p className="mt-6 text-[15px] text-foreground/50 leading-relaxed max-w-xl">
             Guides techniques, retours de projets et tendances domotique par l&apos;intégrateur certifié multi-protocoles de référence au Maroc.
           </p>
-          
+
           {/* ── BLOG DESCRIPTION ── */}
           <div className="mt-16 max-w-2xl">
             <p className="text-[14px] text-foreground/60 leading-relaxed mb-6">
@@ -123,86 +135,130 @@ export default function BlogPage() {
         </div>
       </header>
 
+      {/* ── LOADING / ERROR STATE ── */}
+      {loading && (
+        <section className="pb-4 bg-background" aria-label="Chargement">
+          <div className="mx-auto max-w-7xl px-6 lg:px-10">
+            <LoadingSkeleton />
+          </div>
+        </section>
+      )}
+
+      {error && (
+        <section className="py-16 bg-background" aria-label="Erreur">
+          <div className="mx-auto max-w-7xl px-6 lg:px-10 text-center">
+            <p className="text-foreground/60 mb-4">Erreur de chargement des articles</p>
+            <p className="text-foreground/40 text-sm">{error}</p>
+          </div>
+        </section>
+      )}
+
+      {/* ── NO ARTICLES ── */}
+      {!loading && !error && articles.length === 0 && (
+        <section className="py-24 bg-background" aria-label="Bientôt">
+          <div className="mx-auto max-w-2xl px-6 text-center">
+            <h2 className="font-black uppercase text-foreground mb-3" style={{ fontSize: "clamp(1.4rem, 3vw, 2rem)" }}>
+              Bientôt disponible
+            </h2>
+            <p className="text-[14px] text-foreground/50 leading-relaxed">
+              Nos articles arrivent très bientôt. Inscrivez-vous à la newsletter pour ne rien manquer.
+            </p>
+          </div>
+        </section>
+      )}
+
       {/* ── FEATURED ── */}
-      <section className="pb-4 bg-background" aria-label="Article à la une">
-        <div className="mx-auto max-w-7xl px-6 lg:px-10">
-          <Link
-            href={`/blog/${featured.slug}`}
-            className="focus-ring group relative flex flex-col lg:flex-row overflow-hidden bg-card border border-white/8 hover:border-primary/30 transition-colors duration-500"
-          >
-            <div className="relative lg:w-1/2 aspect-video lg:aspect-auto overflow-hidden">
-              <Image
-                src={featured.image}
-                alt={`Article à la une : ${featured.title}`}
-                fill
-                priority
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-background/40" />
-              <span className="absolute top-5 left-5 text-[10px] uppercase tracking-[0.25em] font-bold bg-primary px-3 py-1.5" style={{ color: "#0a0a0a" }}>
-                A la une
-              </span>
-            </div>
-            <div className="p-10 lg:p-14 lg:w-1/2 flex flex-col justify-center">
-              <div className="flex items-center gap-4 mb-6">
-                <span className="text-[11px] uppercase tracking-[0.2em] text-primary font-semibold">{featured.tag}</span>
-                <time className="text-[11px] text-foreground/40" dateTime="2026-02">{featured.date}</time>
+      {!loading && !error && featured && (
+        <section className="pb-4 bg-background" aria-label="Article à la une">
+          <div className="mx-auto max-w-7xl px-6 lg:px-10">
+            <Link
+              href={`/blog/${featured.attributes.Slug}`}
+              className="focus-ring group relative flex flex-col lg:flex-row overflow-hidden bg-card border border-white/8 hover:border-primary/30 transition-colors duration-500"
+            >
+              <div className="relative lg:w-1/2 aspect-video lg:aspect-auto overflow-hidden">
+                <Image
+                  src={getImageUrl(featured.attributes.Image_Principale.data.attributes.url)}
+                  alt={`Article à la une : ${featured.attributes.Titre}`}
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-background/40" />
+                <span className="absolute top-5 left-5 text-[10px] uppercase tracking-[0.25em] font-bold bg-primary px-3 py-1.5" style={{ color: "#0a0a0a" }}>
+                  A la une
+                </span>
               </div>
-              <h2
-                className="font-black uppercase leading-tight text-foreground text-balance mb-6"
-                style={{ fontSize: "clamp(1.5rem, 2.5vw, 2rem)", letterSpacing: "-0.02em" }}
-              >
-                {featured.title}
-              </h2>
-              <p className="text-[14px] text-foreground/55 leading-relaxed mb-8">{featured.excerpt}</p>
-              <span className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.15em] text-primary/70 group-hover:text-primary transition-colors duration-300 font-semibold">
-                Lire l&apos;article <ArrowRight size={12} aria-hidden="true" />
-              </span>
-            </div>
-          </Link>
-        </div>
-      </section>
+              <div className="p-10 lg:p-14 lg:w-1/2 flex flex-col justify-center">
+                <div className="flex items-center gap-4 mb-6">
+                  <span className="text-[11px] uppercase tracking-[0.2em] text-primary font-semibold">
+                    {featured.attributes.Tag || "Article"}
+                  </span>
+                  <time className="text-[11px] text-foreground/40" dateTime={featured.attributes.publishedAt}>
+                    {formatDateFrench(featured.attributes.publishedAt)}
+                  </time>
+                </div>
+                <h2
+                  className="font-black uppercase leading-tight text-foreground text-balance mb-6"
+                  style={{ fontSize: "clamp(1.5rem, 2.5vw, 2rem)", letterSpacing: "-0.02em" }}
+                >
+                  {featured.attributes.Titre}
+                </h2>
+                <p className="text-[14px] text-foreground/55 leading-relaxed mb-8">{featured.attributes.Description_SEO}</p>
+                <span className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.15em] text-primary/70 group-hover:text-primary transition-colors duration-300 font-semibold">
+                  Lire l&apos;article <ArrowRight size={12} aria-hidden="true" />
+                </span>
+              </div>
+            </Link>
+          </div>
+        </section>
+      )}
 
       {/* ── GRID ── */}
-      <section className="py-16 bg-background" aria-label="Tous les articles">
-        <div className="mx-auto max-w-7xl px-6 lg:px-10">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-white/8">
-            {rest.map((a, i) => (
-              <article key={a.slug}>
-                <Link
-                  href={`/blog/${a.slug}`}
-                  className="focus-ring group flex flex-col h-full bg-background hover:bg-card transition-colors duration-300"
-                >
-                  <div className="relative aspect-video overflow-hidden">
-                    <Image
-                      src={a.image}
-                      alt={a.title}
-                      fill
-                      loading={i < 2 ? "eager" : "lazy"}
-                      sizes="(max-width: 768px) 100vw, 25vw"
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-background/50" />
-                  </div>
-                  <div className="p-6 flex flex-col gap-3 flex-1">
-                    <div className="flex items-center gap-3">
-                      <span className="text-[11px] uppercase tracking-[0.15em] text-primary font-semibold">{a.tag}</span>
-                      <time className="text-[11px] text-foreground/35">{a.date}</time>
+      {!loading && !error && rest.length > 0 && (
+        <section className="py-16 bg-background" aria-label="Tous les articles">
+          <div className="mx-auto max-w-7xl px-6 lg:px-10">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-white/8">
+              {rest.map((article, i) => (
+                <article key={article.id}>
+                  <Link
+                    href={`/blog/${article.attributes.Slug}`}
+                    className="focus-ring group flex flex-col h-full bg-background hover:bg-card transition-colors duration-300"
+                  >
+                    <div className="relative aspect-video overflow-hidden">
+                      <Image
+                        src={getImageUrl(article.attributes.Image_Principale.data.attributes.url)}
+                        alt={article.attributes.Titre}
+                        fill
+                        loading={i < 2 ? "eager" : "lazy"}
+                        sizes="(max-width: 768px) 100vw, 25vw"
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-background/50" />
                     </div>
-                    <h2 className="font-bold uppercase tracking-tight text-foreground text-sm leading-snug text-balance">
-                      {a.title}
-                    </h2>
-                    <p className="text-[13px] text-foreground/50 leading-relaxed line-clamp-2 mt-auto">
-                      {a.excerpt}
-                    </p>
-                  </div>
-                </Link>
-              </article>
-            ))}
+                    <div className="p-6 flex flex-col gap-3 flex-1">
+                      <div className="flex items-center gap-3">
+                        <span className="text-[11px] uppercase tracking-[0.15em] text-primary font-semibold">
+                          {article.attributes.Tag || "Article"}
+                        </span>
+                        <time className="text-[11px] text-foreground/35" dateTime={article.attributes.publishedAt}>
+                          {formatDateFrench(article.attributes.publishedAt)}
+                        </time>
+                      </div>
+                      <h2 className="font-bold uppercase tracking-tight text-foreground text-sm leading-snug text-balance">
+                        {article.attributes.Titre}
+                      </h2>
+                      <p className="text-[13px] text-foreground/50 leading-relaxed line-clamp-2 mt-auto">
+                        {article.attributes.Description_SEO}
+                      </p>
+                    </div>
+                  </Link>
+                </article>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* ── NEWSLETTER CTA ── */}
       <section className="py-24 bg-background border-t border-white/8" aria-label="Newsletter Domotus">
