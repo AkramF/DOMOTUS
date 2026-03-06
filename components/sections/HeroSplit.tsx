@@ -111,8 +111,7 @@ export default function Hero() {
               <div className="p-4 lg:p-6 bg-white rounded-2xl h-full shadow-xl">
               {/* Image inside white frame */}
                 <div 
-                  className="w-full h-full overflow-hidden rounded-xl group" 
-                  style={{ position: 'relative' }}
+                  className="relative w-full h-full overflow-hidden rounded-xl group" 
                 >
                   <Image
                     src="/images/hero-bg.jpg"
