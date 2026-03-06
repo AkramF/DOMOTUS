@@ -7,6 +7,12 @@ const nextConfig = {
     formats: ['image/avif', 'image/webp'],
     minimumCacheTTL: 60,
     qualities: [75, 80, 85],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'thoughtful-amusement-037aae48eb.media.strapiapp.com',
+      },
+    ],
   },
   experimental: {
     optimizePackageImports: ['framer-motion', 'lucide-react'],

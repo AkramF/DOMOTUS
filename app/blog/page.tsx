@@ -46,19 +46,8 @@ function formatDateFrench(dateString: string): string {
 }
 
 function getImageUrl(imageData: { url?: string } | undefined): string {
-  if (!imageData?.url) {
-    return "/placeholder.jpg";
-  }
-  
-  const url = imageData.url;
-  
-  // Si l'URL est déjà complète
-  if (url.startsWith("http")) {
-    return url;
-  }
-  
-  // Si c'est un chemin relatif, ajouter le préfixe Strapi
-  return `${API_BASE_URL}${url}`;
+  // Strapi 5 retourne déjà des URLs absolues (https://...)
+  return imageData?.url || "/placeholder.jpg";
 }
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
