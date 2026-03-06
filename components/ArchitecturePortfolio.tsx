@@ -117,8 +117,8 @@ export default function ArchitecturePortfolio({ projects }: ArchitecturePortfoli
             src={current.image}
             alt={current.imageAlt}
             fill
-            className="object-cover"
             sizes="(max-width: 1024px) 100vw, 75vw"
+            className="object-cover"
             priority
           />
         </motion.div>
