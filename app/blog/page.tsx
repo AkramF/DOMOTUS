@@ -45,14 +45,20 @@ function formatDateFrench(dateString: string): string {
   return formatter.format(date);
 }
 
-function getImageUrl(imagePath: string): string {
-  if (imagePath.startsWith("http")) {
-    return imagePath;
+function getImageUrl(imageData: { url?: string } | undefined): string {
+  if (!imageData?.url) {
+    return "/placeholder.jpg";
   }
-  if (imagePath.startsWith("/")) {
-    return `${API_BASE_URL}${imagePath}`;
+  
+  const url = imageData.url;
+  
+  // Si l'URL est déjà complète
+  if (url.startsWith("http")) {
+    return url;
   }
-  return `${API_BASE_URL}${imagePath}`;
+  
+  // Si c'est un chemin relatif, ajouter le préfixe Strapi
+  return `${API_BASE_URL}${url}`;
 }
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
@@ -171,7 +177,7 @@ export default function BlogPage() {
       )}
 
       {/* ── FEATURED ── */}
-      {!loading && !error && featured && featured.Image_Principale?.url && (
+      {!loading && !error && featured && (
         <section className="pb-4 bg-background" aria-label="Article à la une">
           <div className="mx-auto max-w-7xl px-6 lg:px-10">
             <Link
@@ -180,7 +186,7 @@ export default function BlogPage() {
             >
               <div className="relative lg:w-1/2 aspect-video lg:aspect-auto overflow-hidden">
                 <Image
-                  src={getImageUrl(featured.Image_Principale.url)}
+                  src={getImageUrl(featured.Image_Principale)}
                   alt={`Article à la une : ${featured.Titre}`}
                   fill
                   priority
@@ -230,7 +236,7 @@ export default function BlogPage() {
                   >
                     <div className="relative aspect-video overflow-hidden">
                       <Image
-                        src={getImageUrl(article.Image_Principale.url)}
+                        src={getImageUrl(article.Image_Principale)}
                         alt={article.Titre}
                         fill
                         loading={i < 2 ? "eager" : "lazy"}
