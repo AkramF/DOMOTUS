@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Phone, Mail, MapPin, Clock, ArrowRight, CheckCircle2 } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, ArrowRight, CheckCircle2, Globe } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
 
 export const metadata: Metadata = {
   title: "Contact & Devis — Domotique Maroc | Domotus",
   description:
-    "Contactez Domotus pour audit technique gratuit. Devis personnalisé en 48h. Casablanca, Marrakech, Rabat, Tanger.",
+    "Contactez Domotus pour audit technique gratuit. Devis personnalisé en 48h. Rabat, couverture nationale du Maroc.",
   alternates: { canonical: "https://www.domotus.ma/contact" },
   openGraph: {
     title: "Contact & Devis — Domotique | Domotus Maroc",
@@ -46,17 +46,17 @@ const directContacts = [
   },
   {
     icon: MapPin,
-    label: "Casablanca",
-    value: "Bd Abdelmoumen, Racine",
+    label: "Rabat",
+    value: "2 place Aboubaker Essadiq - Agdal",
     href: "https://maps.google.com",
     note: "Sur rendez-vous",
   },
   {
-    icon: Clock,
-    label: "Marrakech",
-    value: "Route de l'Ourika, Km 5",
+    icon: Globe,
+    label: "Zone intervention",
+    value: "Ensemble territoire Marocain",
     href: "https://maps.google.com",
-    note: "Sur rendez-vous",
+    note: "Couverture nationale",
   },
 ];
 

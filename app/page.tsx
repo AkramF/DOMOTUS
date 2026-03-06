@@ -27,21 +27,21 @@ const PhoneIcon = dynamic(async () => {
 }, { ssr: true });
 
 export const metadata: Metadata = {
-  title: "Domotique Maroc — Maison Intelligente Certifiée KNX | Domotus",
+  title: "Domotique Maroc | Domotus : Expert en Espaces Intelligents",
   description:
-    "Domotus : intégrateur domotique multi-protocoles au Maroc. KNX, Crestron, Lutron pour villas de luxe et bâtiments tertiaires. Audit gratuit.",
+    "Optimisez vos espaces de vie et de travail avec Domotus, intégrateur certifié au Maroc. Sécurité, confort et maîtrise énergétique (KNX, Loxone). Étude de projet et audit d'expert : confiez-nous votre projet résidentiel ou tertiaire.",
   alternates: { canonical: "https://www.domotus.ma" },
   openGraph: {
-    title: "Domotique Maroc — Maison Intelligente | Domotus",
+    title: "Domotique Maroc | Domotus : Expert en Espaces Intelligents",
     description:
-      "Intégrateur certifié KNX, Crestron & Lutron. 150+ projets réalisés. Audit technique gratuit.",
+      "Optimisez vos espaces de vie et de travail avec Domotus, intégrateur certifié au Maroc. Sécurité, confort et maîtrise énergétique (KNX, Loxone). Étude de projet et audit d'expert : confiez-nous votre projet résidentiel ou tertiaire.",
     url: "https://www.domotus.ma",
     images: [
       {
         url: "https://www.domotus.ma/images/og-domotus.jpg",
         width: 1200,
         height: 630,
-        alt: "Domotus - Intégrateur domotique au Maroc",
+        alt: "Domotus - Expert en Espaces Intelligents au Maroc",
       },
     ],
   },
