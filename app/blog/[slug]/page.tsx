@@ -43,9 +43,11 @@ function formatDateFrench(dateString: string): string {
 }
 
 function getImageUrl(imageData: { url?: string } | undefined): string {
-  if (!imageData?.url) {
-    return '/placeholder.jpg';
-  }
+  // Strapi 5 retourne déjà des URLs absolues (https://...)
+  const url = imageData?.url || "/placeholder.jpg";
+  console.log("[v0] Article image URL:", url);
+  return url;
+}
 
   const url = imageData.url;
 
@@ -219,7 +221,7 @@ export default function ArticlePage() {
         </Link>
 
         {/* ── HERO IMAGE ── */}
-        {article.Image_Principale && (
+        {article.Image_Principale?.url && (
           <div className="relative w-full h-[400px] lg:h-[600px] overflow-hidden group">
             <Image
               src={getImageUrl(article.Image_Principale)}
