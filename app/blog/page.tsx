@@ -10,23 +10,22 @@ import NewsletterForm from "@/components/sections/NewsletterForm";
 // Note: Metadata export must be in a separate file for client components
 // See metadata export below in the non-client part
 
+// Strapi 5 - Structure aplatie (flattened)
 interface Article {
-  id: number;
-  attributes: {
-    Titre: string;
-    Description_SEO: string;
-    Slug: string;
-    Image_Principale: {
-      data: {
-        attributes: {
-          url: string;
-        };
-      };
+  documentId: string;
+  Titre: string;
+  Description_SEO: string;
+  Slug: string;
+  Image_Principale: {
+    url: string;
+    formats?: {
+      small?: { url: string };
+      medium?: { url: string };
     };
-    publishedAt: string;
-    Tag?: string;
-    Featured?: boolean;
   };
+  publishedAt: string;
+  Tag?: string;
+  Featured?: boolean;
 }
 
 interface ApiResponse {
@@ -53,7 +52,7 @@ function getImageUrl(imagePath: string): string {
   if (imagePath.startsWith("/")) {
     return `${API_BASE_URL}${imagePath}`;
   }
-  return `${API_BASE_URL}/${imagePath}`;
+  return `${API_BASE_URL}${imagePath}`;
 }
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
@@ -90,6 +89,7 @@ export default function BlogPage() {
           throw new Error(`Erreur API: ${response.status}`);
         }
         const data: ApiResponse = await response.json();
+        console.log("[v0] Articles data:", data);
         setArticles(data.data || []);
       } catch (err) {
         const errorMessage = err instanceof Error ? err.message : "Erreur inconnue";
@@ -103,9 +103,9 @@ export default function BlogPage() {
     fetchArticles();
   }, []);
 
-  // Safely get featured article
+  // Safely get featured article (Strapi 5 structure)
   const featured = articles.length > 0 
-    ? (articles.find((a) => a.attributes?.Featured) || articles[0])
+    ? (articles.find((a) => a.Featured) || articles[0])
     : null;
   const rest = articles.filter((a) => a !== featured);
 
@@ -171,17 +171,17 @@ export default function BlogPage() {
       )}
 
       {/* ── FEATURED ── */}
-      {!loading && !error && featured && featured.attributes?.Image_Principale?.data?.attributes?.url && (
+      {!loading && !error && featured && featured.Image_Principale?.url && (
         <section className="pb-4 bg-background" aria-label="Article à la une">
           <div className="mx-auto max-w-7xl px-6 lg:px-10">
             <Link
-              href={`/blog/${featured.attributes.Slug}`}
+              href={`/blog/${featured.Slug}`}
               className="focus-ring group relative flex flex-col lg:flex-row overflow-hidden bg-card border border-white/8 hover:border-primary/30 transition-colors duration-500"
             >
               <div className="relative lg:w-1/2 aspect-video lg:aspect-auto overflow-hidden">
                 <Image
-                  src={getImageUrl(featured.attributes.Image_Principale.data.attributes.url)}
-                  alt={`Article à la une : ${featured.attributes.Titre}`}
+                  src={getImageUrl(featured.Image_Principale.url)}
+                  alt={`Article à la une : ${featured.Titre}`}
                   fill
                   priority
                   sizes="(max-width: 1024px) 100vw, 50vw"
@@ -195,19 +195,19 @@ export default function BlogPage() {
               <div className="p-10 lg:p-14 lg:w-1/2 flex flex-col justify-center">
                 <div className="flex items-center gap-4 mb-6">
                   <span className="text-[11px] uppercase tracking-[0.2em] text-primary font-semibold">
-                    {featured.attributes.Tag || "Article"}
+                    {featured.Tag || "Article"}
                   </span>
-                  <time className="text-[11px] text-foreground/40" dateTime={featured.attributes.publishedAt}>
-                    {formatDateFrench(featured.attributes.publishedAt)}
+                  <time className="text-[11px] text-foreground/40" dateTime={featured.publishedAt}>
+                    {formatDateFrench(featured.publishedAt)}
                   </time>
                 </div>
                 <h2
                   className="font-black uppercase leading-tight text-foreground text-balance mb-6"
                   style={{ fontSize: "clamp(1.5rem, 2.5vw, 2rem)", letterSpacing: "-0.02em" }}
                 >
-                  {featured.attributes.Titre}
+                  {featured.Titre}
                 </h2>
-                <p className="text-[14px] text-foreground/55 leading-relaxed mb-8">{featured.attributes.Description_SEO}</p>
+                <p className="text-[14px] text-foreground/55 leading-relaxed mb-8">{featured.Description_SEO}</p>
                 <span className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.15em] text-primary/70 group-hover:text-primary transition-colors duration-300 font-semibold">
                   Lire l&apos;article <ArrowRight size={12} aria-hidden="true" />
                 </span>
@@ -223,15 +223,15 @@ export default function BlogPage() {
           <div className="mx-auto max-w-7xl px-6 lg:px-10">
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-white/8">
               {rest.map((article, i) => (
-                <article key={article.id}>
+                <article key={article.documentId}>
                   <Link
-                    href={`/blog/${article.attributes.Slug}`}
+                    href={`/blog/${article.Slug}`}
                     className="focus-ring group flex flex-col h-full bg-background hover:bg-card transition-colors duration-300"
                   >
                     <div className="relative aspect-video overflow-hidden">
                       <Image
-                        src={getImageUrl(article.attributes.Image_Principale.data.attributes.url)}
-                        alt={article.attributes.Titre}
+                        src={getImageUrl(article.Image_Principale.url)}
+                        alt={article.Titre}
                         fill
                         loading={i < 2 ? "eager" : "lazy"}
                         sizes="(max-width: 768px) 100vw, 25vw"
@@ -242,17 +242,17 @@ export default function BlogPage() {
                     <div className="p-6 flex flex-col gap-3 flex-1">
                       <div className="flex items-center gap-3">
                         <span className="text-[11px] uppercase tracking-[0.15em] text-primary font-semibold">
-                          {article.attributes.Tag || "Article"}
+                          {article.Tag || "Article"}
                         </span>
-                        <time className="text-[11px] text-foreground/35" dateTime={article.attributes.publishedAt}>
-                          {formatDateFrench(article.attributes.publishedAt)}
+                        <time className="text-[11px] text-foreground/35" dateTime={article.publishedAt}>
+                          {formatDateFrench(article.publishedAt)}
                         </time>
                       </div>
                       <h2 className="font-bold uppercase tracking-tight text-foreground text-sm leading-snug text-balance">
-                        {article.attributes.Titre}
+                        {article.Titre}
                       </h2>
                       <p className="text-[13px] text-foreground/50 leading-relaxed line-clamp-2 mt-auto">
-                        {article.attributes.Description_SEO}
+                        {article.Description_SEO}
                       </p>
                     </div>
                   </Link>
