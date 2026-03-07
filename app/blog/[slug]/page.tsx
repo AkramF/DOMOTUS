@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useParams, useRouter } from 'next/navigation';
+import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowLeft, Calendar } from 'lucide-react';
@@ -23,9 +24,16 @@ interface Article {
   Image_Principale: {
     url: string;
   };
+  OG_Image?: {
+    url: string;
+  };
+  OG_Description?: string;
+  Meta_Title?: string;
+  RS_Copywriting?: string;
   Contenu?: ArticleBlock[];
   publishedAt: string;
   Tag?: string;
+  Auteur_Nom?: string;
 }
 
 interface ApiResponse {
@@ -117,6 +125,64 @@ function renderContent(blocks: ArticleBlock[] | undefined) {
         return null;
     }
   });
+}
+
+// SEO Metadata Generation
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+  try {
+    const slug = params.slug;
+    const encodedSlug = encodeURIComponent(slug);
+    const url = `${API_BASE_URL}/api/articles?filters[Slug][$eq]=${encodedSlug}&populate=*`;
+    
+    const response = await fetch(url);
+    const data: ApiResponse = await response.json();
+    
+    if (!data.data || data.data.length === 0) {
+      return {
+        title: 'Article non trouvé',
+        description: 'Cet article n\'existe pas ou a été supprimé.',
+      };
+    }
+
+    const article = data.data[0];
+    const baseUrl = 'https://www.domotus.ma';
+    const imageUrl = article.OG_Image?.url || article.Image_Principale?.url || `${baseUrl}/og-image.jpg`;
+
+    return {
+      title: article.Meta_Title || article.Titre,
+      description: article.OG_Description || article.Description_SEO,
+      keywords: article.Tag ? [article.Tag, 'domotique', 'automatisation', 'maison connectée'] : ['domotique', 'automatisation'],
+      authors: article.Auteur_Nom ? [{ name: article.Auteur_Nom }] : [{ name: 'Domotus' }],
+      openGraph: {
+        title: article.Meta_Title || article.Titre,
+        description: article.OG_Description || article.Description_SEO,
+        images: [
+          {
+            url: imageUrl,
+            width: 1200,
+            height: 630,
+            alt: article.Titre,
+          },
+        ],
+        url: `${baseUrl}/blog/${article.Slug}`,
+        type: 'article',
+        publishedTime: article.publishedAt,
+        authors: article.Auteur_Nom ? [article.Auteur_Nom] : ['Domotus'],
+      },
+      twitter: {
+        card: 'summary_large_image',
+        title: article.Meta_Title || article.Titre,
+        description: article.OG_Description || article.Description_SEO,
+        images: [imageUrl],
+      },
+    };
+  } catch (error) {
+    console.error('[v0] Error generating metadata:', error);
+    return {
+      title: 'Article Domotus',
+      description: 'Découvrez nos articles sur la domotique et l\'automatisation.',
+    };
+  }
 }
 
 export default function ArticlePage() {
@@ -270,6 +336,62 @@ export default function ArticlePage() {
             ) : (
               <p className="text-foreground/60 italic text-center py-16">Contenu indisponible pour cet article.</p>
             )}
+          </div>
+        </div>
+
+        {/* ── SOCIAL SHARING ── */}
+        <div className="border-t border-white/8 bg-background/50 backdrop-blur-sm">
+          <div className="mx-auto max-w-3xl px-6 lg:px-10 py-16">
+            <div className="flex flex-col items-center gap-6">
+              <div className="text-center">
+                <p className="text-foreground/60 text-sm uppercase tracking-[0.1em] font-semibold mb-2">Partager cet article</p>
+              </div>
+              <div className="flex items-center gap-4 justify-center flex-wrap">
+                {/* LinkedIn */}
+                <a
+                  href={`https://www.linkedin.com/sharing/share-offsite/?url=https://www.domotus.ma/blog/${article.Slug}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-5 py-3 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 text-foreground/70 hover:text-primary transition-all rounded-full font-semibold text-sm"
+                >
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                  </svg>
+                  LinkedIn
+                </a>
+
+                {/* WhatsApp */}
+                <a
+                  href={`https://wa.me/?text=${encodeURIComponent(article.RS_Copywriting || article.Titre + ' https://www.domotus.ma/blog/' + article.Slug)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-5 py-3 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 text-foreground/70 hover:text-primary transition-all rounded-full font-semibold text-sm"
+                >
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.272-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a9.87 9.87 0 00-4.947 1.227l-.356.214-.369-.057-1.51-.239 1.578 1.514.261.26-.038.361a9.832 9.832 0 001.496 4.038l.19.297-.091.371-1.578 1.516 1.631-.264.406-.065.362.191a9.847 9.847 0 004.564 1.312h.004c5.428 0 9.865-4.437 9.865-9.865 0-2.632-1.023-5.1-2.88-6.957-1.857-1.857-4.325-2.88-6.985-2.88z" />
+                  </svg>
+                  WhatsApp
+                </a>
+
+                {/* Facebook */}
+                <a
+                  href={`https://www.facebook.com/sharer/sharer.php?u=https://www.domotus.ma/blog/${article.Slug}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-5 py-3 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 text-foreground/70 hover:text-primary transition-all rounded-full font-semibold text-sm"
+                >
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                  </svg>
+                  Facebook
+                </a>
+              </div>
+              {article.RS_Copywriting && (
+                <div className="mt-4 p-4 bg-primary/5 border border-primary/20 rounded-lg max-w-2xl">
+                  <p className="text-sm text-foreground/70 italic">{article.RS_Copywriting}</p>
+                </div>
+              )}
+            </div>
           </div>
         </div>
 
