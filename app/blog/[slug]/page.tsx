@@ -44,18 +44,7 @@ function formatDateFrench(dateString: string): string {
 
 function getImageUrl(imageData: { url?: string } | undefined): string {
   // Strapi 5 retourne déjà des URLs absolues (https://...)
-  const url = imageData?.url || "/placeholder.jpg";
-  console.log("[v0] Article image URL:", url);
-  return url;
-}
-
-  const url = imageData.url;
-
-  if (url.startsWith('http')) {
-    return url;
-  }
-
-  return `${API_BASE_URL}${url}`;
+  return imageData?.url || "/placeholder.jpg";
 }
 
 function renderContent(blocks: ArticleBlock[] | undefined) {
@@ -64,16 +53,15 @@ function renderContent(blocks: ArticleBlock[] | undefined) {
   }
 
   return blocks.map((block, idx) => {
-    const text = block.children?.[0]?.text || '';
-
     switch (block.type) {
-      case 'heading':
+      case 'heading': {
+        const text = block.children?.[0]?.text || '';
         const level = (block.level as number) || 2;
         const HeadingTag = `h${Math.min(level + 1, 6)}` as keyof JSX.IntrinsicElements;
         return (
           <HeadingTag
             key={idx}
-            className={`font-black mt-12 mb-6 text-foreground text-balance ${
+            className={`font-sans font-black mt-12 mb-6 text-foreground text-balance ${
               level === 1
                 ? 'text-4xl'
                 : level === 2
@@ -87,36 +75,43 @@ function renderContent(blocks: ArticleBlock[] | undefined) {
             {text}
           </HeadingTag>
         );
+      }
 
-      case 'paragraph':
+      case 'paragraph': {
+        const text = block.children?.[0]?.text || '';
         if (!text.trim()) return null;
         return (
-          <p key={idx} className="text-[16px] text-foreground/75 leading-relaxed my-6 font-light">
+          <p key={idx} className="font-sans text-[16px] text-foreground/75 leading-relaxed my-6 font-normal">
             {text}
           </p>
         );
+      }
 
-      case 'list':
+      case 'list': {
         return (
-          <ul key={idx} className="my-8 space-y-3 text-[16px] text-foreground/75">
-            {Array.isArray(block.children) && block.children.map((item, i) => (
-              <li key={i} className="flex gap-4">
-                <span className="text-primary font-bold flex-shrink-0">•</span>
-                <span>{item.text}</span>
-              </li>
-            ))}
+          <ul key={idx} className="font-sans my-8 space-y-3 text-[16px] text-foreground/70">
+            {Array.isArray(block.children) &&
+              block.children.map((item, i) => (
+                <li key={i} className="flex gap-4 leading-relaxed">
+                  <span className="text-primary font-bold flex-shrink-0 pt-1">•</span>
+                  <span className="font-normal">{item.text}</span>
+                </li>
+              ))}
           </ul>
         );
+      }
 
-      case 'quote':
+      case 'quote': {
+        const text = block.children?.[0]?.text || '';
         return (
           <blockquote
             key={idx}
-            className="my-8 px-8 py-6 bg-primary/5 border-l-4 border-primary italic text-foreground/70 rounded-r-lg"
+            className="font-sans my-8 px-8 py-6 bg-primary/5 border-l-4 border-primary italic text-foreground/70 rounded-r-lg font-normal"
           >
             {text}
           </blockquote>
         );
+      }
 
       default:
         return null;
