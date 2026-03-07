@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react';
 import { useParams, useRouter } from 'next/navigation';
-import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowLeft, Calendar } from 'lucide-react';
@@ -125,64 +124,6 @@ function renderContent(blocks: ArticleBlock[] | undefined) {
         return null;
     }
   });
-}
-
-// SEO Metadata Generation
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  try {
-    const slug = params.slug;
-    const encodedSlug = encodeURIComponent(slug);
-    const url = `${API_BASE_URL}/api/articles?filters[Slug][$eq]=${encodedSlug}&populate=*`;
-    
-    const response = await fetch(url);
-    const data: ApiResponse = await response.json();
-    
-    if (!data.data || data.data.length === 0) {
-      return {
-        title: 'Article non trouvé',
-        description: 'Cet article n\'existe pas ou a été supprimé.',
-      };
-    }
-
-    const article = data.data[0];
-    const baseUrl = 'https://www.domotus.ma';
-    const imageUrl = article.OG_Image?.url || article.Image_Principale?.url || `${baseUrl}/og-image.jpg`;
-
-    return {
-      title: article.Meta_Title || article.Titre,
-      description: article.OG_Description || article.Description_SEO,
-      keywords: article.Tag ? [article.Tag, 'domotique', 'automatisation', 'maison connectée'] : ['domotique', 'automatisation'],
-      authors: article.Auteur_Nom ? [{ name: article.Auteur_Nom }] : [{ name: 'Domotus' }],
-      openGraph: {
-        title: article.Meta_Title || article.Titre,
-        description: article.OG_Description || article.Description_SEO,
-        images: [
-          {
-            url: imageUrl,
-            width: 1200,
-            height: 630,
-            alt: article.Titre,
-          },
-        ],
-        url: `${baseUrl}/blog/${article.Slug}`,
-        type: 'article',
-        publishedTime: article.publishedAt,
-        authors: article.Auteur_Nom ? [article.Auteur_Nom] : ['Domotus'],
-      },
-      twitter: {
-        card: 'summary_large_image',
-        title: article.Meta_Title || article.Titre,
-        description: article.OG_Description || article.Description_SEO,
-        images: [imageUrl],
-      },
-    };
-  } catch (error) {
-    console.error('[v0] Error generating metadata:', error);
-    return {
-      title: 'Article Domotus',
-      description: 'Découvrez nos articles sur la domotique et l\'automatisation.',
-    };
-  }
 }
 
 export default function ArticlePage() {
