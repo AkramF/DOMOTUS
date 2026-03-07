@@ -65,19 +65,24 @@ function renderContent(blocks: ArticleBlock[] | undefined) {
         const text = block.children?.[0]?.text || '';
         const level = (block.level as number) || 2;
         const HeadingTag = `h${Math.min(level + 1, 6)}` as keyof JSX.IntrinsicElements;
+        
+        // Styles pour chaque niveau de heading
+        const headingStyles = {
+          1: 'text-4xl lg:text-5xl',
+          2: 'text-3xl lg:text-4xl',
+          3: 'text-2xl lg:text-3xl',
+          4: 'text-xl lg:text-2xl',
+          5: 'text-lg lg:text-xl',
+          6: 'text-base lg:text-lg',
+        };
+
         return (
           <HeadingTag
             key={idx}
-            className={`font-sans font-black mt-12 mb-6 text-foreground text-balance ${
-              level === 1
-                ? 'text-4xl'
-                : level === 2
-                  ? 'text-3xl'
-                  : level === 3
-                    ? 'text-2xl'
-                    : 'text-xl'
+            className={`font-sans font-black mt-14 mb-8 text-foreground text-balance leading-tight ${
+              headingStyles[Math.min(level, 6) as keyof typeof headingStyles]
             }`}
-            style={{ letterSpacing: '-0.01em' }}
+            style={{ letterSpacing: '-0.02em' }}
           >
             {text}
           </HeadingTag>
@@ -87,8 +92,49 @@ function renderContent(blocks: ArticleBlock[] | undefined) {
       case 'paragraph': {
         const text = block.children?.[0]?.text || '';
         if (!text.trim()) return null;
+        
+        // Détecte les patterns spéciaux (expert box, etc.)
+        const isExpertBox = text.includes("L'avis de l'expert") || text.includes('avis expert');
+        const isVerdict = text.includes('Verdict Domotus');
+
+        if (isExpertBox) {
+          return (
+            <div
+              key={idx}
+              className="my-12 p-8 lg:p-10 bg-primary/5 border border-primary/30 rounded-2xl"
+            >
+              <div className="flex gap-4">
+                <div className="flex-shrink-0">
+                  <span className="inline-flex items-center justify-center h-10 w-10 rounded-full bg-primary text-background font-bold">
+                    💡
+                  </span>
+                </div>
+                <div>
+                  <p className="font-sans text-[16px] text-foreground/80 leading-relaxed font-normal">
+                    {text}
+                  </p>
+                </div>
+              </div>
+            </div>
+          );
+        }
+
+        if (isVerdict) {
+          return (
+            <div
+              key={idx}
+              className="my-12 p-8 lg:p-10 bg-gradient-to-r from-primary/10 to-primary/5 border-l-4 border-primary rounded-xl"
+            >
+              <h3 className="font-sans font-bold text-primary mb-4 text-lg">Le Verdict Domotus</h3>
+              <p className="font-sans text-[16px] text-foreground/75 leading-relaxed font-normal">
+                {text.replace('Le Verdict Domotus', '').trim()}
+              </p>
+            </div>
+          );
+        }
+
         return (
-          <p key={idx} className="font-sans text-[16px] text-foreground/75 leading-relaxed my-6 font-normal">
+          <p key={idx} className="font-sans text-[16px] text-foreground/70 leading-relaxed my-6 font-normal">
             {text}
           </p>
         );
@@ -96,11 +142,11 @@ function renderContent(blocks: ArticleBlock[] | undefined) {
 
       case 'list': {
         return (
-          <ul key={idx} className="font-sans my-8 space-y-3 text-[16px] text-foreground/70">
+          <ul key={idx} className="font-sans my-10 space-y-4 text-[16px] text-foreground/65">
             {Array.isArray(block.children) &&
               block.children.map((item, i) => (
                 <li key={i} className="flex gap-4 leading-relaxed">
-                  <span className="text-primary font-bold flex-shrink-0 pt-1">•</span>
+                  <span className="text-primary font-bold flex-shrink-0 pt-0.5">•</span>
                   <span className="font-normal">{item.text}</span>
                 </li>
               ))}
@@ -113,7 +159,7 @@ function renderContent(blocks: ArticleBlock[] | undefined) {
         return (
           <blockquote
             key={idx}
-            className="font-sans my-8 px-8 py-6 bg-primary/5 border-l-4 border-primary italic text-foreground/70 rounded-r-lg font-normal"
+            className="font-sans my-10 px-8 py-8 bg-white/5 border-l-4 border-primary italic text-foreground/60 rounded-r-xl font-light text-[17px] leading-relaxed"
           >
             {text}
           </blockquote>
