@@ -16,6 +16,9 @@ interface Article {
   Titre: string;
   Description_SEO: string;
   Slug: string;
+  Extrait?: string;
+  Temps_Lecture?: number;
+  Auteur_Nom?: string;
   Image_Principale: {
     url: string;
     formats?: {
@@ -66,6 +69,20 @@ function LoadingSkeleton() {
       <div className="h-8 bg-card rounded w-3/4" />
       <div className="h-4 bg-card rounded w-full" />
       <div className="h-4 bg-card rounded w-1/2" />
+    </div>
+  );
+}
+
+function ArticleCardSkeleton() {
+  return (
+    <div className="animate-pulse">
+      <div className="relative aspect-video bg-card rounded-lg mb-4" />
+      <div className="space-y-3">
+        <div className="h-4 bg-card rounded w-24" />
+        <div className="h-5 bg-card rounded w-3/4" />
+        <div className="h-4 bg-card rounded w-full" />
+        <div className="h-3 bg-card rounded w-20" />
+      </div>
     </div>
   );
 }
@@ -247,8 +264,17 @@ export default function BlogPage() {
                         {article.Titre}
                       </h2>
                       <p className="text-[13px] text-foreground/50 leading-relaxed line-clamp-2 mt-auto">
-                        {article.Description_SEO}
+                        {article.Extrait || article.Description_SEO}
                       </p>
+                      {/* Reading time & Author */}
+                      <div className="flex items-center justify-between text-[11px] text-foreground/40 pt-2 border-t border-white/10">
+                        {article.Temps_Lecture && (
+                          <span>{article.Temps_Lecture} min de lecture</span>
+                        )}
+                        {article.Auteur_Nom && (
+                          <span>Par {article.Auteur_Nom}</span>
+                        )}
+                      </div>
                     </div>
                   </Link>
                 </article>
