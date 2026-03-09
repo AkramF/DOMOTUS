@@ -209,21 +209,24 @@ export default function VillasPage() {
       <MomentsInteractif moments={modesVie} />
 
       {/* ── NOS ESPACES CONNECTÉS ── */}
-      <section className="py-20" style={{ backgroundColor: "#efd555" }} aria-labelledby="espaces-heading">
+      <section className="py-20 lg:py-28 bg-white" aria-labelledby="espaces-heading">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
-          <div className="mb-12">
-            <div className="inline-flex items-center gap-2 mb-4">
+          <div className="mb-16 lg:mb-20">
+            <div className="inline-flex items-center gap-2 mb-5">
               <div className="w-3 h-3 bg-black" aria-hidden="true"></div>
-              <span style={{ fontFamily: "Inter, sans-serif", fontWeight: 600, fontSize: "14px", lineHeight: "20px", color: "#000000" }}>ARCHITECTURE</span>
+              <span style={{ fontFamily: "Inter, sans-serif", fontWeight: 600, fontSize: "14px", lineHeight: "20px", color: "#000000", letterSpacing: "0.1em" }}>ARCHITECTURE</span>
             </div>
             <h2
               id="espaces-heading"
-              className="font-black uppercase leading-none text-balance max-w-2xl"
-              style={{ fontSize: "clamp(1.8rem, 4vw, 3.2rem)", letterSpacing: "-0.02em", color: "#000000" }}
+              className="font-black uppercase leading-tight text-balance max-w-3xl"
+              style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", letterSpacing: "-0.02em", color: "#000000" }}
             >
               Chaque espace de votre<br />
-              <span className="italic" style={{ color: "rgba(0, 0, 0, 0.45)" }}>maison devient vivant.</span>
+              <span className="italic font-light" style={{ color: "#00000080" }}>maison devient vivant.</span>
             </h2>
+            <p className="mt-6 text-lg text-foreground/60 max-w-2xl leading-relaxed">
+              De la chambre au salon, du bureau à la salle de bain, chaque pièce s'adapte intelligemment à vos moments de vie.
+            </p>
           </div>
 
           {/* Center-Focused Horizontal Slider */}
