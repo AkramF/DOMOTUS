@@ -213,18 +213,18 @@ export default function VillasPage() {
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <div className="mb-16 lg:mb-20">
             <div className="inline-flex items-center gap-2 mb-5">
-              <div className="w-3 h-3 bg-black" aria-hidden="true"></div>
-              <span style={{ fontFamily: "Inter, sans-serif", fontWeight: 600, fontSize: "14px", lineHeight: "20px", color: "#000000", letterSpacing: "0.1em" }}>ARCHITECTURE</span>
+              <div className="w-3 h-3 bg-foreground" aria-hidden="true"></div>
+              <span style={{ fontFamily: "Inter, sans-serif", fontWeight: 600, fontSize: "14px", lineHeight: "20px", color: "var(--foreground)", letterSpacing: "0.1em" }}>ARCHITECTURE</span>
             </div>
             <h2
               id="espaces-heading"
-              className="font-black uppercase leading-tight text-balance max-w-3xl"
-              style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", letterSpacing: "-0.02em", color: "#000000" }}
+              className="font-black uppercase leading-tight text-balance max-w-3xl text-foreground"
+              style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", letterSpacing: "-0.02em" }}
             >
               Chaque espace de votre<br />
-              <span className="italic font-light" style={{ color: "#00000080" }}>maison devient vivant.</span>
+              <span className="italic font-light text-foreground/50">maison devient vivant.</span>
             </h2>
-            <p className="mt-6 text-lg text-foreground/60 max-w-2xl leading-relaxed">
+            <p className="mt-6 text-[17px] text-foreground/55 max-w-2xl leading-relaxed font-light">
               De la chambre au salon, du bureau à la salle de bain, chaque pièce s'adapte intelligemment à vos moments de vie.
             </p>
           </div>
