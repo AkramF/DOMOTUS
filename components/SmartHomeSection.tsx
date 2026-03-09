@@ -54,7 +54,7 @@ export default function SmartHomeSection() {
             transition={{ duration: 0.6 }}
             className="mb-6"
           >
-            <span className="inline-block font-sans text-[12px] uppercase tracking-[0.2em] text-foreground/50 font-semibold">
+            <span className="inline-block font-sans text-[12px] uppercase tracking-[0.2em] text-black font-semibold">
               Philosophie
             </span>
           </motion.div>
@@ -64,7 +64,7 @@ export default function SmartHomeSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-sans font-black text-5xl lg:text-6xl text-foreground text-balance leading-tight mb-8"
+            className="font-sans font-black text-5xl lg:text-6xl text-black text-balance leading-tight mb-8"
             style={{ letterSpacing: '-0.02em' }}
           >
             L&apos;Équilibre Absolu
@@ -75,7 +75,7 @@ export default function SmartHomeSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="font-sans text-lg text-foreground/60 leading-relaxed max-w-2xl mx-auto"
+            className="font-sans text-lg text-black leading-relaxed max-w-2xl mx-auto"
           >
             Quand la technologie s&apos;efface, l&apos;expérience commence.
           </motion.p>
@@ -99,17 +99,17 @@ export default function SmartHomeSection() {
                 {/* Content */}
                 <div className="relative z-10 space-y-6">
                   {/* Icon */}
-                  <div className="w-12 h-12 text-foreground/70 group-hover:text-foreground transition-colors duration-300">
+                  <div className="w-12 h-12 text-black group-hover:text-black transition-colors duration-300">
                     {value.icon}
                   </div>
 
                   {/* Title */}
-                  <h3 className="font-sans font-bold text-xl lg:text-2xl text-foreground leading-tight group-hover:text-foreground transition-colors duration-300">
+                  <h3 className="font-sans font-bold text-xl lg:text-2xl text-black leading-tight group-hover:text-black transition-colors duration-300">
                     {value.title}
                   </h3>
 
                   {/* Description */}
-                  <p className="font-sans text-[15px] text-foreground/60 leading-relaxed group-hover:text-foreground/70 transition-colors duration-300">
+                  <p className="font-sans text-[15px] text-black leading-relaxed group-hover:text-black transition-colors duration-300">
                     {value.description}
                   </p>
                 </div>
@@ -125,7 +125,7 @@ export default function SmartHomeSection() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="text-center pt-12 border-t border-foreground/10"
         >
-          <p className="font-sans text-[16px] text-foreground/70 mb-8">
+          <p className="font-sans text-[16px] text-black mb-8">
             Prêt à vivre l&apos;équilibre parfait entre technologie et confort ?
           </p>
           
