@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useEffect } from "react";
-import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Mail } from "lucide-react";
@@ -96,17 +95,26 @@ export default function BlogPage() {
     const fetchArticles = async () => {
       try {
         setLoading(true);
-        const response = await fetch(API_ENDPOINT);
+        const response = await fetch(API_ENDPOINT, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+        
         if (!response.ok) {
           throw new Error(`Erreur API: ${response.status}`);
         }
+        
         const data: ApiResponse = await response.json();
-        console.log("[v0] Articles data:", data);
+        console.log("[v0] Articles data fetched successfully:", data.data.length);
         setArticles(data.data || []);
+        setError(null);
       } catch (err) {
         const errorMessage = err instanceof Error ? err.message : "Erreur inconnue";
-        setError(errorMessage);
         console.error("[v0] Erreur fetch articles:", errorMessage);
+        setError(errorMessage);
+        setArticles([]);
       } finally {
         setLoading(false);
       }
