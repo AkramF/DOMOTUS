@@ -68,7 +68,7 @@ export default function EclairagePage() {
                 src="/images/expertise-eclairage.jpg"
                 alt="Installation d'éclairage intelligent Lutron"
                 fill
-                sizes="50vw"
+                sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
               />
             </div>
