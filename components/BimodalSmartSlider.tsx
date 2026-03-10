@@ -18,185 +18,183 @@ export function BimodalSmartSlider({
   residentialHref = '/maison-connectee',
   proHref = '/architectes',
 }: BimodalSmartSliderProps) {
-  const [position, setPosition] = useState<'center' | 'left' | 'right'>('center')
-  const [isDragging, setIsDragging] = useState(false)
-  const [glowIntensity, setGlowIntensity] = useState(0)
-  const [glowSide, setGlowSide] = useState<'left' | 'right' | null>(null)
+  const [dragX, setDragX] = useState(0)
+  const [isConfirmed, setIsConfirmed] = useState(false)
+  const [confirmedSide, setConfirmedSide] = useState<'left' | 'right' | null>(null)
   const trackRef = useRef<HTMLDivElement>(null)
   const [trackWidth, setTrackWidth] = useState(0)
 
-  // Measure track width on mount
   useEffect(() => {
     if (trackRef.current) {
       setTrackWidth(trackRef.current.offsetWidth)
     }
   }, [])
 
-  // Breathing animation - subtle scale pulse
-  const breathingVariants = {
-    animate: {
-      scale: [1, 1.08, 1],
-      transition: {
-        duration: 3,
-        repeat: Infinity,
-        ease: 'easeInOut',
-      },
-    },
-  }
+  // Calculate normalized position (-1 to 1, where 0 is center)
+  const maxDrag = trackWidth / 2 - 32
+  const normalizedPosition = maxDrag > 0 ? dragX / maxDrag : 0
 
-  // Handle drag end with threshold logic
-  const handleDragEnd = (info: any) => {
-    setIsDragging(false)
-    const dragDistance = info.offset.x
+  // Determine which side is dominant based on drag position
+  const leftDominance = Math.max(0, Math.min(1, 0.5 - normalizedPosition * 0.5))
+  const rightDominance = Math.max(0, Math.min(1, 0.5 + normalizedPosition * 0.5))
 
-    if (dragDistance < -100) {
-      // Dragged left - trigger residential
-      setPosition('left')
-      if (onResidential) onResidential()
-    } else if (dragDistance > 100) {
-      // Dragged right - trigger pro
-      setPosition('right')
-      if (onPro) onPro()
+  // Calculate background blend - left side (white) opacity
+  const leftBgOpacity = leftDominance
+  const rightBgOpacity = rightDominance
+
+  // Determine text colors based on background dominance
+  const leftTextColor = leftDominance > 0.6 ? '#000000' : '#ffffff'
+  const rightTextColor = rightDominance > 0.6 ? '#ffffff' : '#efd555'
+
+  const handleDragEnd = () => {
+    // Check if dragged far enough to confirm
+    if (Math.abs(dragX) > maxDrag * 0.3) {
+      if (dragX < 0) {
+        // Snap to left
+        setDragX(-maxDrag)
+        setIsConfirmed(true)
+        setConfirmedSide('left')
+        if (onResidential) onResidential()
+      } else {
+        // Snap to right
+        setDragX(maxDrag)
+        setIsConfirmed(true)
+        setConfirmedSide('right')
+        if (onPro) onPro()
+      }
     } else {
-      // Dead zone - snap back to center
-      setPosition('center')
-      setGlowIntensity(0)
-      setGlowSide(null)
+      // Snap back to center
+      setDragX(0)
+      setIsConfirmed(false)
+      setConfirmedSide(null)
     }
   }
 
-  // Handle drag during movement for glow effect
-  const handleDrag = (info: any) => {
-    const dragDistance = info.offset.x
-    const intensity = Math.min(Math.abs(dragDistance) / 100, 1)
-    setGlowIntensity(intensity)
-
-    if (dragDistance < -20) {
-      setGlowSide('left')
-    } else if (dragDistance > 20) {
-      setGlowSide('right')
-    } else {
-      setGlowSide(null)
+  const handleDrag = (event: any, info: any) => {
+    const newX = info.offset.x
+    // Constrain drag within bounds
+    if (Math.abs(newX) <= maxDrag) {
+      setDragX(newX)
     }
   }
 
-  // Calculate drag constraints based on track width
-  const dragConstraints = {
-    left: -(trackWidth / 2 - 32),
-    right: trackWidth / 2 - 32,
-  }
-
-  // Determine initial x position based on current state
-  const getInitialX = () => {
-    if (position === 'left') return dragConstraints.left
-    if (position === 'right') return dragConstraints.right
-    return 0
-  }
-
-  // Determine link based on position
-  const href = position === 'left' ? residentialHref : position === 'right' ? proHref : '#'
+  const href = confirmedSide === 'left' ? residentialHref : confirmedSide === 'right' ? proHref : '#'
 
   return (
     <Link href={href} onClick={(e) => {
-      if (position === 'center') {
+      if (!isConfirmed) {
         e.preventDefault()
       }
     }}>
       <div
         ref={trackRef}
-        className="relative w-full max-w-[400px] h-16 rounded-full overflow-hidden touch-none select-none cursor-grab active:cursor-grabbing"
+        className="relative w-full max-w-[500px] h-20 rounded-full overflow-hidden select-none"
         style={{
-          backgroundColor: '#000000',
-          border: '1px solid rgba(239, 213, 85, 0.3)',
+          touchAction: 'none',
         }}
       >
-        {/* Dynamic glow background */}
+        {/* Left side background (WHITE) - controlled by leftDominance */}
         <motion.div
-          className="absolute inset-0 pointer-events-none"
-          animate={{
-            opacity: glowIntensity,
+          className="absolute inset-0 left-0 right-1/2 pointer-events-none"
+          style={{
+            backgroundColor: '#ffffff',
+            opacity: leftBgOpacity,
           }}
-          transition={{ duration: 0.2 }}
-        >
-          {glowSide === 'left' && (
-            <div
-              className="absolute inset-0"
-              style={{
-                background:
-                  'radial-gradient(circle 200px at 0% 50%, rgba(255, 255, 255, 0.15) 0%, transparent 70%)',
-              }}
-            />
-          )}
-          {glowSide === 'right' && (
-            <div
-              className="absolute inset-0"
-              style={{
-                background:
-                  'radial-gradient(circle 200px at 100% 50%, rgba(239, 213, 85, 0.2) 0%, transparent 70%)',
-              }}
-            />
-          )}
-        </motion.div>
+          animate={{ opacity: leftBgOpacity }}
+          transition={{ duration: 0.1 }}
+        />
 
-        {/* Left label */}
+        {/* Right side background (YELLOW) - controlled by rightDominance */}
         <motion.div
-          className="absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none"
-          animate={{ opacity: isDragging && glowSide === 'left' ? 0.3 : 0.7 }}
-          transition={{ duration: 0.2 }}
+          className="absolute inset-0 right-0 left-1/2 pointer-events-none"
+          style={{
+            backgroundColor: '#efd555',
+            opacity: rightBgOpacity,
+          }}
+          animate={{ opacity: rightBgOpacity }}
+          transition={{ duration: 0.1 }}
+        />
+
+        {/* Base dark background (fallback) */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            backgroundColor: '#000000',
+            opacity: 1 - Math.max(leftBgOpacity, rightBgOpacity),
+          }}
+        />
+
+        {/* Left label - positioned at left, text color changes based on dominance */}
+        <motion.div
+          className="absolute left-6 top-1/2 -translate-y-1/2 pointer-events-none z-5"
+          animate={{ color: leftTextColor, opacity: 1 }}
+          transition={{ duration: 0.15 }}
         >
           <span
-            className="text-white text-xs font-medium tracking-widest uppercase whitespace-nowrap"
-            style={{ fontSize: '10px', letterSpacing: '0.1em' }}
+            className="font-black tracking-widest uppercase whitespace-nowrap"
+            style={{
+              fontSize: '13px',
+              letterSpacing: '0.15em',
+              fontWeight: 900,
+            }}
           >
             Maison connectée
           </span>
         </motion.div>
 
-        {/* Right label */}
+        {/* Right label - positioned at right, text color changes based on dominance */}
         <motion.div
-          className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none"
-          animate={{
-            opacity: isDragging && glowSide === 'right' ? 0.3 : 0.7,
-            color: isDragging && glowSide === 'right' ? '#efd555' : 'rgba(239, 213, 85, 0.7)',
-          }}
-          transition={{ duration: 0.2 }}
+          className="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none z-5"
+          animate={{ color: rightTextColor, opacity: 1 }}
+          transition={{ duration: 0.15 }}
         >
-          <span className="text-xs font-medium tracking-widest uppercase whitespace-nowrap" style={{ fontSize: '10px', letterSpacing: '0.1em' }}>
+          <span
+            className="font-black tracking-widest uppercase whitespace-nowrap"
+            style={{
+              fontSize: '13px',
+              letterSpacing: '0.15em',
+              fontWeight: 900,
+            }}
+          >
             Espace Pro
           </span>
         </motion.div>
 
-        {/* Central draggable orb */}
+        {/* Central draggable yellow orb */}
         <motion.div
           drag="x"
-          dragConstraints={dragConstraints}
-          dragElastic={0.2}
-          onDragStart={() => setIsDragging(true)}
+          dragConstraints={{ left: -maxDrag, right: maxDrag }}
+          dragElastic={0.15}
           onDrag={handleDrag}
           onDragEnd={handleDragEnd}
           animate={{
-            x: position === 'left' ? dragConstraints.left : position === 'right' ? dragConstraints.right : 0,
+            x: dragX,
           }}
           transition={{
-            type: position === 'center' ? 'spring' : 'spring',
-            stiffness: position === 'center' ? 400 : 300,
-            damping: position === 'center' ? 30 : 25,
+            type: 'spring',
+            stiffness: isConfirmed ? 400 : 300,
+            damping: isConfirmed ? 35 : 25,
           }}
-          variants={position === 'center' ? breathingVariants : {}}
-          animate={position === 'center' ? 'animate' : undefined}
-          className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-14 h-14 rounded-full flex items-center justify-center cursor-grab active:cursor-grabbing z-10"
+          className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-16 h-16 rounded-full flex items-center justify-center cursor-grab active:cursor-grabbing z-20"
           style={{
-            backgroundColor: '#000000',
-            border: '1px solid #efd555',
-            boxShadow: '0 0 20px rgba(239, 213, 85, 0.3)',
+            backgroundColor: '#efd555',
+            boxShadow: '0 0 30px rgba(239, 213, 85, 0.5), inset 0 0 20px rgba(255, 255, 255, 0.3)',
           }}
         >
-          {/* Double chevron icon */}
-          <div className="flex items-center justify-center gap-0.5">
-            <ChevronLeft size={14} className="text-[#efd555]" strokeWidth={3} />
-            <ChevronRight size={14} className="text-[#efd555]" strokeWidth={3} />
+          {/* Bidirectional chevrons */}
+          <div className="flex items-center justify-center gap-1">
+            <ChevronLeft size={16} className="text-black" strokeWidth={2.5} />
+            <ChevronRight size={16} className="text-black" strokeWidth={2.5} />
           </div>
         </motion.div>
+
+        {/* Border styling - always yellow/dark blend */}
+        <div
+          className="absolute inset-0 pointer-events-none rounded-full"
+          style={{
+            border: '2px solid rgba(239, 213, 85, 0.4)',
+          }}
+        />
       </div>
     </Link>
   )
