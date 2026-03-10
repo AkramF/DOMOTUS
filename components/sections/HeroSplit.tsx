@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import { BimodalSmartSlider } from "@/components/BimodalSmartSlider";
 
 export default function Hero() {
   return (
@@ -50,17 +49,32 @@ export default function Hero() {
                 L&apos;expérience de vos espaces, réinventée. Là où la technologie crée confort, sécurité et sérénité, Domotus transforme maisons et immeubles en écosystèmes intelligents.
               </p>
 
-              {/* CTAs — BimodalSmartSlider Premium Component */}
+              {/* CTAs — Side-by-side buttons */}
               <motion.div
                 initial={{ opacity: 0, y: 14 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
-                className="mt-8 sm:mt-10 will-change-transform"
+                className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 will-change-transform"
               >
-                <BimodalSmartSlider
-                  residentialHref="/maison-connectee"
-                  proHref="/architectes"
-                />
+                <Link
+                  href="/maison-connectee"
+                  className="focus-ring inline-flex items-center justify-between bg-white px-6 sm:px-8 py-3 sm:py-4 rounded-full text-sm sm:text-[14px] font-semibold text-black transition-all duration-300 hover:shadow-lg will-change-colors group"
+                >
+                  Maison connectée
+                  <div className="ml-3 sm:ml-4 w-8 sm:w-10 h-8 sm:h-10 bg-black rounded-full flex items-center justify-center transition-transform group-hover:scale-110 flex-shrink-0">
+                    <ArrowRight size={16} className="text-[#efd555]" aria-hidden="true" />
+                  </div>
+                </Link>
+                <Link
+                  href="/architectes"
+                  className="focus-ring inline-flex items-center justify-between px-6 sm:px-8 py-3 sm:py-4 rounded-full text-sm sm:text-[14px] font-semibold text-white transition-all duration-300 hover:shadow-lg will-change-colors group"
+                  style={{ backgroundColor: "#000000", border: "2px solid #efd555" }}
+                >
+                  Solutions Pro
+                  <div className="ml-3 sm:ml-4 w-8 sm:w-10 h-8 sm:h-10 rounded-full flex items-center justify-center transition-transform group-hover:scale-110 flex-shrink-0" style={{ backgroundColor: "#efd555" }}>
+                    <ArrowRight size={16} className="text-black" aria-hidden="true" />
+                  </div>
+                </Link>
               </motion.div>
 
               {/* Stats — Center-aligned */}
