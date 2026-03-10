@@ -23,12 +23,12 @@ export default function Hero() {
               transition={{ duration: 0.6, ease: "easeOut" }}
               className="flex flex-col justify-center order-1 lg:order-1"
             >
-              {/* Overline */}
+              {/* Overline — Extra top margin on mobile for navbar clearance */}
               <motion.div
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-                className="flex items-center gap-3 mb-6 sm:mb-8"
+                className="flex items-center gap-3 mb-6 sm:mb-8 mt-6 sm:mt-0"
               >
                 <span className="block w-2 h-2 bg-white flex-shrink-0" aria-hidden="true" />
                 <p className="text-white select-none text-xs sm:text-sm" style={{ fontFamily: "Inter, sans-serif", fontWeight: 600, fontSize: "12px", lineHeight: "16px", letterSpacing: "0.05em" }}>
@@ -49,50 +49,52 @@ export default function Hero() {
                 L&apos;expérience de vos espaces, réinventée. Là où la technologie crée confort, sécurité et sérénité, Domotus transforme maisons et immeubles en écosystèmes intelligents.
               </p>
 
-              {/* CTAs */}
+              {/* CTAs — Side-by-side on mobile (75% size), full size on desktop */}
               <motion.div
                 initial={{ opacity: 0, y: 14 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
-                className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 will-change-transform"
+                className="mt-8 sm:mt-10 flex flex-row items-center gap-2 sm:gap-4 will-change-transform justify-start sm:justify-start"
               >
                 <Link
                   href="/maison-connectee"
-                  className="focus-ring inline-flex items-center justify-between bg-white px-6 sm:px-8 py-3 sm:py-4 rounded-full text-sm sm:text-[14px] font-semibold text-black transition-all duration-300 hover:shadow-lg will-change-colors group"
+                  className="focus-ring inline-flex items-center justify-between bg-white px-4 sm:px-8 py-2.5 sm:py-4 rounded-full text-xs sm:text-[14px] font-semibold text-black transition-all duration-300 hover:shadow-lg will-change-colors group flex-1 sm:flex-none max-w-[calc(50%-4px)] sm:max-w-none"
                 >
-                  Maison connectée
-                  <div className="ml-3 sm:ml-4 w-8 sm:w-10 h-8 sm:h-10 bg-black rounded-full flex items-center justify-center transition-transform group-hover:scale-110 flex-shrink-0">
-                    <ArrowRight size={16} className="text-[#efd555]" aria-hidden="true" />
+                  <span className="truncate">Maison connectée</span>
+                  <div className="ml-2 sm:ml-4 w-6 sm:w-10 h-6 sm:h-10 bg-black rounded-full flex items-center justify-center transition-transform group-hover:scale-110 flex-shrink-0">
+                    <ArrowRight size={12} className="sm:block hidden text-[#efd555]" aria-hidden="true" />
+                    <ArrowRight size={10} className="sm:hidden block text-[#efd555]" aria-hidden="true" />
                   </div>
                 </Link>
                 <Link
                   href="/architectes"
-                  className="focus-ring inline-flex items-center justify-between px-6 sm:px-8 py-3 sm:py-4 rounded-full text-sm sm:text-[14px] font-semibold text-white transition-all duration-300 hover:shadow-lg will-change-colors group"
+                  className="focus-ring inline-flex items-center justify-between px-4 sm:px-8 py-2.5 sm:py-4 rounded-full text-xs sm:text-[14px] font-semibold text-white transition-all duration-300 hover:shadow-lg will-change-colors group flex-1 sm:flex-none max-w-[calc(50%-4px)] sm:max-w-none"
                   style={{ backgroundColor: "#000000", border: "2px solid #efd555" }}
                 >
-                  Espace Professionnels
-                  <div className="ml-3 sm:ml-4 w-8 sm:w-10 h-8 sm:h-10 rounded-full flex items-center justify-center transition-transform group-hover:scale-110 flex-shrink-0" style={{ backgroundColor: "#efd555" }}>
-                    <ArrowRight size={16} className="text-black" aria-hidden="true" />
+                  <span className="truncate">Espace Pro</span>
+                  <div className="ml-2 sm:ml-4 w-6 sm:w-10 h-6 sm:h-10 rounded-full flex items-center justify-center transition-transform group-hover:scale-110 flex-shrink-0" style={{ backgroundColor: "#efd555" }}>
+                    <ArrowRight size={12} className="sm:block hidden text-black" aria-hidden="true" />
+                    <ArrowRight size={10} className="sm:hidden block text-black" aria-hidden="true" />
                   </div>
                 </Link>
               </motion.div>
 
-              {/* Stats — below buttons */}
+              {/* Stats — Center-aligned */}
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.8, duration: 0.6 }}
-                className="mt-12 sm:mt-16 grid grid-cols-3 gap-6 sm:gap-8 will-change-opacity"
+                className="mt-12 sm:mt-16 grid grid-cols-3 gap-4 sm:gap-8 will-change-opacity text-center sm:text-left"
               >
-                <div className="flex flex-col">
+                <div className="flex flex-col items-center sm:items-start">
                   <span className="text-white mb-1 sm:mb-2" style={{ fontFamily: "Inter, sans-serif", fontWeight: 600, fontSize: "clamp(1.5rem, 4vw, 1.75rem)", lineHeight: "1.2" }}>+150</span>
                   <span className="text-white text-xs sm:text-sm" style={{ fontFamily: "Inter, sans-serif", fontWeight: 400, fontSize: "clamp(0.75rem, 1.5vw, 0.875rem)", lineHeight: "1.4" }}>Projets livrés<br />au Maroc</span>
                 </div>
-                <div className="flex flex-col">
+                <div className="flex flex-col items-center sm:items-start">
                   <span className="text-white mb-1 sm:mb-2" style={{ fontFamily: "Inter, sans-serif", fontWeight: 600, fontSize: "clamp(1.5rem, 4vw, 1.75rem)", lineHeight: "1.2" }}>10 ans</span>
                   <span className="text-white text-xs sm:text-sm" style={{ fontFamily: "Inter, sans-serif", fontWeight: 400, fontSize: "clamp(0.75rem, 1.5vw, 0.875rem)", lineHeight: "1.4" }}>D&apos;expertise<br />domotique</span>
                 </div>
-                <div className="flex flex-col">
+                <div className="flex flex-col items-center sm:items-start">
                   <span className="text-white mb-1 sm:mb-2" style={{ fontFamily: "Inter, sans-serif", fontWeight: 600, fontSize: "clamp(1.5rem, 4vw, 1.75rem)", lineHeight: "1.2" }}>99.8%</span>
                   <span className="text-white text-xs sm:text-sm" style={{ fontFamily: "Inter, sans-serif", fontWeight: 400, fontSize: "clamp(0.75rem, 1.5vw, 0.875rem)", lineHeight: "1.4" }}>Disponibilité<br />garantie</span>
                 </div>
