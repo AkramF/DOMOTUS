@@ -57,7 +57,7 @@ export default function MomentsInteractif({ moments }: MomentsInteractifProps) {
               {/* Main Row Container */}
               <motion.div
                 animate={{
-                  backgroundColor: hoveredId === moment.id ? '#ffffff' : 'transparent',
+                  backgroundColor: hoveredId === moment.id ? '#ffffff' : 'rgba(255, 255, 255, 0)',
                   borderRadius: hoveredId === moment.id ? '12px' : '0px',
                 }}
                 transition={{ duration: 0.3, ease: 'easeInOut' }}
