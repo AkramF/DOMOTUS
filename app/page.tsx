@@ -642,34 +642,34 @@ export default function HomePage() {
 
       {/* ── CTA FINAL — Consultation Gratuite ── */}
       <section className="relative py-12 lg:py-16 overflow-hidden" style={{ backgroundColor: "#efd555" }} aria-labelledby="cta-heading">
-        <div className="relative z-10 mx-auto max-w-7xl px-4 lg:px-12 flex flex-col">
-          {/* Badge — far left aligned with absolute positioning */}
-          <div className="absolute top-6 left-4 lg:left-6">
+        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-12 flex flex-col">
+          {/* Badge — responsive positioning */}
+          <div className="mb-6 lg:absolute lg:top-6 lg:left-6">
             <span className="text-[10px] uppercase tracking-[0.4em] text-black font-black inline-flex items-center gap-2">
               <span className="w-2 h-2 bg-black" />
               DÉMARRER MAINTENANT
             </span>
           </div>
 
-          {/* Asymmetric content — large left space, content on right */}
-          <div className="grid lg:grid-cols-12 gap-6 mt-8 lg:mt-0">
-            {/* Left empty space (4 columns for white space) */}
+          {/* Asymmetric content — responsive layout */}
+          <div className="grid lg:grid-cols-12 gap-6 lg:mt-0 mt-0">
+            {/* Left empty space (4 columns for white space) - hidden on mobile */}
             <div className="hidden lg:block lg:col-span-4" />
             
-            {/* Right content (8 columns) */}
-            <div className="lg:col-span-8 flex flex-col">
-              {/* Main heading */}
+            {/* Right content - full width on mobile, 8 columns on desktop */}
+            <div className="lg:col-span-8 flex flex-col gap-4 lg:gap-6">
+              {/* Main heading — responsive typography */}
               <h2
                 id="cta-heading"
-                className="text-black text-balance mb-4 leading-tight"
-                style={{ fontFamily: "system-ui, ui-sans-serif, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'", fontWeight: 900, fontSize: "64px", lineHeight: "64px", fontStyle: "normal" }}
+                className="text-black text-balance leading-tight"
+                style={{ fontFamily: "system-ui, ui-sans-serif, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'", fontWeight: 900, fontSize: "clamp(2rem, 6vw, 64px)", lineHeight: "1.2", letterSpacing: "-0.02em" }}
               >
                 Planifiez votre<br />
                 étude personnalisée
               </h2>
 
               {/* Description */}
-              <p className="text-black mb-6" style={{ fontFamily: "Inter, sans-serif", fontWeight: 400, fontSize: "16px", lineHeight: "24px", maxWidth: "560px" }}>
+              <p className="text-black" style={{ fontFamily: "Inter, sans-serif", fontWeight: 400, fontSize: "clamp(14px, 2vw, 16px)", lineHeight: "1.5", maxWidth: "560px" }}>
                 Découvrez comment la domotique KNX transforme votre maison en espace intelligent. Nos experts analysent vos besoins et créent une solution sur mesure qui allie performance, design et durabilité.
               </p>
 
@@ -677,11 +677,11 @@ export default function HomePage() {
               <div className="w-fit">
                 <Link
                   href="/contact"
-                  className="focus-ring inline-flex items-center justify-between px-8 py-4 rounded-full transition-all duration-300 hover:shadow-xl group"
+                  className="focus-ring inline-flex items-center justify-between px-6 sm:px-8 py-3 sm:py-4 rounded-full transition-all duration-300 hover:shadow-xl group text-sm sm:text-base"
                   style={{ backgroundColor: "#000000" }}
                 >
-                  <span className="text-white font-semibold" style={{ fontSize: "16px" }}>Consulter nos experts</span>
-                  <div className="ml-6 w-10 h-10 rounded-full flex items-center justify-center transition-transform group-hover:scale-110 flex-shrink-0" style={{ backgroundColor: "#efd555" }}>
+                  <span className="text-white font-semibold">Consulter nos experts</span>
+                  <div className="ml-4 sm:ml-6 w-9 sm:w-10 h-9 sm:h-10 rounded-full flex items-center justify-center transition-transform group-hover:scale-110 flex-shrink-0" style={{ backgroundColor: "#efd555" }}>
                     <ArrowRight size={16} className="text-black" aria-hidden="true" />
                   </div>
                 </Link>
