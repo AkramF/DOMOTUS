@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { BimodalSmartSlider } from "@/components/BimodalSmartSlider";
 
 export default function Hero() {
   return (
@@ -49,34 +50,17 @@ export default function Hero() {
                 L&apos;expérience de vos espaces, réinventée. Là où la technologie crée confort, sécurité et sérénité, Domotus transforme maisons et immeubles en écosystèmes intelligents.
               </p>
 
-              {/* CTAs — Side-by-side on mobile (75% size), full size on desktop */}
+              {/* CTAs — BimodalSmartSlider Premium Component */}
               <motion.div
                 initial={{ opacity: 0, y: 14 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
-                className="mt-8 sm:mt-10 flex flex-row items-center gap-2 sm:gap-4 will-change-transform justify-start sm:justify-start"
+                className="mt-8 sm:mt-10 will-change-transform"
               >
-                <Link
-                  href="/maison-connectee"
-                  className="focus-ring inline-flex items-center justify-between bg-white px-4 sm:px-8 py-2.5 sm:py-4 rounded-full text-xs sm:text-[14px] font-semibold text-black transition-all duration-300 hover:shadow-lg will-change-colors group flex-1 sm:flex-none max-w-[calc(50%-4px)] sm:max-w-none"
-                >
-                  <span className="truncate">Maison connectée</span>
-                  <div className="ml-2 sm:ml-4 w-6 sm:w-10 h-6 sm:h-10 bg-black rounded-full flex items-center justify-center transition-transform group-hover:scale-110 flex-shrink-0">
-                    <ArrowRight size={12} className="sm:block hidden text-[#efd555]" aria-hidden="true" />
-                    <ArrowRight size={10} className="sm:hidden block text-[#efd555]" aria-hidden="true" />
-                  </div>
-                </Link>
-                <Link
-                  href="/architectes"
-                  className="focus-ring inline-flex items-center justify-between px-4 sm:px-8 py-2.5 sm:py-4 rounded-full text-xs sm:text-[14px] font-semibold text-white transition-all duration-300 hover:shadow-lg will-change-colors group flex-1 sm:flex-none max-w-[calc(50%-4px)] sm:max-w-none"
-                  style={{ backgroundColor: "#000000", border: "2px solid #efd555" }}
-                >
-                  <span className="truncate">Espace Pro</span>
-                  <div className="ml-2 sm:ml-4 w-6 sm:w-10 h-6 sm:h-10 rounded-full flex items-center justify-center transition-transform group-hover:scale-110 flex-shrink-0" style={{ backgroundColor: "#efd555" }}>
-                    <ArrowRight size={12} className="sm:block hidden text-black" aria-hidden="true" />
-                    <ArrowRight size={10} className="sm:hidden block text-black" aria-hidden="true" />
-                  </div>
-                </Link>
+                <BimodalSmartSlider
+                  residentialHref="/maison-connectee"
+                  proHref="/architectes"
+                />
               </motion.div>
 
               {/* Stats — Center-aligned */}

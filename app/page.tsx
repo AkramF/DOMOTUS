@@ -456,21 +456,21 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── LA DIFFÉRENCE DOMOTUS — Architecture Portfolio ── */}
-      <section className="py-12 sm:py-16 lg:py-28" style={{ backgroundColor: "#ffffff" }} aria-labelledby="services-heading">
+      {/* ── LA DIFFÉRENCE DOMOTUS — Expertises ── */}
+      <section className="py-12 sm:py-16 lg:py-28" style={{ backgroundColor: "#000000" }} aria-labelledby="services-heading">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-6">
-          <div className="mb-6 sm:mb-8 lg:mb-10">
-            <SectionLabel color="#000000">LA DIFFÉRENCE DOMOTUS</SectionLabel>
+          <div className="mb-8 sm:mb-12 lg:mb-16">
+            <SectionLabel color="#ffffff">LA DIFFÉRENCE DOMOTUS</SectionLabel>
             <h2
               id="services-heading"
-              className="font-black leading-tight text-black text-balance"
+              className="font-black leading-tight text-white text-balance"
               style={{ fontSize: "clamp(1.5rem, 4vw, 2.8rem)", letterSpacing: "-0.02em" }}
             >
               Explorez nos expertises
             </h2>
           </div>
           
-          <ArchitecturePortfolio projects={portfolioProjects} />
+          <ExpertisesShowcase items={expertises} />
         </div>
       </section>
 
