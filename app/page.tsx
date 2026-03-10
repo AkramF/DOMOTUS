@@ -405,46 +405,47 @@ export default function HomePage() {
       <HeroSplit />
 
       {/* ── BENEFIT-LED PROPOSITION ── */}
-      <section className="py-14 lg:py-18" style={{ backgroundColor: "#efd555" }} aria-labelledby="value-prop-heading">
-        <div className="mx-auto max-w-7xl px-4 lg:px-6">
-          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+      <section className="py-12 sm:py-16 lg:py-20" style={{ backgroundColor: "#efd555" }} aria-labelledby="value-prop-heading">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-24 items-center">
             <div>
               <SectionLabel style={{ color: "#000000" }}>La différence Domotus</SectionLabel>
               <h2
                 id="value-prop-heading"
-                className="font-black uppercase leading-none text-balance mb-6"
-                style={{ fontSize: "clamp(2.2rem, 5vw, 4rem)", letterSpacing: "-0.02em", color: "#000000" }}
+                className="font-black uppercase leading-tight text-balance mb-4 sm:mb-6"
+                style={{ fontSize: "clamp(1.75rem, 5vw, 4rem)", letterSpacing: "-0.02em", color: "#000000" }}
               >
                 L&apos;art d&apos;anticiper vos besoins.{" "}
                 <span className="italic" style={{ color: "#000000" }}>Sans effort.</span>
               </h2>
-              <p className="leading-relaxed mb-6 text-[15px]" style={{ color: "#000000" }}>
+              <p className="leading-relaxed mb-4 sm:mb-6 text-[14px] sm:text-[15px]" style={{ color: "#000000" }}>
                 Imaginez des espaces qui s&apos;éveillent à votre arrivée : la lumière s&apos;ajuste délicatement à l&apos;heure du jour, l&apos;atmosphère est déjà à la température idéale, et les volets accompagnent le coucher du soleil. Le confort absolu, sans la moindre intervention.
               </p>
-              <p className="leading-relaxed mb-10 text-[15px]" style={{ color: "#000000" }}>
+              <p className="leading-relaxed mb-6 sm:mb-8 text-[14px] sm:text-[15px]" style={{ color: "#000000" }}>
                 Depuis 10 ans au Maroc, c&apos;est le standard d&apos;excellence que nous intégrons dans les résidences et espaces professionnels les plus exigeants. Une fiabilité garantie par nos certifications multi-protocoles de référence (KNX, Crestron, Lutron).
               </p>
-              <ul className="flex flex-col gap-3 mb-10" role="list">
+              <ul className="flex flex-col gap-2 sm:gap-3 mb-8 sm:mb-10" role="list">
                 {[
                   "Maîtrise absolue & intuitive",
                   "Sérénité totale",
                   "Intelligence énergétique",
                   "Valorisation patrimoniale",
                 ].map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-[14px]" style={{ color: "#000000" }}>
-                    <CheckCircle2Icon size={15} className="shrink-0 mt-0.5" style={{ color: "#000000" }} aria-hidden="true" />
+                  <li key={item} className="flex items-start gap-3 text-[13px] sm:text-[14px]" style={{ color: "#000000" }}>
+                    <CheckCircle2Icon size={14} className="shrink-0 mt-0.5" style={{ color: "#000000" }} aria-hidden="true" />
                     {item}
                   </li>
                 ))}
               </ul>
               <Link
                 href="/contact"
-                className="focus-ring inline-flex items-center justify-between px-8 py-4 rounded-full text-[14px] font-semibold transition-all duration-300 hover:shadow-lg will-change-colors group"
+                className="focus-ring inline-flex items-center justify-between px-6 sm:px-8 py-3 sm:py-4 rounded-full text-[13px] sm:text-[14px] font-semibold transition-all duration-300 hover:shadow-lg will-change-colors group"
                 style={{ backgroundColor: "#000000", color: "#ffffff" }}
               >
                 Découvrir davantage
-                <div className="ml-4 w-10 h-10 rounded-full flex items-center justify-center transition-transform group-hover:scale-110" style={{ backgroundColor: "#efd555" }}>
-                  <ArrowRight size={16} className="text-black" aria-hidden="true" />
+                <div className="ml-3 sm:ml-4 w-8 sm:w-10 h-8 sm:h-10 rounded-full flex items-center justify-center transition-transform group-hover:scale-110" style={{ backgroundColor: "#efd555" }}>
+                  <ArrowRight size={14} className="sm:block hidden text-black" aria-hidden="true" />
+                  <ArrowRight size={12} className="sm:hidden block text-black" aria-hidden="true" />
                 </div>
               </Link>
             </div>
@@ -456,14 +457,14 @@ export default function HomePage() {
       </section>
 
       {/* ── LA DIFFÉRENCE DOMOTUS — Architecture Portfolio ── */}
-      <section className="py-20 lg:py-28" style={{ backgroundColor: "#ffffff" }} aria-labelledby="services-heading">
-        <div className="mx-auto max-w-7xl px-4 lg:px-6">
-          <div className="mb-8">
+      <section className="py-12 sm:py-16 lg:py-28" style={{ backgroundColor: "#ffffff" }} aria-labelledby="services-heading">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-6">
+          <div className="mb-6 sm:mb-8 lg:mb-10">
             <SectionLabel color="#000000">LA DIFFÉRENCE DOMOTUS</SectionLabel>
             <h2
               id="services-heading"
               className="font-black leading-tight text-black text-balance"
-              style={{ fontSize: "clamp(1.8rem, 4vw, 2.8rem)", letterSpacing: "-0.02em" }}
+              style={{ fontSize: "clamp(1.5rem, 4vw, 2.8rem)", letterSpacing: "-0.02em" }}
             >
               Explorez nos expertises
             </h2>
@@ -474,33 +475,33 @@ export default function HomePage() {
       </section>
 
       {/* ── PROCESS — 3 steps ── */}
-      <section className="py-16 lg:py-20" style={{ backgroundColor: "#000000" }} aria-labelledby="process-heading">
-        <div className="mx-auto max-w-7xl px-4 lg:px-6">
-          <div className="text-center mb-12">
+      <section className="py-12 sm:py-16 lg:py-20" style={{ backgroundColor: "#000000" }} aria-labelledby="process-heading">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-6">
+          <div className="text-center mb-8 sm:mb-12">
             <SectionLabel color="#ffffff">L'ACCOMPAGNEMENT DOMOTUS</SectionLabel>
             <h2
               id="process-heading"
-              className="font-black uppercase leading-none text-white text-balance"
-              style={{ fontSize: "clamp(1.8rem, 4vw, 3.2rem)", letterSpacing: "-0.02em" }}
+              className="font-black uppercase leading-tight text-white text-balance"
+              style={{ fontSize: "clamp(1.5rem, 4vw, 3.2rem)", letterSpacing: "-0.02em" }}
             >
               De la vision à la perfection,{" "}
               <span className="italic" style={{ color: "#f0efed" }}>en 3 étapes.</span>
             </h2>
           </div>
-          <ol className="grid lg:grid-cols-3 gap-px bg-white/6" role="list">
+          <ol className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-px lg:bg-white/6" role="list">
             {steps.map((step, i) => (
-              <li key={step.num} className="bg-card p-8 flex flex-col gap-4 relative">
+              <li key={step.num} className="bg-card p-6 sm:p-8 flex flex-col gap-3 sm:gap-4 relative">
                 <span
                   className="font-black leading-none select-none"
-                  style={{ fontSize: "clamp(4rem, 8vw, 7rem)", color: "#efd555" }}
+                  style={{ fontSize: "clamp(2.5rem, 6vw, 7rem)", color: "#efd555" }}
                   aria-hidden="true"
                 >
                   {step.num}
                 </span>
-                <h3 className="font-bold uppercase tracking-[0.1em] text-foreground text-[14px] -mt-4">
+                <h3 className="font-bold uppercase tracking-[0.1em] text-foreground text-[12px] sm:text-[14px] -mt-2">
                   {step.title}
                 </h3>
-                <p className="text-[13px] text-foreground/50 leading-relaxed">
+                <p className="text-[12px] sm:text-[13px] text-foreground/50 leading-relaxed">
                   {step.description}
                 </p>
                 {i < steps.length - 1 && (
@@ -514,15 +515,16 @@ export default function HomePage() {
               </li>
             ))}
           </ol>
-          <div className="mt-8 text-center">
+          <div className="mt-8 sm:mt-10 text-center">
             <Link
               href="/contact"
-              className="focus-ring inline-flex items-center justify-between px-8 py-4 rounded-full transition-all duration-300 hover:shadow-xl group"
+              className="focus-ring inline-flex items-center justify-between px-6 sm:px-8 py-3 sm:py-4 rounded-full transition-all duration-300 hover:shadow-xl group text-[13px] sm:text-[14px]"
               style={{ backgroundColor: "#ffffff", border: "1px solid rgba(0, 0, 0, 0.1)" }}
             >
-              <span className="text-black font-semibold" style={{ fontSize: "16px" }}>Commencer l&apos;étape 1 — Audit technique</span>
-              <div className="ml-6 w-10 h-10 rounded-full flex items-center justify-center transition-transform group-hover:scale-110 flex-shrink-0" style={{ backgroundColor: "#000000" }}>
-                <ArrowRight size={16} className="text-[#efd555]" aria-hidden="true" />
+              <span className="text-black font-semibold">Commencer l&apos;étape 1 — Audit technique</span>
+              <div className="ml-3 sm:ml-6 w-8 sm:w-10 h-8 sm:h-10 rounded-full flex items-center justify-center transition-transform group-hover:scale-110 flex-shrink-0" style={{ backgroundColor: "#000000" }}>
+                <ArrowRight size={14} className="sm:block hidden text-[#efd555]" aria-hidden="true" />
+                <ArrowRight size={12} className="sm:hidden block text-[#efd555]" aria-hidden="true" />
               </div>
             </Link>
           </div>
@@ -531,33 +533,33 @@ export default function HomePage() {
 
       {/* ── TESTIMONIALS ── */}
       {/* ── PROJECT TYPES DIVISION ── */}
-      <section className="py-28 lg:py-36" style={{ backgroundColor: "#f0efed" }} aria-labelledby="project-types-heading">
-        <div className="mx-auto max-w-7xl px-4 lg:px-6">
-          <div className="grid lg:grid-cols-12 gap-12 items-start">
+      <section className="py-12 sm:py-16 lg:py-36" style={{ backgroundColor: "#f0efed" }} aria-labelledby="project-types-heading">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
             {/* Left column — Title and badge */}
             <div className="lg:col-span-4">
-              <SectionLabel color="#000000" className="mb-6">DIVISION PROJETS</SectionLabel>
+              <SectionLabel color="#000000" className="mb-4 sm:mb-6">DIVISION PROJETS</SectionLabel>
               <h2
                 id="project-types-heading"
                 className="font-black leading-tight text-black text-balance"
-                style={{ fontSize: "clamp(1.8rem, 4vw, 2.8rem)", letterSpacing: "-0.02em" }}
+                style={{ fontSize: "clamp(1.5rem, 4vw, 2.8rem)", letterSpacing: "-0.02em" }}
               >
                 Collaborations
                 <br />
                 professionnelles
               </h2>
-              <p className="mt-6 text-base text-black/70 leading-relaxed max-w-sm">
+              <p className="mt-4 sm:mt-6 text-sm sm:text-base text-black/70 leading-relaxed max-w-sm">
                 De la conception à la livraison, nous pilotons des projets domotiques complexes pour les promoteurs immobiliers, les architectes et les maîtres d'ouvrage au Maroc. Notre expertise en intégration multi-protocoles et notre gestion de projet rigoureuse garantissent la réussite de vos ambitions.
               </p>
             </div>
 
             {/* Right column — Grid of project types */}
             <div className="lg:col-span-8">
-              <div className="grid md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                 {projectTypes.map((project) => (
                   <div
                     key={project.title}
-                    className="bg-white rounded-3xl overflow-hidden hover:shadow-lg transition-shadow duration-300 flex flex-col"
+                    className="bg-white rounded-2xl sm:rounded-3xl overflow-hidden hover:shadow-lg transition-shadow duration-300 flex flex-col"
                   >
                     {/* Image */}
                     <div className="relative w-full aspect-video overflow-hidden">
@@ -565,23 +567,23 @@ export default function HomePage() {
                         src={project.image}
                         alt={project.imageAlt}
                         fill
-                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) calc(50vw - 12px), 33vw"
                         className="object-cover hover:scale-105 transition-transform duration-500"
                       />
                     </div>
 
                     {/* Content */}
-                    <div className="p-6 flex flex-col justify-between flex-1">
-                      <h3 className="text-black font-bold text-lg mb-3" style={{ fontSize: "18px", lineHeight: "26px" }}>
+                    <div className="p-4 sm:p-6 flex flex-col justify-between flex-1">
+                      <h3 className="text-black font-bold text-base sm:text-lg mb-2 sm:mb-3" style={{ fontSize: "clamp(1rem, 2.5vw, 18px)", lineHeight: "1.3" }}>
                         {project.title}
                       </h3>
-                      <p className="text-black/70 text-sm leading-relaxed mb-6" style={{ fontSize: "14px", lineHeight: "20px" }}>
+                      <p className="text-black/70 text-xs sm:text-sm leading-relaxed mb-4 sm:mb-6" style={{ fontSize: "clamp(12px, 2vw, 14px)" }}>
                         {project.description}
                       </p>
                       <Link
                         href="#"
-                        className="text-black font-semibold text-sm underline hover:text-black/70 transition-colors w-fit"
-                        style={{ fontSize: "12px", letterSpacing: "0.12em" }}
+                        className="text-black font-semibold text-xs underline hover:text-black/70 transition-colors w-fit"
+                        style={{ fontSize: "clamp(10px, 1.5vw, 12px)", letterSpacing: "0.12em" }}
                       >
                         EN SAVOIR PLUS
                       </Link>
@@ -594,15 +596,15 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="py-16 lg:py-20" style={{ backgroundColor: "#000000" }} aria-labelledby="temoignages-heading">
-        <div className="mx-auto max-w-7xl px-4 lg:px-6">
+      <section className="py-12 sm:py-16 lg:py-20" style={{ backgroundColor: "#000000" }} aria-labelledby="temoignages-heading">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-6">
           {/* Title section */}
-          <div className="mb-12 text-center">
-            <SectionLabel color="#ffffff" className="justify-center mb-6">Témoignages</SectionLabel>
+          <div className="mb-8 sm:mb-12 text-center">
+            <SectionLabel color="#ffffff" className="justify-center mb-4 sm:mb-6">Témoignages</SectionLabel>
             <h2
               id="temoignages-heading"
-              className="font-black uppercase leading-none text-white text-balance"
-              style={{ fontSize: "clamp(2rem, 5vw, 3.2rem)", letterSpacing: "-0.02em" }}
+              className="font-black uppercase leading-tight text-white text-balance"
+              style={{ fontSize: "clamp(1.5rem, 5vw, 3.2rem)", letterSpacing: "-0.02em" }}
             >
               Ce que disent nos{" "}
               <span className="italic" style={{ color: "#efd555" }}>clients.</span>
