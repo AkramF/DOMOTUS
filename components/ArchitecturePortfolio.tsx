@@ -44,14 +44,14 @@ export default function ArchitecturePortfolio({ projects }: ArchitecturePortfoli
   const current = projects[activeProject]
 
   return (
-    <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 h-screen lg:h-full">
-      {/* Sidebar Navigation — Left */}
-      <div className="w-full lg:w-1/4 flex flex-row lg:flex-col gap-4 overflow-x-auto lg:overflow-y-auto lg:overflow-x-hidden pb-4 lg:pb-0 scrollbar-hide">
+    <div className="flex flex-col lg:flex-row gap-4 lg:gap-8 w-full">
+      {/* Sidebar Navigation — Mobile: horizontal scroll, Desktop: vertical column */}
+      <div className="w-full lg:w-1/4 flex flex-row lg:flex-col gap-2 lg:gap-4 overflow-x-auto lg:overflow-x-hidden overflow-y-hidden pb-2 lg:pb-0 scrollbar-hide">
         {projects.map((project, idx) => (
           <button
             key={project.id}
             onClick={() => setActiveProject(idx)}
-            className="flex-shrink-0 w-32 h-32 lg:w-full lg:aspect-square rounded-2xl overflow-hidden transition-all duration-300 relative group"
+            className="flex-shrink-0 w-28 h-28 lg:w-full lg:h-32 rounded-xl lg:rounded-2xl overflow-hidden transition-all duration-300 relative group"
             aria-label={`Select ${project.title}`}
             aria-pressed={activeProject === idx}
           >
@@ -70,12 +70,12 @@ export default function ArchitecturePortfolio({ projects }: ArchitecturePortfoli
               </>
             ) : (
               // Inactive State - solid black with project info
-              <div className="absolute inset-0 bg-black flex items-center justify-center p-4">
+              <div className="absolute inset-0 bg-black flex items-center justify-center p-2 lg:p-3">
                 <div className="text-center">
-                  <h3 className="font-bold text-[#efd555] text-sm lg:text-base line-clamp-2">
+                  <h3 className="font-bold text-[#efd555] text-xs lg:text-sm line-clamp-2 leading-tight">
                     {project.title}
                   </h3>
-                  <p className="text-xs text-gray-400 mt-2 line-clamp-1">{project.location}</p>
+                  <p className="text-[9px] lg:text-xs text-gray-400 mt-1 lg:mt-2 line-clamp-1">{project.location}</p>
                 </div>
               </div>
             )}
@@ -83,26 +83,22 @@ export default function ArchitecturePortfolio({ projects }: ArchitecturePortfoli
         ))}
       </div>
 
-      {/* Main Content — Right */}
-      <div className="flex-1 flex flex-col lg:gap-4">
+      {/* Main Content — Right side */}
+      <div className="flex-1 flex flex-col gap-3 lg:gap-6 w-full">
         {/* Header */}
         <motion.div
           key={current.id}
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
-          className="flex flex-col gap-2"
+          className="flex flex-col gap-2 lg:gap-3"
         >
-          <div className="flex items-start gap-4">
-            <div className="flex-1">
-              <h2 className="font-black text-2xl lg:text-3xl uppercase tracking-tight text-black">
-                {current.title}
-              </h2>
-              <p className="text-sm text-gray-600 mt-2 leading-relaxed line-clamp-3">
-                {current.description}
-              </p>
-            </div>
-          </div>
+          <h2 className="font-black text-xl lg:text-3xl uppercase tracking-tight text-black leading-tight">
+            {current.title}
+          </h2>
+          <p className="text-xs lg:text-sm text-gray-600 leading-relaxed line-clamp-3 lg:line-clamp-4">
+            {current.description}
+          </p>
         </motion.div>
 
         {/* Main Image */}
@@ -111,13 +107,13 @@ export default function ArchitecturePortfolio({ projects }: ArchitecturePortfoli
           initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.4 }}
-          className="relative flex-1 rounded-3xl overflow-hidden min-h-96 lg:min-h-0"
+          className="relative w-full rounded-2xl lg:rounded-3xl overflow-hidden h-56 sm:h-72 md:h-80 lg:h-96"
         >
           <Image
             src={current.image}
             alt={current.imageAlt}
             fill
-            sizes="(max-width: 1024px) 100vw, 75vw"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 75vw"
             className="object-cover"
             priority
           />

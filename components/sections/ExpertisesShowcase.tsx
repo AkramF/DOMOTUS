@@ -23,9 +23,9 @@ export function ExpertisesShowcase({ items }: ExpertisesShowcaseProps) {
   const selected = items[selectedIndex]
 
   return (
-    <div className="grid lg:grid-cols-12 gap-3 lg:gap-3 items-stretch">
-      {/* Left column — Category cards stacked, stretched to match image height */}
-      <div className="lg:col-span-3 flex flex-row lg:flex-col gap-1 overflow-x-auto lg:overflow-x-visible pb-2 lg:pb-0 lg:justify-between">
+    <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
+      {/* Left column — Category cards (vertical stack on mobile, stretch on desktop) */}
+      <div className="lg:col-span-3 flex flex-col gap-3 w-full">
         {items.map((item, index) => {
           const isActive = index === selectedIndex
 
@@ -33,7 +33,7 @@ export function ExpertisesShowcase({ items }: ExpertisesShowcaseProps) {
             <button
               key={item.title}
               onClick={() => setSelectedIndex(index)}
-              className={`focus-ring relative rounded-2xl overflow-hidden flex-shrink-0 w-40 h-24 lg:w-full lg:h-40 flex items-center justify-center p-4 group transition-all duration-300 ${
+              className={`focus-ring relative rounded-2xl overflow-hidden flex items-center justify-center p-4 group transition-all duration-300 w-full h-24 lg:h-40 ${
                 isActive ? 'ring-2 ring-black' : 'hover:shadow-lg'
               }`}
               style={{ backgroundColor: "#000000", position: 'relative' }}
@@ -55,14 +55,14 @@ export function ExpertisesShowcase({ items }: ExpertisesShowcaseProps) {
                 }`} />
               </div>
 
-              {/* Title — full text visible, Inter 500 24px 29px line-height */}
+              {/* Title — responsive font size */}
               <h4 
                 className="font-medium text-center leading-snug transition-colors duration-300" 
                 style={{ 
                   fontFamily: "Inter, sans-serif",
                   fontWeight: 500,
-                  fontSize: "24px", 
-                  lineHeight: "29px",
+                  fontSize: "clamp(16px, 4vw, 24px)", 
+                  lineHeight: "1.3",
                   letterSpacing: "0",
                   color: isActive ? "#ffffff" : "#efd555",
                   position: "relative",
@@ -76,8 +76,8 @@ export function ExpertisesShowcase({ items }: ExpertisesShowcaseProps) {
         })}
       </div>
 
-      {/* Right column — Selected project content, stretched full height */}
-      <div className="lg:col-span-9 flex flex-col gap-6 h-full">
+      {/* Right column — Selected project content */}
+      <div className="lg:col-span-9 flex flex-col gap-4 lg:gap-6">
         {/* Project badge */}
         <div className="flex items-center gap-3">
           <div className="w-2 h-2 bg-black rounded-full" />
@@ -86,38 +86,38 @@ export function ExpertisesShowcase({ items }: ExpertisesShowcaseProps) {
           </span>
         </div>
 
-        {/* Project title & description — above image */}
+        {/* Project title & description */}
         <div>
-          <h3 className="font-black leading-tight text-black text-balance mb-4" style={{ fontSize: "clamp(1.6rem, 5vw, 2.6rem)", letterSpacing: "-0.02em" }}>
+          <h3 className="font-black leading-tight text-black text-balance mb-3 lg:mb-4" style={{ fontSize: "clamp(1.5rem, 5vw, 2.6rem)", letterSpacing: "-0.02em" }}>
             {selected.title}
           </h3>
-          <p className="text-black/60 leading-relaxed text-[14px] lg:text-[15px] max-w-xl mb-8">
+          <p className="text-black/60 leading-relaxed text-[14px] lg:text-[15px] max-w-xl mb-6 lg:mb-8">
             {selected.description}
           </p>
         </div>
 
-        {/* CTA button — above the image */}
+        {/* CTA button */}
         <Link
           href={selected.href}
-          className="focus-ring inline-flex items-center justify-between px-8 py-4 rounded-full w-fit transition-all duration-300 hover:shadow-xl group"
+          className="focus-ring inline-flex items-center justify-between px-6 lg:px-8 py-3 lg:py-4 rounded-full w-fit transition-all duration-300 hover:shadow-xl group text-sm lg:text-[14px]"
           style={{ backgroundColor: "#000000" }}
         >
-          <span className="text-white font-semibold text-[14px]">View project</span>
-          <div className="ml-6 w-11 h-11 rounded-full flex items-center justify-center transition-transform group-hover:scale-110 flex-shrink-0" style={{ backgroundColor: "#efd555" }}>
-            <ArrowRight size={18} className="text-black" aria-hidden="true" />
+          <span className="text-white font-semibold">View project</span>
+          <div className="ml-4 lg:ml-6 w-9 lg:w-11 h-9 lg:h-11 rounded-full flex items-center justify-center transition-transform group-hover:scale-110 flex-shrink-0" style={{ backgroundColor: "#efd555" }}>
+            <ArrowRight size={16} className="text-black" aria-hidden="true" />
           </div>
         </Link>
 
-        {/* Large project image */}
+        {/* Large project image — responsive height */}
         <div 
-          className="relative overflow-hidden rounded-3xl flex-1 min-h-0" 
+          className="relative overflow-hidden rounded-2xl lg:rounded-3xl w-full h-64 sm:h-80 lg:h-96 flex-1 min-h-0" 
           style={{ position: 'relative' }}
         >
           <Image
             src={selected.image}
             alt={selected.imageAlt}
             fill
-            sizes="(max-width: 1024px) 100vw, 60vw"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 60vw"
             className="object-cover"
             priority
           />
