@@ -91,7 +91,7 @@ export function ExpertisesShowcase({ items }: ExpertisesShowcaseProps) {
               aria-label={`Sélectionner ${item.title}`}
             >
               {/* Background gradient with overlay — visible when active */}
-              <div className="absolute inset-0 -z-10" style={{ position: 'relative' }}>
+              <div className="absolute inset-0 -z-10">
                 <div
                   className={`absolute inset-0 transition-opacity duration-300 ${
                     isActive ? 'opacity-100' : 'opacity-0'

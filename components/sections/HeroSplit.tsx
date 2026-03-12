@@ -108,7 +108,7 @@ export default function Hero() {
               className="relative order-2 lg:order-2 h-80 sm:h-96 md:h-[500px] lg:h-[600px]"
             >
               {/* White border frame */}
-              <div className="p-3 sm:p-4 lg:p-6 bg-white rounded-xl sm:rounded-2xl h-full shadow-xl">
+              <div className="relative p-3 sm:p-4 lg:p-6 bg-white rounded-xl sm:rounded-2xl h-full shadow-xl">
               {/* Image inside white frame */}
                 <div 
                   className="relative w-full h-full overflow-hidden rounded-lg sm:rounded-xl group" 
