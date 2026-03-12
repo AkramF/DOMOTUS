@@ -77,8 +77,8 @@ export default function StackingCardsSection({ cards }: { cards: StackingCard[] 
     }
   }
 
-  // Handle card hover on desktop fan view - bring to front with animation
-  const handleCardHover = (index: number) => {
+  // Handle card click on desktop fan view - bring to front with animation
+  const handleCardClick = (index: number) => {
     if (isDesktop) {
       const newOrder = cardOrder.filter((i) => i !== index)
       newOrder.unshift(index)
@@ -214,7 +214,7 @@ export default function StackingCardsSection({ cards }: { cards: StackingCard[] 
     const sortedCards = cardOrder.map((idx) => cards[idx])
 
     return (
-      <div ref={sectionRef} className="relative w-full h-96 flex items-center justify-center px-4" style={{ position: 'relative' }}>
+      <div ref={sectionRef} className="relative w-full h-[30rem] flex items-center justify-center px-4" style={{ position: 'relative' }}>
         {sortedCards.map((card, displayIndex) => {
           const cardIndex = cardOrder[displayIndex]
           const position = getFanPosition(displayIndex)
@@ -225,27 +225,17 @@ export default function StackingCardsSection({ cards }: { cards: StackingCard[] 
               key={card.title}
               className="absolute h-full transition-all duration-500 ease-out cursor-pointer"
               style={{ width: 'min(600px, 90vw)' }}
-              initial={{ opacity: 0, scale: 0.8, rotate: position.rotation }}
-              animate={isVisible ? { 
-                opacity: 1, 
-                scale: 1,
-                x: position.translateX,
-                rotate: position.rotation,
-              } : { 
-                opacity: 0, 
-                scale: 0.8,
+              animate={{ 
                 x: position.translateX,
                 rotate: position.rotation,
               }}
               transition={{
                 type: 'spring',
-                stiffness: 300,
-                damping: 30,
-                delay: isVisible ? displayIndex * 0.15 : 0,
+                stiffness: 280,
+                damping: 35,
               }}
-              onMouseEnter={() => handleCardHover(cardIndex)}
-              onMouseLeave={() => setHoveredIndex(null)}
-              whileHover={!isCenter ? { y: -8, scale: 1.02 } : { y: -4 }}
+              onClick={() => handleCardClick(cardIndex)}
+              whileHover={!isCenter ? { y: -12 } : { y: -6 }}
               style={{ zIndex: position.zIndex }}
             >
               <div className="relative w-full h-full bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300" style={{ position: 'relative' }}>
