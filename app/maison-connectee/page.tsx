@@ -286,7 +286,7 @@ export default function VillasPage() {
           </div>
           <div className="grid md:grid-cols-3 gap-px bg-black/6">
             {realisations.map((r) => (
-              <div key={r.title} className="relative overflow-hidden group aspect-[4/5]">
+              <div key={r.title} className="relative overflow-hidden group aspect-[4/5]" style={{ position: 'relative' }}>
                 <Image src={r.image} alt={`${r.title} — ${r.subtitle}`} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover transition-transform duration-700 group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-6">
