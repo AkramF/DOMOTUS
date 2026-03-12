@@ -18,7 +18,9 @@ export default function StackingCardsSection({ cards }: { cards: StackingCard[] 
   const [isDesktop, setIsDesktop] = useState(false)
   const [currentIndex, setCurrentIndex] = useState(0)
   const [cardOrder, setCardOrder] = useState([0, 1, 2])
+  const [isVisible, setIsVisible] = useState(false)
   const scrollContainerRef = useRef<HTMLDivElement>(null)
+  const sectionRef = useRef<HTMLDivElement>(null)
   const [touchStart, setTouchStart] = useState(0)
   const [touchEnd, setTouchEnd] = useState(0)
 
@@ -34,6 +36,24 @@ export default function StackingCardsSection({ cards }: { cards: StackingCard[] 
     handleResize()
     window.addEventListener('resize', handleResize)
     return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
+  // Scroll-triggered animation using Intersection Observer
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true)
+        }
+      },
+      { threshold: 0.2 }
+    )
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current)
+    }
+
+    return () => observer.disconnect()
   }, [])
 
   // Handle touch swipe for mobile
@@ -69,12 +89,15 @@ export default function StackingCardsSection({ cards }: { cards: StackingCard[] 
   // Mobile Carousel View
   if (isMobile) {
     return (
-      <div className="w-full flex flex-col gap-4">
+      <div ref={sectionRef} className="w-full flex flex-col gap-4">
         <motion.div
           ref={scrollContainerRef}
           className="overflow-hidden w-full"
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
+          initial={{ opacity: 0, y: 30 }}
+          animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
         >
           <motion.div
             className="flex gap-3"
@@ -87,7 +110,7 @@ export default function StackingCardsSection({ cards }: { cards: StackingCard[] 
                 className="w-full flex-shrink-0 px-3"
               >
                 <div className="bg-white rounded-2xl overflow-hidden shadow-md">
-                  <div className="relative w-full aspect-video overflow-hidden">
+                  <div className="relative w-full aspect-video" style={{ position: 'relative' }}>
                     <Image
                       src={card.image}
                       alt={card.imageAlt}
@@ -135,7 +158,13 @@ export default function StackingCardsSection({ cards }: { cards: StackingCard[] 
   // Tablet 2-column grid
   if (isTablet) {
     return (
-      <div className="grid grid-cols-2 gap-4 w-full">
+      <motion.div 
+        ref={sectionRef}
+        className="grid grid-cols-2 gap-4 w-full"
+        initial={{ opacity: 0, y: 30 }}
+        animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
+      >
         {cards.map((card, index) => (
           <motion.div
             key={card.title}
@@ -144,7 +173,7 @@ export default function StackingCardsSection({ cards }: { cards: StackingCard[] 
             onMouseLeave={() => setHoveredIndex(null)}
             whileHover={{ y: -4 }}
           >
-            <div className="relative w-full aspect-square overflow-hidden">
+            <div className="relative w-full aspect-square" style={{ position: 'relative' }}>
               <Image
                 src={card.image}
                 alt={card.imageAlt}
@@ -167,16 +196,13 @@ export default function StackingCardsSection({ cards }: { cards: StackingCard[] 
             </div>
           </motion.div>
         ))}
-      </div>
+      </motion.div>
     )
   }
 
-  // Desktop: Fan-spread animation with click-to-front
+  // Desktop: Fan-spread animation with click-to-front and scroll trigger
   if (isDesktop) {
     const getFanPosition = (displayIndex: number) => {
-      // Left card: rotated -12deg, translateX -60px
-      // Center card: no rotation, center
-      // Right card: rotated 12deg, translateX 60px
       const positions = [
         { rotation: -12, translateX: -60, zIndex: 20 },
         { rotation: 0, translateX: 0, zIndex: 30 },
@@ -188,7 +214,7 @@ export default function StackingCardsSection({ cards }: { cards: StackingCard[] 
     const sortedCards = cardOrder.map((idx) => cards[idx])
 
     return (
-      <div className="relative w-full h-96 flex items-center justify-center px-4">
+      <div ref={sectionRef} className="relative w-full h-96 flex items-center justify-center px-4" style={{ position: 'relative' }}>
         {sortedCards.map((card, displayIndex) => {
           const cardIndex = cardOrder[displayIndex]
           const position = getFanPosition(displayIndex)
@@ -198,25 +224,34 @@ export default function StackingCardsSection({ cards }: { cards: StackingCard[] 
             <motion.div
               key={card.title}
               className="absolute w-full max-w-sm h-full transition-all duration-500 ease-out cursor-pointer"
-              animate={{
+              initial={{ opacity: 0, scale: 0.8, rotate: position.rotation }}
+              animate={isVisible ? { 
+                opacity: 1, 
+                scale: 1,
                 x: position.translateX,
                 rotate: position.rotation,
-                zIndex: position.zIndex,
+              } : { 
+                opacity: 0, 
+                scale: 0.8,
+                x: position.translateX,
+                rotate: position.rotation,
               }}
               transition={{
                 type: 'spring',
                 stiffness: 300,
                 damping: 30,
+                delay: isVisible ? displayIndex * 0.15 : 0,
               }}
               onMouseEnter={() => setHoveredIndex(cardIndex)}
               onMouseLeave={() => setHoveredIndex(null)}
               onClick={() => handleCardClick(cardIndex)}
               whileHover={!isCenter ? { y: -8, scale: 1.02 } : { y: -4 }}
+              style={{ zIndex: position.zIndex }}
             >
-              <div className="relative w-full h-full bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
+              <div className="relative w-full h-full bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300" style={{ position: 'relative' }}>
                 {/* Image container */}
-                <div className="relative w-full h-1/2 overflow-hidden p-4">
-                  <div className="relative w-full h-full overflow-hidden rounded-2xl border-4 border-white">
+                <div className="relative w-full h-1/2 overflow-hidden p-4" style={{ position: 'relative' }}>
+                  <div className="relative w-full h-full overflow-hidden rounded-2xl border-4 border-white" style={{ position: 'relative' }}>
                     <Image
                       src={card.image}
                       alt={card.imageAlt}
