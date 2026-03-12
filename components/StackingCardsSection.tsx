@@ -77,8 +77,8 @@ export default function StackingCardsSection({ cards }: { cards: StackingCard[] 
     }
   }
 
-  // Handle card click on desktop fan view
-  const handleCardClick = (index: number) => {
+  // Handle card hover on desktop fan view - bring to front with animation
+  const handleCardHover = (index: number) => {
     if (isDesktop) {
       const newOrder = cardOrder.filter((i) => i !== index)
       newOrder.unshift(index)
@@ -200,7 +200,7 @@ export default function StackingCardsSection({ cards }: { cards: StackingCard[] 
     )
   }
 
-  // Desktop: Fan-spread animation with click-to-front and scroll trigger
+  // Desktop: Fan-spread animation with hover-to-front and scroll trigger
   if (isDesktop) {
     const getFanPosition = (displayIndex: number) => {
       const positions = [
@@ -223,7 +223,8 @@ export default function StackingCardsSection({ cards }: { cards: StackingCard[] 
           return (
             <motion.div
               key={card.title}
-              className="absolute w-full max-w-sm h-full transition-all duration-500 ease-out cursor-pointer"
+              className="absolute h-full transition-all duration-500 ease-out cursor-pointer"
+              style={{ width: 'min(600px, 90vw)' }}
               initial={{ opacity: 0, scale: 0.8, rotate: position.rotation }}
               animate={isVisible ? { 
                 opacity: 1, 
@@ -242,9 +243,8 @@ export default function StackingCardsSection({ cards }: { cards: StackingCard[] 
                 damping: 30,
                 delay: isVisible ? displayIndex * 0.15 : 0,
               }}
-              onMouseEnter={() => setHoveredIndex(cardIndex)}
+              onMouseEnter={() => handleCardHover(cardIndex)}
               onMouseLeave={() => setHoveredIndex(null)}
-              onClick={() => handleCardClick(cardIndex)}
               whileHover={!isCenter ? { y: -8, scale: 1.02 } : { y: -4 }}
               style={{ zIndex: position.zIndex }}
             >
@@ -256,7 +256,7 @@ export default function StackingCardsSection({ cards }: { cards: StackingCard[] 
                       src={card.image}
                       alt={card.imageAlt}
                       fill
-                      sizes="450px"
+                      sizes="600px"
                       className="object-cover"
                       quality={85}
                     />
