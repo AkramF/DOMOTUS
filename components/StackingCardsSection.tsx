@@ -225,26 +225,17 @@ export default function StackingCardsSection({ cards }: { cards: StackingCard[] 
               key={card.title}
               className="absolute h-full transition-all duration-500 ease-out cursor-pointer"
               style={{ width: 'min(600px, 90vw)' }}
-              initial={{ opacity: 0, scale: 0.8, rotate: position.rotation }}
-              animate={isVisible ? { 
-                opacity: 1, 
-                scale: 1,
-                x: position.translateX,
-                rotate: position.rotation,
-              } : { 
-                opacity: 0, 
-                scale: 0.8,
+              animate={{ 
                 x: position.translateX,
                 rotate: position.rotation,
               }}
               transition={{
                 type: 'spring',
-                stiffness: 300,
-                damping: 30,
-                delay: isVisible ? displayIndex * 0.15 : 0,
+                stiffness: 280,
+                damping: 35,
               }}
               onClick={() => handleCardClick(cardIndex)}
-              whileHover={!isCenter ? { y: -8, scale: 1.02 } : { y: -4 }}
+              whileHover={!isCenter ? { y: -12 } : { y: -6 }}
               style={{ zIndex: position.zIndex }}
             >
               <div className="relative w-full h-full bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300" style={{ position: 'relative' }}>
