@@ -34,8 +34,7 @@ interface ApiResponse {
   data: Article[];
 }
 
-const API_BASE_URL = "https://thoughtful-amusement-037aae48eb.strapiapp.com";
-const API_ENDPOINT = `${API_BASE_URL}/api/articles?populate=*`;
+const API_ENDPOINT = `/api/blog/articles`;
 
 function formatDateFrench(dateString: string): string {
   const date = new Date(dateString);
@@ -100,6 +99,7 @@ export default function BlogPage() {
           headers: {
             'Content-Type': 'application/json',
           },
+          cache: 'force-cache',
         });
         
         if (!response.ok) {
@@ -107,7 +107,7 @@ export default function BlogPage() {
         }
         
         const data: ApiResponse = await response.json();
-        console.log("[v0] Articles data fetched successfully:", data.data.length);
+        console.log("[v0] Articles data fetched successfully:", data.data?.length || 0);
         setArticles(data.data || []);
         setError(null);
       } catch (err) {

@@ -6,7 +6,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowLeft, Calendar } from 'lucide-react';
 
-const API_BASE_URL = 'https://thoughtful-amusement-037aae48eb.strapiapp.com';
+const API_BASE_URL = '/api/blog/article';
 
 interface ArticleBlock {
   type: string;
@@ -184,9 +184,11 @@ export default function ArticlePage() {
       try {
         setLoading(true);
         const encodedSlug = encodeURIComponent(slug);
-        const url = `${API_BASE_URL}/api/articles?filters[Slug][$eq]=${encodedSlug}&populate=*`;
+        const url = `${API_BASE_URL}?slug=${encodedSlug}`;
 
-        const response = await fetch(url);
+        const response = await fetch(url, {
+          cache: 'force-cache',
+        });
         if (!response.ok) {
           throw new Error(`Erreur API: ${response.status}`);
         }
