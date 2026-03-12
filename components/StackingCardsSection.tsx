@@ -15,7 +15,9 @@ export default function StackingCardsSection({ cards }: { cards: StackingCard[] 
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
   const [isMobile, setIsMobile] = useState(true)
   const [isTablet, setIsTablet] = useState(false)
+  const [isDesktop, setIsDesktop] = useState(false)
   const [currentIndex, setCurrentIndex] = useState(0)
+  const [cardOrder, setCardOrder] = useState([0, 1, 2])
   const scrollContainerRef = useRef<HTMLDivElement>(null)
   const [touchStart, setTouchStart] = useState(0)
   const [touchEnd, setTouchEnd] = useState(0)
@@ -26,6 +28,7 @@ export default function StackingCardsSection({ cards }: { cards: StackingCard[] 
       const width = window.innerWidth
       setIsMobile(width < 768)
       setIsTablet(width >= 768 && width < 1024)
+      setIsDesktop(width >= 1024)
     }
 
     handleResize()
@@ -47,12 +50,19 @@ export default function StackingCardsSection({ cards }: { cards: StackingCard[] 
 
     if (Math.abs(diff) > threshold) {
       if (diff > 0) {
-        // Swiped left, go to next card
         setCurrentIndex((prev) => (prev + 1) % cards.length)
       } else {
-        // Swiped right, go to previous card
         setCurrentIndex((prev) => (prev - 1 + cards.length) % cards.length)
       }
+    }
+  }
+
+  // Handle card click on desktop fan view
+  const handleCardClick = (index: number) => {
+    if (isDesktop) {
+      const newOrder = cardOrder.filter((i) => i !== index)
+      newOrder.unshift(index)
+      setCardOrder(newOrder)
     }
   }
 
@@ -60,7 +70,6 @@ export default function StackingCardsSection({ cards }: { cards: StackingCard[] 
   if (isMobile) {
     return (
       <div className="w-full flex flex-col gap-4">
-        {/* Carousel container */}
         <motion.div
           ref={scrollContainerRef}
           className="overflow-hidden w-full"
@@ -78,7 +87,6 @@ export default function StackingCardsSection({ cards }: { cards: StackingCard[] 
                 className="w-full flex-shrink-0 px-3"
               >
                 <div className="bg-white rounded-2xl overflow-hidden shadow-md">
-                  {/* Image */}
                   <div className="relative w-full aspect-video overflow-hidden">
                     <Image
                       src={card.image}
@@ -90,7 +98,6 @@ export default function StackingCardsSection({ cards }: { cards: StackingCard[] 
                     />
                   </div>
 
-                  {/* Content */}
                   <div className="p-4 flex flex-col gap-2">
                     <h3 className="font-black text-base text-black line-clamp-2">
                       {card.title}
@@ -105,7 +112,6 @@ export default function StackingCardsSection({ cards }: { cards: StackingCard[] 
           </motion.div>
         </motion.div>
 
-        {/* Dot indicators */}
         <div className="flex justify-center gap-2">
           {cards.map((_, index) => (
             <motion.button
@@ -138,7 +144,6 @@ export default function StackingCardsSection({ cards }: { cards: StackingCard[] 
             onMouseLeave={() => setHoveredIndex(null)}
             whileHover={{ y: -4 }}
           >
-            {/* Image */}
             <div className="relative w-full aspect-square overflow-hidden">
               <Image
                 src={card.image}
@@ -152,7 +157,6 @@ export default function StackingCardsSection({ cards }: { cards: StackingCard[] 
               />
             </div>
 
-            {/* Content */}
             <div className="p-4 flex flex-col gap-2">
               <h3 className="font-black text-sm text-black line-clamp-2">
                 {card.title}
@@ -167,94 +171,92 @@ export default function StackingCardsSection({ cards }: { cards: StackingCard[] 
     )
   }
 
-  // Desktop: 3-card stacking view
-  const getCardStyle = (index: number) => {
-    const isCenter = index === 1
-    const isLeft = index === 0
-    const isRight = index === 2
-    const isHovered = hoveredIndex === index
-    const isOtherHovered = hoveredIndex !== null && hoveredIndex !== index
-
-    let rotation = 0
-    let translateX = 0
-    let scale = 1
-    let zIndex = isCenter ? 30 : 20 - index * 5
-
-    if (isLeft) {
-      rotation = -8
-      translateX = -40
-    } else if (isRight) {
-      rotation = 8
-      translateX = 40
+  // Desktop: Fan-spread animation with click-to-front
+  if (isDesktop) {
+    const getFanPosition = (displayIndex: number) => {
+      // Left card: rotated -12deg, translateX -60px
+      // Center card: no rotation, center
+      // Right card: rotated 12deg, translateX 60px
+      const positions = [
+        { rotation: -12, translateX: -60, zIndex: 20 },
+        { rotation: 0, translateX: 0, zIndex: 30 },
+        { rotation: 12, translateX: 60, zIndex: 20 },
+      ]
+      return positions[displayIndex] || positions[0]
     }
 
-    if (isHovered) {
-      rotation = 0
-      scale = 1.04
-      zIndex = 50
-      if (isLeft) translateX = -60
-      if (isRight) translateX = 60
-    } else if (isOtherHovered) {
-      scale = 0.96
-    }
+    const sortedCards = cardOrder.map((idx) => cards[idx])
 
-    return {
-      transform: `translateX(${translateX}px) rotate(${rotation}deg) scale(${scale})`,
-      zIndex,
-    }
+    return (
+      <div className="relative w-full h-96 flex items-center justify-center px-4">
+        {sortedCards.map((card, displayIndex) => {
+          const cardIndex = cardOrder[displayIndex]
+          const position = getFanPosition(displayIndex)
+          const isCenter = displayIndex === 1
+
+          return (
+            <motion.div
+              key={card.title}
+              className="absolute w-full max-w-sm h-full transition-all duration-500 ease-out cursor-pointer"
+              animate={{
+                x: position.translateX,
+                rotate: position.rotation,
+                zIndex: position.zIndex,
+              }}
+              transition={{
+                type: 'spring',
+                stiffness: 300,
+                damping: 30,
+              }}
+              onMouseEnter={() => setHoveredIndex(cardIndex)}
+              onMouseLeave={() => setHoveredIndex(null)}
+              onClick={() => handleCardClick(cardIndex)}
+              whileHover={!isCenter ? { y: -8, scale: 1.02 } : { y: -4 }}
+            >
+              <div className="relative w-full h-full bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                {/* Image container */}
+                <div className="relative w-full h-1/2 overflow-hidden p-4">
+                  <div className="relative w-full h-full overflow-hidden rounded-2xl border-4 border-white">
+                    <Image
+                      src={card.image}
+                      alt={card.imageAlt}
+                      fill
+                      sizes="450px"
+                      className="object-cover"
+                      quality={85}
+                    />
+                  </div>
+                </div>
+
+                {/* Content container */}
+                <div className="w-full h-1/2 p-6 flex flex-col justify-between">
+                  <div>
+                    <h3 className="font-black text-lg mb-2 text-black line-clamp-2">
+                      {card.title}
+                    </h3>
+                    <p className="text-sm text-gray-600 leading-relaxed line-clamp-3">
+                      {card.description}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Premium shadow for center card */}
+                {isCenter && (
+                  <div
+                    className="absolute inset-0 pointer-events-none"
+                    style={{
+                      boxShadow: '0 20px 50px rgba(0, 0, 0, 0.1)',
+                      borderRadius: '24px',
+                    }}
+                  />
+                )}
+              </div>
+            </motion.div>
+          )
+        })}
+      </div>
+    )
   }
 
-  return (
-    <div className="relative w-full h-96 flex items-center justify-center px-4">
-      {cards.map((card, index) => (
-        <motion.div
-          key={card.title}
-          className="absolute w-full max-w-sm h-full transition-all duration-500 ease-out cursor-pointer"
-          style={getCardStyle(index)}
-          onMouseEnter={() => setHoveredIndex(index)}
-          onMouseLeave={() => setHoveredIndex(null)}
-          whileHover={{ y: -8 }}
-        >
-          <div className="relative w-full h-full bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
-            {/* Image container */}
-            <div className="relative w-full h-1/2 overflow-hidden p-4">
-              <div className="relative w-full h-full overflow-hidden rounded-2xl border-4 border-white">
-                <Image
-                  src={card.image}
-                  alt={card.imageAlt}
-                  fill
-                  sizes="450px"
-                  className="object-cover"
-                  quality={85}
-                />
-              </div>
-            </div>
-
-            {/* Content container */}
-            <div className="w-full h-1/2 p-6 flex flex-col justify-between">
-              <div>
-                <h3 className="font-black text-lg mb-2 text-black line-clamp-2">
-                  {card.title}
-                </h3>
-                <p className="text-sm text-gray-600 leading-relaxed line-clamp-3">
-                  {card.description}
-                </p>
-              </div>
-            </div>
-
-            {/* Premium shadow for center card */}
-            {index === 1 && (
-              <div
-                className="absolute inset-0 pointer-events-none"
-                style={{
-                  boxShadow: '0 20px 50px rgba(0, 0, 0, 0.1)',
-                  borderRadius: '24px',
-                }}
-              />
-            )}
-          </div>
-        </motion.div>
-      ))}
-    </div>
-  )
+  return null
 }

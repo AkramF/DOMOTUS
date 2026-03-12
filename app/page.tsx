@@ -49,22 +49,22 @@ export const metadata: Metadata = {
 
 const stackingCards = [
   {
-    title: "Sustainable",
-    description: "A contemporary, light-filled shopping center offering an unforgettable visitor experience with ecological technologies and recyclable materials.",
-    image: "/images/villa-prestige.jpg",
-    imageAlt: "Villa équipée en domotique KNX par Domotus",
+    title: "Villa",
+    description: "Résidence d'exception où la technologie s'efface pour magnifier chaque moment. Domotique KNX intégrée, automatisations intelligentes et confort absolu dans une harmonie parfaite avec l'architecture.",
+    image: "/images/villa-prestige-home.jpg",
+    imageAlt: "Villa prestige équipée en domotique KNX par Domotus",
   },
   {
-    title: "Shopping Center",
-    description: "A contemporary, light-filled shopping center offering an unforgettable visitor experience with integrated smart building solutions.",
-    image: "/images/showroom.jpg",
-    imageAlt: "Showroom domotique Domotus Casablanca",
+    title: "Apartment",
+    description: "Espace urbain optimisé pour la modernité. Tous les systèmes intelligents concentrés pour maximiser le confort et l'efficacité énergétique dans des mètres carrés pensés intelligemment.",
+    image: "/images/apartment-moderne.jpg",
+    imageAlt: "Appartement moderne connecté par Domotus",
   },
   {
-    title: "Gardens",
-    description: "Beautiful landscapes perfect for walks and outdoor spaces with automated irrigation and ambient lighting control systems.",
-    image: "/images/immeuble-tertiaire.jpg",
-    imageAlt: "Bâtiment tertiaire connecté par Domotus au Maroc",
+    title: "Building",
+    description: "Infrastructure tertiaire gérée de bout en bout par une intelligence centralisée. Efficacité opérationnelle optimale, surveillance 24/7 et performance énergétique de classe mondiale.",
+    image: "/images/immeuble-smart.jpg",
+    imageAlt: "Immeuble commercial intelligent par Domotus",
   },
 ];
 
@@ -294,7 +294,7 @@ const faqs = [
   },
 ];
 
-// ── Schema.org ────────────────────────────────────────────────────────────────
+// ── Schema.org ────────────────────────────────────��───────────────────────────
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
