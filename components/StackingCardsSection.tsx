@@ -77,8 +77,8 @@ export default function StackingCardsSection({ cards }: { cards: StackingCard[] 
     }
   }
 
-  // Handle card hover on desktop fan view - bring to front with animation
-  const handleCardHover = (index: number) => {
+  // Handle card click on desktop fan view - bring to front with animation
+  const handleCardClick = (index: number) => {
     if (isDesktop) {
       const newOrder = cardOrder.filter((i) => i !== index)
       newOrder.unshift(index)
@@ -214,7 +214,7 @@ export default function StackingCardsSection({ cards }: { cards: StackingCard[] 
     const sortedCards = cardOrder.map((idx) => cards[idx])
 
     return (
-      <div ref={sectionRef} className="relative w-full h-96 flex items-center justify-center px-4" style={{ position: 'relative' }}>
+      <div ref={sectionRef} className="relative w-full h-[30rem] flex items-center justify-center px-4" style={{ position: 'relative' }}>
         {sortedCards.map((card, displayIndex) => {
           const cardIndex = cardOrder[displayIndex]
           const position = getFanPosition(displayIndex)
@@ -243,8 +243,7 @@ export default function StackingCardsSection({ cards }: { cards: StackingCard[] 
                 damping: 30,
                 delay: isVisible ? displayIndex * 0.15 : 0,
               }}
-              onMouseEnter={() => handleCardHover(cardIndex)}
-              onMouseLeave={() => setHoveredIndex(null)}
+              onClick={() => handleCardClick(cardIndex)}
               whileHover={!isCenter ? { y: -8, scale: 1.02 } : { y: -4 }}
               style={{ zIndex: position.zIndex }}
             >
