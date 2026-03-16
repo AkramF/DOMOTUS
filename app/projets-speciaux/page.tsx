@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, Lock, Radio, Zap } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -18,6 +19,7 @@ export const metadata: Metadata = {
 const solutions = [
   {
     category: "Gestion de Parking",
+    icon: Lock,
     title: "Système ANPR Intégré",
     description: "Reconnaissance automatique plaques (ANPR). Capteurs occupancy. Signalétique dynamique guidage. Dashboard manager temps réel.",
     features: [
@@ -26,11 +28,11 @@ const solutions = [
       "Signalétique LED dynamique",
       "Paiement automatisé intégré",
       "Historique accès/statistiques"
-    ],
-    icon: "🚗"
+    ]
   },
   {
     category: "Industrie 4.0",
+    icon: Zap,
     title: "IoT Industriel & Monitoring",
     description: "Capteurs sur machines critiques. Prédiction panne par AI. Maintenance programmée vs urgences. Intégration ERP/MES.",
     features: [
@@ -39,15 +41,35 @@ const solutions = [
       "Tracking palettes RFID",
       "Synchronisation chaînes production",
       "Dashboard superviseur temps réel"
-    ],
-    icon: "⚙️"
+    ]
   },
   {
     category: "Environnements Critiques",
+    icon: Radio,
     title: "Hôpitaux & Soins",
     description: "Gestion alarmes patient. Accès sécurisé zones stériles. Monitoring conditions critères (température, humidité) blocs stériles.",
     features: [
       "Intégration systèmes appels patient",
+      "Accès sécurisé zones sensibles",
+      "Monitoring temp/humidité critique",
+      "Alertes urgence temps réel",
+      "Traçabilité chaîne froide"
+    ]
+  },
+  {
+    category: "Culture & Patrimoine",
+    icon: Lock,
+    title: "Musées & Patrimoine",
+    description: "Gestion micro-climat vitrines (lumière, température, humidité). Détection mouvements. Accès sécurisé zones réserve.",
+    features: [
+      "Micro-climat vitrines optimisé",
+      "Détection intrusion + vibration",
+      "Gestion accès réserve + inventaire",
+      "Monitoring 24/7 pièces précieuses",
+      "Intégration alarme silencieuse"
+    ]
+  }
+];
       "Accès biométrique zones sensibles",
       "Monitoring température/humidité",
       "Historique accès audit",
@@ -132,7 +154,7 @@ export default function ProjetsSpeciaux() {
           <div className="flex items-center gap-3 mb-8">
             <div className="w-3 h-3 bg-[#efd555]" aria-hidden="true" />
             <p style={{ fontFamily: "Inter, sans-serif", fontWeight: 600, fontSize: "13px", lineHeight: "18px", color: "#efd555", textTransform: "uppercase", letterSpacing: "0.1em" }}>
-              Projets Exceptionnels
+              Pour Projets Spéciaux
             </p>
           </div>
           <h1
@@ -140,15 +162,30 @@ export default function ProjetsSpeciaux() {
             className="font-black uppercase leading-none text-balance mb-8"
             style={{ fontSize: "clamp(2.8rem, 7vw, 5rem)", letterSpacing: "-0.03em", color: "#ffffff" }}
           >
-            Pour l'<br />
-            <span className="italic" style={{ color: "#efd555" }}>exceptionnel.</span>
+            L'exceptionnel<br />
+            <span className="italic" style={{ color: "#efd555" }}>maîtrisé.</span>
           </h1>
           <p className="text-lg text-foreground/70 leading-relaxed max-w-3xl mb-8">
-            Solutions sur-mesure pour environnements complexes : parkings ANPR, usines Industry 4.0, hôpitaux, musées, laboratoires, data centers. Cybersécurité renforcée. Intégration multi-protocoles. Supervision temps réel. Expertise pour l'extraordinaire.
+            Projets exceptionnels demandent expertise exceptionnelle. ANPR parking, Industry 4.0, hôpitaux, musées, laboratoires : solutions sur-mesure pour environnements critiques avec cybersécurité renforcée.
           </p>
           <p className="text-base text-foreground/60 leading-relaxed max-w-3xl mb-12">
-            IA prédictive. Redondance complète. Conformité stricte. Support 24/7 dédié.
+            Multi-protocoles avancés. Intégration ERP/MES. Monitoring temps réel. Traçabilité complète. Conformité réglementaire.
           </p>
+        </div>
+      </section>
+
+      {/* ── HERO IMAGE ── */}
+      <section className="py-0 bg-background" aria-label="Factory 4.0 and specialized projects showcase">
+        <div className="mx-auto max-w-7xl px-6 lg:px-10 mb-24">
+          <div className="relative w-full h-96 lg:h-[500px] rounded-2xl overflow-hidden">
+            <Image 
+              src="/images/projets-speciaux-factory.jpg"
+              alt="Usine Industry 4.0 avec monitoring intelligent et IoT industriel"
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
         </div>
       </section>
 
@@ -174,22 +211,27 @@ export default function ProjetsSpeciaux() {
 
           <div className="grid lg:grid-cols-2 gap-8">
             {solutions.map((sol) => (
-              <div key={sol.title} className="bg-[#f5f5f5] p-8 rounded-lg border border-black/5 hover:border-[#efd555]/20 transition-colors">
-                <div className="flex items-start justify-between mb-4">
+              <div key={sol.title} className="bg-[#f5f5f5] p-8 rounded-lg border border-black/5">
+                <div className="flex items-start gap-4 mb-4">
+                  <sol.icon size={28} className="text-black flex-shrink-0 mt-0.5" aria-hidden="true" />
                   <div>
-                    <p className="text-xs font-semibold text-[#efd555] uppercase tracking-widest mb-1">{sol.category}</p>
-                    <h3 className="font-black uppercase text-sm text-black">{sol.title}</h3>
+                    <p style={{ fontFamily: "Inter, sans-serif", fontWeight: 600, fontSize: "11px", lineHeight: "16px", color: "#000000", textTransform: "uppercase", letterSpacing: "0.05em" }}>
+                      {sol.category}
+                    </p>
                   </div>
-                  <span className="text-3xl">{sol.icon}</span>
                 </div>
+                <h3 className="font-black uppercase text-sm mb-3 text-black">{sol.title}</h3>
                 <p className="text-sm text-black/70 leading-relaxed mb-6">{sol.description}</p>
                 <ul className="space-y-2">
                   {sol.features.map((feat) => (
                     <li key={feat} className="flex gap-2 text-xs text-black/60">
-                      <div className="w-1.5 h-1.5 rounded-sm mt-1.5 flex-shrink-0" style={{ backgroundColor: "#efd555" }} />
+                      <div className="w-1 h-1 rounded-full mt-1.5 flex-shrink-0 bg-black" />
                       {feat}
                     </li>
                   ))}
+                </ul>
+              </div>
+            ))}
                 </ul>
               </div>
             ))}

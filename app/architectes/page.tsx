@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Check } from "lucide-react";
+import Image from "next/image";
+import { ArrowRight, Lightbulb, Thermometer, Zap, Lock, Eye, Music } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Solutions Domotique pour Architectes & Designers | Domotus",
@@ -17,37 +18,37 @@ export const metadata: Metadata = {
 
 const solutions = [
   {
-    icon: "✦",
+    icon: Lightbulb,
     title: "Éclairage Architectural Intelligent",
     description: "Scénarios d'ambiance programmés intégrés dans les systèmes de contrôle d'éclairage. Dimmers invisibles, capteurs de luminosité discrèts, dimming dynamique selon la lumière naturelle.",
     features: ["Variation fluide 1-100%", "Température de couleur ajustable (2700K-6500K)", "Scénarios mémorisés par zone", "Adaptation lumière naturelle en temps réel"]
   },
   {
-    icon: "⬜",
+    icon: Thermometer,
     title: "Gestion du Climat Invisible",
     description: "Thermostats intelligents design, radiateurs connectés minimalistes. Zoning thermique granulaire sans renoncer à l'esthétique. Régulation autonome basée sur occupation et horaires.",
     features: ["Thermostats sans fil muraux discrets", "Valet de climat par pièce", "Apprentissage des patterns de confort", "Intégration complète au design intérieur"]
   },
   {
-    icon: "🔌",
+    icon: Zap,
     title: "Gestion de l'Énergie Discrète",
     description: "Monitoring consommation énergétique visible via app mobile uniquement. Alertes intelligentes sur surconsommation. Délestage automatique en cas de surcharge.",
     features: ["Compteurs d'énergie cachés", "Dashboard mobile épuré", "Alertes intelligentes", "Optimisation automatique pic/creux"]
   },
   {
-    icon: "🔐",
+    icon: Lock,
     title: "Contrôle d'Accès Architectural",
     description: "Serrures invisibles avec motorisation silencieuse. Accès par code, smartphone ou badge RFID sans rupture visuelle. Gestion des droits d'accès granulaire.",
     features: ["Serrures motorisées design", "Accès smartphone sans clé", "Codes d'accès temporaires", "Journalisation discrète"]
   },
   {
-    icon: "📹",
+    icon: Eye,
     title: "Sécurité Intégrée au Design",
     description: "Caméras discrètes intégrées en luminaires ou mobilier. Détecteurs de mouvement esthétiques. Enregistrement cloud sécurisé sans boîtier visible.",
     features: ["Caméras cachées en luminaires", "Détecteurs de présence élégants", "Vision nocturne infrarouge", "Stockage cloud chiffré"]
   },
   {
-    icon: "🎵",
+    icon: Music,
     title: "Audio Ambient Distributed",
     description: "Système audio multiroom invisible. Haut-parleurs intégrés en plafonds, mobilier ou murs. Contrôle par zone, synchronisation audio précise.",
     features: ["Haut-parleurs encastrés", "Synchronisation sans latence", "Contrôle par pièce indépendant", "Streaming haute fidélité"]
@@ -124,6 +125,21 @@ export default function ArchitectesPage() {
         </div>
       </section>
 
+      {/* ── HERO IMAGE ── */}
+      <section className="py-0 bg-background" aria-label="Architectural integration showcase">
+        <div className="mx-auto max-w-7xl px-6 lg:px-10 mb-24">
+          <div className="relative w-full h-96 lg:h-[500px] rounded-2xl overflow-hidden">
+            <Image 
+              src="/images/architectes-design-integration.jpg"
+              alt="Intégration domotique discrète dans appartement architectural"
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
+        </div>
+      </section>
+
       {/* ── SOLUTIONS CORE ── */}
       <section className="py-24 lg:py-32 bg-white" aria-labelledby="solutions-heading">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
@@ -147,13 +163,13 @@ export default function ArchitectesPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {solutions.map((sol) => (
               <div key={sol.title} className="bg-[#f5f5f5] p-8 rounded-lg border border-black/5 hover:border-[#efd555]/20 transition-colors">
-                <p className="text-2xl mb-3">{sol.icon}</p>
+                <sol.icon size={28} className="mb-4 text-black" aria-hidden="true" />
                 <h3 className="font-black uppercase text-sm mb-3 text-black">{sol.title}</h3>
                 <p className="text-sm text-black/70 leading-relaxed mb-6">{sol.description}</p>
                 <ul className="space-y-2">
                   {sol.features.map((feat) => (
                     <li key={feat} className="flex gap-2 text-xs text-black/60">
-                      <Check size={14} className="mt-0.5 flex-shrink-0" style={{ color: "#efd555" }} aria-hidden="true" />
+                      <div className="w-1 h-1 rounded-full mt-1.5 flex-shrink-0 bg-black" />
                       {feat}
                     </li>
                   ))}

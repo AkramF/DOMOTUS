@@ -86,6 +86,22 @@ const industries = [
     bgColor: "#f5f5f5",
     textColor: "#000000",
     accentColor: "#efd555"
+  },
+  {
+    id: "projets-speciaux",
+    title: "Projets Spéciaux",
+    tagline: "L'exceptionnel maîtrisé",
+    description: "Solutions sur-mesure pour environnements critiques. ANPR parking, Industry 4.0, hôpitaux, musées, laboratoires avec cybersécurité renforcée.",
+    value: [
+      "Multi-protocoles avancés et intégrations complexes",
+      "Monitoring temps réel et traçabilité complète",
+      "Conformité réglementaire et sécurité critique",
+      "Expertise expertise pour projets exceptionnels"
+    ],
+    href: "/projets-speciaux",
+    bgColor: "#000000",
+    textColor: "#ffffff",
+    accentColor: "#efd555"
   }
 ];
 

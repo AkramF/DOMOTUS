@@ -23,7 +23,7 @@ const NAV_COLS = [
       { href: "/promoteurs", label: "Promoteurs Immobiliers" },
       { href: "/hospitalite", label: "Hospitalité & Retail" },
       { href: "/bureaux", label: "Bureaux & Tertiaire" },
-      { href: "/contact?type=projets-speciaux", label: "Projets Spéciaux" },
+      { href: "/projets-speciaux", label: "Projets Spéciaux" },
     ],
   },
   {
