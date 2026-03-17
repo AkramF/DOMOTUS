@@ -71,26 +71,7 @@ const solutions = [
   }
 ];
 
-export default function ProjetsSpeciaux Page() {
-      "Intégration instruments mesure",
-      "Alertes anomalies critères"
-    ],
-    icon: "🔬"
-  },
-  {
-    category: "Data Centers",
-    title: "Infrastructure IT Critique",
-    description: "Cooling optimisé par hot-spot detection. Suppression incendie intégrée. Accès biométrique multi-factor. Redondance complète.",
-    features: [
-      "Monitoring température précis",
-      "Cooling dynamique par rack",
-      "Détection incendie + suppression",
-      "Accès multifacteur biométrique",
-      "Redondance alimentation/réseau"
-    ],
-    icon: "🖥️"
-  }
-];
+export default function ProjetsSpeciauxPage() {
 
 const technicalHighlights = [
   {
