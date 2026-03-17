@@ -104,29 +104,55 @@ const marketingAssets = [
 export default function PromoteursPage() {
   return (
     <main className="min-h-screen bg-background">
-      {/* ── HERO ── */}
-      <section className="py-32 lg:py-48 bg-background" aria-labelledby="hero-heading">
-        <div className="mx-auto max-w-5xl px-6 lg:px-10">
-          <div className="flex items-center gap-3 mb-8">
-            <div className="w-3 h-3 bg-[#efd555]" aria-hidden="true" />
-            <p style={{ fontFamily: "Inter, sans-serif", fontWeight: 600, fontSize: "13px", lineHeight: "18px", color: "#efd555", textTransform: "uppercase", letterSpacing: "0.1em" }}>
-              Pour Promoteurs Immobiliers
-            </p>
+      {/* ── HERO SPLIT LAYOUT ── */}
+      <section className="py-32 lg:py-40 bg-background" aria-labelledby="hero-heading">
+        <div className="mx-auto max-w-7xl px-6 lg:px-10">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            {/* LEFT: TEXT CONTENT */}
+            <div>
+              <div className="flex items-center gap-3 mb-8">
+                <div className="w-3 h-3 bg-[#efd555]" aria-hidden="true" />
+                <p style={{ fontFamily: "Inter, sans-serif", fontWeight: 600, fontSize: "13px", lineHeight: "18px", color: "#efd555", textTransform: "uppercase", letterSpacing: "0.1em" }}>
+                  Pour Promoteurs Immobiliers
+                </p>
+              </div>
+              <h1
+                id="hero-heading"
+                className="font-black uppercase leading-none text-balance mb-8"
+                style={{ fontSize: "clamp(2.2rem, 5vw, 3.5rem)", letterSpacing: "-0.03em", color: "#ffffff" }}
+              >
+                Vendre plus,<br />
+                <span className="italic" style={{ color: "#efd555" }}>plus cher.</span>
+              </h1>
+              <p className="text-lg text-foreground/70 leading-relaxed mb-6">
+                Certification Smart Building + efficience énergétique = prix premium justifié et temps de vente réduit. Solutions qui valorisent vos programmes de 8-15% et réduisent charges communes de 40%.
+              </p>
+              <p className="text-base text-foreground/60 leading-relaxed mb-12">
+                Labels HQE/LEED certifiés. Accès financements verts. Attractivité investisseurs ESG. Dashboard occupant transparent.
+              </p>
+              <Link 
+                href="/contact"
+                className="focus-ring inline-flex items-center justify-between bg-white hover:bg-gray-100 text-black px-8 py-4 rounded-full text-sm font-semibold transition-all duration-300 hover:shadow-lg group"
+              >
+                Consultation Gratuite
+                <div className="ml-4 w-10 h-10 bg-black rounded-full flex items-center justify-center transition-transform group-hover:scale-110">
+                  <ArrowRight size={16} className="text-[#efd555]" aria-hidden="true" />
+                </div>
+              </Link>
+            </div>
+
+            {/* RIGHT: IMAGE */}
+            <div className="relative w-full h-80 lg:h-96">
+              <Image 
+                src="/images/promoteurs-smart-building.jpg"
+                alt="Bâtiment résidentiel intelligent avec certification Smart Building"
+                fill
+                className="object-cover rounded-2xl"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                priority
+              />
+            </div>
           </div>
-          <h1
-            id="hero-heading"
-            className="font-black uppercase leading-none text-balance mb-8"
-            style={{ fontSize: "clamp(2.8rem, 7vw, 5rem)", letterSpacing: "-0.03em", color: "#ffffff" }}
-          >
-            Vendre plus,<br />
-            <span className="italic" style={{ color: "#efd555" }}>plus cher.</span>
-          </h1>
-          <p className="text-lg text-foreground/70 leading-relaxed max-w-3xl mb-8">
-            Certification Smart Building + efficience énergétique = prix premium justifié et temps de vente réduit. Solutions domotique qui valorisent vos programmes de 8-15% et réduisent charges communes de 40%.
-          </p>
-          <p className="text-base text-foreground/60 leading-relaxed max-w-3xl mb-12">
-            Labels HQE/LEED certifiés. Accès financements verts. Attractivité investisseurs ESG. Dashboard occupant transparent.
-          </p>
         </div>
       </section>
 

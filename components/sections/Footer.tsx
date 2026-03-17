@@ -21,7 +21,8 @@ const NAV_COLS = [
     links: [
       { href: "/architectes", label: "Architectes & Designers" },
       { href: "/promoteurs", label: "Promoteurs Immobiliers" },
-      { href: "/hospitalite", label: "Hospitalité & Retail" },
+      { href: "/hospitalite", label: "Hospitalité" },
+      { href: "/retail", label: "Retail" },
       { href: "/bureaux", label: "Bureaux & Tertiaire" },
       { href: "/projets-speciaux", label: "Projets Spéciaux" },
     ],

@@ -95,43 +95,54 @@ const certifications = [
 export default function BureauxPage() {
   return (
     <main className="min-h-screen bg-background">
-      {/* ── HERO ── */}
-      <section className="py-32 lg:py-48 bg-background" aria-labelledby="hero-heading">
-        <div className="mx-auto max-w-5xl px-6 lg:px-10">
-          <div className="flex items-center gap-3 mb-8">
-            <div className="w-3 h-3 bg-[#efd555]" aria-hidden="true" />
-            <p style={{ fontFamily: "Inter, sans-serif", fontWeight: 600, fontSize: "13px", lineHeight: "18px", color: "#efd555", textTransform: "uppercase", letterSpacing: "0.1em" }}>
-              Pour Bureaux & Tertiaire
-            </p>
-          </div>
-          <h1
-            id="hero-heading"
-            className="font-black uppercase leading-none text-balance mb-8"
-            style={{ fontSize: "clamp(2.8rem, 7vw, 5rem)", letterSpacing: "-0.03em", color: "#ffffff" }}
-          >
-            Productivité<br />
-            <span className="italic" style={{ color: "#efd555" }}>intelligente.</span>
-          </h1>
-          <p className="text-lg text-foreground/70 leading-relaxed max-w-3xl mb-8">
-            Créez des espaces de travail optimisés pour bien-être et efficacité. Solutions BMS enterprise-grade pour immeubles bureaux, co-working, zones tertiaires. Réduction énergétique de 32%, satisfaction collaborateurs +22%.
-          </p>
-          <p className="text-base text-foreground/60 leading-relaxed max-w-3xl mb-12">
-            Gestion multi-bâtiments centralisée. IA prédictive. Certifications LEED/BREEAM. Efficience énergétique avancée.
-          </p>
-        </div>
-      </section>
+      {/* ── HERO SPLIT LAYOUT ── */}
+      <section className="py-32 lg:py-40 bg-background" aria-labelledby="hero-heading">
+        <div className="mx-auto max-w-7xl px-6 lg:px-10">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            {/* LEFT: TEXT CONTENT */}
+            <div>
+              <div className="flex items-center gap-3 mb-8">
+                <div className="w-3 h-3 bg-[#efd555]" aria-hidden="true" />
+                <p style={{ fontFamily: "Inter, sans-serif", fontWeight: 600, fontSize: "13px", lineHeight: "18px", color: "#efd555", textTransform: "uppercase", letterSpacing: "0.1em" }}>
+                  Pour Bureaux & Tertiaire
+                </p>
+              </div>
+              <h1
+                id="hero-heading"
+                className="font-black uppercase leading-none text-balance mb-8"
+                style={{ fontSize: "clamp(2.2rem, 5vw, 3.5rem)", letterSpacing: "-0.03em", color: "#ffffff" }}
+              >
+                Productivité<br />
+                <span className="italic" style={{ color: "#efd555" }}>intelligente.</span>
+              </h1>
+              <p className="text-lg text-foreground/70 leading-relaxed mb-6">
+                Créez des espaces de travail optimisés pour bien-être et efficacité. Solutions BMS enterprise-grade pour immeubles bureaux, co-working. Réduction énergétique de 32%, satisfaction collaborateurs +22%.
+              </p>
+              <p className="text-base text-foreground/60 leading-relaxed mb-12">
+                Gestion multi-bâtiments centralisée. IA prédictive. Certifications LEED/BREEAM. Efficience énergétique avancée.
+              </p>
+              <Link 
+                href="/contact"
+                className="focus-ring inline-flex items-center justify-between bg-white hover:bg-gray-100 text-black px-8 py-4 rounded-full text-sm font-semibold transition-all duration-300 hover:shadow-lg group"
+              >
+                Consultation Gratuite
+                <div className="ml-4 w-10 h-10 bg-black rounded-full flex items-center justify-center transition-transform group-hover:scale-110">
+                  <ArrowRight size={16} className="text-[#efd555]" aria-hidden="true" />
+                </div>
+              </Link>
+            </div>
 
-      {/* ── HERO IMAGE ── */}
-      <section className="py-0 bg-background" aria-label="Smart office workspace showcase">
-        <div className="mx-auto max-w-7xl px-6 lg:px-10 mb-24">
-          <div className="relative w-full h-96 lg:h-[500px] rounded-2xl overflow-hidden">
-            <Image 
-              src="/images/bureaux-smart-office.jpg"
-              alt="Espace de travail moderne avec ambiance intelligente et confort collaborateurs"
-              fill
-              className="object-cover"
-              priority
-            />
+            {/* RIGHT: IMAGE */}
+            <div className="relative w-full h-80 lg:h-96">
+              <Image 
+                src="/images/bureaux-smart-office.jpg"
+                alt="Espace de travail moderne avec ambiance intelligente et confort collaborateurs"
+                fill
+                className="object-cover rounded-2xl"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                priority
+              />
+            </div>
           </div>
         </div>
       </section>

@@ -116,43 +116,54 @@ const results = [
 export default function HospitalitePage() {
   return (
     <main className="min-h-screen bg-background">
-      {/* ── HERO ── */}
-      <section className="py-32 lg:py-48 bg-background" aria-labelledby="hero-heading">
-        <div className="mx-auto max-w-5xl px-6 lg:px-10">
-          <div className="flex items-center gap-3 mb-8">
-            <div className="w-3 h-3 bg-[#efd555]" aria-hidden="true" />
-            <p style={{ fontFamily: "Inter, sans-serif", fontWeight: 600, fontSize: "13px", lineHeight: "18px", color: "#efd555", textTransform: "uppercase", letterSpacing: "0.1em" }}>
-              Pour Hospitalité & Retail
-            </p>
-          </div>
-          <h1
-            id="hero-heading"
-            className="font-black uppercase leading-none text-balance mb-8"
-            style={{ fontSize: "clamp(2.8rem, 7vw, 5rem)", letterSpacing: "-0.03em", color: "#ffffff" }}
-          >
-            Excellence<br />
-            <span className="italic" style={{ color: "#efd555" }}>opérationnelle.</span>
-          </h1>
-          <p className="text-lg text-foreground/70 leading-relaxed max-w-3xl mb-8">
-            Expérience client irréprochable + optimisation espace + efficacité énergétique. Hôtels 4-5*, commerces premium, spas : solutions qui augmentent revenus et réduisent charges de 35%.
-          </p>
-          <p className="text-base text-foreground/60 leading-relaxed max-w-3xl mb-12">
-            Compteurs de flux. Ambiance adaptative. Monitoring maintenance. Visiophonie intégrée. Analytics decisionnels.
-          </p>
-        </div>
-      </section>
+      {/* ── HERO SPLIT LAYOUT ── */}
+      <section className="py-32 lg:py-40 bg-background" aria-labelledby="hero-heading">
+        <div className="mx-auto max-w-7xl px-6 lg:px-10">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            {/* LEFT: TEXT CONTENT */}
+            <div>
+              <div className="flex items-center gap-3 mb-8">
+                <div className="w-3 h-3 bg-[#efd555]" aria-hidden="true" />
+                <p style={{ fontFamily: "Inter, sans-serif", fontWeight: 600, fontSize: "13px", lineHeight: "18px", color: "#efd555", textTransform: "uppercase", letterSpacing: "0.1em" }}>
+                  Pour Hospitalité
+                </p>
+              </div>
+              <h1
+                id="hero-heading"
+                className="font-black uppercase leading-none text-balance mb-8"
+                style={{ fontSize: "clamp(2.2rem, 5vw, 3.5rem)", letterSpacing: "-0.03em", color: "#ffffff" }}
+              >
+                Excellence<br />
+                <span className="italic" style={{ color: "#efd555" }}>opérationnelle.</span>
+              </h1>
+              <p className="text-lg text-foreground/70 leading-relaxed mb-6">
+                Expérience client irréprochable + optimisation espace + efficacité énergétique. Hôtels 4-5*, résidences de prestige : solutions qui augmentent occupancy et réduisent charges de 35%.
+              </p>
+              <p className="text-base text-foreground/60 leading-relaxed mb-12">
+                Ambiance dynamique par chambre. Monitoring maintenance prédictive. Visiophonie intégrée. Analytics décisionnels.
+              </p>
+              <Link 
+                href="/contact"
+                className="focus-ring inline-flex items-center justify-between bg-white hover:bg-gray-100 text-black px-8 py-4 rounded-full text-sm font-semibold transition-all duration-300 hover:shadow-lg group"
+              >
+                Audit Gratuit
+                <div className="ml-4 w-10 h-10 bg-black rounded-full flex items-center justify-center transition-transform group-hover:scale-110">
+                  <ArrowRight size={16} className="text-[#efd555]" aria-hidden="true" />
+                </div>
+              </Link>
+            </div>
 
-      {/* ── HERO IMAGE ── */}
-      <section className="py-0 bg-background" aria-label="Luxury hospitality showcase">
-        <div className="mx-auto max-w-7xl px-6 lg:px-10 mb-24">
-          <div className="relative w-full h-96 lg:h-[500px] rounded-2xl overflow-hidden">
-            <Image 
-              src="/images/hospitalite-luxury-hotel.jpg"
-              alt="Hôtel de luxe avec ambiance intelligente et confort client premium"
-              fill
-              className="object-cover"
-              priority
-            />
+            {/* RIGHT: IMAGE */}
+            <div className="relative w-full h-80 lg:h-96">
+              <Image 
+                src="/images/hospitalite-luxury-hotel.jpg"
+                alt="Chambre d'hôtel de luxe avec ambiance intelligente et confort optimal"
+                fill
+                className="object-cover rounded-2xl"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                priority
+              />
+            </div>
           </div>
         </div>
       </section>

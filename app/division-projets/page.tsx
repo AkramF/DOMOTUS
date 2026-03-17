@@ -57,18 +57,34 @@ const industries = [
   },
   {
     id: "hospitalite",
-    title: "Hospitalité & Retail",
+    title: "Hospitalité",
     tagline: "Excellence opérationnelle",
-    description: "Transformez l'expérience client et optimisez vos charges. Solutions hospitality-grade pour hôtels 4-5*, spas, restaurants et commerces premium.",
+    description: "Transformez l'expérience client et optimisez vos charges. Solutions hôtellerie-grade pour hôtels 4-5*, resorts et résidences de prestige.",
     value: [
       "Expérience client irréprochable et ambiance adaptative",
-      "Réduction charges d'exploitation jusqu'à 40%",
+      "Réduction charges d'exploitation jusqu'à 35%",
       "Gestion intégrée éclairage, climat, sécurité, accès",
       "Dashboard superviseur pour pilotage centralisé"
     ],
     href: "/hospitalite",
     bgColor: "#000000",
     textColor: "#ffffff",
+    accentColor: "#efd555"
+  },
+  {
+    id: "retail",
+    title: "Retail",
+    tagline: "Augmenter avec data",
+    description: "Flux clients en temps réel. Heatmaps zones chaudes/froides. Ambiance adaptive par trafic. Solutions retail qui augmentent conversion et réduisent charges.",
+    value: [
+      "Compteur de flux real-time et heatmaps",
+      "Augmentation conversion +18% et CA +15%",
+      "Ambiance adaptive selon trafic client",
+      "Sécurité anti-vol et gestion des promotions"
+    ],
+    href: "/retail",
+    bgColor: "#ffffff",
+    textColor: "#000000",
     accentColor: "#efd555"
   },
   {

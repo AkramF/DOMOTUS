@@ -99,43 +99,54 @@ const casesStudy = [
 export default function ArchitectesPage() {
   return (
     <main className="min-h-screen bg-background">
-      {/* ── HERO ── */}
-      <section className="py-32 lg:py-48 bg-background" aria-labelledby="hero-heading">
-        <div className="mx-auto max-w-5xl px-6 lg:px-10">
-          <div className="flex items-center gap-3 mb-8">
-            <div className="w-3 h-3 bg-[#efd555]" aria-hidden="true" />
-            <p style={{ fontFamily: "Inter, sans-serif", fontWeight: 600, fontSize: "13px", lineHeight: "18px", color: "#efd555", textTransform: "uppercase", letterSpacing: "0.1em" }}>
-              Pour Architectes & Designers
-            </p>
-          </div>
-          <h1
-            id="hero-heading"
-            className="font-black uppercase leading-none text-balance mb-8"
-            style={{ fontSize: "clamp(2.8rem, 7vw, 5rem)", letterSpacing: "-0.03em", color: "#ffffff" }}
-          >
-            L'invisible<br />
-            <span className="italic" style={{ color: "#efd555" }}>qui magnifie.</span>
-          </h1>
-          <p className="text-lg text-foreground/70 leading-relaxed max-w-3xl mb-8">
-            Intégration domotique aux normes architecturales les plus exigeantes. Solutions discrètes qui préservent l'esthétique tout en apportant confort et efficacité énergétique. Aucun compromis sur le design.
-          </p>
-          <p className="text-base text-foreground/60 leading-relaxed max-w-3xl mb-12">
-            Conception invisible. Documentation CCTP intégrée. Coordination complète chantier. Support technique architectural.
-          </p>
-        </div>
-      </section>
+      {/* ── HERO SPLIT LAYOUT ── */}
+      <section className="py-32 lg:py-40 bg-background" aria-labelledby="hero-heading">
+        <div className="mx-auto max-w-7xl px-6 lg:px-10">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            {/* LEFT: TEXT CONTENT */}
+            <div>
+              <div className="flex items-center gap-3 mb-8">
+                <div className="w-3 h-3 bg-[#efd555]" aria-hidden="true" />
+                <p style={{ fontFamily: "Inter, sans-serif", fontWeight: 600, fontSize: "13px", lineHeight: "18px", color: "#efd555", textTransform: "uppercase", letterSpacing: "0.1em" }}>
+                  Pour Architectes & Designers
+                </p>
+              </div>
+              <h1
+                id="hero-heading"
+                className="font-black uppercase leading-none text-balance mb-8"
+                style={{ fontSize: "clamp(2.2rem, 5vw, 3.5rem)", letterSpacing: "-0.03em", color: "#ffffff" }}
+              >
+                L'invisible<br />
+                <span className="italic" style={{ color: "#efd555" }}>qui magnifie.</span>
+              </h1>
+              <p className="text-lg text-foreground/70 leading-relaxed mb-6">
+                Intégration domotique aux normes architecturales les plus exigeantes. Solutions discrètes qui préservent l'esthétique tout en apportant confort et efficacité énergétique.
+              </p>
+              <p className="text-base text-foreground/60 leading-relaxed mb-12">
+                Conception invisible. Documentation CCTP intégrée. Coordination complète chantier. Support technique architectural.
+              </p>
+              <Link 
+                href="/contact"
+                className="focus-ring inline-flex items-center justify-between bg-white hover:bg-gray-100 text-black px-8 py-4 rounded-full text-sm font-semibold transition-all duration-300 hover:shadow-lg group"
+              >
+                Consulter nos experts
+                <div className="ml-4 w-10 h-10 bg-black rounded-full flex items-center justify-center transition-transform group-hover:scale-110">
+                  <ArrowRight size={16} className="text-[#efd555]" aria-hidden="true" />
+                </div>
+              </Link>
+            </div>
 
-      {/* ── HERO IMAGE ── */}
-      <section className="py-0 bg-background" aria-label="Architectural integration showcase">
-        <div className="mx-auto max-w-7xl px-6 lg:px-10 mb-24">
-          <div className="relative w-full h-96 lg:h-[500px] rounded-2xl overflow-hidden">
-            <Image 
-              src="/images/architectes-design-integration.jpg"
-              alt="Intégration domotique discrète dans appartement architectural"
-              fill
-              className="object-cover"
-              priority
-            />
+            {/* RIGHT: IMAGE */}
+            <div className="relative w-full h-80 lg:h-96">
+              <Image 
+                src="/images/architectes-design-integration.jpg"
+                alt="Intégration domotique discrète dans appartement architectural"
+                fill
+                className="object-cover rounded-2xl"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                priority
+              />
+            </div>
           </div>
         </div>
       </section>
