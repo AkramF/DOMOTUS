@@ -221,55 +221,6 @@ export default function ProjetsSpeciauxPage() {
         </div>
       </section>
 
-      {/* ── EXPERTISE ── */}
-      <section className="py-24 lg:py-32 bg-[#f5f5f5]" aria-labelledby="expertise-heading">
-        <div className="mx-auto max-w-5xl px-6 lg:px-10">
-          <div className="text-center mb-16">
-            <div className="flex items-center justify-center gap-3 mb-6">
-              <div className="w-2 h-2 bg-black" aria-hidden="true" />
-              <p style={{ fontFamily: "Inter, sans-serif", fontWeight: 600, fontSize: "12px", lineHeight: "18px", color: "#000000", textTransform: "uppercase", letterSpacing: "0.1em" }}>
-                Notre Engagement
-              </p>
-              <div className="w-2 h-2 bg-black" aria-hidden="true" />
-            </div>
-            <h2
-              id="expertise-heading"
-              className="font-black uppercase leading-tight text-balance"
-              style={{ fontSize: "clamp(2rem, 5vw, 3.2rem)", letterSpacing: "-0.02em", color: "#000000" }}
-            >
-              Faire l'impossible<br />
-              <span className="italic text-black/50">devenir quotidien.</span>
-            </h2>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            {[
-              {
-                title: "Conception Customisée",
-                description: "Chaque projet unique reçoit conception dédiée. Pas de solutions 'off-the-shelf'. Architecture pensée pour votre contexte spécifique."
-              },
-              {
-                title: "Mise en Service Rigoureuse",
-                description: "Tests exhaustifs. Validation critères. Simulation scénarios d'urgence. Handover professionnel avec formation opérateurs."
-              },
-              {
-                title: "Support Proactif 24/7",
-                description: "Équipe d'experts en permanence disponible. Télémaintenance + intervention sur-site en 4h. Zéro compromise sur continuité."
-              },
-              {
-                title: "Conformité Stricte",
-                description: "Respect normes internationales. Documentation exhaustive. Audits externes réguliers. Traçabilité complète pour compliance."
-              }
-            ].map((item) => (
-              <div key={item.title} className="bg-white p-8 rounded-lg border border-black/5">
-                <h3 className="font-black uppercase text-black text-sm mb-4">{item.title}</h3>
-                <p className="text-sm text-black/70 leading-relaxed">{item.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ── CTA FINAL ── */}
       <section className="py-20 lg:py-28 bg-white" aria-label="Appel à l'action final">
         <div className="mx-auto max-w-4xl px-6 lg:px-10 text-center">
