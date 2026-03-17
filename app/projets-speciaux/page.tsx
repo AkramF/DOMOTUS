@@ -72,35 +72,6 @@ const solutions = [
 ];
 
 export default function ProjetsSpeciauxPage() {
-
-const technicalHighlights = [
-  {
-    title: "Intégration Multi-Protocoles Avancée",
-    description: "KNX, BACnet, Modbus, OPC-UA, MQTT. Pas d'enfermement technologique. Architecture ouverte et modulaire."
-  },
-  {
-    title: "Cybersécurité Renforcée",
-    description: "Isolation réseau. VPN chiffré. Authentification multifacteur. Audit logs complète. Conformité NIST, ISO 27001."
-  },
-  {
-    title: "IA & Machine Learning",
-    description: "Prédiction anomalies. Détection patterns suspects. Recommandations maintenance autonomes."
-  },
-  {
-    title: "Supervision Temps Réel",
-    description: "Dashboard custom. Alertes intelligentes (pas d'alertes superflues). Intégration ticketing automatique."
-  },
-  {
-    title: "Documentation Complète",
-    description: "Schémas techniques détaillés. Carnets d'exploitation. Formation opérateurs. Support hand-over professionnel."
-  },
-  {
-    title: "Redondance & Résilience",
-    description: "Systèmes failover automatiques. Pas de single point of failure. Continuité de service garantie."
-  }
-];
-
-export default function ProjetsSpeciaux() {
   return (
     <main className="min-h-screen bg-background">
       {/* ── HERO ── */}
@@ -187,9 +158,6 @@ export default function ProjetsSpeciaux() {
                 </ul>
               </div>
             ))}
-                </ul>
-              </div>
-            ))}
           </div>
         </div>
       </section>
@@ -215,7 +183,32 @@ export default function ProjetsSpeciaux() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {technicalHighlights.map((item, idx) => (
+            {[
+              {
+                title: "Intégration Multi-Protocoles Avancée",
+                description: "KNX, BACnet, Modbus, OPC-UA, MQTT. Pas d'enfermement technologique. Architecture ouverte et modulaire."
+              },
+              {
+                title: "Cybersécurité Renforcée",
+                description: "Isolation réseau. VPN chiffré. Authentification multifacteur. Audit logs complète. Conformité NIST, ISO 27001."
+              },
+              {
+                title: "IA & Machine Learning",
+                description: "Prédiction anomalies. Détection patterns suspects. Recommandations maintenance autonomes."
+              },
+              {
+                title: "Supervision Temps Réel",
+                description: "Dashboard custom. Alertes intelligentes (pas d'alertes superflues). Intégration ticketing automatique."
+              },
+              {
+                title: "Documentation Complète",
+                description: "Schémas techniques détaillés. Carnets d'exploitation. Formation opérateurs. Support hand-over professionnel."
+              },
+              {
+                title: "Redondance & Résilience",
+                description: "Systèmes failover automatiques. Pas de single point of failure. Continuité de service garantie."
+              }
+            ].map((item) => (
               <div key={item.title} className="bg-card p-8 rounded-lg border border-foreground/10">
                 <div className="w-10 h-10 rounded-full bg-[#efd555]/10 flex items-center justify-center mb-4">
                   <Zap size={20} className="text-[#efd555]" aria-hidden="true" />
