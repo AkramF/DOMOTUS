@@ -70,34 +70,8 @@ const solutions = [
     ]
   }
 ];
-      "Accès biométrique zones sensibles",
-      "Monitoring température/humidité",
-      "Historique accès audit",
-      "Alertes conformité strictes"
-    ],
-    icon: "🏥"
-  },
-  {
-    category: "Lieux Patrimoniaux",
-    title: "Musées & Patrimoine",
-    description: "Monitoring conservation (T°, humidité, lumière UV). Détection intrusion silencieuse. Guidage visiteur discret. Sécurité sans rupture esthétique.",
-    features: [
-      "Monitoring climat strict dépôts",
-      "Capteurs UV exposition",
-      "Détection intrusion silencieuse",
-      "Vitrines intelligentes anti-vol",
-      "Audio guide géolocalisation"
-    ],
-    icon: "🎨"
-  },
-  {
-    category: "Laboratoires & R&D",
-    title: "Environnements Spécialisés",
-    description: "Gestion conditions strictes (ISO classe). Traçabilité complète accès/mouvements. Intégration systèmes mesure scientifique.",
-    features: [
-      "Gestion classe ISO classe purity",
-      "Accès multi-niveaux validés",
-      "Logs complète audit trail",
+
+export default function ProjetsSpeciaux Page() {
       "Intégration instruments mesure",
       "Alertes anomalies critères"
     ],
