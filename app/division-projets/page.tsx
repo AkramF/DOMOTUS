@@ -217,62 +217,6 @@ export default function DivisionProjetsPage() {
         );
       })}
 
-      {/* ── PROJETS SPÉCIAUX ── */}
-      <section className="py-24 lg:py-32 bg-background" aria-labelledby="special-heading">
-        <div className="mx-auto max-w-5xl px-6 lg:px-10">
-          <div className="text-center mb-16">
-            <div className="flex items-center justify-center gap-3 mb-6">
-              <div className="w-3 h-3 bg-[#efd555]" aria-hidden="true" />
-              <p style={{ fontFamily: "Inter, sans-serif", fontWeight: 600, fontSize: "14px", lineHeight: "20px", color: "#efd555", textTransform: "uppercase", letterSpacing: "0.05em" }}>
-                Excellence
-              </p>
-              <div className="w-3 h-3 bg-[#efd555]" aria-hidden="true" />
-            </div>
-            <h2
-              id="special-heading"
-              className="font-black uppercase leading-tight text-balance mb-6"
-              style={{ fontSize: "clamp(2.2rem, 5vw, 3.8rem)", letterSpacing: "-0.03em", color: "#ffffff" }}
-            >
-              Projets Spéciaux
-            </h2>
-            <p className="italic text-lg mb-8" style={{ color: "#efd555", fontSize: "clamp(1.1rem, 2vw, 1.375rem)" }}>
-              Expertise pour l'exception
-            </p>
-            <p className="text-base leading-relaxed max-w-3xl mx-auto" style={{ color: "#ffffff", opacity: 0.85 }}>
-              Solutions sur-mesure pour environnements complexes : musées, hôpitaux, laboratoires, centres de recherche, sites sensibles. Intégration multi-protocoles avancée, cybersécurité renforcée, supervision temps réel et documentation complète.
-            </p>
-          </div>
-
-          <div className="bg-card rounded-lg p-8 lg:p-12 border border-foreground/10 mb-12">
-            <div className="grid md:grid-cols-2 gap-6">
-              {[
-                "Intégration multi-protocoles avancée (KNX, BACnet, Modbus)",
-                "Cybersécurité renforcée et isolation réseau",
-                "Supervision temps réel et alertes prédictives",
-                "Documentation complète et formation opérateur"
-              ].map((feature, idx) => (
-                <div key={idx} className="flex gap-3">
-                  <div className="w-2 h-2 rounded-sm mt-2 flex-shrink-0 bg-[#efd555]" aria-hidden="true" />
-                  <p className="text-sm leading-relaxed" style={{ color: "#ffffff" }}>
-                    {feature}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="text-center">
-            <Link 
-              href="/projets-speciaux"
-              className="focus-ring inline-flex items-center justify-between bg-[#efd555] hover:bg-[#e8d340] text-black px-10 py-4 rounded-full text-sm font-semibold transition-all duration-300 hover:shadow-lg group"
-            >
-              Découvrir nos projets spéciaux
-              <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
-            </Link>
-          </div>
-        </div>
-      </section>
-
       {/* ── CTA FINAL ── */}
       <section className="py-20 lg:py-28 bg-white" aria-label="Appel à l'action final">
         <div className="mx-auto max-w-4xl px-6 lg:px-10 text-center">

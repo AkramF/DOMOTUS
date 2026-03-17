@@ -209,23 +209,23 @@ export default function VillasPage() {
       <MomentsInteractif moments={modesVie} />
 
       {/* ── NOS ESPACES CONNECTÉS ── */}
-      <section className="py-20 lg:py-28 bg-white" aria-labelledby="espaces-heading">
+      <section className="py-20 lg:py-32 bg-white" aria-labelledby="espaces-heading">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
-          <div className="mb-16 lg:mb-20">
-            <div className="inline-flex items-center gap-2 mb-5">
+          <div className="mb-16 lg:mb-24">
+            <div className="inline-flex items-center gap-3 mb-6">
               <div className="w-3 h-3 bg-foreground" aria-hidden="true"></div>
-              <span style={{ fontFamily: "Inter, sans-serif", fontWeight: 600, fontSize: "14px", lineHeight: "20px", color: "#000000", letterSpacing: "0.1em" }}>ARCHITECTURE</span>
+              <span style={{ fontFamily: "Inter, sans-serif", fontWeight: 600, fontSize: "14px", lineHeight: "20px", color: "#000000", textTransform: "uppercase", letterSpacing: "0.1em" }}>ARCHITECTURE</span>
             </div>
             <h2
               id="espaces-heading"
-              className="font-black uppercase leading-tight text-balance max-w-3xl text-black"
+              className="font-black uppercase leading-tight text-balance text-black mb-6"
               style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", letterSpacing: "-0.02em" }}
             >
-              Chaque espace de votre<br />
-              <span className="italic font-light text-black">maison devient vivant.</span>
+              Chaque espace<br />
+              <span className="italic font-light">devient vivant.</span>
             </h2>
-            <p className="mt-6 text-[17px] text-black max-w-2xl leading-relaxed font-light">
-              De la chambre au salon, du bureau à la salle de bain, chaque pièce s'adapte intelligemment à vos moments de vie.
+            <p className="text-lg text-black/70 leading-relaxed max-w-3xl">
+              De la chambre au salon, du bureau à la salle de bain, chaque pièce s'adapte intelligemment à vos moments de vie. La domotique n'est pas une addition — elle est l'âme de votre maison.
             </p>
           </div>
 
