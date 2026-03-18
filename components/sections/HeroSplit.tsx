@@ -112,6 +112,7 @@ export default function Hero() {
               {/* Image inside white frame */}
                 <div 
                   className="relative w-full h-full overflow-hidden rounded-lg sm:rounded-xl group" 
+                  style={{ position: 'relative' }}
                 >
                   <Image
                     src="/images/hero-bg.jpg"

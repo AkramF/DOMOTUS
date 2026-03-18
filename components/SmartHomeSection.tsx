@@ -1,61 +1,45 @@
 'use client'
 
 import Link from 'next/link'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Sparkles, Brain, Zap } from 'lucide-react'
 import { motion } from 'framer-motion'
 
 const values = [
   {
     id: 1,
-    title: 'Esthétique sans compromis.',
-    description: 'Vos équipements se fondent dans l\'architecture. Pas de câbles, pas d\'encombrement : seulement le design.',
-    icon: (
-      <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path d="M3 3h18v18H3z" />
-        <path d="M3 9h18M9 3v18M15 3v18" />
-      </svg>
-    )
+    icon: Sparkles,
+    title: 'Esthétique sans compromis',
+    description: 'Vos équipements se fondent dans l\'architecture. Pas de câbles visibles, pas d\'encombrement : seulement le design épuré que vous avez rêvé.',
   },
   {
     id: 2,
-    title: 'Maîtrise absolue.',
-    description: 'Une interface unique et élégante pour tout piloter. La complexité disparaît au bout de vos doigts.',
-    icon: (
-      <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <circle cx="12" cy="12" r="1.5" />
-        <circle cx="12" cy="12" r="8" />
-        <path d="M12 4v8" />
-      </svg>
-    )
+    icon: Brain,
+    title: 'Intelligence qui anticipe',
+    description: 'Votre maison apprend vos habitudes et ajuste confort, éclairage et température avant même que vous n\'en ayez besoin.',
   },
   {
     id: 3,
-    title: 'L\'habitat qui vous devance.',
-    description: 'Votre maison apprend vos habitudes. Elle ajuste le confort avant même que vous n\'y pensiez.',
-    icon: (
-      <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <circle cx="12" cy="12" r="8" />
-        <path d="M12 8v4l3 2M18 8l-1 1M6 8l1 1" />
-      </svg>
-    )
+    icon: Zap,
+    title: 'Efficacité énergétique maximale',
+    description: 'Réduisez vos factures de 22 à 40% grâce à l\'optimisation intelligente des systèmes en temps réel, 24/7.',
   },
 ]
 
 export default function SmartHomeSection() {
   return (
-    <section className="relative py-16 lg:py-24 bg-white z-20">
+    <section className="relative py-20 lg:py-32 bg-white z-20">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         {/* Header - Left Aligned */}
-        <div className="mb-12 lg:mb-16 max-w-3xl">
+        <div className="mb-16 lg:mb-20 max-w-3xl">
           {/* Overline with Square Bullet */}
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="mb-4 flex items-center gap-3"
+            className="mb-6 flex items-center gap-3"
           >
-            <div className="w-2.5 h-2.5 bg-black flex-shrink-0" aria-hidden="true"></div>
-            <span style={{ fontFamily: "Inter, sans-serif", fontWeight: 600, fontSize: "14px", lineHeight: "20px", color: "#000000" }}>
+            <div className="w-3 h-3 bg-black flex-shrink-0" aria-hidden="true"></div>
+            <span style={{ fontFamily: "Inter, sans-serif", fontWeight: 600, fontSize: "14px", lineHeight: "20px", color: "#000000", textTransform: "uppercase", letterSpacing: "0.1em" }}>
               PHILOSOPHIE
             </span>
           </motion.div>
@@ -65,10 +49,11 @@ export default function SmartHomeSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-sans font-black text-4xl lg:text-5xl text-black leading-tight mb-5"
-            style={{ letterSpacing: '-0.02em' }}
+            className="font-black uppercase leading-tight text-black text-balance mb-6"
+            style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", letterSpacing: "-0.02em" }}
           >
-            L&apos;Équilibre Absolu
+            Quand la technologie<br />
+            <span className="italic font-light text-black">s&apos;efface.</span>
           </motion.h2>
 
           {/* Subtitle */}
@@ -76,41 +61,38 @@ export default function SmartHomeSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="font-sans text-base lg:text-lg text-black leading-relaxed"
+            className="text-lg text-black/70 leading-relaxed max-w-2xl"
           >
-            Quand la technologie s&apos;efface, l&apos;expérience commence.
+            L&apos;invisible qui magnifie. Votre maison ne doit jamais montrer son intelligence — elle doit la vivre. Chaque système travaille en harmonie silencieuse, créant une expérience si naturelle que vous oubliez qu&apos;elle existe.
           </motion.p>
         </div>
 
         {/* Values Grid - 3 Columns */}
-        <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid md:grid-cols-3 gap-8 lg:gap-10">
           {values.map((value, idx) => (
             <motion.div
               key={value.id}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: idx * 0.12 }}
+              transition={{ duration: 0.6, delay: idx * 0.15 }}
               className="group"
             >
               {/* Card Container */}
-              <div className="relative p-6 lg:p-7 rounded-2xl transition-all duration-500 hover:shadow-lg hover:shadow-black/8 hover:-translate-y-0.5">
-                {/* Subtle border on hover */}
-                <div className="absolute inset-0 border border-foreground/0 group-hover:border-foreground/10 rounded-2xl transition-colors duration-500" />
-
+              <div className="relative p-8 rounded-xl bg-black/2 border border-black/8 transition-all duration-500 hover:border-black/20 hover:shadow-lg hover:-translate-y-1">
                 {/* Content */}
-                <div className="relative z-10 space-y-5">
+                <div className="space-y-5">
                   {/* Icon */}
-                  <div className="w-12 h-12 text-black group-hover:text-black transition-colors duration-300">
-                    {value.icon}
+                  <div className="w-12 h-12 flex items-center justify-center rounded-lg bg-black/8 group-hover:bg-black/12 transition-colors duration-300">
+                    <value.icon size={24} className="text-black" aria-hidden="true" />
                   </div>
 
                   {/* Title */}
-                  <h3 className="font-sans font-bold text-lg lg:text-xl text-black leading-tight group-hover:text-black transition-colors duration-300">
+                  <h3 className="font-bold uppercase text-black text-sm leading-tight tracking-wide">
                     {value.title}
                   </h3>
 
                   {/* Description */}
-                  <p className="font-sans text-[14px] text-black leading-relaxed group-hover:text-black transition-colors duration-300">
+                  <p className="text-sm text-black/70 leading-relaxed">
                     {value.description}
                   </p>
                 </div>
@@ -123,16 +105,22 @@ export default function SmartHomeSection() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-12 lg:mt-14 pt-8 lg:pt-10 border-t border-foreground/10 text-center"
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="mt-16 lg:mt-20 pt-12 lg:pt-16 border-t border-black/10"
         >
-          <Link
-            href="/contact"
-            className="inline-flex items-center gap-3 px-8 py-4 bg-black text-white font-sans font-bold rounded-full hover:shadow-lg hover:shadow-black/25 transition-all duration-300 group"
-          >
-            <span>Explorer les services</span>
-            <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-          </Link>
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-8">
+            <div>
+              <p className="text-sm text-black/60 mb-2">Découvrez comment ça marche</p>
+              <h3 className="font-bold text-lg text-black">Explorer nos expertises</h3>
+            </div>
+            <Link
+              href="/maison-connectee"
+              className="inline-flex items-center gap-3 px-6 py-3 bg-black text-white font-semibold text-sm rounded-full hover:shadow-lg hover:shadow-black/25 transition-all duration-300 group whitespace-nowrap"
+            >
+              <span>En savoir plus</span>
+              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" aria-hidden="true" />
+            </Link>
+          </div>
         </motion.div>
       </div>
     </section>

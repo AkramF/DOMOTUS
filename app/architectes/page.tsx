@@ -1,235 +1,293 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowRight, Lightbulb, Thermometer, Zap, Lock, Eye, Music } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Architectes & Designers — Domotique KNX | Domotus",
+  title: "Solutions Domotique pour Architectes & Designers | Domotus",
   description:
-    "Partenaire domotique pour architectes. Multi-protocoles certifiés, invisible, 10 ans garanti. 150+ réalisations au Maroc.",
+    "Intégration domotique discrète sans compromettre l'esthétique. Solutions invisibles, minimalistes et sur-mesure pour vos projets architecturaux exceptionnels au Maroc.",
+  keywords: "domotique architectes, intégration domotique discrète, maison intelligente design, automatisation invisible, Maroc",
   alternates: { canonical: "https://www.domotus.ma/architectes" },
   openGraph: {
-    title: "Architectes & Designers — Domotique | Domotus",
-    description: "Domotique invisible certifiée. 10 ans garanti. Intégration architecture.",
+    title: "Solutions Domotique pour Architectes — Intégration Esthétique | Domotus",
+    description: "Domotique invisible qui magnifie vos créations architecturales.",
     url: "https://www.domotus.ma/architectes",
-    images: [
-      {
-        url: "https://www.domotus.ma/images/og-domotus.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Domotus partenaire architectes",
-      },
-    ],
   },
 };
+
+const solutions = [
+  {
+    icon: Lightbulb,
+    title: "Éclairage Architectural Intelligent",
+    description: "Scénarios d'ambiance programmés intégrés dans les systèmes de contrôle d'éclairage. Dimmers invisibles, capteurs de luminosité discrèts, dimming dynamique selon la lumière naturelle.",
+    features: ["Variation fluide 1-100%", "Température de couleur ajustable (2700K-6500K)", "Scénarios mémorisés par zone", "Adaptation lumière naturelle en temps réel"]
+  },
+  {
+    icon: Thermometer,
+    title: "Gestion du Climat Invisible",
+    description: "Thermostats intelligents design, radiateurs connectés minimalistes. Zoning thermique granulaire sans renoncer à l'esthétique. Régulation autonome basée sur occupation et horaires.",
+    features: ["Thermostats sans fil muraux discrets", "Valet de climat par pièce", "Apprentissage des patterns de confort", "Intégration complète au design intérieur"]
+  },
+  {
+    icon: Zap,
+    title: "Gestion de l'Énergie Discrète",
+    description: "Monitoring consommation énergétique visible via app mobile uniquement. Alertes intelligentes sur surconsommation. Délestage automatique en cas de surcharge.",
+    features: ["Compteurs d'énergie cachés", "Dashboard mobile épuré", "Alertes intelligentes", "Optimisation automatique pic/creux"]
+  },
+  {
+    icon: Lock,
+    title: "Contrôle d'Accès Architectural",
+    description: "Serrures invisibles avec motorisation silencieuse. Accès par code, smartphone ou badge RFID sans rupture visuelle. Gestion des droits d'accès granulaire.",
+    features: ["Serrures motorisées design", "Accès smartphone sans clé", "Codes d'accès temporaires", "Journalisation discrète"]
+  },
+  {
+    icon: Eye,
+    title: "Sécurité Intégrée au Design",
+    description: "Caméras discrètes intégrées en luminaires ou mobilier. Détecteurs de mouvement esthétiques. Enregistrement cloud sécurisé sans boîtier visible.",
+    features: ["Caméras cachées en luminaires", "Détecteurs de présence élégants", "Vision nocturne infrarouge", "Stockage cloud chiffré"]
+  },
+  {
+    icon: Music,
+    title: "Audio Ambient Distributed",
+    description: "Système audio multiroom invisible. Haut-parleurs intégrés en plafonds, mobilier ou murs. Contrôle par zone, synchronisation audio précise.",
+    features: ["Haut-parleurs encastrés", "Synchronisation sans latence", "Contrôle par pièce indépendant", "Streaming haute fidélité"]
+  }
+];
+
+const processSteps = [
+  {
+    step: 1,
+    title: "Audit Architectural",
+    description: "Analyse complète des plans, matériaux et vision esthétique. Identification des points d'intégration non-invasifs."
+  },
+  {
+    step: 2,
+    title: "Conception Intégrée",
+    description: "Schémas détaillés d'intégration invisible. Localisation des gaines, passages discrets, choix des matériaux premium."
+  },
+  {
+    step: 3,
+    title: "Documentation CCTP",
+    description: "Carnets de câblage détaillés, standards techniques. Compatible avec tous les protocoles ouverts (KNX, Matter, Zigbee)."
+  },
+  {
+    step: 4,
+    title: "Coordination de Chantier",
+    description: "Présence sur site durant les phases critiques. Liaison avec tous corps de métier. Respect calendrier architectural."
+  },
+  {
+    step: 5,
+    title: "Mise en Service Premium",
+    description: "Configuration fine des scénarios. Formation occupants. Support technique dédié."
+  }
+];
+
+const casesStudy = [
+  {
+    title: "Villa Prestige Marrakech",
+    description: "Intégration domotique complète dans projet architectural d'exception. Zoning intelligent thermique/lumineux par pièce sans visible change.",
+    result: "100% invisible, 35% gain énergétique"
+  },
+  {
+    title: "Boutique Design Casablanca",
+    description: "Ambiance dynamique programmée selon heure et affluence clients. Éclairage architectural magnifiant les créations.",
+    result: "Ambiance totalement contrôlée, 0 équipement visible"
+  }
+];
 
 export default function ArchitectesPage() {
   return (
     <main className="min-h-screen bg-background">
-      {/* ── HERO ── */}
-      <section className="relative min-h-[85vh] flex items-center py-24" aria-labelledby="hero-heading">
-        <div className="mx-auto max-w-5xl px-6 lg:px-10 w-full">
-          <div className="max-w-3xl">
-            <p className="text-[12px] uppercase tracking-[0.3em] text-primary font-medium mb-8">
-              Partenaire technologique
-            </p>
-            <h1
-              id="hero-heading"
-              className="font-black uppercase leading-none text-foreground text-balance mb-8"
-              style={{ fontSize: "clamp(2.8rem, 7vw, 5.5rem)", letterSpacing: "-0.03em" }}
-            >
-              Vos clients méritent<br />
-              <span className="italic text-foreground/50">la meilleure domotique.</span>
-            </h1>
-            <p className="text-[16px] text-foreground/65 leading-relaxed max-w-xl mb-10">
-              Domotus collabore avec les meilleurs architectes et designers du Maroc pour intégrer la domotique sans compromettre l'intégrité de leurs projets. Multi-protocoles, invisible, garantie.
-            </p>
-            <div className="flex flex-col sm:flex-row items-start gap-4">
-              <Link
-                href="/contact"
-                className="focus-ring inline-flex items-center justify-between bg-white px-8 py-4 rounded-full text-[14px] font-semibold text-black transition-all duration-300 hover:shadow-lg will-change-colors group"
+      {/* ── HERO SPLIT LAYOUT ── */}
+      <section className="py-32 lg:py-40 bg-background" aria-labelledby="hero-heading">
+        <div className="mx-auto max-w-7xl px-6 lg:px-10">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            {/* LEFT: TEXT CONTENT */}
+            <div>
+              <div className="flex items-center gap-3 mb-8">
+                <div className="w-3 h-3 bg-[#efd555]" aria-hidden="true" />
+                <p style={{ fontFamily: "Inter, sans-serif", fontWeight: 600, fontSize: "13px", lineHeight: "18px", color: "#efd555", textTransform: "uppercase", letterSpacing: "0.1em" }}>
+                  Pour Architectes & Designers
+                </p>
+              </div>
+              <h1
+                id="hero-heading"
+                className="font-black uppercase leading-none text-balance mb-8"
+                style={{ fontSize: "clamp(2.2rem, 5vw, 3.5rem)", letterSpacing: "-0.03em", color: "#ffffff" }}
               >
-                Discutons de votre projet
+                L'invisible<br />
+                <span className="italic" style={{ color: "#efd555" }}>qui magnifie.</span>
+              </h1>
+              <p className="text-lg text-foreground/70 leading-relaxed mb-6">
+                Intégration domotique aux normes architecturales les plus exigeantes. Solutions discrètes qui préservent l'esthétique tout en apportant confort et efficacité énergétique.
+              </p>
+              <p className="text-base text-foreground/60 leading-relaxed mb-12">
+                Conception invisible. Documentation CCTP intégrée. Coordination complète chantier. Support technique architectural.
+              </p>
+              <Link 
+                href="/contact"
+                className="focus-ring inline-flex items-center justify-between bg-white hover:bg-gray-100 text-black px-8 py-4 rounded-full text-sm font-semibold transition-all duration-300 hover:shadow-lg group"
+              >
+                Consulter nos experts
                 <div className="ml-4 w-10 h-10 bg-black rounded-full flex items-center justify-center transition-transform group-hover:scale-110">
                   <ArrowRight size={16} className="text-[#efd555]" aria-hidden="true" />
                 </div>
               </Link>
-              <Link
-                href="/maison-connectee"
-                className="focus-ring inline-flex items-center justify-between px-8 py-4 rounded-full text-[14px] font-semibold text-white transition-all duration-300 hover:shadow-lg will-change-colors group"
-                style={{ backgroundColor: "#000000", border: "2px solid #efd555" }}
-              >
-                Voir Solutions Residentielles
-                <div className="ml-4 w-10 h-10 rounded-full flex items-center justify-center transition-transform group-hover:scale-110" style={{ backgroundColor: "#efd555" }}>
-                  <ArrowRight size={16} className="text-black" aria-hidden="true" />
-                </div>
-              </Link>
+            </div>
+
+            {/* RIGHT: IMAGE */}
+            <div className="relative w-full h-80 lg:h-96">
+              <Image 
+                src="/images/architectes-design-integration.jpg"
+                alt="Intégration domotique discrète dans appartement architectural"
+                fill
+                className="object-cover rounded-2xl"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                priority
+              />
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── CRÉDIBILITÉ ── */}
-      <section className="py-20 bg-card" aria-labelledby="credibility-heading">
-        <div className="mx-auto max-w-5xl px-6 lg:px-10">
-          <h2 id="credibility-heading" className="sr-only">Pourquoi nous faire confiance</h2>
-          <div className="grid md:grid-cols-4 gap-8">
-            <div>
-              <p className="font-black text-[2.5rem] text-primary mb-2">10+</p>
-              <p className="text-[13px] uppercase tracking-[0.1em] text-foreground/60">Années d'expérience<br />en architecture domotique</p>
-            </div>
-            <div>
-              <p className="font-black text-[2.5rem] text-primary mb-2">+150</p>
-              <p className="text-[13px] uppercase tracking-[0.1em] text-foreground/60">Projets réalisés<br />depuis 2017</p>
-            </div>
-            <div>
-              <p className="font-black text-[2.5rem] text-primary mb-2">100%</p>
-              <p className="text-[13px] uppercase tracking-[0.1em] text-foreground/60">Certifications<br />multi-protocoles</p>
-            </div>
-            <div>
-              <p className="font-black text-[2.5rem] text-primary mb-2">24/7</p>
-              <p className="text-[13px] uppercase tracking-[0.1em] text-foreground/60">Support technique<br />pour vos clients</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── POURQUOI NOUS ── */}
-      <section className="py-28" aria-labelledby="why-us-heading">
-        <div className="mx-auto max-w-5xl px-6 lg:px-10">
-          <h2 id="why-us-heading" className="font-black uppercase text-foreground text-balance mb-16" style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", letterSpacing: "-0.02em" }}>
-            Recommander Domotus,<br />
-            <span className="italic text-foreground/50">c'est protéger votre réputation.</span>
-          </h2>
-          
-          <div className="grid lg:grid-cols-3 gap-12 mb-16">
-            {/* Multi-protocoles */}
-            <div>
-              <div className="w-12 h-12 bg-primary/10 rounded mb-6 flex items-center justify-center">
-                <span className="text-primary font-black text-lg">∞</span>
-              </div>
-              <h3 className="font-black uppercase text-foreground mb-3 text-[14px]">Multi-protocoles</h3>
-              <p className="text-foreground/60 text-[14px] leading-relaxed">
-                KNX, Crestron, Lutron, Zigbee, Matter. Vos clients ne sont jamais enfermés. Flexibilité totale pour l'évolution de leurs systèmes.
+      {/* ── SOLUTIONS CORE ── */}
+      <section className="py-24 lg:py-32 bg-white" aria-labelledby="solutions-heading">
+        <div className="mx-auto max-w-7xl px-6 lg:px-10">
+          <div className="mb-16">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-2 h-2 bg-black" aria-hidden="true" />
+              <p style={{ fontFamily: "Inter, sans-serif", fontWeight: 600, fontSize: "12px", lineHeight: "18px", color: "#000000", textTransform: "uppercase", letterSpacing: "0.1em" }}>
+                Solutions Invisibles
               </p>
             </div>
-
-            {/* Design invisible */}
-            <div>
-              <div className="w-12 h-12 bg-primary/10 rounded mb-6 flex items-center justify-center">
-                <span className="text-primary font-black text-lg">◇</span>
-              </div>
-              <h3 className="font-black uppercase text-foreground mb-3 text-[14px]">Design invisible</h3>
-              <p className="text-foreground/60 text-[14px] leading-relaxed">
-                Zéro câbles apparents, zéro boîtiers visibles. La technologie s'intègre à votre architecture, pas l'inverse.
-              </p>
-            </div>
-
-            {/* Garanti */}
-            <div>
-              <div className="w-12 h-12 bg-primary/10 rounded mb-6 flex items-center justify-center">
-                <span className="text-primary font-black text-lg">✓</span>
-              </div>
-              <h3 className="font-black uppercase text-foreground mb-3 text-[14px]">10 ans garanti</h3>
-              <p className="text-foreground/60 text-[14px] leading-relaxed">
-                Durabilité certifiée, support 24/7, aucun souci post-livraison. Vos clients sont sereins, vous aussi.
-              </p>
-            </div>
+            <h2
+              id="solutions-heading"
+              className="font-black uppercase leading-tight text-balance"
+              style={{ fontSize: "clamp(2rem, 5vw, 3.2rem)", letterSpacing: "-0.02em", color: "#000000" }}
+            >
+              Domotique<br />
+              <span className="italic text-black/50">sans compromis esthétique.</span>
+            </h2>
           </div>
 
-          {/* Risk mitigation */}
-          <div className="bg-card p-8 rounded">
-            <h3 className="font-black uppercase text-foreground mb-6 text-[14px]">Zéro risque pour votre chantier</h3>
-            <div className="space-y-4">
-              <div className="flex items-start gap-3">
-                <Check size={18} className="text-primary mt-0.5 flex-shrink-0" aria-hidden="true" />
-                <p className="text-foreground/70 text-[14px]"><span className="font-bold">Calendrier respecté</span> — Intégration sans retard chantier</p>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {solutions.map((sol) => (
+              <div key={sol.title} className="bg-[#f5f5f5] p-8 rounded-lg border border-black/5 hover:border-[#efd555]/20 transition-colors">
+                <sol.icon size={28} className="mb-4 text-black" aria-hidden="true" />
+                <h3 className="font-black uppercase text-sm mb-3 text-black">{sol.title}</h3>
+                <p className="text-sm text-black/70 leading-relaxed mb-6">{sol.description}</p>
+                <ul className="space-y-2">
+                  {sol.features.map((feat) => (
+                    <li key={feat} className="flex gap-2 text-xs text-black/60">
+                      <div className="w-1 h-1 rounded-full mt-1.5 flex-shrink-0 bg-black" />
+                      {feat}
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <div className="flex items-start gap-3">
-                <Check size={18} className="text-primary mt-0.5 flex-shrink-0" aria-hidden="true" />
-                <p className="text-foreground/70 text-[14px]"><span className="font-bold">Documentation complète</span> — Livrables BIM et schémas techniques</p>
-              </div>
-              <div className="flex items-start gap-3">
-                <Check size={18} className="text-primary mt-0.5 flex-shrink-0" aria-hidden="true" />
-                <p className="text-foreground/70 text-[14px]"><span className="font-bold">Maintenance transparente</span> — Votre client bénéficie d'une garantie 10 ans</p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* ── PROCESSUS ── */}
-      <section className="py-28 bg-card" aria-labelledby="process-heading">
+      <section className="py-24 lg:py-32 bg-[#efd555]" aria-labelledby="process-heading">
         <div className="mx-auto max-w-5xl px-6 lg:px-10">
-          <h2 id="process-heading" className="font-black uppercase text-foreground text-balance mb-16" style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", letterSpacing: "-0.02em" }}>
-            Comment on collabore
-          </h2>
+          <div className="mb-16 text-center">
+            <div className="flex items-center justify-center gap-3 mb-6">
+              <div className="w-2 h-2 bg-black" aria-hidden="true" />
+              <p style={{ fontFamily: "Inter, sans-serif", fontWeight: 600, fontSize: "12px", lineHeight: "18px", color: "#000000", textTransform: "uppercase", letterSpacing: "0.1em" }}>
+                Approche Dédiée
+              </p>
+              <div className="w-2 h-2 bg-black" aria-hidden="true" />
+            </div>
+            <h2
+              id="process-heading"
+              className="font-black uppercase leading-tight text-balance"
+              style={{ fontSize: "clamp(2rem, 5vw, 3.2rem)", letterSpacing: "-0.02em", color: "#000000" }}
+            >
+              Intégration<br />
+              <span className="italic text-black/50">de A à Z.</span>
+            </h2>
+          </div>
 
-          <div className="grid lg:grid-cols-4 gap-8">
-            {[
-              { step: "01", title: "Audit BIM", desc: "Intégration sur vos plans, sans impacter la conception" },
-              { step: "02", title: "Design intégré", desc: "Schémas techniques et interfaces validés ensemble" },
-              { step: "03", title: "Installation fluide", desc: "Coordination calendrier, zéro perturbation chantier" },
-              { step: "04", title: "Handover complet", desc: "Formation client, documentation, support 24/7" },
-            ].map((item) => (
-              <div key={item.step}>
-                <div className="text-[3rem] font-black text-primary/20 mb-4">{item.step}</div>
-                <h3 className="font-black uppercase text-foreground text-[13px] mb-3">{item.title}</h3>
-                <p className="text-foreground/60 text-[13px] leading-relaxed">{item.desc}</p>
+          <div className="space-y-6">
+            {processSteps.map((step) => (
+              <div key={step.step} className="bg-white/80 p-8 rounded-lg flex gap-6">
+                <div className="flex items-start">
+                  <div className="w-10 h-10 rounded-full bg-black flex items-center justify-center flex-shrink-0">
+                    <p className="font-black text-[#efd555] text-sm">{step.step}</p>
+                  </div>
+                </div>
+                <div>
+                  <h3 className="font-black uppercase text-black text-sm mb-2">{step.title}</h3>
+                  <p className="text-sm text-black/70">{step.description}</p>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── RÉALISATIONS ── */}
-      <section className="py-28" aria-labelledby="portfolio-heading">
+      {/* ── CAS DE PROJETS ── */}
+      <section className="py-24 lg:py-32 bg-background" aria-labelledby="cases-heading">
         <div className="mx-auto max-w-5xl px-6 lg:px-10">
-          <h2 id="portfolio-heading" className="font-black uppercase text-foreground text-balance mb-4" style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", letterSpacing: "-0.02em" }}>
-            Collaborations<br />
-            <span className="italic text-foreground/50">avec les meilleurs.</span>
-          </h2>
-          <p className="text-foreground/60 text-[15px] mb-16 max-w-2xl">
-            +150 projets d'architectes intégrés avec Domotus. Villas de prestige, immeubles de bureaux, résidences d'exception au Maroc.
-          </p>
+          <div className="mb-16">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-3 h-3 bg-[#efd555]" aria-hidden="true" />
+              <p style={{ fontFamily: "Inter, sans-serif", fontWeight: 600, fontSize: "13px", lineHeight: "18px", color: "#efd555", textTransform: "uppercase", letterSpacing: "0.1em" }}>
+                Références
+              </p>
+            </div>
+            <h2
+              id="cases-heading"
+              className="font-black uppercase leading-tight text-balance"
+              style={{ fontSize: "clamp(2rem, 5vw, 3.2rem)", letterSpacing: "-0.02em", color: "#ffffff" }}
+            >
+              Projets<br />
+              <span className="italic text-foreground/50">d'exception.</span>
+            </h2>
+          </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              { title: "Villa prestige, Casablanca", architect: "Studio Arch+", category: "Résidentiel" },
-              { title: "Immeuble bureaux, Marrakech", architect: "Design Collective", category: "Tertiaire" },
-              { title: "Résidence de luxe, Rabat", architect: "Architecture Studio", category: "Résidentiel" },
-            ].map((project, idx) => (
-              <div key={idx} className="bg-card p-8 rounded">
-                <div className="w-full h-40 bg-foreground/5 rounded mb-6 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="text-foreground/30 text-[12px] uppercase tracking-[0.1em] mb-2">Réalisation</div>
-                    <div className="text-foreground/40 font-bold">{project.category}</div>
-                  </div>
+          <div className="grid md:grid-cols-2 gap-8">
+            {casesStudy.map((cs) => (
+              <div key={cs.title} className="bg-card p-8 rounded-lg border border-foreground/10">
+                <h3 className="font-black uppercase text-white text-sm mb-3">{cs.title}</h3>
+                <p className="text-sm text-foreground/70 leading-relaxed mb-6">{cs.description}</p>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 rounded-full bg-[#efd555]" aria-hidden="true" />
+                  <p className="text-xs font-semibold text-[#efd555]">{cs.result}</p>
                 </div>
-                <h3 className="font-black uppercase text-foreground text-[13px] mb-2">{project.title}</h3>
-                <p className="text-foreground/50 text-[12px]">Avec {project.architect}</p>
               </div>
             ))}
           </div>
-
-          <Link href="/contact" className="inline-flex items-center gap-3 mt-12 border border-foreground/20 px-8 py-4 text-[11px] font-black uppercase tracking-[0.2em] transition-all duration-300 hover:border-foreground/40">
-            Voir toutes les réalisations <ArrowRight size={13} aria-hidden="true" />
-          </Link>
         </div>
       </section>
 
       {/* ── CTA FINAL ── */}
-      <section className="py-28 bg-card" aria-labelledby="cta-heading">
-        <div className="mx-auto max-w-3xl px-6 lg:px-10 text-center">
-          <h2 id="cta-heading" className="font-black uppercase text-foreground text-balance mb-6" style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", letterSpacing: "-0.02em" }}>
+      <section className="py-20 lg:py-28 bg-white" aria-label="Appel à l'action final">
+        <div className="mx-auto max-w-4xl px-6 lg:px-10 text-center">
+          <h2
+            className="font-black uppercase leading-tight text-balance mb-6"
+            style={{ fontSize: "clamp(2rem, 5vw, 3.2rem)", letterSpacing: "-0.03em", color: "#000000" }}
+          >
             Parlons de votre<br />
-            <span className="italic text-foreground/50">prochain projet.</span>
+            <span className="italic text-black/50">vision architecturale.</span>
           </h2>
-          <p className="text-foreground/60 text-[15px] mb-12 max-w-xl mx-auto">
-            Qu'il s'agisse d'une nouvelle conception ou d'une intégration sur un projet existant, Domotus est votre partenaire stratégique.
+          
+          <p className="text-base lg:text-lg text-black/70 leading-relaxed mb-10 max-w-2xl mx-auto">
+            Consultation gratuite avec notre équipe spécialisée architectes. Nous analysons votre projet et proposons une intégration domotique 100% alignée à votre vision esthétique.
           </p>
-          <Link href="/contact" className="inline-flex items-center gap-3 bg-primary px-10 py-5 text-[11px] font-black uppercase tracking-[0.2em] transition-all duration-300 hover:bg-primary/85" style={{ color: "#0a0a0a" }}>
-            Contacter l'équipe <ArrowRight size={13} aria-hidden="true" />
+
+          <Link 
+            href="/contact"
+            className="focus-ring inline-flex items-center justify-between bg-black hover:bg-gray-900 text-white px-10 py-4 rounded-full text-sm lg:text-base font-semibold transition-all duration-300 hover:shadow-2xl group"
+          >
+            Consulter nos experts
+            <div className="ml-4 w-10 h-10 bg-[#efd555] rounded-full flex items-center justify-center transition-transform group-hover:scale-110">
+              <ArrowRight size={16} className="text-black" aria-hidden="true" />
+            </div>
           </Link>
         </div>
       </section>

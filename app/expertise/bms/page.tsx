@@ -57,12 +57,12 @@ export default function BMSPage() {
                 Augmente la valeur de votre immobilier de +15-25%, améliore la satisfaction des locataires, réduit les coûts d'exploitation. Labels de prestige (HQE, LEED, BREEAM) attribués automatiquement.
               </p>
             </div>
-            <div className="aspect-video relative overflow-hidden border border-white/8">
+            <div className="aspect-video relative overflow-hidden border border-white/8 rounded-xl" style={{ position: 'relative' }}>
               <Image
                 src="/images/expertise-bms.jpg"
                 alt="Système BMS de supervision"
                 fill
-                sizes="50vw"
+                sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
               />
             </div>

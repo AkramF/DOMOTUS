@@ -20,7 +20,7 @@ export default function EclairagePage() {
   return (
     <>
       {/* ── HERO ── */}
-      <section className="relative h-screen min-h-[700px] overflow-hidden flex items-center justify-center" style={{ position: 'relative' }}>
+      <section className="relative h-screen min-h-[700px] overflow-hidden flex items-center justify-center">
         <Image
           src="/images/expertise-eclairage-hero.jpg"
           alt="Éclairage intelligent Lutron dans une villa de luxe au Maroc"

@@ -169,8 +169,8 @@ export function ExpertisesShowcase({ items }: ExpertisesShowcaseProps) {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
-          className="relative overflow-hidden rounded-2xl lg:rounded-3xl w-full h-64 sm:h-80 lg:h-96 flex-1 min-h-0 group" 
-          style={{ position: 'relative' }}
+          className="relative overflow-hidden rounded-2xl lg:rounded-3xl w-full flex-1 group" 
+          style={{ position: 'relative', minHeight: '16rem', height: '100%' }}
         >
           <Image
             src={selected.image}

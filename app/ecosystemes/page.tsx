@@ -2,213 +2,160 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Shield, Wifi, Lightbulb, Zap, Plug, RotateCcw } from "lucide-react";
-import SectionLabel from "@/components/ui/section-label";
 
-export const metadata: Metadata = {
-  title: "Écosystèmes Intelligents — Architecture KNX | Domotus",
-  description:
-    "Écosystèmes domotiques KNX certifiés. Sécurité, connectivité, lumière, énergie. Architecture intelligente complète au Maroc.",
-  alternates: { canonical: "https://www.domotus.ma/ecosystemes" },
-  openGraph: {
-    title: "Écosystèmes Intelligents — KNX | Domotus",
-    description: "Architecture domotique complète et interconnectée.",
-    url: "https://www.domotus.ma/ecosystemes",
-    images: [
-      {
-        url: "https://www.domotus.ma/images/og-domotus.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Écosystèmes domotiques",
-      },
-    ],
-  },
-};
-
-const ecosystemes = [
+const domains = [
   {
-    id: 1,
-    title: "Sécurité Intelligente",
-    manifesto: "Une protection discrète, omniprésente, maîtrisée.",
-    description: "Un environnement sécurisé où surveillance, contrôle d'accès et supervision fonctionnent comme un système unifié.",
-    features: [
-      "Vidéosurveillance haute définition",
-      "Contrôle d'accès intelligent",
-      "Interphonie connectée",
-      "Enregistrement sécurisé",
-      "Supervision à distance",
-    ],
+    title: "Sécurité",
     icon: Shield,
+    description: "Protection intégrée. Surveillance, contrôle d'accès, interphonie — un système unifié qui dialogue avec tous les domaines.",
   },
   {
-    id: 2,
-    title: "Connectivité & Infrastructure",
-    manifesto: "La colonne vertébrale numérique de votre propriété.",
-    description: "Une infrastructure réseau stable, performante et évolutive qui soutient l'ensemble des systèmes intelligents.",
-    features: [
-      "Wi-Fi maillé haute performance",
-      "Réseau filaire structuré",
-      "Baies techniques professionnelles",
-      "Redondance internet",
-      "Supervision centralisée",
-    ],
+    title: "Connectivité",
     icon: Wifi,
+    description: "Backbone infrastructure. Un réseau robuste qui relie et soutient chaque système — sans fragmentation.",
   },
   {
-    id: 3,
-    title: "Lumière & Ambiance",
-    manifesto: "La lumière devient une signature architecturale.",
-    description: "Un éclairage scénarisé et intelligent qui valorise les volumes et accompagne chaque moment de vie.",
-    features: [
-      "Éclairage scénarisé",
-      "Variations d'intensité",
-      "Mise en valeur architecturale",
-      "Automatismes intelligents",
-    ],
+    title: "Lumière",
     icon: Lightbulb,
+    description: "Ambiance architectorale. Éclairage scénarisé qui s'adapte au contexte global — bien-être et efficacité.",
   },
   {
-    id: 4,
-    title: "Énergie & Performance",
-    manifesto: "Maîtriser l'énergie sans compromettre le confort.",
-    description: "Un pilotage intelligent des consommations pour optimiser performance et durabilité.",
-    features: [
-      "Monitoring énergétique",
-      "Optimisation de consommation",
-      "Gestion des charges lourdes",
-      "Intégration solaire",
-    ],
+    title: "Énergie",
     icon: Zap,
+    description: "Performance intelligente. Optimisation temps réel qui dialogue avec climat, mobilité et charges.",
   },
   {
-    id: 5,
-    title: "Mobilité Électrique",
-    manifesto: "La mobilité intégrée à votre résidence.",
-    description: "Une infrastructure de recharge pensée comme un prolongement naturel de votre architecture intelligente.",
-    features: [
-      "Bornes de recharge intelligentes",
-      "Gestion dynamique de charge",
-      "Intégration au réseau domestique",
-    ],
+    title: "Mobilité",
     icon: Plug,
+    description: "Recharge intégrée. Bornes intelligentes orchestrées avec l'énergie disponible et les besoins du bâtiment.",
   },
   {
-    id: 6,
-    title: "Expérience & Interaction",
-    manifesto: "Votre propriété, à portée de main.",
-    description: "Une interface centralisée qui simplifie le contrôle et rend l'intelligence accessible.",
-    features: [
-      "Interfaces murales tactiles",
-      "Supervision centralisée",
-      "Application personnalisée",
-      "Automatisations avancées",
-    ],
+    title: "Expérience",
     icon: RotateCcw,
+    description: "Interface centralisée. Tableau de bord où l'utilisateur maîtrise l'ensemble — simple, intuitif, puissant.",
   },
 ];
 
-const piliers = [
-  { title: "Interopérabilité complète", desc: "Tous les systèmes communiquent. Aucun silos. Une cohérence d'ensemble." },
-  { title: "Conception sur mesure", desc: "Chaque propriété est unique. Nous adaptons l'écosystème à votre architecture et vos besoins." },
-  { title: "Évolutivité dans le temps", desc: "Votre système grandit avec vous. Ajoutez, modifiez, améliorez sans refonte complète." },
-  { title: "Intégration certifiée", desc: "KNX, Crestron, Lutron, certifications garanties. Support technique réactif et durable." },
+const scenarios = [
+  {
+    title: "Mode Absence",
+    points: [
+      "Sécurité : surveillance active + alertes temps réel",
+      "Lumière : simulation de présence (aléatoire)",
+      "Énergie : mode économique, charges optimisées",
+    ],
+  },
+  {
+    title: "Arrivée à Domicile",
+    points: [
+      "Sécurité : déverrouillage intelligent + bienvenue",
+      "Lumière : illumination progressive des espaces",
+      "Climat : ajustement automatique de température",
+    ],
+  },
+  {
+    title: "Mode Nuit",
+    points: [
+      "Sécurité : monitoring renforcé + silence sonore",
+      "Lumière : éclairage minimal guidé (sécurité)",
+      "Énergie : veille optimale, charges reportées",
+    ],
+  },
 ];
 
 export default function EcosystemesPage() {
   return (
     <>
-      {/* ── HERO ── */}
-      <section className="relative w-full h-[80vh] overflow-hidden" aria-label="Les Écosystèmes Domotus">
-        <Image src="/images/architects-hero.jpg" alt="Écosystème domotique intelligent — architecture cohérent" fill priority sizes="100vw" className="object-cover object-center" />
-        <div className="absolute inset-0 bg-background/65" />
-        <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse 80% 70% at 50% 40%, transparent 30%, oklch(0 0 0 / 0.45) 100%)" }} />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
-        <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6 pt-20">
-          <div className="flex items-center gap-4 mb-6">
-            <span className="block w-8 h-px bg-foreground/40" aria-hidden="true" />
-            <p className="text-[11px] uppercase tracking-[0.35em] text-primary font-medium">Écosystèmes Intelligents</p>
-            <span className="block w-8 h-px bg-foreground/40" aria-hidden="true" />
-          </div>
-          <h1
-            className="font-black uppercase leading-none text-foreground text-balance mb-6"
-            style={{ fontSize: "clamp(2.5rem, 7vw, 6rem)", letterSpacing: "-0.03em" }}
+      {/* SECTION 1: HERO */}
+      <section className="relative w-full h-screen flex items-center justify-center overflow-hidden">
+        <Image 
+          src="/images/architects-hero.jpg" 
+          alt="Écosystème domotique intelligent Domotus" 
+          fill 
+          priority 
+          sizes="100vw" 
+          className="object-cover object-center" 
+        />
+        <div className="absolute inset-0 bg-background/60" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-transparent to-background/60" />
+        
+        <div className="relative z-10 text-center px-6 max-w-3xl mx-auto">
+          <span className="inline-block text-primary text-xs font-bold uppercase tracking-[0.2em] mb-8">Architecture Interconnectée</span>
+          <h1 
+            className="font-black uppercase leading-tight text-foreground text-balance mb-8"
+            style={{ fontSize: "clamp(2.8rem, 8vw, 5.5rem)", letterSpacing: "-0.03em" }}
           >
-            Les Écosystèmes<br />
-            <span className="italic text-foreground/60">Domotus</span>
+            Un écosystème<br />
+            <span className="italic text-foreground/60 font-light">véritablement intégré</span>
           </h1>
-          <p className="text-[15px] text-foreground/70 max-w-xl text-balance leading-relaxed mb-3">
-            Une architecture intelligente pensée comme un tout cohérent.
+          <p className="text-lg text-foreground/75 max-w-2xl mx-auto mb-12 leading-relaxed">
+            Sécurité, lumière, énergie, mobilité — six domaines qui fonctionnent comme un seul organisme vivant.
           </p>
-          <p className="text-[14px] text-foreground/60 max-w-lg text-balance leading-relaxed mb-10">
-            Chaque propriété moderne repose sur une infrastructure invisible. Domotus conçoit des écosystèmes interconnectés, évolutifs et parfaitement intégrés.
-          </p>
-          <Link href="/contact" className="focus-ring inline-flex items-center gap-3 bg-primary px-8 py-4 text-[11px] font-black uppercase tracking-[0.2em] transition-all duration-300 hover:bg-primary/85" style={{ color: "#0a0a0a" }}>
-            Planifier une consultation <ArrowRight size={13} aria-hidden="true" />
+          <Link 
+            href="/contact"
+            className="inline-flex items-center gap-2 bg-primary hover:bg-primary/85 transition-all duration-300 px-8 py-4 text-xs font-bold uppercase tracking-[0.15em]" 
+            style={{ color: "#0a0a0a" }}
+          >
+            Découvrir l'écosystème <ArrowRight size={16} aria-hidden="true" />
           </Link>
         </div>
       </section>
 
-      {/* ── PHILOSOPHIE ── */}
-      <section className="py-28 bg-background" aria-labelledby="philo-heading">
-        <div className="mx-auto max-w-3xl px-6 text-center">
-          <h2
-            id="philo-heading"
-            className="font-black uppercase leading-tight text-foreground text-balance mb-8"
-            style={{ fontSize: "clamp(1.8rem, 4vw, 3rem)", letterSpacing: "-0.02em" }}
-          >
-            Une approche globale,<br />
-            <span className="italic text-foreground/50">pas une accumulation d'équipements.</span>
-          </h2>
-          <div className="space-y-6 text-foreground/70 text-[15px] leading-relaxed max-w-2xl mx-auto mb-12">
-            <p>
-              Un bâtiment intelligent n'est pas une somme de technologies indépendantes.
-              C'est un système structuré où chaque composant communique avec l'ensemble.
-            </p>
-            <p>
-              Domotus conçoit des écosystèmes complets intégrant :
-            </p>
+      {/* SECTION 2: VISION */}
+      <section className="py-24 lg:py-32 bg-white">
+        <div className="mx-auto max-w-4xl px-6 lg:px-10">
+          <div className="mb-12">
+            <span className="text-primary text-xs font-bold uppercase tracking-[0.15em]">Vision</span>
+            <h2 
+              className="font-black uppercase leading-tight text-black text-balance mt-4 mb-6"
+              style={{ fontSize: "clamp(1.8rem, 5vw, 3.2rem)", letterSpacing: "-0.02em" }}
+            >
+              Pas une addition d'équipements.<br />
+              <span className="italic font-light text-black/80">Un système unifié.</span>
+            </h2>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-2xl mx-auto">
-            {["Sécurité", "Connectivité", "Lumière", "Énergie", "Mobilité", "Expérience utilisateur"].map((item) => (
-              <div key={item} className="px-4 py-3 bg-card border border-white/8 text-sm font-medium text-foreground/70 text-center">
-                {item}
-              </div>
-            ))}
+
+          <div className="space-y-6 text-black/70 leading-relaxed">
+            <p className="text-base">
+              La domotique ne doit pas être une mécanique complexe de technologies isolées. Chez Domotus, nous concevons des écosystèmes où chaque domaine communique, apprend et s'optimise en fonction du contexte global.
+            </p>
+            <p className="text-base">
+              Votre maison n'est pas une somme d'équipements. C'est un organisme vivant.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* ── LES ÉCOSYSTÈMES ── */}
-      <section className="py-28 bg-card" aria-labelledby="ecosystemes-heading">
-        <div className="mx-auto max-w-7xl px-6 lg:px-10">
+      {/* SECTION 3: LES 6 DOMAINES */}
+      <section className="py-24 lg:py-32 bg-background">
+        <div className="mx-auto max-w-6xl px-6 lg:px-10">
           <div className="mb-16">
-            <SectionLabel>Écosystèmes</SectionLabel>
-            <h2
-              id="ecosystemes-heading"
-              className="font-black uppercase leading-none text-foreground text-balance"
-              style={{ fontSize: "clamp(1.8rem, 4vw, 3.2rem)", letterSpacing: "-0.02em" }}
+            <span className="text-primary text-xs font-bold uppercase tracking-[0.15em]">Architecture</span>
+            <h2 
+              className="font-black uppercase leading-tight text-foreground text-balance mt-4"
+              style={{ fontSize: "clamp(1.8rem, 5vw, 3rem)", letterSpacing: "-0.02em" }}
             >
-              Six piliers de votre intelligence résidentielle.
+              Six domaines interconnectés
             </h2>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/6">
-            {ecosystemes.map((eco) => {
-              const IconComponent = eco.icon;
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {domains.map((domain) => {
+              const Icon = domain.icon;
               return (
-                <div key={eco.id} className="bg-background hover:bg-background/80 transition-colors duration-300 p-10 flex flex-col gap-5">
-                  <IconComponent size={24} className="text-primary" aria-hidden="true" />
-                  <div>
-                    <h3 className="font-bold uppercase tracking-[0.08em] text-foreground text-[13px] mb-2">{eco.title}</h3>
-                    <p className="italic text-foreground/60 text-[13px] leading-snug mb-4">{eco.manifesto}</p>
-                    <p className="text-[13px] text-foreground/50 leading-relaxed mb-6">{eco.description}</p>
+                <div 
+                  key={domain.title}
+                  className="bg-card border border-white/6 rounded-lg p-8 hover:border-white/20 transition-all duration-300 flex flex-col gap-4"
+                >
+                  <div className="flex items-start justify-between gap-4">
+                    <h3 className="font-bold uppercase text-foreground text-sm tracking-wider">
+                      {domain.title}
+                    </h3>
+                    <Icon size={24} className="text-primary flex-shrink-0" aria-hidden="true" />
                   </div>
-                  <ul className="space-y-2 text-[12px] text-foreground/45">
-                    {eco.features.map((feature) => (
-                      <li key={feature} className="flex items-start gap-2">
-                        <span className="text-primary mt-0.5">•</span>
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  <p className="text-sm text-foreground/60 leading-relaxed">
+                    {domain.description}
+                  </p>
                 </div>
               );
             })}
@@ -216,64 +163,132 @@ export default function EcosystemesPage() {
         </div>
       </section>
 
-      {/* ── DIFFÉRENCIATION ── */}
-      <section className="py-28 bg-background" aria-labelledby="diff-heading">
-        <div className="mx-auto max-w-7xl px-6 lg:px-10">
+      {/* SECTION 4: ORCHESTRATION */}
+      <section className="py-24 lg:py-32 bg-white">
+        <div className="mx-auto max-w-5xl px-6 lg:px-10">
           <div className="mb-16">
-            <SectionLabel>Avantages</SectionLabel>
-            <h2
-              id="diff-heading"
-              className="font-black uppercase leading-none text-foreground text-balance"
-              style={{ fontSize: "clamp(1.8rem, 4vw, 3.2rem)", letterSpacing: "-0.02em" }}
+            <span className="text-primary text-xs font-bold uppercase tracking-[0.15em]">Orchestration</span>
+            <h2 
+              className="font-black uppercase leading-tight text-black text-balance mt-4"
+              style={{ fontSize: "clamp(1.8rem, 5vw, 3rem)", letterSpacing: "-0.02em" }}
             >
-              Pourquoi un écosystème Domotus ?
+              Trois moments clés
             </h2>
+            <p className="text-base text-black/70 mt-6 leading-relaxed">
+              L'écosystème s'orchestre automatiquement selon le contexte. Voici trois moments clés du quotidien.
+            </p>
           </div>
-          <div className="grid md:grid-cols-2 gap-px bg-white/8">
-            {piliers.map((p, i) => (
-              <div key={i} className="bg-background/50 border border-white/6 hover:border-white/20 transition-colors duration-300 p-10 flex flex-col gap-4">
-                <h3 className="font-bold uppercase tracking-[0.08em] text-foreground text-[14px]">{p.title}</h3>
-                <p className="text-[14px] text-foreground/60 leading-relaxed">{p.desc}</p>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {scenarios.map((scenario, idx) => (
+              <div key={idx} className="bg-black/2 border border-black/8 rounded-lg p-8">
+                <h3 className="font-bold uppercase text-black text-lg tracking-wide mb-6">
+                  {scenario.title}
+                </h3>
+                <ul className="space-y-4">
+                  {scenario.points.map((point, i) => (
+                    <li key={i} className="text-sm text-black/70 flex items-start gap-3">
+                      <span className="text-primary font-bold mt-0.5 flex-shrink-0">→</span>
+                      <span>{point}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── TÉMOIGNAGE ── */}
-      <section className="py-24 bg-card border-y border-white/8 text-center" aria-label="Projets Écosystèmes réalisés">
-        <div className="mx-auto max-w-4xl px-6">
-          <SectionLabel>Approche</SectionLabel>
-          <h2
-            className="font-black uppercase leading-none text-foreground text-balance mb-10 mt-6"
-            style={{ fontSize: "clamp(1.6rem, 3.5vw, 2.8rem)", letterSpacing: "-0.02em" }}
-          >
-            Concevons votre architecture intelligente.
-          </h2>
-          <p className="text-foreground/65 leading-relaxed text-[15px] max-w-2xl mx-auto mb-3">
-            Chaque projet débute par une réflexion stratégique. Nos équipes analysent votre propriété afin de concevoir un écosystème cohérent, évolutif et parfaitement intégré.
-          </p>
-          <p className="text-foreground/55 text-[14px] max-w-2xl mx-auto">
-            De l'audit initial à la livraison finale, nous pensons global. Aucun système n'existe en isolation chez Domotus.
-          </p>
+      {/* SECTION 5: AVANTAGES */}
+      <section className="py-24 lg:py-32 bg-background">
+        <div className="mx-auto max-w-6xl px-6 lg:px-10">
+          <div className="mb-16">
+            <span className="text-primary text-xs font-bold uppercase tracking-[0.15em]">Avantages</span>
+            <h2 
+              className="font-black uppercase leading-tight text-foreground text-balance mt-4"
+              style={{ fontSize: "clamp(1.8rem, 5vw, 3rem)", letterSpacing: "-0.02em" }}
+            >
+              Pourquoi l'écosystème Domotus ?
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {[
+              {
+                title: "Complétude sans fragmentation",
+                description: "Six domaines intégrés en un seul système. Plus besoin de 10 prestataires isolés et incompatibles.",
+              },
+              {
+                title: "Interopérabilité garantie",
+                description: "KNX, Crestron, Lutron, Matter, Zigbee — tous les standards ouverts intégrés nativement.",
+              },
+              {
+                title: "Évolution transparente",
+                description: "Modularité totale. Grandissez progressivement sans refonte. Vos besoins changent, le système s'adapte.",
+              },
+              {
+                title: "Expertise certifiée référente",
+                description: "Équipe formée aux standards multi-protocoles. Support 24/7 et maintenance garantie.",
+              },
+            ].map((adv, idx) => (
+              <div key={idx} className="bg-card border border-white/6 rounded-lg p-8 hover:border-white/20 transition-all duration-300">
+                <h3 className="font-bold uppercase text-foreground text-sm tracking-wider mb-3">
+                  {adv.title}
+                </h3>
+                <p className="text-sm text-foreground/60 leading-relaxed">
+                  {adv.description}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* ── CTA FINAL ── */}
-      <section className="py-28 bg-background text-center" aria-label="Consultation écosystème domotique">
-        <div className="mx-auto max-w-2xl px-6">
-          <h2
-            className="font-black uppercase leading-none text-foreground text-balance mb-8"
-            style={{ fontSize: "clamp(1.8rem, 5vw, 3.6rem)", letterSpacing: "-0.03em" }}
+      {/* SECTION 6: FONDATIONS TECHNOLOGIQUES */}
+      <section className="py-24 lg:py-32 bg-white border-t border-black/5">
+        <div className="mx-auto max-w-4xl px-6 lg:px-10 text-center">
+          <span className="text-primary text-xs font-bold uppercase tracking-[0.15em]">Fondations</span>
+          <h2 
+            className="font-black uppercase leading-tight text-black text-balance mt-4 mb-6"
+            style={{ fontSize: "clamp(1.6rem, 4vw, 2.8rem)", letterSpacing: "-0.02em" }}
           >
-            Planifier une<br />
-            <span className="italic text-foreground/50">consultation privée</span>
+            Multi-protocoles certifiés
           </h2>
-          <p className="text-foreground/60 text-[15px] leading-relaxed mb-12 max-w-lg mx-auto">
-            Découvrez comment un écosystème Domotus peut transformer votre résidence en un environnement entièrement maîtrisé.
+          <p className="text-base text-black/70 leading-relaxed mb-10 max-w-2xl mx-auto">
+            Pas d'enfermement technologique. L'écosystème repose sur les standards ouverts qui comptent. Votre système grandit avec la technologie.
           </p>
-          <Link href="/contact" className="focus-ring inline-flex items-center gap-3 bg-primary px-10 py-4 text-[11px] font-black uppercase tracking-[0.2em] hover:bg-primary/85 transition-all duration-300" style={{ color: "#0a0a0a" }}>
-            Planifier une consultation <ArrowRight size={13} aria-hidden="true" />
+          <div className="flex flex-wrap gap-3 justify-center">
+            {["KNX", "Crestron", "Lutron", "Matter", "Zigbee"].map((proto) => (
+              <span 
+                key={proto}
+                className="px-5 py-2 bg-black/3 border border-black/8 rounded-full text-xs font-semibold text-black uppercase tracking-[0.1em] hover:border-black/20 transition-all"
+              >
+                {proto}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 7: CTA FINAL */}
+      <section className="py-32 lg:py-40 bg-background text-center">
+        <div className="mx-auto max-w-2xl px-6">
+          <h2 
+            className="font-black uppercase leading-tight text-foreground text-balance mb-8"
+            style={{ fontSize: "clamp(1.8rem, 6vw, 3.8rem)", letterSpacing: "-0.03em" }}
+          >
+            Construisons<br />
+            <span className="italic text-foreground/50 font-light">votre écosystème</span>
+          </h2>
+          <p className="text-base text-foreground/70 leading-relaxed mb-12 max-w-lg mx-auto">
+            Chaque résidence est unique. Découvrez comment les 6 domaines peuvent s'orchestrer pour transformer votre habitat en un système vivant.
+          </p>
+          <Link 
+            href="/contact"
+            className="inline-flex items-center gap-2 bg-primary hover:bg-primary/85 transition-all duration-300 px-10 py-4 text-xs font-bold uppercase tracking-[0.15em]"
+            style={{ color: "#0a0a0a" }}
+          >
+            Démarrer une consultation <ArrowRight size={16} aria-hidden="true" />
           </Link>
         </div>
       </section>
