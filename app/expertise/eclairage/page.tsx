@@ -62,6 +62,7 @@ export default function EclairagePage() {
             </div>
             <div 
               className="aspect-video relative overflow-hidden border border-white/8 rounded-xl"
+              style={{ position: 'relative' }}
             >
               <Image
                 src="/images/expertise-eclairage.jpg"

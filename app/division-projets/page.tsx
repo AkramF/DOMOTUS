@@ -1,26 +1,8 @@
-import type { Metadata } from "next";
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+'use client';
 
-export const metadata: Metadata = {
-  title: "Division Projets — B2B Smart Building | Domotus Maroc",
-  description:
-    "Solutions domotique B2B : architectes, promoteurs, hôtellerie, bureaux. KNX, BMS, efficience énergétique. Conformité CCTP.",
-  alternates: { canonical: "https://www.domotus.ma/division-projets" },
-  openGraph: {
-    title: "Division Projets — Smart Building B2B | Domotus",
-    description: "Solutions B2B : architectes, promoteurs, hôtels, bureaux.",
-    url: "https://www.domotus.ma/division-projets",
-    images: [
-      {
-        url: "https://www.domotus.ma/images/og-domotus.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Division Projets Domotus",
-      },
-    ],
-  },
-};
+import Link from "next/link";
+import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { useState, useEffect } from "react";
 
 const industries = [
   {
@@ -122,27 +104,178 @@ const industries = [
 ];
 
 export default function DivisionProjetsPage() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isAutoplay, setIsAutoplay] = useState(true);
+
+  useEffect(() => {
+    if (!isAutoplay) return;
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % industries.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [isAutoplay]);
+
+  const handlePrev = () => {
+    setCurrentIndex((prev) => (prev - 1 + industries.length) % industries.length);
+    setIsAutoplay(false);
+  };
+
+  const handleNext = () => {
+    setCurrentIndex((prev) => (prev + 1) % industries.length);
+    setIsAutoplay(false);
+  };
+
+  const current = industries[currentIndex];
+
   return (
     <main className="min-h-screen bg-background">
-      {/* ── HERO ── */}
-      <section className="py-32 lg:py-48 bg-background" aria-labelledby="hero-heading">
-        <div className="mx-auto max-w-5xl px-6 lg:px-10">
-          <div className="flex items-center gap-3 mb-8">
-            <div className="w-3 h-3 bg-[#efd555]" aria-hidden="true" />
-            <p style={{ fontFamily: "Inter, sans-serif", fontWeight: 600, fontSize: "14px", lineHeight: "20px", color: "#efd555", textTransform: "uppercase", letterSpacing: "0.05em" }}>
-              Division Projets
+      {/* ── HERO SLIDER ── */}
+      <section className="relative min-h-screen flex items-center overflow-hidden">
+        {/* Slider container */}
+        <div className="absolute inset-0 w-full h-full">
+          {industries.map((industry, idx) => (
+            <div
+              key={industry.id}
+              className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+                idx === currentIndex ? "opacity-100" : "opacity-0"
+              }`}
+              style={{
+                backgroundColor: industry.bgColor,
+                color: industry.textColor,
+              }}
+            />
+          ))}
+        </div>
+
+        {/* Content */}
+        <div className="relative z-10 w-full px-6 lg:px-10">
+          <div className="mx-auto max-w-5xl">
+            {/* Label */}
+            <div className="flex items-center gap-3 mb-6 lg:mb-8">
+              <div
+                className="w-3 h-3"
+                style={{ backgroundColor: current.accentColor }}
+                aria-hidden="true"
+              />
+              <p
+                style={{
+                  fontFamily: "Inter, sans-serif",
+                  fontWeight: 600,
+                  fontSize: "14px",
+                  lineHeight: "20px",
+                  color: current.accentColor,
+                  textTransform: "uppercase",
+                  letterSpacing: "0.05em",
+                }}
+              >
+                {current.id}
+              </p>
+            </div>
+
+            {/* Title */}
+            <h1
+              className="font-black uppercase leading-tight text-balance mb-6 lg:mb-8"
+              style={{
+                fontSize: "clamp(2.5rem, 7vw, 5rem)",
+                letterSpacing: "-0.03em",
+                color: current.textColor,
+              }}
+            >
+              {current.title}
+            </h1>
+
+            {/* Tagline */}
+            <p
+              className="italic text-lg leading-relaxed mb-8 lg:mb-12"
+              style={{
+                fontSize: "clamp(1.125rem, 2vw, 1.5rem)",
+                color: current.accentColor,
+              }}
+            >
+              {current.tagline}
             </p>
+
+            {/* Description */}
+            <p
+              className="text-base leading-relaxed max-w-2xl mb-10 lg:mb-12"
+              style={{
+                color: current.textColor === "#ffffff" ? "rgba(255,255,255,0.8)" : "rgba(0,0,0,0.7)",
+              }}
+            >
+              {current.description}
+            </p>
+
+            {/* CTA Button */}
+            <Link
+              href={current.href}
+              className="inline-flex items-center gap-2 px-8 py-4 text-xs font-bold uppercase tracking-[0.15em] transition-all duration-300 hover:gap-3"
+              style={{
+                backgroundColor: current.accentColor,
+                color: current.textColor,
+                border: `2px solid ${current.accentColor}`,
+              }}
+            >
+              Découvrir <ArrowRight size={16} aria-hidden="true" />
+            </Link>
           </div>
-          <h1
-            id="hero-heading"
-            className="font-black uppercase leading-none text-balance mb-8"
-            style={{ fontSize: "clamp(2.8rem, 7vw, 5.5rem)", letterSpacing: "-0.03em", color: "#ffffff" }}
+        </div>
+
+        {/* Slider Controls */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex items-center gap-4">
+          {/* Navigation dots */}
+          <div className="flex gap-2">
+            {industries.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => {
+                  setCurrentIndex(idx);
+                  setIsAutoplay(false);
+                }}
+                className="w-2 h-2 rounded-full transition-all duration-300"
+                style={{
+                  backgroundColor: idx === currentIndex ? current.accentColor : "rgba(255,255,255,0.3)",
+                  width: idx === currentIndex ? "24px" : "8px",
+                }}
+                aria-label={`Go to slide ${idx + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* Arrow buttons */}
+        <button
+          onClick={handlePrev}
+          className="absolute left-6 lg:left-10 top-1/2 transform -translate-y-1/2 z-20 p-3 rounded-full transition-all duration-300 hover:scale-110"
+          style={{
+            backgroundColor: "rgba(239, 213, 85, 0.2)",
+            color: current.accentColor,
+            border: `2px solid ${current.accentColor}`,
+          }}
+          aria-label="Previous slide"
+        >
+          <ChevronLeft size={24} />
+        </button>
+
+        <button
+          onClick={handleNext}
+          className="absolute right-6 lg:right-10 top-1/2 transform -translate-y-1/2 z-20 p-3 rounded-full transition-all duration-300 hover:scale-110"
+          style={{
+            backgroundColor: "rgba(239, 213, 85, 0.2)",
+            color: current.accentColor,
+            border: `2px solid ${current.accentColor}`,
+          }}
+          aria-label="Next slide"
+        >
+          <ChevronRight size={24} />
+        </button>
+
+        {/* Slide counter */}
+        <div className="absolute top-8 right-8 lg:top-12 lg:right-12 z-20 text-center">
+          <p
+            className="text-xs font-bold uppercase tracking-[0.1em]"
+            style={{ color: current.accentColor }}
           >
-            Domotus,<br />
-            <span className="italic" style={{ color: "#efd555" }}>partenaire de votre excellence.</span>
-          </h1>
-          <p className="text-lg text-foreground/70 leading-relaxed max-w-3xl mb-12" style={{ fontSize: "clamp(1rem, 2vw, 1.125rem)" }}>
-            150+ projets réalisés au Maroc. De la conception à la mise en service, nous accompagnons les maîtres d'ouvrage exigeants dans la création d'espaces intelligents, durables et performants. Solutions KNX certifiées, BMS avancé, efficience énergétique et conformité CCTP.
+            {String(currentIndex + 1).padStart(2, "0")} / {String(industries.length).padStart(2, "0")}
           </p>
         </div>
       </section>
