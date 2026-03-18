@@ -57,12 +57,12 @@ export default function AudiovisuelPage() {
                 Distribution audio Sonos dans chaque pièce. Contrôle unifié depuis une télécommande ou smartphone. Synchronisation parfaite entre affichage vidéo et sonorisation, calibrage acoustique professionnel.
               </p>
             </div>
-            <div className="aspect-video relative overflow-hidden border border-white/8">
+            <div className="aspect-video relative overflow-hidden border border-white/8 rounded-xl">
               <Image
                 src="/images/expertise-av.jpg"
                 alt="Installation home cinema"
                 fill
-                sizes="50vw"
+                sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
               />
             </div>

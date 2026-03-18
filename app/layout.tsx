@@ -128,7 +128,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="fr" className="dark">
+    <html lang="fr" className="dark" data-scroll-behavior="smooth">
       <head>
         {/* Preload critical images without blocking render */}
         <link rel="preload" as="image" href="/images/hero-bg.webp" fetchPriority="high" />

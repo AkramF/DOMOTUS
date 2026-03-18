@@ -57,12 +57,12 @@ export default function EnergiePage() {
                 Système BMS (Building Management System) qui apprend vos usages, anticipe les besoins, réduit le gaspillage. Labels HQE, LEED, conformité maroc  assurée. ROI garantis.
               </p>
             </div>
-            <div className="aspect-video relative overflow-hidden border border-white/8">
+            <div className="aspect-video relative overflow-hidden border border-white/8 rounded-xl">
               <Image
                 src="/images/expertise-energie.jpg"
                 alt="Gestion énergétique domotique"
                 fill
-                sizes="50vw"
+                sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
               />
             </div>
