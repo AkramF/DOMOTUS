@@ -1,352 +1,294 @@
-'use client';
-
+import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Zap, Lock, Volume2, Wifi, AlertCircle } from "lucide-react";
-import { motion } from "framer-motion";
+import Image from "next/image";
+import { ArrowRight, Shield, Wifi, Lightbulb, Zap, Plug, RotateCcw } from "lucide-react";
+
+const domains = [
+  {
+    title: "Sécurité",
+    icon: Shield,
+    description: "Protection intégrée. Surveillance, contrôle d'accès, interphonie — un système unifié qui dialogue avec tous les domaines.",
+  },
+  {
+    title: "Connectivité",
+    icon: Wifi,
+    description: "Backbone infrastructure. Un réseau robuste qui relie et soutient chaque système — sans fragmentation.",
+  },
+  {
+    title: "Lumière",
+    icon: Lightbulb,
+    description: "Ambiance architectorale. Éclairage scénarisé qui s'adapte au contexte global — bien-être et efficacité.",
+  },
+  {
+    title: "Énergie",
+    icon: Zap,
+    description: "Performance intelligente. Optimisation temps réel qui dialogue avec climat, mobilité et charges.",
+  },
+  {
+    title: "Mobilité",
+    icon: Plug,
+    description: "Recharge intégrée. Bornes intelligentes orchestrées avec l'énergie disponible et les besoins du bâtiment.",
+  },
+  {
+    title: "Expérience",
+    icon: RotateCcw,
+    description: "Interface centralisée. Tableau de bord où l'utilisateur maîtrise l'ensemble — simple, intuitif, puissant.",
+  },
+];
+
+const scenarios = [
+  {
+    title: "Mode Absence",
+    points: [
+      "Sécurité : surveillance active + alertes temps réel",
+      "Lumière : simulation de présence (aléatoire)",
+      "Énergie : mode économique, charges optimisées",
+    ],
+  },
+  {
+    title: "Arrivée à Domicile",
+    points: [
+      "Sécurité : déverrouillage intelligent + bienvenue",
+      "Lumière : illumination progressive des espaces",
+      "Climat : ajustement automatique de température",
+    ],
+  },
+  {
+    title: "Mode Nuit",
+    points: [
+      "Sécurité : monitoring renforcé + silence sonore",
+      "Lumière : éclairage minimal guidé (sécurité)",
+      "Énergie : veille optimale, charges reportées",
+    ],
+  },
+];
 
 export default function EcosystemesPage() {
   return (
     <>
-      {/* ── STICKY NAVIGATION ── */}
-      <motion.nav
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-        className="fixed top-0 left-0 right-0 h-12 bg-white/80 backdrop-blur-md border-b border-gray-100 z-50"
-      >
-        <div className="mx-auto max-w-7xl px-6 h-full flex items-center justify-between">
-          <div className="flex gap-8">
-            {["Vision", "Solutions", "Interopérabilité", "Évolutivité"].map((item, idx) => (
-              <button
-                key={idx}
-                className="text-sm font-medium text-black/70 hover:text-black transition-colors relative group"
-              >
-                {item}
-                <motion.div
-                  layoutId={`underline-${idx}`}
-                  className="absolute bottom-0 left-0 right-0 h-0.5 bg-yellow-400"
-                  initial={{ width: 0 }}
-                  whileHover={{ width: "100%" }}
-                  transition={{ duration: 0.3 }}
-                />
-              </button>
-            ))}
-          </div>
-          <Link
-            href="/contact"
-            className="px-4 py-2 bg-black text-white text-xs font-bold rounded-none hover:bg-black/85 transition-all"
+      {/* SECTION 1: HERO */}
+      <section className="relative w-full h-screen flex items-center justify-center overflow-hidden">
+        <Image 
+          src="/images/architects-hero.jpg" 
+          alt="Écosystème domotique intelligent Domotus" 
+          fill 
+          priority 
+          sizes="100vw" 
+          className="object-cover object-center" 
+        />
+        <div className="absolute inset-0 bg-background/60" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-transparent to-background/60" />
+        
+        <div className="relative z-10 text-center px-6 max-w-3xl mx-auto">
+          <span className="inline-block text-primary text-xs font-bold uppercase tracking-[0.2em] mb-8">Architecture Interconnectée</span>
+          <h1 
+            className="font-black uppercase leading-tight text-foreground text-balance mb-8"
+            style={{ fontSize: "clamp(2.8rem, 8vw, 5.5rem)", letterSpacing: "-0.03em" }}
           >
-            Audit Gratuit
+            Un écosystème<br />
+            <span className="italic text-foreground/60 font-light">véritablement intégré</span>
+          </h1>
+          <p className="text-lg text-foreground/75 max-w-2xl mx-auto mb-12 leading-relaxed">
+            Sécurité, lumière, énergie, mobilité — six domaines qui fonctionnent comme un seul organisme vivant.
+          </p>
+          <Link 
+            href="/contact"
+            className="inline-flex items-center gap-2 bg-primary hover:bg-primary/85 transition-all duration-300 px-8 py-4 text-xs font-bold uppercase tracking-[0.15em]" 
+            style={{ color: "#0a0a0a" }}
+          >
+            Découvrir l'écosystème <ArrowRight size={16} aria-hidden="true" />
           </Link>
         </div>
-      </motion.nav>
-
-      {/* ── SECTION 1: DOMOTUS OS - LE CERVEAU ── */}
-      <section id="vision" className="py-20 lg:py-32 bg-white pt-24">
-        <div className="mx-auto max-w-5xl px-6 lg:px-10">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-4xl lg:text-6xl font-black leading-tight text-black text-center text-balance mb-20"
-            style={{ letterSpacing: "-0.02em" }}
-          >
-            L'intelligence n'est plus une option.<br />
-            <span className="text-black/60">C'est votre socle.</span>
-          </motion.h2>
-
-          {/* iPhone Mockup with Radiating Lines */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8 }}
-            className="relative flex justify-center"
-          >
-            {/* Central iPhone */}
-            <div className="relative w-64 h-96 bg-black rounded-[40px] border-8 border-black shadow-2xl p-3 flex items-center justify-center overflow-hidden">
-              {/* iPhone Screen Content */}
-              <div className="w-full h-full bg-gradient-to-br from-gray-900 via-black to-gray-900 rounded-[36px] flex flex-col items-center justify-center relative overflow-hidden">
-                {/* Dashboard UI */}
-                <div className="text-center z-10">
-                  <div className="text-yellow-400 text-3xl font-black mb-2">DOMOTUS</div>
-                  <div className="text-white/40 text-xs font-medium">SYSTÈME PRINCIPAL</div>
-                  <div className="mt-8 space-y-2">
-                    <div className="text-white/60 text-xs">Température: 22°C</div>
-                    <div className="text-white/60 text-xs">Énergie: -18%</div>
-                    <div className="text-white/60 text-xs">Sécurité: Actif</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Radiating Lines with Icons */}
-            <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 600 400">
-              {/* Line to Énergie (top-left) */}
-              <motion.line
-                x1="300"
-                y1="200"
-                x2="100"
-                y2="80"
-                stroke="#efd555"
-                strokeWidth="1"
-                initial={{ pathLength: 0, opacity: 0 }}
-                whileInView={{ pathLength: 1, opacity: 0.6 }}
-                transition={{ duration: 1, delay: 0.2 }}
-              />
-              {/* Line to Sécurité (top-right) */}
-              <motion.line
-                x1="300"
-                y1="200"
-                x2="500"
-                y2="80"
-                stroke="#efd555"
-                strokeWidth="1"
-                initial={{ pathLength: 0, opacity: 0 }}
-                whileInView={{ pathLength: 1, opacity: 0.6 }}
-                transition={{ duration: 1, delay: 0.3 }}
-              />
-              {/* Line to Confort (bottom-left) */}
-              <motion.line
-                x1="300"
-                y1="200"
-                x2="100"
-                y2="320"
-                stroke="#efd555"
-                strokeWidth="1"
-                initial={{ pathLength: 0, opacity: 0 }}
-                whileInView={{ pathLength: 1, opacity: 0.6 }}
-                transition={{ duration: 1, delay: 0.4 }}
-              />
-              {/* Line to Réseau (bottom-right) */}
-              <motion.line
-                x1="300"
-                y1="200"
-                x2="500"
-                y2="320"
-                stroke="#efd555"
-                strokeWidth="1"
-                initial={{ pathLength: 0, opacity: 0 }}
-                whileInView={{ pathLength: 1, opacity: 0.6 }}
-                transition={{ duration: 1, delay: 0.5 }}
-              />
-
-              {/* Pulsing Circles at Icons */}
-              {[
-                { x: 100, y: 80, label: "Énergie" },
-                { x: 500, y: 80, label: "Sécurité" },
-                { x: 100, y: 320, label: "Confort" },
-                { x: 500, y: 320, label: "Réseau" },
-              ].map((pos, idx) => (
-                <motion.circle
-                  key={idx}
-                  cx={pos.x}
-                  cy={pos.y}
-                  r="6"
-                  fill="#efd555"
-                  animate={{ r: [6, 10, 6] }}
-                  transition={{ duration: 2, repeat: Infinity, delay: idx * 0.2 }}
-                />
-              ))}
-            </svg>
-          </motion.div>
-        </div>
       </section>
 
-      {/* ── SECTION 2: BENTO GRID - SOLUTIONS INTÉGRÉES ── */}
-      <section id="solutions" className="py-20 lg:py-32 bg-black text-white">
-        <div className="mx-auto max-w-6xl px-6 lg:px-10">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-3xl lg:text-5xl font-black mb-16 text-balance"
-            style={{ letterSpacing: "-0.02em" }}
-          >
-            Nos solutions intégrées
-          </motion.h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {/* Card 1: Sérénité & Vigilance (2 cols) */}
-            <motion.div
-              whileHover={{ scale: 1.02 }}
-              className="md:col-span-2 bg-gradient-to-br from-black to-gray-900 border border-gray-800 rounded-xl p-8 relative overflow-hidden group"
+      {/* SECTION 2: VISION */}
+      <section className="py-24 lg:py-32 bg-white">
+        <div className="mx-auto max-w-4xl px-6 lg:px-10">
+          <div className="mb-12">
+            <span className="text-primary text-xs font-bold uppercase tracking-[0.15em]">Vision</span>
+            <h2 
+              className="font-black uppercase leading-tight text-black text-balance mt-4 mb-6"
+              style={{ fontSize: "clamp(1.8rem, 5vw, 3.2rem)", letterSpacing: "-0.02em" }}
             >
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-10 bg-gradient-to-br from-yellow-400 to-transparent transition-opacity duration-300" />
-              <div className="relative z-10">
-                <div className="flex items-start justify-between mb-6">
-                  <div>
-                    <h3 className="text-2xl font-black mb-2">Sérénité & Vigilance</h3>
-                    <p className="text-sm text-gray-400 mb-4">La sécurité qui anticipe.</p>
-                  </div>
-                  <span className="px-3 py-1 bg-yellow-400 text-black text-xs font-bold rounded-none">Statut: Actif</span>
-                </div>
-                <p className="text-sm text-gray-300 leading-relaxed mb-4">
-                  Protection périmétrique avancée, accès biométrique, surveillance temps réel. Un système qui apprend vos habitudes et anticipe les menaces.
-                </p>
-                <div className="flex gap-2">
-                  <Lock size={20} className="text-yellow-400" />
-                  <AlertCircle size={20} className="text-yellow-400" />
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Card 2: Efficacité Énergétique (1 col) */}
-            <motion.div
-              whileHover={{ scale: 1.02 }}
-              className="bg-gradient-to-br from-gray-900 to-black border border-gray-800 rounded-xl p-8 flex flex-col justify-between"
-            >
-              <h3 className="text-xl font-black mb-6">Efficacité Énergétique</h3>
-              <svg viewBox="0 0 200 100" className="mb-4 h-20 w-full">
-                <motion.polyline
-                  points="10,80 40,60 70,40 100,30 130,35 160,25 190,35"
-                  fill="none"
-                  stroke="#efd555"
-                  strokeWidth="2"
-                  initial={{ pathLength: 0 }}
-                  whileInView={{ pathLength: 1 }}
-                  transition={{ duration: 1 }}
-                />
-              </svg>
-              <p className="text-xs text-gray-400">Réduction de consommation: -18%</p>
-            </motion.div>
-
-            {/* Card 3: L'Art de l'Ambiance (1 col) */}
-            <motion.div
-              whileHover={{ scale: 1.02 }}
-              className="bg-gradient-to-br from-gray-900 to-black border border-gray-800 rounded-xl p-8"
-            >
-              <h3 className="text-xl font-black mb-4">L'Art de l'Ambiance</h3>
-              <div className="space-y-3">
-                <div className="flex items-center gap-2">
-                  <Zap size={16} className="text-yellow-400" />
-                  <span className="text-sm">Éclairage biodynamique</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Volume2 size={16} className="text-yellow-400" />
-                  <span className="text-sm">Audio multi-room</span>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Card 4: Infrastructure Invisible (2 cols) */}
-            <motion.div
-              whileHover={{ scale: 1.02 }}
-              className="md:col-span-2 bg-gradient-to-br from-gray-900 to-black border border-gray-800 rounded-xl p-8"
-            >
-              <h3 className="text-2xl font-black mb-4">Infrastructure Invisible</h3>
-              <p className="text-sm text-gray-300 mb-4">Le système nerveux qui ne flanche jamais.</p>
-              <div className="space-y-2">
-                <div className="flex items-center gap-2">
-                  <Wifi size={16} className="text-yellow-400" />
-                  <span className="text-sm">Wi-Fi 7 haute performance</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Wifi size={16} className="text-yellow-400" />
-                  <span className="text-sm">Câblage Grade 3 structuré</span>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── SECTION 3: INTEROPÉRABILITÉ ── */}
-      <section id="interoperabilite" className="py-20 lg:py-32 bg-white">
-        <div className="mx-auto max-w-6xl px-6 lg:px-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="mb-16"
-          >
-            <h2 className="text-3xl lg:text-5xl font-black text-black mb-6 text-balance" style={{ letterSpacing: "-0.02em" }}>
-              Un langage universel
+              Pas une addition d'équipements.<br />
+              <span className="italic font-light text-black/80">Un système unifié.</span>
             </h2>
-            <p className="text-lg text-black/70 max-w-2xl">
-              Domotus unifie les standards ouverts : KNX, Matter, Control4 et Zigbee. Pas d'enfermement technologique. Votre système évolue avec la technologie.
-            </p>
-          </motion.div>
-
-          {/* Marquee de Logos */}
-          <div className="relative overflow-hidden py-12">
-            <motion.div
-              animate={{ x: ["0%", "-100%"] }}
-              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-              className="flex gap-16 whitespace-nowrap"
-            >
-              {["Daikin", "Sonos", "Somfy", "Philips Hue", "Lutron", "Daikin", "Sonos", "Somfy"].map((brand, idx) => (
-                <div
-                  key={idx}
-                  className="flex items-center justify-center px-6 py-4 text-black/40 font-bold hover:text-yellow-400 transition-colors cursor-pointer text-nowrap"
-                >
-                  {brand}
-                </div>
-              ))}
-            </motion.div>
           </div>
 
-          {/* SEO Hidden Text */}
-          <div className="sr-only">
-            Protocoles supportés: Matter, KNX, BacNet, Modbus, Zigbee, Z-Wave. Intégrations: Daikin, Sonos, Somfy, Philips Hue, Lutron, Control4.
+          <div className="space-y-6 text-black/70 leading-relaxed">
+            <p className="text-base">
+              La domotique ne doit pas être une mécanique complexe de technologies isolées. Chez Domotus, nous concevons des écosystèmes où chaque domaine communique, apprend et s'optimise en fonction du contexte global.
+            </p>
+            <p className="text-base">
+              Votre maison n'est pas une somme d'équipements. C'est un organisme vivant.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* ── SECTION 4: ÉVOLUTIVITÉ ── */}
-      <section id="evolutivite" className="py-20 lg:py-32 bg-black text-white">
+      {/* SECTION 3: LES 6 DOMAINES */}
+      <section className="py-24 lg:py-32 bg-background">
         <div className="mx-auto max-w-6xl px-6 lg:px-10">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-3xl lg:text-5xl font-black mb-16 text-balance"
-            style={{ letterSpacing: "-0.02em" }}
-          >
-            Évolutivité: construit pour durer
-          </motion.h2>
+          <div className="mb-16">
+            <span className="text-primary text-xs font-bold uppercase tracking-[0.15em]">Architecture</span>
+            <h2 
+              className="font-black uppercase leading-tight text-foreground text-balance mt-4"
+              style={{ fontSize: "clamp(1.8rem, 5vw, 3rem)", letterSpacing: "-0.02em" }}
+            >
+              Six domaines interconnectés
+            </h2>
+          </div>
 
-          <div className="grid md:grid-cols-3 gap-8 mb-20">
-            {[
-              { step: "01", title: "Fondation", desc: "L'infrastructure câblée robuste et extensible" },
-              { step: "02", title: "Expansion", desc: "Ajout de modules sans travaux, intégration progressive" },
-              { step: "03", title: "Futur", desc: "IA native et autoconsommation intégrée" },
-            ].map((item, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: idx * 0.2 }}
-                className="relative"
-              >
-                <div className="text-6xl font-black text-white/5 mb-4">{item.step}</div>
-                <h3 className="text-2xl font-black mb-3">{item.title}</h3>
-                <p className="text-gray-400 text-sm leading-relaxed">{item.desc}</p>
-              </motion.div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {domains.map((domain) => {
+              const Icon = domain.icon;
+              return (
+                <div 
+                  key={domain.title}
+                  className="bg-card border border-white/6 rounded-lg p-8 hover:border-white/20 transition-all duration-300 flex flex-col gap-4"
+                >
+                  <div className="flex items-start justify-between gap-4">
+                    <h3 className="font-bold uppercase text-foreground text-sm tracking-wider">
+                      {domain.title}
+                    </h3>
+                    <Icon size={24} className="text-primary flex-shrink-0" aria-hidden="true" />
+                  </div>
+                  <p className="text-sm text-foreground/60 leading-relaxed">
+                    {domain.description}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 4: ORCHESTRATION */}
+      <section className="py-24 lg:py-32 bg-white">
+        <div className="mx-auto max-w-5xl px-6 lg:px-10">
+          <div className="mb-16">
+            <span className="text-primary text-xs font-bold uppercase tracking-[0.15em]">Orchestration</span>
+            <h2 
+              className="font-black uppercase leading-tight text-black text-balance mt-4"
+              style={{ fontSize: "clamp(1.8rem, 5vw, 3rem)", letterSpacing: "-0.02em" }}
+            >
+              Trois moments clés
+            </h2>
+            <p className="text-base text-black/70 mt-6 leading-relaxed">
+              L'écosystème s'orchestre automatiquement selon le contexte. Voici trois moments clés du quotidien.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {scenarios.map((scenario, idx) => (
+              <div key={idx} className="bg-black/2 border border-black/8 rounded-lg p-8">
+                <h3 className="font-bold uppercase text-black text-lg tracking-wide mb-6">
+                  {scenario.title}
+                </h3>
+                <ul className="space-y-4">
+                  {scenario.points.map((point, i) => (
+                    <li key={i} className="text-sm text-black/70 flex items-start gap-3">
+                      <span className="text-primary font-bold mt-0.5 flex-shrink-0">→</span>
+                      <span>{point}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── CTA FINAL ── */}
-      <section className="bg-black text-white py-20">
-        <div className="mx-auto max-w-4xl px-6 text-center">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-4xl lg:text-5xl font-black mb-8 text-balance"
-            style={{ letterSpacing: "-0.02em" }}
+      {/* SECTION 5: AVANTAGES */}
+      <section className="py-24 lg:py-32 bg-background">
+        <div className="mx-auto max-w-6xl px-6 lg:px-10">
+          <div className="mb-16">
+            <span className="text-primary text-xs font-bold uppercase tracking-[0.15em]">Avantages</span>
+            <h2 
+              className="font-black uppercase leading-tight text-foreground text-balance mt-4"
+              style={{ fontSize: "clamp(1.8rem, 5vw, 3rem)", letterSpacing: "-0.02em" }}
+            >
+              Pourquoi l'écosystème Domotus ?
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {[
+              {
+                title: "Complétude sans fragmentation",
+                description: "Six domaines intégrés en un seul système. Plus besoin de 10 prestataires isolés et incompatibles.",
+              },
+              {
+                title: "Interopérabilité garantie",
+                description: "KNX, Crestron, Lutron, Matter, Zigbee — tous les standards ouverts intégrés nativement.",
+              },
+              {
+                title: "Évolution transparente",
+                description: "Modularité totale. Grandissez progressivement sans refonte. Vos besoins changent, le système s'adapte.",
+              },
+              {
+                title: "Expertise certifiée référente",
+                description: "Équipe formée aux standards multi-protocoles. Support 24/7 et maintenance garantie.",
+              },
+            ].map((adv, idx) => (
+              <div key={idx} className="bg-card border border-white/6 rounded-lg p-8 hover:border-white/20 transition-all duration-300">
+                <h3 className="font-bold uppercase text-foreground text-sm tracking-wider mb-3">
+                  {adv.title}
+                </h3>
+                <p className="text-sm text-foreground/60 leading-relaxed">
+                  {adv.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 6: FONDATIONS TECHNOLOGIQUES */}
+      <section className="py-24 lg:py-32 bg-white border-t border-black/5">
+        <div className="mx-auto max-w-4xl px-6 lg:px-10 text-center">
+          <span className="text-primary text-xs font-bold uppercase tracking-[0.15em]">Fondations</span>
+          <h2 
+            className="font-black uppercase leading-tight text-black text-balance mt-4 mb-6"
+            style={{ fontSize: "clamp(1.6rem, 4vw, 2.8rem)", letterSpacing: "-0.02em" }}
           >
-            Prêt pour la mutation ?
-          </motion.h2>
-          <p className="text-lg text-gray-300 mb-10 max-w-2xl mx-auto">
-            Découvrez comment Domotus OS transforme votre résidence en un écosystème intelligent et unifié.
+            Multi-protocoles certifiés
+          </h2>
+          <p className="text-base text-black/70 leading-relaxed mb-10 max-w-2xl mx-auto">
+            Pas d'enfermement technologique. L'écosystème repose sur les standards ouverts qui comptent. Votre système grandit avec la technologie.
           </p>
-          <Link
-            href="/contact"
-            className="inline-flex items-center gap-2 px-10 py-4 bg-yellow-400 text-black font-black uppercase rounded-none hover:bg-yellow-300 transition-all"
+          <div className="flex flex-wrap gap-3 justify-center">
+            {["KNX", "Crestron", "Lutron", "Matter", "Zigbee"].map((proto) => (
+              <span 
+                key={proto}
+                className="px-5 py-2 bg-black/3 border border-black/8 rounded-full text-xs font-semibold text-black uppercase tracking-[0.1em] hover:border-black/20 transition-all"
+              >
+                {proto}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 7: CTA FINAL */}
+      <section className="py-32 lg:py-40 bg-background text-center">
+        <div className="mx-auto max-w-2xl px-6">
+          <h2 
+            className="font-black uppercase leading-tight text-foreground text-balance mb-8"
+            style={{ fontSize: "clamp(1.8rem, 6vw, 3.8rem)", letterSpacing: "-0.03em" }}
           >
-            Consulter un expert <ArrowRight size={18} />
+            Construisons<br />
+            <span className="italic text-foreground/50 font-light">votre écosystème</span>
+          </h2>
+          <p className="text-base text-foreground/70 leading-relaxed mb-12 max-w-lg mx-auto">
+            Chaque résidence est unique. Découvrez comment les 6 domaines peuvent s'orchestrer pour transformer votre habitat en un système vivant.
+          </p>
+          <Link 
+            href="/contact"
+            className="inline-flex items-center gap-2 bg-primary hover:bg-primary/85 transition-all duration-300 px-10 py-4 text-xs font-bold uppercase tracking-[0.15em]"
+            style={{ color: "#0a0a0a" }}
+          >
+            Démarrer une consultation <ArrowRight size={16} aria-hidden="true" />
           </Link>
         </div>
       </section>
