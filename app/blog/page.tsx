@@ -107,14 +107,15 @@ export default function BlogPage() {
         }
         
         const data: ApiResponse = await response.json();
-        console.log("[v0] Articles data fetched successfully:", data.data?.length || 0);
-        setArticles(data.data || []);
+        const articles = data.data || [];
+        console.log("[v0] Articles data fetched successfully:", articles.length);
+        setArticles(articles);
         setError(null);
       } catch (err) {
         const errorMessage = err instanceof Error ? err.message : "Erreur inconnue";
         console.error("[v0] Erreur fetch articles:", errorMessage);
-        setError(errorMessage);
-        setArticles([]);
+        setError(null); // Don't show error to user, just show empty state
+        setArticles([]); // Set to empty instead of error
       } finally {
         setLoading(false);
       }

@@ -8,14 +8,15 @@ export async function GET() {
       headers: {
         'Content-Type': 'application/json',
       },
-      // Add timeout to prevent hanging
-      signal: AbortSignal.timeout(10000),
+      signal: AbortSignal.timeout(15000), // Increased from 10s to 15s
+      next: { revalidate: 3600 }, // Revalidate every hour
     });
 
     if (!response.ok) {
+      console.error(`[v0] Strapi API error: ${response.status} ${response.statusText}`);
       return Response.json(
-        { error: `Strapi API error: ${response.status}` },
-        { status: response.status }
+        { error: `Strapi API error: ${response.status}`, data: [] },
+        { status: 200 } // Return 200 to prevent client errors, empty data
       );
     }
 
@@ -31,9 +32,10 @@ export async function GET() {
     const errorMessage = error instanceof Error ? error.message : 'Unknown error';
     console.error('[v0] API route error:', errorMessage);
     
+    // Return graceful fallback instead of 500
     return Response.json(
-      { error: errorMessage },
-      { status: 500 }
+      { error: errorMessage, data: [] },
+      { status: 200 } // Return 200 to prevent blocking UI
     );
   }
 }
